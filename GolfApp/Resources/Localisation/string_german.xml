@@ -1,6 +1,6 @@
-<?xmlversion="1.0"encoding="utf-8"?>
-Language id =3
-German
+
+<?xmlversion ="1.0"encoding="utf-8"?>
+
 <resources>
 
     <!--START -->
@@ -39,7 +39,7 @@ German
 <string name="pro_contact_pop_up_title">Kontakt</string>
 <string name="pro_list_nav_bar">Pros</string>
 <string name="pro_detail_nav_bar">Pro</string>
-<string name="pro_rate_offer_nav_bar"Preise &amp; Angebote</string>
+<string name="pro_rate_offer_nav_bar">Preise &amp; Angebote</string>
 <string name="pro_rate_offer_btn">Preise &amp; Angebote</string>
 <string name="pro_contact_btn">Kontakt</string>
 <string name="pro_phone_btn">Telefon</string>
@@ -83,7 +83,7 @@ German
 <string name="crs_hotel_icon">Hotel</string>
 <string name="crs_pool_icon">Schwimmbad</string>
 <string name="crs_tennis_icon">Tennis</string>
-<string name="crs_wifi"_icon>Wifi</string>
+<string name="crs_wifi_icon">Wifi</string>
 <string name="crs_parking_icon">Parking </string>
 <string name="holes">-Loch</string>
 

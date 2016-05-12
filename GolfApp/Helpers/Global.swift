@@ -31,10 +31,10 @@ class Global {
             languageName = "german"
         case "es":
             languageID = "4"
-            languageName = "italian"
+            languageName = "spanish"
         case "it":
             languageID = "5"
-            languageName = "spanish"
+            languageName = "italian"
         default:
             languageID = "1"
             languageName = "english"

@@ -1,6 +1,6 @@
-<?xmlversion="1.0"encoding="utf-8"?>
-Language id =4
-spanish
+
+<?xmlversion ="1.0"encoding="utf-8"?>
+
 <resources>
 
 <!--START -->
@@ -39,7 +39,7 @@ spanish
 <string name="pro_contact_pop_up_title">Contacto</string>
 <string name="pro_list_nav_bar">Pros</string>
 <string name="pro_detail_nav_bar">Pro</string>
-<string name="pro_rate_offer_nav_bar"Tarifas &amp; Ofertas</string>
+<string name="pro_rate_offer_nav_bar">Tarifas &amp; Ofertas</string>
 <string name="pro_rate_offer_btn">Tarifas &amp; Ofertas</string>
 <string name="pro_contact_btn">Contacto</string>
 <string name="pro_phone_btn">Teléfono</string>
@@ -83,7 +83,7 @@ spanish
 <string name="crs_hotel_icon">Hotel</string>
 <string name="crs_pool_icon">Piscina</string>
 <string name="crs_tennis_icon">Tennis</string>
-<string name="crs_wifi"_icon>Wifi</string>
+<string name="crs_wifi_icon">Wifi</string>
 <string name="crs_parking_icon">Parking </string>
 <string name="holes">" hoyos"</string>
 

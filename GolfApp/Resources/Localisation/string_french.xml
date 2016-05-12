@@ -1,9 +1,7 @@
 
 <?xmlversion ="1.0"encoding="utf-8"?>
+
 <resources>
-    
-    <!--FRENCH-->
-    <!--id = 2-->
     
     <!--START -->
 <string name="app_name">Golf App</string>

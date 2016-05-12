@@ -22,7 +22,9 @@ class MainCollectionController: UICollectionViewController  {
     var teeTime : TeeTimeSubView = TeeTimeSubView.loadViewFromNib()
     
     var lTopInset : CGFloat?
-    var menuItemsNameArray = ["Tee Time", "Restaurants", "Events", "Proshop", "Parcours", "Pros", "Contact", "News", "Hotels"]
+    var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn", "hm_events_btn",
+                              "hm_proshp_btn", "hm_courses_btn", "hm_pros_btn",
+                              "hm_contact_btn", "hm_news_btn", "hm_htls_btn"]
     var menuItemsImgArray = ["a_tee_time", "a_restaurant", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
     
     override func viewWillAppear(animated: Bool) {
@@ -47,7 +49,7 @@ class MainCollectionController: UICollectionViewController  {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MenuCollectionCell
-        cell.menuLabel.text = menuItemsNameArray[indexPath.row]
+        cell.menuLabel.text =  LocalisationDocument.sharedInstance.getStringWhinName(menuFilesNameArray[indexPath.row])
         cell.menuImageView.image = UIImage(named: menuItemsImgArray[indexPath.row])
         return cell
     }
