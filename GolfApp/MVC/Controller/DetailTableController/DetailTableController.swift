@@ -47,7 +47,7 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         else if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailCouseFooter
             cell2.nameLabel.text = course.name
-            cell2.detailLabel.text = course.length
+            cell2.detailLabel.text = "\(course.holes) hole -\(course.par) pare -\(course.length) metres"
             cell2.descriptionLabel.text = course.description_
             return cell2
         }
