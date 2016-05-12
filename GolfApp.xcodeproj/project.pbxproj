@@ -1,0 +1,782 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BA22DB2C155759958B57A8C /* Pods_GolfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */; };
+		560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C601CE137A2006F8655 /* AppDelegate.swift */; };
+		560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C651CE137A2006F8655 /* NetworkManager.swift */; };
+		560E3C911CE137A2006F8655 /* DetailTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6B1CE137A2006F8655 /* DetailTableController.swift */; };
+		560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */; };
+		560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6F1CE137A2006F8655 /* ListTableController.swift */; };
+		560E3C941CE137A2006F8655 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C721CE137A2006F8655 /* Course.swift */; };
+		560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C741CE137A2006F8655 /* GolfApp.xcdatamodeld */; };
+		560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C781CE137A2006F8655 /* DetailmageTableCell.swift */; };
+		560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C791CE137A2006F8655 /* DetailmageTableCell.xib */; };
+		560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C7B1CE137A2006F8655 /* ImageCollectionCell.swift */; };
+		560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C7C1CE137A2006F8655 /* ImageCollectionCell.xib */; };
+		560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C7E1CE137A2006F8655 /* MenuCollectionCell.swift */; };
+		560E3C9B1CE137A2006F8655 /* MenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C7F1CE137A2006F8655 /* MenuCollectionCell.xib */; };
+		560E3C9C1CE137A2006F8655 /* ParcoursTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C811CE137A2006F8655 /* ParcoursTableCell.swift */; };
+		560E3C9D1CE137A2006F8655 /* ParcoursTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C821CE137A2006F8655 /* ParcoursTableCell.xib */; };
+		560E3C9E1CE137A2006F8655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C841CE137A2006F8655 /* Assets.xcassets */; };
+		560E3C9F1CE137A2006F8655 /* backroundImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C851CE137A2006F8655 /* backroundImage.jpg */; };
+		560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C871CE137A2006F8655 /* LaunchScreen.storyboard */; };
+		560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C891CE137A2006F8655 /* Main.storyboard */; };
+		560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C8D1CE137A2006F8655 /* HCCache.swift */; };
+		560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA31CE138CE006F8655 /* Default-568h@2x.png */; };
+		560E3CA61CE13921006F8655 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA51CE13921006F8655 /* Info.plist */; };
+		5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE11CE4BE7E00040520 /* string_english.xml */; };
+		5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE21CE4BE7E00040520 /* string_french.xml */; };
+		5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE31CE4BE7E00040520 /* string_german.xml */; };
+		5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE41CE4BE7E00040520 /* string_italian.xml */; };
+		5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE51CE4BE7E00040520 /* string_spanish.xml */; };
+		5651AEED1CE4C0A700040520 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651AEEC1CE4C0A700040520 /* Global.swift */; };
+		5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */; };
+		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
+		84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D491CE3E2D400164917 /* SwipePageCourseController.swift */; };
+		8407A5B11CE3296100500E19 /* DetailCourseHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B01CE3296100500E19 /* DetailCourseHeader.xib */; };
+		8407A5B41CE32DD600500E19 /* DetailCouseFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B31CE32DD600500E19 /* DetailCouseFooter.xib */; };
+		8407A5B61CE32E6000500E19 /* DetailCouseFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B51CE32E6000500E19 /* DetailCouseFooter.swift */; };
+		8407A5B81CE32E8D00500E19 /* DetailCourseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B71CE32E8D00500E19 /* DetailCourseHeader.swift */; };
+		840940331CE4A0950005A97E /* TeeTimeSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840940321CE4A0950005A97E /* TeeTimeSubView.xib */; };
+		840940351CE4A5350005A97E /* TeeTimeSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840940341CE4A5350005A97E /* TeeTimeSubView.swift */; };
+		8436176F1CE2389900F96599 /* ContactSubView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436176E1CE2389900F96599 /* ContactSubView.xib */; };
+		843617711CE2389E00F96599 /* ContactSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843617701CE2389E00F96599 /* ContactSubView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GolfApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.release.xcconfig"; sourceTree = "<group>"; };
+		560E3C601CE137A2006F8655 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		560E3C651CE137A2006F8655 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		560E3C6B1CE137A2006F8655 /* DetailTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableController.swift; sourceTree = "<group>"; };
+		560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionController.swift; sourceTree = "<group>"; };
+		560E3C6F1CE137A2006F8655 /* ListTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableController.swift; sourceTree = "<group>"; };
+		560E3C721CE137A2006F8655 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		560E3C751CE137A2006F8655 /* GolfApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GolfApp.xcdatamodel; sourceTree = "<group>"; };
+		560E3C781CE137A2006F8655 /* DetailmageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailmageTableCell.swift; sourceTree = "<group>"; };
+		560E3C791CE137A2006F8655 /* DetailmageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailmageTableCell.xib; sourceTree = "<group>"; };
+		560E3C7B1CE137A2006F8655 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
+		560E3C7C1CE137A2006F8655 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
+		560E3C7E1CE137A2006F8655 /* MenuCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionCell.swift; sourceTree = "<group>"; };
+		560E3C7F1CE137A2006F8655 /* MenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionCell.xib; sourceTree = "<group>"; };
+		560E3C811CE137A2006F8655 /* ParcoursTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParcoursTableCell.swift; sourceTree = "<group>"; };
+		560E3C821CE137A2006F8655 /* ParcoursTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParcoursTableCell.xib; sourceTree = "<group>"; };
+		560E3C841CE137A2006F8655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		560E3C851CE137A2006F8655 /* backroundImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backroundImage.jpg; sourceTree = "<group>"; };
+		560E3C881CE137A2006F8655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		560E3C8A1CE137A2006F8655 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		560E3C8D1CE137A2006F8655 /* HCCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCCache.swift; sourceTree = "<group>"; };
+		560E3CA31CE138CE006F8655 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		560E3CA51CE13921006F8655 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		5650C6C61CDC98BF006F5940 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5651AEE11CE4BE7E00040520 /* string_english.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_english.xml; sourceTree = "<group>"; };
+		5651AEE21CE4BE7E00040520 /* string_french.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_french.xml; sourceTree = "<group>"; };
+		5651AEE31CE4BE7E00040520 /* string_german.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_german.xml; sourceTree = "<group>"; };
+		5651AEE41CE4BE7E00040520 /* string_italian.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_italian.xml; sourceTree = "<group>"; };
+		5651AEE51CE4BE7E00040520 /* string_spanish.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_spanish.xml; sourceTree = "<group>"; };
+		5651AEEC1CE4C0A700040520 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
+		84051D491CE3E2D400164917 /* SwipePageCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipePageCourseController.swift; sourceTree = "<group>"; };
+		8407A5B01CE3296100500E19 /* DetailCourseHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCourseHeader.xib; sourceTree = "<group>"; };
+		8407A5B31CE32DD600500E19 /* DetailCouseFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCouseFooter.xib; sourceTree = "<group>"; };
+		8407A5B51CE32E6000500E19 /* DetailCouseFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCouseFooter.swift; sourceTree = "<group>"; };
+		8407A5B71CE32E8D00500E19 /* DetailCourseHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCourseHeader.swift; sourceTree = "<group>"; };
+		840940321CE4A0950005A97E /* TeeTimeSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeeTimeSubView.xib; sourceTree = "<group>"; };
+		840940341CE4A5350005A97E /* TeeTimeSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeeTimeSubView.swift; sourceTree = "<group>"; };
+		8436176E1CE2389900F96599 /* ContactSubView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSubView.xib; sourceTree = "<group>"; };
+		843617701CE2389E00F96599 /* ContactSubView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactSubView.swift; sourceTree = "<group>"; };
+		D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5650C6C31CDC98BF006F5940 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BA22DB2C155759958B57A8C /* Pods_GolfApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31C95CC647F1E2214DF482DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */,
+				32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		560E3C5F1CE137A2006F8655 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C601CE137A2006F8655 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		560E3C621CE137A2006F8655 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5651AEEB1CE4C08E00040520 /* Headers */,
+				560E3C631CE137A2006F8655 /* API */,
+				560E3C661CE137A2006F8655 /* Extentions */,
+				560E3C671CE137A2006F8655 /* Parser */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		560E3C631CE137A2006F8655 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C641CE137A2006F8655 /* NetworkManager */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		560E3C641CE137A2006F8655 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C651CE137A2006F8655 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		560E3C661CE137A2006F8655 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		560E3C671CE137A2006F8655 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		560E3C681CE137A2006F8655 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C691CE137A2006F8655 /* Controllers */,
+				560E3C761CE137A2006F8655 /* Views */,
+				560E3C701CE137A2006F8655 /* Models */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		560E3C691CE137A2006F8655 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				840940361CE4B60D0005A97E /* FacilitiesController */,
+				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
+				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
+				560E3C6E1CE137A2006F8655 /* ListTableController */,
+				560E3C6A1CE137A2006F8655 /* DetailTableController */,
+			);
+			name = Controllers;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		560E3C6A1CE137A2006F8655 /* DetailTableController */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C6B1CE137A2006F8655 /* DetailTableController.swift */,
+			);
+			path = DetailTableController;
+			sourceTree = "<group>";
+		};
+		560E3C6C1CE137A2006F8655 /* MainCollectionController */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */,
+			);
+			path = MainCollectionController;
+			sourceTree = "<group>";
+		};
+		560E3C6E1CE137A2006F8655 /* ListTableController */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C6F1CE137A2006F8655 /* ListTableController.swift */,
+			);
+			name = ListTableController;
+			path = ParcoursTableController;
+			sourceTree = "<group>";
+		};
+		560E3C701CE137A2006F8655 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C711CE137A2006F8655 /* Course */,
+				560E3C731CE137A2006F8655 /* DB */,
+			);
+			name = Models;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		560E3C711CE137A2006F8655 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C721CE137A2006F8655 /* Course.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		560E3C731CE137A2006F8655 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C741CE137A2006F8655 /* GolfApp.xcdatamodeld */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		560E3C761CE137A2006F8655 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				840940311CE4A02F0005A97E /* TeeTimeSubView */,
+				8407A5B21CE32D9100500E19 /* DetailCourseFooter */,
+				8407A5AF1CE3286E00500E19 /* DetailCourseHeader */,
+				8436176D1CE2388700F96599 /* ContactSubView */,
+				560E3C771CE137A2006F8655 /* DetailmageTableCell */,
+				560E3C7A1CE137A2006F8655 /* ImageCollectionCell */,
+				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
+				560E3C801CE137A2006F8655 /* ParcoursTableCell */,
+			);
+			name = Views;
+			path = View;
+			sourceTree = "<group>";
+		};
+		560E3C771CE137A2006F8655 /* DetailmageTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C781CE137A2006F8655 /* DetailmageTableCell.swift */,
+				560E3C791CE137A2006F8655 /* DetailmageTableCell.xib */,
+			);
+			path = DetailmageTableCell;
+			sourceTree = "<group>";
+		};
+		560E3C7A1CE137A2006F8655 /* ImageCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C7B1CE137A2006F8655 /* ImageCollectionCell.swift */,
+				560E3C7C1CE137A2006F8655 /* ImageCollectionCell.xib */,
+			);
+			path = ImageCollectionCell;
+			sourceTree = "<group>";
+		};
+		560E3C7D1CE137A2006F8655 /* MenuCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C7E1CE137A2006F8655 /* MenuCollectionCell.swift */,
+				560E3C7F1CE137A2006F8655 /* MenuCollectionCell.xib */,
+			);
+			path = MenuCollectionCell;
+			sourceTree = "<group>";
+		};
+		560E3C801CE137A2006F8655 /* ParcoursTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C811CE137A2006F8655 /* ParcoursTableCell.swift */,
+				560E3C821CE137A2006F8655 /* ParcoursTableCell.xib */,
+			);
+			path = ParcoursTableCell;
+			sourceTree = "<group>";
+		};
+		560E3C831CE137A2006F8655 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5651AEE01CE4BE7E00040520 /* Localisation */,
+				560E3C841CE137A2006F8655 /* Assets.xcassets */,
+				560E3C851CE137A2006F8655 /* backroundImage.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		560E3C861CE137A2006F8655 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C871CE137A2006F8655 /* LaunchScreen.storyboard */,
+				560E3C891CE137A2006F8655 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		560E3C8B1CE137A2006F8655 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C8C1CE137A2006F8655 /* Cache */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		560E3C8C1CE137A2006F8655 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C8D1CE137A2006F8655 /* HCCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		5650C6BD1CDC98BF006F5940 = {
+			isa = PBXGroup;
+			children = (
+				560E3CA31CE138CE006F8655 /* Default-568h@2x.png */,
+				5650C6C81CDC98BF006F5940 /* GolfApp */,
+				5650C6C71CDC98BF006F5940 /* Products */,
+				31C95CC647F1E2214DF482DB /* Pods */,
+				F7C4FB67F26D23514690C3C9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5650C6C71CDC98BF006F5940 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5650C6C61CDC98BF006F5940 /* GolfApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5650C6C81CDC98BF006F5940 /* GolfApp */ = {
+			isa = PBXGroup;
+			children = (
+				5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */,
+				560E3CA51CE13921006F8655 /* Info.plist */,
+				560E3C5F1CE137A2006F8655 /* Application */,
+				560E3C681CE137A2006F8655 /* MVC */,
+				560E3C621CE137A2006F8655 /* Helpers */,
+				560E3C8B1CE137A2006F8655 /* Utils */,
+				560E3C831CE137A2006F8655 /* Resources */,
+				560E3C861CE137A2006F8655 /* Storyboards */,
+			);
+			path = GolfApp;
+			sourceTree = "<group>";
+		};
+		5651AEE01CE4BE7E00040520 /* Localisation */ = {
+			isa = PBXGroup;
+			children = (
+				5651AEE11CE4BE7E00040520 /* string_english.xml */,
+				5651AEE21CE4BE7E00040520 /* string_french.xml */,
+				5651AEE31CE4BE7E00040520 /* string_german.xml */,
+				5651AEE41CE4BE7E00040520 /* string_italian.xml */,
+				5651AEE51CE4BE7E00040520 /* string_spanish.xml */,
+			);
+			path = Localisation;
+			sourceTree = "<group>";
+		};
+		5651AEEB1CE4C08E00040520 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				5651AEEC1CE4C0A700040520 /* Global.swift */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
+			isa = PBXGroup;
+			children = (
+				84051D471CE3E09000164917 /* PageItemController.swift */,
+				84051D491CE3E2D400164917 /* SwipePageCourseController.swift */,
+			);
+			name = SwipeCourseController;
+			sourceTree = "<group>";
+		};
+		8407A5AF1CE3286E00500E19 /* DetailCourseHeader */ = {
+			isa = PBXGroup;
+			children = (
+				8407A5B01CE3296100500E19 /* DetailCourseHeader.xib */,
+				8407A5B71CE32E8D00500E19 /* DetailCourseHeader.swift */,
+			);
+			name = DetailCourseHeader;
+			sourceTree = "<group>";
+		};
+		8407A5B21CE32D9100500E19 /* DetailCourseFooter */ = {
+			isa = PBXGroup;
+			children = (
+				8407A5B31CE32DD600500E19 /* DetailCouseFooter.xib */,
+				8407A5B51CE32E6000500E19 /* DetailCouseFooter.swift */,
+			);
+			name = DetailCourseFooter;
+			sourceTree = "<group>";
+		};
+		840940311CE4A02F0005A97E /* TeeTimeSubView */ = {
+			isa = PBXGroup;
+			children = (
+				840940321CE4A0950005A97E /* TeeTimeSubView.xib */,
+				840940341CE4A5350005A97E /* TeeTimeSubView.swift */,
+			);
+			name = TeeTimeSubView;
+			sourceTree = "<group>";
+		};
+		840940361CE4B60D0005A97E /* FacilitiesController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FacilitiesController;
+			sourceTree = "<group>";
+		};
+		8436176D1CE2388700F96599 /* ContactSubView */ = {
+			isa = PBXGroup;
+			children = (
+				843617701CE2389E00F96599 /* ContactSubView.swift */,
+				8436176E1CE2389900F96599 /* ContactSubView.xib */,
+			);
+			name = ContactSubView;
+			sourceTree = "<group>";
+		};
+		F7C4FB67F26D23514690C3C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5650C6C51CDC98BF006F5940 /* GolfApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5650C6DB1CDC98BF006F5940 /* Build configuration list for PBXNativeTarget "GolfApp" */;
+			buildPhases = (
+				7ABEC435EA22F02B40139EF0 /* 📦 Check Pods Manifest.lock */,
+				5650C6C21CDC98BF006F5940 /* Sources */,
+				5650C6C31CDC98BF006F5940 /* Frameworks */,
+				5650C6C41CDC98BF006F5940 /* Resources */,
+				B484A18A4F376C47C9E6A46D /* 📦 Embed Pods Frameworks */,
+				FBEA416923DD7038599D229D /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GolfApp;
+			productName = GolfApp;
+			productReference = 5650C6C61CDC98BF006F5940 /* GolfApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5650C6BE1CDC98BF006F5940 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Marian Hunchak";
+				TargetAttributes = {
+					5650C6C51CDC98BF006F5940 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = TU9ZCD4LN3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5650C6C11CDC98BF006F5940 /* Build configuration list for PBXProject "GolfApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5650C6BD1CDC98BF006F5940;
+			productRefGroup = 5650C6C71CDC98BF006F5940 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5650C6C51CDC98BF006F5940 /* GolfApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5650C6C41CDC98BF006F5940 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8407A5B11CE3296100500E19 /* DetailCourseHeader.xib in Resources */,
+				560E3C9D1CE137A2006F8655 /* ParcoursTableCell.xib in Resources */,
+				560E3C9B1CE137A2006F8655 /* MenuCollectionCell.xib in Resources */,
+				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
+				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
+				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
+				560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */,
+				560E3C9F1CE137A2006F8655 /* backroundImage.jpg in Resources */,
+				560E3C9E1CE137A2006F8655 /* Assets.xcassets in Resources */,
+				840940331CE4A0950005A97E /* TeeTimeSubView.xib in Resources */,
+				8407A5B41CE32DD600500E19 /* DetailCouseFooter.xib in Resources */,
+				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
+				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
+				560E3CA61CE13921006F8655 /* Info.plist in Resources */,
+				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
+				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
+				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
+				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
+				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
+				8436176F1CE2389900F96599 /* ContactSubView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7ABEC435EA22F02B40139EF0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B484A18A4F376C47C9E6A46D /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBEA416923DD7038599D229D /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5650C6C21CDC98BF006F5940 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */,
+				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
+				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
+				560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */,
+				5651AEED1CE4C0A700040520 /* Global.swift in Sources */,
+				843617711CE2389E00F96599 /* ContactSubView.swift in Sources */,
+				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
+				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
+				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
+				560E3C9C1CE137A2006F8655 /* ParcoursTableCell.swift in Sources */,
+				840940351CE4A5350005A97E /* TeeTimeSubView.swift in Sources */,
+				8407A5B81CE32E8D00500E19 /* DetailCourseHeader.swift in Sources */,
+				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
+				560E3C911CE137A2006F8655 /* DetailTableController.swift in Sources */,
+				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
+				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
+				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
+				8407A5B61CE32E6000500E19 /* DetailCouseFooter.swift in Sources */,
+				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		560E3C871CE137A2006F8655 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				560E3C881CE137A2006F8655 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		560E3C891CE137A2006F8655 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				560E3C8A1CE137A2006F8655 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5650C6D91CDC98BF006F5940 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5650C6DA1CDC98BF006F5940 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5650C6DC1CDC98BF006F5940 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.golfapp.gclacote141;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5650C6DD1CDC98BF006F5940 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.golfapp.gclacote141;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5650C6C11CDC98BF006F5940 /* Build configuration list for PBXProject "GolfApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5650C6D91CDC98BF006F5940 /* Debug */,
+				5650C6DA1CDC98BF006F5940 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5650C6DB1CDC98BF006F5940 /* Build configuration list for PBXNativeTarget "GolfApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5650C6DC1CDC98BF006F5940 /* Debug */,
+				5650C6DD1CDC98BF006F5940 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		560E3C741CE137A2006F8655 /* GolfApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				560E3C751CE137A2006F8655 /* GolfApp.xcdatamodel */,
+			);
+			currentVersion = 560E3C751CE137A2006F8655 /* GolfApp.xcdatamodel */;
+			path = GolfApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5650C6BE1CDC98BF006F5940 /* Project object */;
+}

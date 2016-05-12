@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TeeTimeSubView" customModule="GolfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="428"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.34999999403953552" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2KG-y3-Prd">
+                    <rect key="frame" x="0.0" y="0.0" width="377" height="428"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8m-eu-n5m">
+                    <rect key="frame" x="25" y="117" width="327" height="195"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Tee Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mch-iD-EA5">
+                            <rect key="frame" x="106" y="8" width="115" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="115" id="92O-WG-8AF"/>
+                                <constraint firstAttribute="height" constant="20" id="uQz-8J-7Xp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRB-g5-07S">
+                            <rect key="frame" x="8" y="36" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.51372549020000002" green="0.69411764710000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="YN9-kE-oZa"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Email">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="emailButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Mp-ZY-6Ab"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vg-wk-xLj">
+                            <rect key="frame" x="8" y="84" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.51372549020000002" green="0.69411764710000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="3oS-vc-Jk5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Telephone">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="telephoneButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="nMg-AB-1gx"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hup-WN-mZT">
+                            <rect key="frame" x="8" y="132" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.36470588240000001" green="0.36862745099999999" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="A4F-jn-CHM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="bA8-EJ-hY2"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_mail_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-3a-rjF">
+                            <rect key="frame" x="18" y="44" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="PfT-BU-TWU"/>
+                                <constraint firstAttribute="height" constant="25" id="x5G-S5-4U3"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_phone_icon" translatesAutoresizingMaskIntoConstraints="NO" id="BzE-dE-Om7">
+                            <rect key="frame" x="18" y="91" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="VOD-Ir-sUG"/>
+                                <constraint firstAttribute="height" constant="25" id="c6Y-5b-8fD"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="kRB-g5-07S" secondAttribute="trailing" constant="8" id="1In-FU-dRN"/>
+                        <constraint firstItem="2Vg-wk-xLj" firstAttribute="leading" secondItem="a8m-eu-n5m" secondAttribute="leading" constant="8" id="1Ma-KT-Zwq"/>
+                        <constraint firstItem="kRB-g5-07S" firstAttribute="centerX" secondItem="a8m-eu-n5m" secondAttribute="centerX" id="8E6-Yn-aD5"/>
+                        <constraint firstItem="Hup-WN-mZT" firstAttribute="centerX" secondItem="a8m-eu-n5m" secondAttribute="centerX" id="8Ie-1U-Iap"/>
+                        <constraint firstItem="Mch-iD-EA5" firstAttribute="centerX" secondItem="a8m-eu-n5m" secondAttribute="centerX" id="XJa-LK-ayA"/>
+                        <constraint firstAttribute="height" constant="195" id="aaL-EE-EXv"/>
+                        <constraint firstItem="2Vg-wk-xLj" firstAttribute="centerX" secondItem="a8m-eu-n5m" secondAttribute="centerX" id="byH-p5-oDd"/>
+                        <constraint firstItem="o9m-3a-rjF" firstAttribute="leading" secondItem="a8m-eu-n5m" secondAttribute="leading" constant="18" id="c4Q-05-inx"/>
+                        <constraint firstItem="o9m-3a-rjF" firstAttribute="top" secondItem="a8m-eu-n5m" secondAttribute="top" constant="44" id="cd9-KE-1XD"/>
+                        <constraint firstItem="Mch-iD-EA5" firstAttribute="top" secondItem="a8m-eu-n5m" secondAttribute="top" constant="8" id="ddo-Wp-EWL"/>
+                        <constraint firstItem="2Vg-wk-xLj" firstAttribute="top" secondItem="kRB-g5-07S" secondAttribute="bottom" constant="8" id="fbc-p4-bgb"/>
+                        <constraint firstAttribute="trailing" secondItem="Hup-WN-mZT" secondAttribute="trailing" constant="8" id="hbb-Tg-DqQ"/>
+                        <constraint firstItem="kRB-g5-07S" firstAttribute="top" secondItem="Mch-iD-EA5" secondAttribute="bottom" constant="8" id="pmX-fl-kgs"/>
+                        <constraint firstItem="kRB-g5-07S" firstAttribute="leading" secondItem="a8m-eu-n5m" secondAttribute="leading" constant="8" id="rE5-bu-Tso"/>
+                        <constraint firstItem="BzE-dE-Om7" firstAttribute="top" secondItem="kRB-g5-07S" secondAttribute="bottom" constant="15" id="v6k-BZ-lls"/>
+                        <constraint firstItem="Hup-WN-mZT" firstAttribute="leading" secondItem="a8m-eu-n5m" secondAttribute="leading" constant="8" id="wHn-1w-aa5"/>
+                        <constraint firstAttribute="trailing" secondItem="2Vg-wk-xLj" secondAttribute="trailing" constant="8" id="xKZ-zP-77f"/>
+                        <constraint firstItem="Hup-WN-mZT" firstAttribute="top" secondItem="2Vg-wk-xLj" secondAttribute="bottom" constant="8" id="z2t-6l-rYJ"/>
+                        <constraint firstItem="BzE-dE-Om7" firstAttribute="leading" secondItem="a8m-eu-n5m" secondAttribute="leading" constant="18" id="zlJ-lP-VDa"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="a8m-eu-n5m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="AVy-49-hWU"/>
+                <constraint firstItem="2KG-y3-Prd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GLn-LG-nsX"/>
+                <constraint firstAttribute="trailing" secondItem="a8m-eu-n5m" secondAttribute="trailing" constant="25" id="T93-jU-AkY"/>
+                <constraint firstItem="a8m-eu-n5m" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="W8p-OI-roT"/>
+                <constraint firstAttribute="bottom" secondItem="2KG-y3-Prd" secondAttribute="bottom" id="iZH-35-7wC"/>
+                <constraint firstItem="2KG-y3-Prd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qOE-EC-Tjl"/>
+                <constraint firstAttribute="trailing" secondItem="2KG-y3-Prd" secondAttribute="trailing" id="uqz-wX-Br9"/>
+                <constraint firstItem="a8m-eu-n5m" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wrj-yf-UzF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancel" destination="Hup-WN-mZT" id="H5v-Nk-hM6"/>
+                <outlet property="email" destination="kRB-g5-07S" id="5Hp-OI-gCv"/>
+                <outlet property="teeTimeBackgroundView" destination="a8m-eu-n5m" id="bBA-3f-iBh"/>
+                <outlet property="telephone" destination="2Vg-wk-xLj" id="sQQ-Xu-A5J"/>
+            </connections>
+            <point key="canvasLocation" x="238.5" y="332"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="a_mail_icon" width="60" height="60"/>
+        <image name="a_phone_icon" width="60" height="60"/>
+    </resources>
+</document>

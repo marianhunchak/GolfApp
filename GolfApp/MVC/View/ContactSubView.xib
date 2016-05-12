@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ContactSubView" customModule="GolfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="428"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAg-Ms-mv9">
+                    <rect key="frame" x="0.0" y="0.0" width="377" height="428"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgH-RV-Ca4">
+                    <rect key="frame" x="25" y="95" width="327" height="239"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPM-Ye-PnT">
+                            <rect key="frame" x="133" y="8" width="61" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="61" id="dCK-GI-gLJ"/>
+                                <constraint firstAttribute="height" constant="20" id="sw0-79-ufD"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OV-fw-lMl">
+                            <rect key="frame" x="8" y="36" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.51372549019607838" green="0.69411764705882351" blue="0.054901960784313725" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="rbd-F1-pYw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Email">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="emailButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="UH4-OE-vwS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVn-hX-0x0">
+                            <rect key="frame" x="8" y="132" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.51372549020000002" green="0.69411764710000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="poD-7f-DlY"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Navigation">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="navigationButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="64y-FY-BEG"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMg-z5-s3O">
+                            <rect key="frame" x="8" y="180" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.36470588235294116" green="0.36862745098039218" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Hpt-UD-Vtm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Cancel">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="cancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="EE8-Hs-rw8"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="365-Rb-R4Q">
+                            <rect key="frame" x="8" y="84" width="311" height="40"/>
+                            <color key="backgroundColor" red="0.51372549020000002" green="0.69411764710000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ttT-lL-SHt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="18"/>
+                            <state key="normal" title="Telephone">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="telephoneButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="aQy-LR-t1F"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_mail_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Hnc-b2-BzJ">
+                            <rect key="frame" x="18" y="43" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="1r4-xI-5xd"/>
+                                <constraint firstAttribute="width" constant="25" id="Fph-7A-Ycc"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_phone_icon" translatesAutoresizingMaskIntoConstraints="NO" id="AMl-N8-XbP">
+                            <rect key="frame" x="18" y="91" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="CIq-Kv-zgy"/>
+                                <constraint firstAttribute="height" constant="25" id="Xl9-8c-R1z"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_direction_icon" translatesAutoresizingMaskIntoConstraints="NO" id="J3v-Ns-VSN">
+                            <rect key="frame" x="18" y="139" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="436-RR-UR5"/>
+                                <constraint firstAttribute="height" constant="25" id="JnI-ZJ-f2J"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.19215686274509805" green="0.19215686274509805" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="oVn-hX-0x0" firstAttribute="top" secondItem="365-Rb-R4Q" secondAttribute="bottom" constant="8" id="2CD-9S-2Ai"/>
+                        <constraint firstItem="365-Rb-R4Q" firstAttribute="top" secondItem="7OV-fw-lMl" secondAttribute="bottom" constant="8" id="DSn-yi-3bq"/>
+                        <constraint firstItem="IMg-z5-s3O" firstAttribute="top" secondItem="oVn-hX-0x0" secondAttribute="bottom" constant="8" id="Emz-nH-lsc"/>
+                        <constraint firstItem="7OV-fw-lMl" firstAttribute="top" secondItem="IPM-Ye-PnT" secondAttribute="bottom" constant="8" id="Fz7-jW-ePR"/>
+                        <constraint firstItem="AMl-N8-XbP" firstAttribute="top" secondItem="7OV-fw-lMl" secondAttribute="bottom" constant="15" id="IQ0-ux-cJp"/>
+                        <constraint firstAttribute="trailing" secondItem="IMg-z5-s3O" secondAttribute="trailing" constant="8" id="JFa-Ce-rP4"/>
+                        <constraint firstItem="7OV-fw-lMl" firstAttribute="centerX" secondItem="vgH-RV-Ca4" secondAttribute="centerX" id="NKN-0p-jlM"/>
+                        <constraint firstAttribute="trailing" secondItem="7OV-fw-lMl" secondAttribute="trailing" constant="8" id="SXM-TR-70t"/>
+                        <constraint firstItem="7OV-fw-lMl" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="8" id="SbS-Y8-j6r"/>
+                        <constraint firstItem="Hnc-b2-BzJ" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="18" id="W3m-Na-B13"/>
+                        <constraint firstItem="J3v-Ns-VSN" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="18" id="diW-nf-oe4"/>
+                        <constraint firstAttribute="trailing" secondItem="oVn-hX-0x0" secondAttribute="trailing" constant="8" id="dvR-4x-aoi"/>
+                        <constraint firstItem="IPM-Ye-PnT" firstAttribute="top" secondItem="vgH-RV-Ca4" secondAttribute="top" constant="8" id="fPK-hU-1hk"/>
+                        <constraint firstItem="IPM-Ye-PnT" firstAttribute="centerX" secondItem="vgH-RV-Ca4" secondAttribute="centerX" id="grU-oK-ige"/>
+                        <constraint firstAttribute="height" constant="239" id="gsF-zE-NXo"/>
+                        <constraint firstItem="365-Rb-R4Q" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="8" id="hCU-mz-yjP"/>
+                        <constraint firstItem="oVn-hX-0x0" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="8" id="hgX-YI-SG2"/>
+                        <constraint firstItem="AMl-N8-XbP" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="18" id="qdD-5G-yx4"/>
+                        <constraint firstItem="IMg-z5-s3O" firstAttribute="leading" secondItem="vgH-RV-Ca4" secondAttribute="leading" constant="8" id="tfa-OU-gnw"/>
+                        <constraint firstAttribute="trailing" secondItem="365-Rb-R4Q" secondAttribute="trailing" constant="8" id="thd-ao-b8Y"/>
+                        <constraint firstItem="Hnc-b2-BzJ" firstAttribute="top" secondItem="vgH-RV-Ca4" secondAttribute="top" constant="43" id="ujq-1r-T6m"/>
+                        <constraint firstItem="J3v-Ns-VSN" firstAttribute="top" secondItem="365-Rb-R4Q" secondAttribute="bottom" constant="15" id="vcn-hI-hvW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="VAg-Ms-mv9" secondAttribute="trailing" id="0D9-PC-9Zb"/>
+                <constraint firstItem="vgH-RV-Ca4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="Pwm-Ki-Xp4"/>
+                <constraint firstItem="VAg-Ms-mv9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YXY-eP-fwt"/>
+                <constraint firstItem="VAg-Ms-mv9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YY7-70-TmG"/>
+                <constraint firstItem="vgH-RV-Ca4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dQ6-TO-Tee"/>
+                <constraint firstAttribute="bottom" secondItem="VAg-Ms-mv9" secondAttribute="bottom" id="joj-Ro-VeT"/>
+                <constraint firstAttribute="trailing" secondItem="vgH-RV-Ca4" secondAttribute="trailing" constant="25" id="jsB-Fv-bYC"/>
+                <constraint firstItem="vgH-RV-Ca4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sut-YI-PcN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancel" destination="IMg-z5-s3O" id="jmQ-gH-VIW"/>
+                <outlet property="contactBackgroundView" destination="vgH-RV-Ca4" id="0Yu-hL-aOi"/>
+                <outlet property="email" destination="7OV-fw-lMl" id="6em-mG-Nla"/>
+                <outlet property="navigation" destination="oVn-hX-0x0" id="ZWC-Op-76W"/>
+                <outlet property="telephone" destination="365-Rb-R4Q" id="JEt-nY-ODz"/>
+            </connections>
+            <point key="canvasLocation" x="197.5" y="298"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="a_direction_icon" width="60" height="60"/>
+        <image name="a_mail_icon" width="60" height="60"/>
+        <image name="a_phone_icon" width="60" height="60"/>
+    </resources>
+</document>
