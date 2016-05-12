@@ -166,8 +166,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             print("Registration Token: \(registrationToken)")
             self.subscribeToTopic()
             
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
-//            })
+            NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
+            })
             //            NetworkManager.sharedInstance.unregisterDevice()
         } else {
             print("Registration to GCM failed with error: \(error.localizedDescription)")

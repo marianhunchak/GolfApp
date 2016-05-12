@@ -8,19 +8,62 @@
 
 import Foundation
 import Alamofire
-//import SwiftyJSON
+import SwiftyJSON
+
 
 class NetworkManager {
     
     var jsonArray: NSDictionary?
     static let sharedInstance = NetworkManager()
     
+    
+    //MARK: Registering Device
+    
+    func registerDeviceWhithToken( tokenString: String, completion: (NSArray?, NSError?) -> Void)  {
+        
+        print(LocalisationDocument.sharedInstance.getStringWhinName("tt_book_tee_pop_up_title"))
+        
+        let parameters = [
+            "device_token": tokenString,
+            "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            "device_os": "ios",
+            "client": Global.clientId,
+            "language": Global.languageID
+        ]
+        
+        Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/register", parameters:parameters )
+            .responseJSON { response in
+                
+                if let JSON = response.result.value as? NSDictionary{
+                    NSUserDefaults.standardUserDefaults().setObject(JSON["regid"], forKey: "regid")
+                    print("JSON: \(JSON)")
+                }
+        }
+    }
+    
+    func unregisterDevice() {
+        
+        let parameters = [
+            "regid": "616",
+            "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            ]
+        Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
+            .responseJSON { response in
+                
+                if let JSON = response.result.value as? NSDictionary{
+                    print("JSON: \(JSON)")
+                }
+        }
+    }
+    
+    //MARK: Courses
+    
     func getCours(completion: ([Course]?) -> Void) {
         Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses?client=22&language=1", parameters: nil)
             .responseJSON { response in
-           
+                
                 if let JSON = response.result.value {
-//                    print("JSON: \(JSON)")
+                    //                    print("JSON: \(JSON)")
                     self.jsonArray = JSON as? NSDictionary
                     
                     let coursesArray: NSArray = [self.jsonArray!["courses"]!]
@@ -31,16 +74,19 @@ class NetworkManager {
                     }
                     
                     completion(responseArray)
-
+                    
                 } else {
                     print("Status cod = \(response.response?.statusCode)")
                 }
         }
     }
     
+    //MARK: Images
+    
+    // method for loading images whith URL ant your image name
     func getImageWhihURL(imageURL: NSURL, imageName: String, completion: (UIImage?) -> Void) {
         
-        if let image = HCCache.sharedCache.imageWithIdentifier(imageName){
+        if let image = HCCache.sharedCache.imageWithIdentifier(imageName) {
             completion(image)
         } else {
             
@@ -56,8 +102,6 @@ class NetworkManager {
             }
         }
     }
-    
-    
     
     
 }

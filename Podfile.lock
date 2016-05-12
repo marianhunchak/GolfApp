@@ -1,4 +1,5 @@
 PODS:
+  - AEXML (2.1.0)
   - Alamofire (3.3.0)
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
@@ -29,6 +30,7 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - AEXML
   - Alamofire (~> 3.0)
   - AlamofireImage (~> 2.0)
   - Google/CloudMessaging
@@ -44,6 +46,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  AEXML: 0e2f657fdc67e17905682a06d55583a863d80803
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   GGLInstanceID: f92465924a9b8a48f712829d22e223653ab8dc72
@@ -56,6 +59,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 316967462aa4ad1477e6842725b4a1b55bea8ee5
+PODFILE CHECKSUM: 9edca8d85e17b2b8267f3e51b53773a6a1c24bc2
 
 COCOAPODS: 1.0.0.rc.2
