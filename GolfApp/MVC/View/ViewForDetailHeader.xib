@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Y5r-eV-W53" customClass="DetailCourseHeader" customModule="GolfApp" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Y5r-eV-W53" customClass="ViewForDetailHeader" customModule="GolfApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="355" height="89"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
