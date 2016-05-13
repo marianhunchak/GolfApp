@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Global {
     
@@ -15,10 +16,13 @@ class Global {
     static var languageID : String!
     static var languageName : String!
     
+    static let navigationBarColor = UIColor.init(colorCode: "97BF0D")
+    
+    
     static func getLanguage() {
         
         let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String
-        
+
         switch lang {
         case "en":
             languageID = "1"

@@ -29,9 +29,10 @@
 		560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C891CE137A2006F8655 /* Main.storyboard */; };
 		560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C8D1CE137A2006F8655 /* HCCache.swift */; };
 		560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA31CE138CE006F8655 /* Default-568h@2x.png */; };
-		560E3CA61CE13921006F8655 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA51CE13921006F8655 /* Info.plist */; };
 		5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */; };
 		5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B81CE4E699001B6E2F /* Profile.swift */; };
+		562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */; };
+		562F49C71CE5EA5E00A6581B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F49C61CE5EA5E00A6581B /* BaseTableViewController.swift */; };
 		5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE11CE4BE7E00040520 /* string_english.xml */; };
 		5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE21CE4BE7E00040520 /* string_french.xml */; };
 		5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE31CE4BE7E00040520 /* string_german.xml */; };
@@ -81,6 +82,8 @@
 		560E3CA51CE13921006F8655 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisDocument.swift; sourceTree = "<group>"; };
 		5624E2B81CE4E699001B6E2F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+CustomColor.swift"; path = "Extensions/UIColor+CustomColor.swift"; sourceTree = "<group>"; };
+		562F49C61CE5EA5E00A6581B /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = BaseTableViewController/BaseTableViewController.swift; sourceTree = "<group>"; };
 		5650C6C61CDC98BF006F5940 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5651AEE11CE4BE7E00040520 /* string_english.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_english.xml; sourceTree = "<group>"; };
 		5651AEE21CE4BE7E00040520 /* string_french.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_french.xml; sourceTree = "<group>"; };
@@ -139,8 +142,8 @@
 			children = (
 				5651AEEB1CE4C08E00040520 /* Headers */,
 				560E3C631CE137A2006F8655 /* API */,
-				560E3C661CE137A2006F8655 /* Extentions */,
 				560E3C671CE137A2006F8655 /* Parser */,
+				562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -159,13 +162,6 @@
 				560E3C651CE137A2006F8655 /* NetworkManager.swift */,
 			);
 			path = NetworkManager;
-			sourceTree = "<group>";
-		};
-		560E3C661CE137A2006F8655 /* Extentions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extentions;
 			sourceTree = "<group>";
 		};
 		560E3C671CE137A2006F8655 /* Parser */ = {
@@ -193,6 +189,7 @@
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				560E3C6E1CE137A2006F8655 /* ListTableController */,
 				560E3C6A1CE137A2006F8655 /* DetailTableController */,
+				562F49C61CE5EA5E00A6581B /* BaseTableViewController.swift */,
 			);
 			name = Controllers;
 			path = Controller;
@@ -562,7 +559,6 @@
 				8407A5B41CE32DD600500E19 /* DetailCouseFooter.xib in Resources */,
 				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
 				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
-				560E3CA61CE13921006F8655 /* Info.plist in Resources */,
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
@@ -639,6 +635,7 @@
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
 				560E3C9C1CE137A2006F8655 /* ParcoursTableCell.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
+				562F49C71CE5EA5E00A6581B /* BaseTableViewController.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeSubView.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* DetailCourseHeader.swift in Sources */,
@@ -646,6 +643,7 @@
 				560E3C911CE137A2006F8655 /* DetailTableController.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
+				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailCouseFooter.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
