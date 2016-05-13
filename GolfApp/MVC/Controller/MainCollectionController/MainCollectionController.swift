@@ -15,6 +15,8 @@ private let identifierOfListTableController = "ListTableController"
 
 class MainCollectionController: UICollectionViewController  {
     
+    var profile:Profile?
+    
     var myCustomSubview : ContactSubView?
     var categories : ContactSubView = ContactSubView.loadViewFromNib()
     
@@ -40,6 +42,10 @@ class MainCollectionController: UICollectionViewController  {
         self.collectionView?.backgroundView = backroundImage
         let nib = UINib(nibName: nibNameMenuCollectionCell, bundle: nil)
         self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
+        NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
+//            self.profile = pProfile
+            self.categories.profile = pProfile
+        }
         
     }
     

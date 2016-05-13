@@ -31,6 +31,7 @@
 		560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA31CE138CE006F8655 /* Default-568h@2x.png */; };
 		560E3CA61CE13921006F8655 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA51CE13921006F8655 /* Info.plist */; };
 		5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */; };
+		5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B81CE4E699001B6E2F /* Profile.swift */; };
 		5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE11CE4BE7E00040520 /* string_english.xml */; };
 		5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE21CE4BE7E00040520 /* string_french.xml */; };
 		5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE31CE4BE7E00040520 /* string_german.xml */; };
@@ -76,6 +77,7 @@
 		560E3CA31CE138CE006F8655 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		560E3CA51CE13921006F8655 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisDocument.swift; sourceTree = "<group>"; };
+		5624E2B81CE4E699001B6E2F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		5650C6C61CDC98BF006F5940 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5651AEE11CE4BE7E00040520 /* string_english.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_english.xml; sourceTree = "<group>"; };
 		5651AEE21CE4BE7E00040520 /* string_french.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_french.xml; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5663B5C11CE5B93F0039D1FC /* Profile */,
 				5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */,
 				560E3C711CE137A2006F8655 /* Course */,
 				560E3C731CE137A2006F8655 /* DB */,
@@ -389,6 +392,14 @@
 				5651AEEC1CE4C0A700040520 /* Global.swift */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		5663B5C11CE5B93F0039D1FC /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5624E2B81CE4E699001B6E2F /* Profile.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
@@ -606,6 +617,7 @@
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
 				560E3C9C1CE137A2006F8655 /* ParcoursTableCell.swift in Sources */,
+				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeSubView.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* DetailCourseHeader.swift in Sources */,

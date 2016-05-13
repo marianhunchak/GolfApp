@@ -17,7 +17,7 @@ class Global {
     
     static func getLanguage() {
         
-         let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String
+        let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String
         
         switch lang {
         case "en":

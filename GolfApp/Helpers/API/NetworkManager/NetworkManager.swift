@@ -56,6 +56,24 @@ class NetworkManager {
         }
     }
     
+    //MARK: Profile & Advertising
+    
+    func getProfileAndAvertising(completion :Profile -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=1", parameters:nil )
+            .responseJSON { response in
+                
+                if let JSON = response.result.value as? NSDictionary{
+                    print("JSON: \(JSON)")
+                    let profileDictionary = JSON["profile"]! as! NSDictionary
+
+                    let lProfile = Profile.profileWhithDictionary(profileDictionary)
+                    
+                    completion(lProfile)
+
+                }
+        }
+    }
+    
     //MARK: Courses
     
     func getCours(completion: ([Course]?) -> Void) {

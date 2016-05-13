@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
-class ContactSubView: UIView {
+class ContactSubView: UIView , MFMailComposeViewControllerDelegate{
     
+    var profile: Profile?
     
     @IBOutlet weak var email: UIButton!
     
@@ -22,8 +24,31 @@ class ContactSubView: UIView {
     @IBOutlet weak var contactBackgroundView: UIView!
     
     @IBAction func emailButton(sender: AnyObject) {
+        
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            if let lProfile = profile {
+            mail.setToRecipients([lProfile.email])
+            }
+//            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
+        } else {
+            // show failure alert
+        }
     }
     @IBAction func telephoneButton(sender: AnyObject) {
+        
+        if let lProfile = profile {
+            print(lProfile.phone)
+        UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + lProfile.phone)!)
+        }
+//        let installed = UIApplication.sharedApplication().canOpenURL(NSURL(string: "skype:")!)
+//        if installed {
+//            UIApplication.sharedApplication().openURL(NSURL(string: "skype:echo123?call")!)
+//        } else {
+//            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/in/app/skype/id304878510?mt=8")!)
+//        }
     }
     @IBAction func navigationButton(sender: AnyObject) {
     }
@@ -77,6 +102,10 @@ class ContactSubView: UIView {
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! ContactSubView
         
         return view
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
 
