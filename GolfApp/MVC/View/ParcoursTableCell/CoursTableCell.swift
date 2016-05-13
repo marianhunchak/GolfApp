@@ -10,7 +10,9 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class ParcoursTableCell: UITableViewCell {
+class CoursTableCell: UITableViewCell {
+    
+    // MARK: - Connections outlet elements
 
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellItemLabel: UILabel!

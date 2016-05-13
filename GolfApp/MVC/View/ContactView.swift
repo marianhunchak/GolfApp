@@ -9,9 +9,13 @@
 import UIKit
 import MessageUI
 
-class ContactSubView: UIView , MFMailComposeViewControllerDelegate{
+class ContactView: UIView , MFMailComposeViewControllerDelegate{
+    
+    // MARK: - Variables
     
     var profile: Profile?
+    
+    // MARK: - Connections outlet elements
     
     @IBOutlet weak var email: UIButton!
     
@@ -23,6 +27,8 @@ class ContactSubView: UIView , MFMailComposeViewControllerDelegate{
     
     @IBOutlet weak var contactBackgroundView: UIView!
     
+    // MARK: - Connections action elements
+    
     @IBAction func emailButton(sender: AnyObject) {
         
         if MFMailComposeViewController.canSendMail() {
@@ -31,10 +37,10 @@ class ContactSubView: UIView , MFMailComposeViewControllerDelegate{
             if let lProfile = profile {
             mail.setToRecipients([lProfile.email])
             }
-//            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
             UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
         } else {
-            // show failure alert
+            let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problen with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "ok")
+            sendMailErrorAlert.show()
         }
     }
     @IBAction func telephoneButton(sender: AnyObject) {
@@ -96,10 +102,10 @@ class ContactSubView: UIView , MFMailComposeViewControllerDelegate{
         super.init(coder: aDecoder)
     }
     
-    static func loadViewFromNib() -> ContactSubView
+    static func loadViewFromNib() -> ContactView
     {
-        let nib = UINib(nibName: "ContactSubView", bundle: nil)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! ContactSubView
+        let nib = UINib(nibName: "ContactView", bundle: nil)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! ContactView
         
         return view
     }

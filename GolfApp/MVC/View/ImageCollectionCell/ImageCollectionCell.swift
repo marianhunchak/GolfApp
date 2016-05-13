@@ -9,6 +9,8 @@
 import UIKit
 
 class ImageCollectionCell: UICollectionViewCell {
+    
+    // MARK: - Connections outlet elements 
 
     @IBOutlet weak var cellImageView: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!

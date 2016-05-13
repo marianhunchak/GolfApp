@@ -34,7 +34,6 @@ class ListTableController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.hidden = false;
     }
     
@@ -49,7 +48,6 @@ class ListTableController: UITableViewController {
             self.coursesArray = array!
             self.tableView.reloadData()
         }
-        
         self.refreshControl?.addTarget(self, action:#selector(ListTableController.reloadAllData(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
 

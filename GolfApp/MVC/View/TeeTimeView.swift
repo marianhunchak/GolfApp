@@ -8,27 +8,24 @@
 
 import UIKit
 
-class TeeTimeSubView : UIView {
+class TeeTimeView : UIView {
     
+   // MARK: - Connections outlet elements
     
     @IBOutlet weak var email: UIButton!
-    
     @IBOutlet weak var telephone: UIButton!
-    
     @IBOutlet weak var cancel: UIButton!
-    
     @IBOutlet weak var teeTimeBackgroundView: UIView!
+    
+    // MARK: - Connections action elements
     
     @IBAction func emailButton(sender: AnyObject) {
     }
     @IBAction func telephoneButton(sender: AnyObject) {
     }
     @IBAction func cancelButton(sender: AnyObject) {
-        
         self.removeFromSuperview()
-        
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,21 +49,12 @@ class TeeTimeSubView : UIView {
         
     }
     
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-    }
-    
-    static func loadViewFromNib() -> TeeTimeSubView
+    //MARK: Private methods
+
+    static func loadViewFromNib() -> TeeTimeView
     {
-        let nib = UINib(nibName: "TeeTimeSubView", bundle: nil)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! TeeTimeSubView
+        let nib = UINib(nibName: "TeeTimeView", bundle: nil)
+        let view = nib.instantiateWithOwner(self, options: nil)[0] as! TeeTimeView
         
         return view
     }

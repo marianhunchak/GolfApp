@@ -9,6 +9,8 @@
 import UIKit
 
 class MenuCollectionCell: UICollectionViewCell {
+    
+    // MARK: - Connections outlet elements
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var menuImageView: UIImageView!
@@ -16,6 +18,8 @@ class MenuCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+    // MARK: - Settings for elements
         
         cellView.layer.cornerRadius = 10.0
         cellView.layer.masksToBounds = true
