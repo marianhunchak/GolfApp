@@ -39,6 +39,9 @@
 		5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE51CE4BE7E00040520 /* string_spanish.xml */; };
 		5651AEED1CE4C0A700040520 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651AEEC1CE4C0A700040520 /* Global.swift */; };
 		5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */; };
+		5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */; };
+		5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */; };
+		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
 		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
 		84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D491CE3E2D400164917 /* SwipePageCourseController.swift */; };
 		8407A5B11CE3296100500E19 /* DetailCourseHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B01CE3296100500E19 /* DetailCourseHeader.xib */; };
@@ -86,6 +89,9 @@
 		5651AEE51CE4BE7E00040520 /* string_spanish.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_spanish.xml; sourceTree = "<group>"; };
 		5651AEEC1CE4C0A700040520 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMAL LT.ttf"; sourceTree = "<group>"; };
+		5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMEL LT SEMI-BOLD.ttf"; sourceTree = "<group>"; };
+		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
 		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		84051D491CE3E2D400164917 /* SwipePageCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipePageCourseController.swift; sourceTree = "<group>"; };
 		8407A5B01CE3296100500E19 /* DetailCourseHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCourseHeader.xib; sourceTree = "<group>"; };
@@ -253,7 +259,6 @@
 				8407A5AF1CE3286E00500E19 /* DetailCourseHeader */,
 				8436176D1CE2388700F96599 /* ContactSubView */,
 				560E3C771CE137A2006F8655 /* DetailmageTableCell */,
-				560E3C7A1CE137A2006F8655 /* ImageCollectionCell */,
 				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
 				560E3C801CE137A2006F8655 /* ParcoursTableCell */,
 			);
@@ -264,6 +269,7 @@
 		560E3C771CE137A2006F8655 /* DetailmageTableCell */ = {
 			isa = PBXGroup;
 			children = (
+				560E3C7A1CE137A2006F8655 /* ImageCollectionCell */,
 				560E3C781CE137A2006F8655 /* DetailmageTableCell.swift */,
 				560E3C791CE137A2006F8655 /* DetailmageTableCell.xib */,
 			);
@@ -276,7 +282,8 @@
 				560E3C7B1CE137A2006F8655 /* ImageCollectionCell.swift */,
 				560E3C7C1CE137A2006F8655 /* ImageCollectionCell.xib */,
 			);
-			path = ImageCollectionCell;
+			name = ImageCollectionCell;
+			path = ../ImageCollectionCell;
 			sourceTree = "<group>";
 		};
 		560E3C7D1CE137A2006F8655 /* MenuCollectionCell */ = {
@@ -300,6 +307,7 @@
 		560E3C831CE137A2006F8655 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5663B5C21CE5DD830039D1FC /* Fonts */,
 				5651AEE01CE4BE7E00040520 /* Localisation */,
 				560E3C841CE137A2006F8655 /* Assets.xcassets */,
 				560E3C851CE137A2006F8655 /* backroundImage.jpg */,
@@ -400,6 +408,16 @@
 				5624E2B81CE4E699001B6E2F /* Profile.swift */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		5663B5C21CE5DD830039D1FC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */,
+				5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */,
+				5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
@@ -531,10 +549,12 @@
 			files = (
 				8407A5B11CE3296100500E19 /* DetailCourseHeader.xib in Resources */,
 				560E3C9D1CE137A2006F8655 /* ParcoursTableCell.xib in Resources */,
+				5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */,
 				560E3C9B1CE137A2006F8655 /* MenuCollectionCell.xib in Resources */,
 				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
+				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
 				560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */,
 				560E3C9F1CE137A2006F8655 /* backroundImage.jpg in Resources */,
 				560E3C9E1CE137A2006F8655 /* Assets.xcassets in Resources */,
@@ -543,6 +563,7 @@
 				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
 				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
 				560E3CA61CE13921006F8655 /* Info.plist in Resources */,
+				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,

@@ -17,9 +17,9 @@ class MenuCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.layer.cornerRadius = 10.0
+        cellView.layer.cornerRadius = 5.0
         cellView.layer.masksToBounds = true
-        menuImageView.layer.cornerRadius = 7.0
+        menuImageView.layer.cornerRadius = 5.0
         menuImageView.layer.masksToBounds = true
     }
     
