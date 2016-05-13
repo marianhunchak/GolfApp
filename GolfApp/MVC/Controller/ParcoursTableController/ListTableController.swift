@@ -9,7 +9,7 @@
 import UIKit
 
 private let reuseIdentifier = "parcoursCell"
-private let parcouseTableCellNibname = "ParcoursTableCell"
+private let parcouseTableCellNibname = "CoursTableCell"
 private let indifireOfDetailTableController = "DetailTableController"
 
 private let course_1_Images = ["course_1_hole_1.jpg",  "course_1_hole_2.jpg",  "course_1_hole_3.jpg",
@@ -62,7 +62,7 @@ class ListTableController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ParcoursTableCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CoursTableCell
         cell.course = coursesArray[indexPath.row] 
         return cell
     }

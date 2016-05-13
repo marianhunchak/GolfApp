@@ -17,11 +17,9 @@ class MainCollectionController: UICollectionViewController  {
     
     var profile:Profile?
     
-    var myCustomSubview : ContactSubView?
-    var categories : ContactSubView = ContactSubView.loadViewFromNib()
+    var categories : ContactView = ContactView.loadViewFromNib()
     
-    var teeTimeSubView : TeeTimeSubView?
-    var teeTime : TeeTimeSubView = TeeTimeSubView.loadViewFromNib()
+    var teeTime : TeeTimeView = TeeTimeView.loadViewFromNib()
     
     var lTopInset : CGFloat?
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn", "hm_events_btn",

@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 private let detailImageTableCellNibName = "DetailmageTableCell"
-private let detailDescriptionCellNibName = "DetailCouseFooter"
+private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
 
@@ -45,7 +45,7 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         }
         
         else if indexPath.row == 1{
-            let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailCouseFooter
+            let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.nameLabel.text = course.name
             cell2.detailLabel.text = "\(course.holes) hole -\(course.par) pare -\(course.length) metres"
             cell2.descriptionLabel.text = course.description_
@@ -72,7 +72,7 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
 
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let categories : DetailCourseHeader = DetailCourseHeader.loadViewFromNib()
+        let categories : ViewForDetailHeader = ViewForDetailHeader.loadViewFromNib()
         categories.center = self.view.center
         categories.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
         categories.alpha = 1
@@ -80,7 +80,7 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         return categories
     }
     
-    func tableCourseHeader(tableCourseHeader: DetailCourseHeader, button1Pressed button1: AnyObject) {
+    func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
          self.performSegueWithIdentifier(segueIdetifireToSwipeCourseController, sender: self)
     }
     
