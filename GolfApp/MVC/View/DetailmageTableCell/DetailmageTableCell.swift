@@ -16,15 +16,17 @@ private let identifierOfCollectionCell = "imageCollectionCell"
 private let defaultImageNameInCell = "a_place_holder_detail_page"
 
 
-class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
     // MARK: - Connections outlet elements DetailmageTableCell
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     var imagesArray  = [NSDictionary]() {
         didSet {
             self.collectionView.reloadData()
+            self.pageControl.numberOfPages = self.imagesArray.count
         }
     }
     
@@ -34,17 +36,21 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         super.awakeFromNib()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
         let nib = UINib(nibName: nibNameImageCollectionCell, bundle: nil)
         self.collectionView?.registerNib(nib, forCellWithReuseIdentifier:identifierOfCollectionCell)
+        
         self.collectionView.layer.masksToBounds = true
         self.collectionView.layer.cornerRadius = 5.0
+        self.collectionView.backgroundColor = Global.viewsBackgroundColor
+        self.bringSubviewToFront(self.pageControl)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    // MARK: - Table view data source
+    // MARK: - CollectionViewdata source
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -57,8 +63,10 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(identifierOfCollectionCell, forIndexPath: indexPath) as! ImageCollectionCell
+        cell.cellImageView.image = UIImage(named: defaultImageNameInCell)
         
         if self.imagesArray.count > 0 {
+            
         let imageURL = NSURL.init(string: self.imagesArray[indexPath.row]["url"] as! String)
         let imageName = self.imagesArray[indexPath.row]["name"] as! String
         NetworkManager.sharedInstance.getImageWhihURL(imageURL!, imageName: imageName, completion: { (image) in
@@ -67,20 +75,11 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
                 cell.cellImageView.image = lImage
             }
         })
-        } else {
-            cell.cellImageView.image = UIImage(named: defaultImageNameInCell)
         }
+
         return cell
     }
-    
-    // MARK: - Collection View data source
-    
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        let lCell = cell as! ImageCollectionCell
-        lCell.pageControl.numberOfPages = self.imagesArray.count
-        lCell.pageControl.currentPage = indexPath.row
-    }
-    
+
     // MARK: - Settings for DetailmageTableCell
     
     func collectionView(collectionView: UICollectionView,
@@ -93,6 +92,11 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
                         layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let pageWidth = scrollView.frame.size.width
+        self.pageControl.currentPage = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1)
     }
     
 }

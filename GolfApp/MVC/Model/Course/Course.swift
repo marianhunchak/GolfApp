@@ -28,7 +28,7 @@ class Course {
         lCourse.holes = pDictionary["holes"] as! String
         lCourse.par = pDictionary["par"] as! String
         lCourse.length = pDictionary["length"] as! String
-        lCourse.length_unit = pDictionary["length_unit"] as! String
+        lCourse.length_unit = (pDictionary["length_unit"] as! String) == "meter" ? "m" : "yd"
         lCourse.facilities = pDictionary["facilities"] as! NSArray
         lCourse.images = pDictionary["images"] as! NSArray
         

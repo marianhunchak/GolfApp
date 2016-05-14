@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,30 +16,18 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_place_holder_detail_page" translatesAutoresizingMaskIntoConstraints="NO" id="nUr-53-HWs">
                         <rect key="frame" x="0.0" y="0.0" width="283" height="182"/>
                     </imageView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CY8-ac-zDc">
-                        <rect key="frame" x="0.0" y="145" width="283" height="37"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="37" id="LmX-RQ-gE4"/>
-                        </constraints>
-                        <color key="pageIndicatorTintColor" red="0.7843137255" green="0.86274509799999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="currentPageIndicatorTintColor" red="0.52549019610000003" green="0.71372549019999998" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                    </pageControl>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="nUr-53-HWs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AP5-MT-EkN"/>
                 <constraint firstAttribute="trailing" secondItem="nUr-53-HWs" secondAttribute="trailing" id="Lqp-Fu-B5u"/>
-                <constraint firstAttribute="bottom" secondItem="CY8-ac-zDc" secondAttribute="bottom" id="SDq-nq-MPP"/>
                 <constraint firstItem="nUr-53-HWs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="f2A-u5-IJo"/>
-                <constraint firstItem="CY8-ac-zDc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hZx-0a-W96"/>
                 <constraint firstAttribute="bottom" secondItem="nUr-53-HWs" secondAttribute="bottom" id="hhw-Ka-msO"/>
-                <constraint firstAttribute="trailing" secondItem="CY8-ac-zDc" secondAttribute="trailing" id="oPI-yQ-ESJ"/>
             </constraints>
             <size key="customSize" width="283" height="182"/>
             <connections>
-                <outlet property="cellImageView" destination="nUr-53-HWs" id="j9u-BG-ae6"/>
-                <outlet property="pageControl" destination="CY8-ac-zDc" id="IEY-tX-GQk"/>
+                <outlet property="cellImageView" destination="nUr-53-HWs" id="A7D-9F-VIt"/>
             </connections>
             <point key="canvasLocation" x="389.5" y="204"/>
         </collectionViewCell>

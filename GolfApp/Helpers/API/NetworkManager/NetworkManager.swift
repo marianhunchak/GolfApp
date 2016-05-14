@@ -36,7 +36,7 @@ class NetworkManager {
                 
                 if let JSON = response.result.value as? NSDictionary{
                     NSUserDefaults.standardUserDefaults().setObject(JSON["regid"], forKey: "regid")
-                    print("JSON: \(JSON)")
+//                    print("JSON: \(JSON)")
                 }
         }
     }
@@ -51,7 +51,7 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
-                    print("JSON: \(JSON)")
+//                    print("JSON: \(JSON)")
                 }
         }
     }
@@ -63,7 +63,7 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
-                    print("JSON: \(JSON)")
+//                    print("JSON: \(JSON)")
                     let profileDictionary = JSON["profile"]! as! NSDictionary
 
                     let lProfile = Profile.profileWhithDictionary(profileDictionary)
@@ -108,7 +108,7 @@ class NetworkManager {
             completion(image)
         } else {
             
-            completion(nil)
+//            completion(nil)
             
             Alamofire.request(.GET, imageURL)
                 .responseImage { response in

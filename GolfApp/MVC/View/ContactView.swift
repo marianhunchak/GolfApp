@@ -17,14 +17,11 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
     
     // MARK: - Connections outlet elements
     
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var email: UIButton!
-    
     @IBOutlet weak var telephone: UIButton!
-    
     @IBOutlet weak var navigation: UIButton!
-    
-    @IBOutlet weak var cancel: UIButton!
-    
+    @IBOutlet weak var cancel: UIButton!    
     @IBOutlet weak var contactBackgroundView: UIView!
     
     // MARK: - Connections action elements
@@ -56,7 +53,9 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
 //            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/in/app/skype/id304878510?mt=8")!)
 //        }
     }
+    
     @IBAction func navigationButton(sender: AnyObject) {
+        
     }
     @IBAction func cancelButton(sender: AnyObject) {
         
@@ -90,22 +89,17 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
         contactBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
 
     }
-
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-    }
     
     static func loadViewFromNib() -> ContactView
     {
         let nib = UINib(nibName: "ContactView", bundle: nil)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! ContactView
+        
+        view.title.text = LocalisationDocument.sharedInstance.getStringWhinName("cnt_contact_pop_up_title")
+        view.email.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("cnt_email_btn"), forState: .Normal)
+        view.telephone.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("cnt_phone_btn"), forState: .Normal)
+        view.navigation.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("cnt_direction_btn"), forState: .Normal)
+        view.cancel.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("cnt_cancel_btn"), forState: .Normal)
         
         return view
     }

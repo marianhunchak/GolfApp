@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -16,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Vws-HW-Bgs">
-                        <rect key="frame" x="8" y="8" width="387" height="253"/>
+                        <rect key="frame" x="12" y="12" width="379" height="249"/>
                         <color key="backgroundColor" red="0.7843137255" green="0.86274509799999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Zzh-jX-V8K">
                             <size key="itemSize" width="156" height="50"/>
@@ -29,17 +28,29 @@
                             <outlet property="delegate" destination="-1" id="owY-ns-f2I"/>
                         </connections>
                     </collectionView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-x1-wgv">
+                        <rect key="frame" x="0.0" y="224" width="403" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37" id="ExN-00-0D0"/>
+                        </constraints>
+                        <color key="pageIndicatorTintColor" red="0.59215686270000001" green="0.74901960779999999" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="currentPageIndicatorTintColor" red="0.30196078430000001" green="0.41568627450000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </pageControl>
                 </subviews>
                 <color key="backgroundColor" red="0.7843137255" green="0.86274509799999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
-                    <constraint firstItem="Vws-HW-Bgs" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3ju-oh-Kte"/>
-                    <constraint firstItem="Vws-HW-Bgs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4sE-cx-jRu"/>
-                    <constraint firstAttribute="bottom" secondItem="Vws-HW-Bgs" secondAttribute="bottom" id="fK2-Rv-F55"/>
-                    <constraint firstItem="Vws-HW-Bgs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="oZS-aY-leN"/>
+                    <constraint firstAttribute="bottom" secondItem="Vws-HW-Bgs" secondAttribute="bottom" id="D08-gg-Wap"/>
+                    <constraint firstItem="Vws-HW-Bgs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="FjS-w1-i6F"/>
+                    <constraint firstAttribute="trailing" secondItem="Vws-HW-Bgs" secondAttribute="trailing" constant="12" id="NX6-3Q-7L9"/>
+                    <constraint firstAttribute="trailing" secondItem="7XY-x1-wgv" secondAttribute="trailing" id="QV5-Hg-PGH"/>
+                    <constraint firstItem="Vws-HW-Bgs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="XhM-NR-UDf"/>
+                    <constraint firstAttribute="bottom" secondItem="7XY-x1-wgv" secondAttribute="bottom" id="ZH7-xA-Nlm"/>
+                    <constraint firstItem="7XY-x1-wgv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="yMI-n4-oo3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionView" destination="Vws-HW-Bgs" id="8Xk-XE-o0v"/>
+                <outlet property="pageControl" destination="7XY-x1-wgv" id="mLe-4l-rsD"/>
             </connections>
             <point key="canvasLocation" x="253.5" y="307"/>
         </tableViewCell>

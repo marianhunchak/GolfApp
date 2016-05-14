@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "parcoursCell"
 private let parcouseTableCellNibname = "CoursTableCell"
-private let indifireOfDetailTableController = "DetailTableController"
+private let indifireOfDetailTableController = "DetailViewController"
 
 private let course_1_Images = ["course_1_hole_1.jpg",  "course_1_hole_2.jpg",  "course_1_hole_3.jpg",
                                "course_1_hole_4",      "course_1_hole_5.jpg",  "course_1_hole_6.jpg",
@@ -26,7 +26,7 @@ private let course_2_Images = ["course_2_hole_1.jpg", "course_2_hole_2.jpg", "co
 private let course_3_Images = ["course_2_hole_1.jpg", "course_2_hole_2.jpg", "course_2_hole_3.jpg"]
 
 
-class ListTableController: UITableViewController {
+class ListTableController: BaseTableViewController {
 
     var coursesArray = [Course]()
     
@@ -73,7 +73,7 @@ class ListTableController: UITableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(indifireOfDetailTableController) as!DetailTableController
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(indifireOfDetailTableController) as! DetailViewController
         vc.course = coursesArray[indexPath.row]
         
         if indexPath.row == 0 {
@@ -81,7 +81,6 @@ class ListTableController: UITableViewController {
         } else if indexPath.row == 1 {
             vc.arrayOfImages = course_2_Images
         } else if indexPath.row == 2 {
-            vc.arrayOfImages = course_3_Images
         }
 
         self.navigationController?.pushViewController(vc, animated: true)

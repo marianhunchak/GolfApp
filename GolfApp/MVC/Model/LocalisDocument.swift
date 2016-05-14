@@ -16,6 +16,7 @@ class LocalisationDocument {
     
     init() {
         
+        Global.getLanguage()
         let fileName = "string_" + Global.languageName
         let xmlPath = NSBundle.mainBundle().pathForResource(fileName, ofType: "xml")
         let data = NSData(contentsOfFile: xmlPath!)

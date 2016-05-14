@@ -15,10 +15,13 @@ private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
 
-class DetailTableController: UITableViewController , CourseHeaderDelegate {
+class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
   
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var tableView: UITableView!
     var course = Course()
     var arrayOfImages = [String]()
+    let categories = ViewForDetailHeader.loadViewFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +33,18 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+        
+        self.setupHeaderView()
+        self.tableView.backgroundColor = Global.viewsBackgroundColor
+        self.view.backgroundColor = Global.viewsBackgroundColor
     }
     
     // MARK: - Table view data source
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
             let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
@@ -50,7 +57,8 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         else if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.nameLabel.text = course.name
-            cell2.detailLabel.text = "\(course.holes) hole -\(course.par) pare -\(course.length) metres"
+            cell2.detailLabel.text = "\(course.holes) \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - " +
+                                     "\(course.par) pare - \(course.length) \(course.length_unit)"
             cell2.descriptionLabel.text = course.description_
             
             return cell2
@@ -64,34 +72,25 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.view.frame.height / 3.0
     }
-    
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
-
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
-        let categories : ViewForDetailHeader = ViewForDetailHeader.loadViewFromNib()
-        categories.center = self.view.center
-        categories.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
-        categories.delegate = self
-        
-        return categories
-    }
+    //MARK: CourseHeaderDelegate
     
     func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
-         self.performSegueWithIdentifier(segueIdetifireToSwipeCourseController, sender: self)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showSwipeCourseController" {
-            let destinationController = segue.destinationViewController as! SwipePageCourseController
-            destinationController.courseImage = arrayOfImages
-        }
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SwipePageCourseController") as! SwipePageCourseController
+        vc.courseImage = arrayOfImages
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
+    //MARK: Private methods
+    
+    func setupHeaderView() {
+        categories.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , headerView.frame.size.height)
+        headerView.addSubview(categories)
+        if arrayOfImages.count > 0 {
+            categories.button1Available = true
+        }
+        categories.delegate = self
+    }
 }

@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+        </mutableArray>
+        <mutableArray key="STONE INFORMEL LT SEMI-BOLD.ttf">
+            <string>StoneInformalLT-Semibold</string>
+        </mutableArray>
+        <mutableArray key="STONE INFROMAL LT ITALIC_0.ttf">
+            <string>StoneInformalLT-Italic</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseFooterIndetifire" rowHeight="104" id="X10-x5-JO5" customClass="DetailInfoCell" customModule="GolfApp" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="courseFooterIndetifire" rowHeight="104" id="X10-x5-JO5" customClass="DetailInfoCell" customModule="GolfApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="348" height="104"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X10-x5-JO5" id="xTn-4L-smh">
@@ -19,30 +30,30 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42m-2e-mfd">
-                        <rect key="frame" x="8" y="8" width="333" height="95"/>
+                        <rect key="frame" x="12" y="12" width="324" height="91"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18-hole-Par 70 - 5666 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czc-vN-3nT">
-                                <rect key="frame" x="8" y="37" width="317" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-ys-2Ji">
+                                <rect key="frame" x="8" y="3" width="308" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="IF5-YQ-l9b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="14"/>
+                                <color key="textColor" red="0.4823529411764706" green="0.65490196078431373" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18-hole-Par 70 - 5666 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="czc-vN-3nT">
+                                <rect key="frame" x="8" y="37" width="308" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="uO5-su-0hB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-bF-eZX">
-                                <rect key="frame" x="8" y="66" width="317" height="21"/>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="15"/>
+                                <rect key="frame" x="8" y="66" width="308" height="17"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-ys-2Ji">
-                                <rect key="frame" x="8" y="8" width="317" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="IF5-YQ-l9b"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="TimesNewRomanPS-BoldMT" family="Times New Roman" pointSize="19"/>
-                                <color key="textColor" red="0.4823529411764706" green="0.65490196078431373" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -51,25 +62,25 @@
                             <constraint firstAttribute="trailing" secondItem="yPs-bF-eZX" secondAttribute="trailing" constant="8" id="5Vj-GQ-AXi"/>
                             <constraint firstItem="yPs-bF-eZX" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="7Oi-4D-1Oo"/>
                             <constraint firstAttribute="trailing" secondItem="czc-vN-3nT" secondAttribute="trailing" constant="8" id="N4O-Ze-2mn"/>
-                            <constraint firstItem="iJq-ys-2Ji" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" constant="8" id="S1S-Am-vSZ"/>
+                            <constraint firstItem="iJq-ys-2Ji" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" constant="3" id="S1S-Am-vSZ"/>
                             <constraint firstAttribute="trailing" secondItem="iJq-ys-2Ji" secondAttribute="trailing" constant="8" id="arD-Z0-sTM"/>
                             <constraint firstAttribute="bottom" secondItem="yPs-bF-eZX" secondAttribute="bottom" constant="8" id="c66-Q2-KI3"/>
                             <constraint firstItem="iJq-ys-2Ji" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="htu-gO-Z8x"/>
                             <constraint firstItem="czc-vN-3nT" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="oqV-mL-GEb"/>
                             <constraint firstItem="yPs-bF-eZX" firstAttribute="top" secondItem="czc-vN-3nT" secondAttribute="bottom" constant="8" id="w7m-Ye-jIZ"/>
-                            <constraint firstItem="czc-vN-3nT" firstAttribute="top" secondItem="iJq-ys-2Ji" secondAttribute="bottom" constant="8" id="xCZ-Et-FEN"/>
+                            <constraint firstItem="czc-vN-3nT" firstAttribute="top" secondItem="iJq-ys-2Ji" secondAttribute="bottom" constant="-2" id="xCZ-Et-FEN"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="1co-TA-rBm" secondAttribute="bottom" id="3gr-cH-QT2"/>
-                    <constraint firstItem="42m-2e-mfd" firstAttribute="leading" secondItem="xTn-4L-smh" secondAttribute="leading" constant="8" id="4qf-7E-8Wc"/>
+                    <constraint firstItem="42m-2e-mfd" firstAttribute="leading" secondItem="xTn-4L-smh" secondAttribute="leading" constant="12" id="4qf-7E-8Wc"/>
                     <constraint firstAttribute="bottom" secondItem="42m-2e-mfd" secondAttribute="bottom" id="5Ps-aB-SxD"/>
                     <constraint firstItem="1co-TA-rBm" firstAttribute="top" secondItem="xTn-4L-smh" secondAttribute="top" id="F9M-24-qrQ"/>
                     <constraint firstItem="1co-TA-rBm" firstAttribute="leading" secondItem="xTn-4L-smh" secondAttribute="leading" id="Ir2-m4-m0G"/>
-                    <constraint firstAttribute="trailing" secondItem="42m-2e-mfd" secondAttribute="trailing" constant="7" id="RZn-se-5mh"/>
-                    <constraint firstItem="42m-2e-mfd" firstAttribute="top" secondItem="xTn-4L-smh" secondAttribute="top" constant="8" id="XPj-t5-S00"/>
+                    <constraint firstAttribute="trailing" secondItem="42m-2e-mfd" secondAttribute="trailing" constant="12" id="RZn-se-5mh"/>
+                    <constraint firstItem="42m-2e-mfd" firstAttribute="top" secondItem="xTn-4L-smh" secondAttribute="top" constant="12" id="XPj-t5-S00"/>
                     <constraint firstAttribute="trailing" secondItem="1co-TA-rBm" secondAttribute="trailing" id="sq3-1y-tXi"/>
                 </constraints>
             </tableViewCellContentView>
@@ -80,7 +91,7 @@
                 <outlet property="detailLabel" destination="czc-vN-3nT" id="9V9-D3-jw5"/>
                 <outlet property="nameLabel" destination="iJq-ys-2Ji" id="yij-6g-Rl8"/>
             </connections>
-            <point key="canvasLocation" x="539" y="421"/>
+            <point key="canvasLocation" x="383" y="208"/>
         </tableViewCell>
     </objects>
 </document>

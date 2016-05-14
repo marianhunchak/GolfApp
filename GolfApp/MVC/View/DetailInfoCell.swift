@@ -21,6 +21,12 @@ class DetailInfoCell: UITableViewCell {
         super.awakeFromNib()
         
         backgroundCourseFooter.layer.cornerRadius = 5
+        backgroundCourseFooter.layer.borderColor = Global.menuBarStokeColor.CGColor
+        backgroundCourseFooter.layer.borderWidth = 2
+        backgroundCourseFooter.layer.masksToBounds = true
+        
+        backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
+        backgroundColor = Global.viewsBackgroundColor
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

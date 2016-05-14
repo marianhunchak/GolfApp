@@ -21,7 +21,8 @@ class CoursTableCell: UITableViewCell {
     var course: Course! {
         didSet {
             self.cellItemLabel.text = self.course.name
-            self.cellInfoLabel.text = self.course.holes + " trous - Par " + self.course.par + " - " + self.course.length + " " + self.course.length_unit
+            self.cellInfoLabel.text = self.course.holes + " \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - Par " +
+                                      self.course.par + " - " + self.course.length + " " + self.course.length_unit
             
             if let imageDictionary = self.course.images.firstObject as? NSDictionary {
                 let imageURL = NSURL(string: imageDictionary.objectForKey("url") as! String)!

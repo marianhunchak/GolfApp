@@ -16,11 +16,6 @@ private let identifierOfListTableController = "ListTableController"
 class MainCollectionController: UICollectionViewController  {
     
     var profile:Profile?
-
-    
-    var categories : ContactView = ContactView.loadViewFromNib()    
-    var teeTime : TeeTimeView = TeeTimeView.loadViewFromNib()
-    
     var lTopInset : CGFloat?
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
@@ -45,7 +40,7 @@ class MainCollectionController: UICollectionViewController  {
         self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
         NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
-            self.categories.profile = pProfile
+            self.profile = pProfile
         }
         
     }
@@ -105,23 +100,24 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
     
     func showContactSubView() {
         
-        categories.center = self.view.center
-        categories.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
-        self.view.addSubview(categories)
-        categories.alpha = 0
+        let contact = ContactView.loadViewFromNib()
+        contact.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
+        self.view.addSubview(contact)
+        contact.profile = profile
+        contact.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
-            self.categories.alpha = 1
+            contact.alpha = 1
         }
     }
     
     func showTeeTimeSubView() {
-        
-        teeTime.center = self.view.center
+    
+        let teeTime = TeeTimeView.loadViewFromNib()
         teeTime.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
         self.view.addSubview(teeTime)
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
-            self.teeTime.alpha = 1
+            teeTime.alpha = 1
         }
     }
 }

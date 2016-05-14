@@ -12,6 +12,7 @@ class TeeTimeView : UIView {
     
    // MARK: - Connections outlet elements
     
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var email: UIButton!
     @IBOutlet weak var telephone: UIButton!
     @IBOutlet weak var cancel: UIButton!
@@ -29,6 +30,11 @@ class TeeTimeView : UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        title.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_book_tee_pop_up_title")
+        email.titleLabel?.text = LocalisationDocument.sharedInstance.getStringWhinName("email_button_btn")
+        telephone.titleLabel?.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_phone_btn")
+        cancel.titleLabel?.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_cancel_btn")
         
         email.layer.cornerRadius = 5
         telephone.layer.cornerRadius = 5

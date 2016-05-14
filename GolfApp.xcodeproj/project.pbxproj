@@ -10,7 +10,7 @@
 		0BA22DB2C155759958B57A8C /* Pods_GolfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */; };
 		560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C601CE137A2006F8655 /* AppDelegate.swift */; };
 		560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C651CE137A2006F8655 /* NetworkManager.swift */; };
-		560E3C911CE137A2006F8655 /* DetailTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6B1CE137A2006F8655 /* DetailTableController.swift */; };
+		560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6B1CE137A2006F8655 /* DetailViewController.swift */; };
 		560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */; };
 		560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6F1CE137A2006F8655 /* ListTableController.swift */; };
 		560E3C941CE137A2006F8655 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C721CE137A2006F8655 /* Course.swift */; };
@@ -32,7 +32,9 @@
 		5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */; };
 		5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B81CE4E699001B6E2F /* Profile.swift */; };
 		562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */; };
-		562F49C71CE5EA5E00A6581B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F49C61CE5EA5E00A6581B /* BaseTableViewController.swift */; };
+		562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */; };
+		562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABC1CE6107C00A6581B /* BaseViewController.swift */; };
+		562F4ABF1CE73A6C00A6581B /* UIView+RounCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */; };
 		5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE11CE4BE7E00040520 /* string_english.xml */; };
 		5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE21CE4BE7E00040520 /* string_french.xml */; };
 		5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE31CE4BE7E00040520 /* string_german.xml */; };
@@ -55,12 +57,50 @@
 		843617711CE2389E00F96599 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843617701CE2389E00F96599 /* ContactView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		562F4AAF1CE6055F00A6581B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15F043B4CA67682C53AC7B4D9F36CF23;
+			remoteInfo = AEXML;
+		};
+		562F4AB11CE6055F00A6581B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9187824486A3DB3EBA21C76D873A9E84;
+			remoteInfo = Alamofire;
+		};
+		562F4AB31CE6055F00A6581B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEF99988123B4785278FFCC94E680F1D;
+			remoteInfo = AlamofireImage;
+		};
+		562F4AB51CE6055F00A6581B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D5E9C0EB28BF44A2B4CDB6164399E9C;
+			remoteInfo = "Pods-GolfApp";
+		};
+		562F4AB71CE6055F00A6581B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CCD2E185BF77D2B332B042A50013E2C2;
+			remoteInfo = SwiftyJSON;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GolfApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.release.xcconfig"; sourceTree = "<group>"; };
 		560E3C601CE137A2006F8655 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		560E3C651CE137A2006F8655 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		560E3C6B1CE137A2006F8655 /* DetailTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableController.swift; sourceTree = "<group>"; };
+		560E3C6B1CE137A2006F8655 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionController.swift; sourceTree = "<group>"; };
 		560E3C6F1CE137A2006F8655 /* ListTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableController.swift; sourceTree = "<group>"; };
 		560E3C721CE137A2006F8655 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -83,7 +123,180 @@
 		5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisDocument.swift; sourceTree = "<group>"; };
 		5624E2B81CE4E699001B6E2F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+CustomColor.swift"; path = "Extensions/UIColor+CustomColor.swift"; sourceTree = "<group>"; };
-		562F49C61CE5EA5E00A6581B /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = BaseTableViewController/BaseTableViewController.swift; sourceTree = "<group>"; };
+		562F49CA1CE6055F00A6581B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		562F49CB1CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F49CD1CE6055F00A6581B /* AEXML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEXML.swift; sourceTree = "<group>"; };
+		562F49CF1CE6055F00A6581B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		562F49D01CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F49D21CE6055F00A6581B /* Alamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		562F49D31CE6055F00A6581B /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		562F49D41CE6055F00A6581B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		562F49D51CE6055F00A6581B /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		562F49D61CE6055F00A6581B /* MultipartFormData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartFormData.swift; sourceTree = "<group>"; };
+		562F49D71CE6055F00A6581B /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		562F49D81CE6055F00A6581B /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		562F49D91CE6055F00A6581B /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		562F49DA1CE6055F00A6581B /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		562F49DB1CE6055F00A6581B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		562F49DC1CE6055F00A6581B /* ResponseSerialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseSerialization.swift; sourceTree = "<group>"; };
+		562F49DD1CE6055F00A6581B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		562F49DE1CE6055F00A6581B /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		562F49DF1CE6055F00A6581B /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		562F49E01CE6055F00A6581B /* Timeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
+		562F49E11CE6055F00A6581B /* Upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
+		562F49E21CE6055F00A6581B /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		562F49E41CE6055F00A6581B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		562F49E51CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F49E71CE6055F00A6581B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		562F49E81CE6055F00A6581B /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		562F49E91CE6055F00A6581B /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		562F49EA1CE6055F00A6581B /* ImageFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilter.swift; sourceTree = "<group>"; };
+		562F49EB1CE6055F00A6581B /* Request+AlamofireImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+AlamofireImage.swift"; sourceTree = "<group>"; };
+		562F49EC1CE6055F00A6581B /* UIButton+AlamofireImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+AlamofireImage.swift"; sourceTree = "<group>"; };
+		562F49ED1CE6055F00A6581B /* UIImage+AlamofireImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AlamofireImage.swift"; sourceTree = "<group>"; };
+		562F49EE1CE6055F00A6581B /* UIImageView+AlamofireImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+AlamofireImage.swift"; sourceTree = "<group>"; };
+		562F49F01CE6055F00A6581B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		562F49F31CE6055F00A6581B /* GGLInstanceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceID.h; sourceTree = "<group>"; };
+		562F49F41CE6055F00A6581B /* GGLInstanceIDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDConfig.h; sourceTree = "<group>"; };
+		562F49F51CE6055F00A6581B /* GGLInstanceIDDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDDelegate.h; sourceTree = "<group>"; };
+		562F49F61CE6055F00A6581B /* GGLInstanceIDHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDHeaders.h; sourceTree = "<group>"; };
+		562F49F81CE6055F00A6581B /* libGGLInstanceIDLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLInstanceIDLib.a; sourceTree = "<group>"; };
+		562F49F91CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F49FE1CE6055F00A6581B /* CloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudMessaging.h; sourceTree = "<group>"; };
+		562F49FF1CE6055F00A6581B /* GGLContext+CloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GGLContext+CloudMessaging.h"; sourceTree = "<group>"; };
+		562F4A021CE6055F00A6581B /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		562F4A031CE6055F00A6581B /* GGLConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLConfiguration.h; sourceTree = "<group>"; };
+		562F4A041CE6055F00A6581B /* GGLContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLContext.h; sourceTree = "<group>"; };
+		562F4A051CE6055F00A6581B /* GGLErrorCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLErrorCode.h; sourceTree = "<group>"; };
+		562F4A061CE6055F00A6581B /* GMRConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMRConfiguration.h; sourceTree = "<group>"; };
+		562F4A071CE6055F00A6581B /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		562F4A091CE6055F00A6581B /* AdMob-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdMob-Module.h"; sourceTree = "<group>"; };
+		562F4A0A1CE6055F00A6581B /* Analytics-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Analytics-Module.h"; sourceTree = "<group>"; };
+		562F4A0B1CE6055F00A6581B /* AppInvite-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppInvite-Module.h"; sourceTree = "<group>"; };
+		562F4A0C1CE6055F00A6581B /* CloudMessaging-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		562F4A0D1CE6055F00A6581B /* Core-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Core-Module.h"; sourceTree = "<group>"; };
+		562F4A0E1CE6055F00A6581B /* SignIn-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignIn-Module.h"; sourceTree = "<group>"; };
+		562F4A101CE6055F00A6581B /* libGGLCloudMessaging.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLCloudMessaging.a; sourceTree = "<group>"; };
+		562F4A111CE6055F00A6581B /* libGGLCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLCore.a; sourceTree = "<group>"; };
+		562F4A121CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F4A141CE6055F00A6581B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		562F4A171CE6055F00A6581B /* GCMConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMConfig.h; sourceTree = "<group>"; };
+		562F4A181CE6055F00A6581B /* GCMPubSub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMPubSub.h; sourceTree = "<group>"; };
+		562F4A191CE6055F00A6581B /* GCMReceiverDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMReceiverDelegate.h; sourceTree = "<group>"; };
+		562F4A1A1CE6055F00A6581B /* GCMService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMService.h; sourceTree = "<group>"; };
+		562F4A1B1CE6055F00A6581B /* GoogleCloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleCloudMessaging.h; sourceTree = "<group>"; };
+		562F4A1D1CE6055F00A6581B /* libGcmLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGcmLib.a; sourceTree = "<group>"; };
+		562F4A1E1CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F4A211CE6055F00A6581B /* libProtocolBuffers_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libProtocolBuffers_external.a; sourceTree = "<group>"; };
+		562F4A241CE6055F00A6581B /* libGIP_Locale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGIP_Locale.a; sourceTree = "<group>"; };
+		562F4A251CE6055F00A6581B /* libGIP_Reachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGIP_Reachability.a; sourceTree = "<group>"; };
+		562F4A281CE6055F00A6581B /* libGTMSessionFetcher_core_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTMSessionFetcher_core_external.a; sourceTree = "<group>"; };
+		562F4A291CE6055F00A6581B /* libGTMSessionFetcher_full_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTMSessionFetcher_full_external.a; sourceTree = "<group>"; };
+		562F4A2C1CE6055F00A6581B /* libGSDK_Overload_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGSDK_Overload_external.a; sourceTree = "<group>"; };
+		562F4A2F1CE6055F00A6581B /* libGTM_AddressBook_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_AddressBook_external.a; sourceTree = "<group>"; };
+		562F4A301CE6055F00A6581B /* libGTM_core_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_core_external.a; sourceTree = "<group>"; };
+		562F4A311CE6055F00A6581B /* libGTM_DebugUtils_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_DebugUtils_external.a; sourceTree = "<group>"; };
+		562F4A321CE6055F00A6581B /* libGTM_GTMURLBuilder_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_GTMURLBuilder_external.a; sourceTree = "<group>"; };
+		562F4A331CE6055F00A6581B /* libGTM_iPhone_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_iPhone_external.a; sourceTree = "<group>"; };
+		562F4A341CE6055F00A6581B /* libGTM_KVO_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_KVO_external.a; sourceTree = "<group>"; };
+		562F4A351CE6055F00A6581B /* libGTM_NSData+zlib_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGTM_NSData+zlib_external.a"; sourceTree = "<group>"; };
+		562F4A361CE6055F00A6581B /* libGTM_NSDictionary+URLArguments_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGTM_NSDictionary+URLArguments_external.a"; sourceTree = "<group>"; };
+		562F4A371CE6055F00A6581B /* libGTM_NSScannerJSON_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_NSScannerJSON_external.a; sourceTree = "<group>"; };
+		562F4A381CE6055F00A6581B /* libGTM_NSStringHTML_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_NSStringHTML_external.a; sourceTree = "<group>"; };
+		562F4A391CE6055F00A6581B /* libGTM_NSStringXML_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_NSStringXML_external.a; sourceTree = "<group>"; };
+		562F4A3A1CE6055F00A6581B /* libGTM_Regex_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_Regex_external.a; sourceTree = "<group>"; };
+		562F4A3B1CE6055F00A6581B /* libGTM_RoundedRectPath_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_RoundedRectPath_external.a; sourceTree = "<group>"; };
+		562F4A3C1CE6055F00A6581B /* libGTM_StringEncoding_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_StringEncoding_external.a; sourceTree = "<group>"; };
+		562F4A3D1CE6055F00A6581B /* libGTM_SystemVersion_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTM_SystemVersion_external.a; sourceTree = "<group>"; };
+		562F4A3E1CE6055F00A6581B /* libGTM_UIFont+LineHeight_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGTM_UIFont+LineHeight_external.a"; sourceTree = "<group>"; };
+		562F4A3F1CE6055F00A6581B /* libGTMStackTrace_external.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTMStackTrace_external.a; sourceTree = "<group>"; };
+		562F4A431CE6055F00A6581B /* GGLInstanceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceID.h; sourceTree = "<group>"; };
+		562F4A441CE6055F00A6581B /* GGLInstanceIDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDConfig.h; sourceTree = "<group>"; };
+		562F4A451CE6055F00A6581B /* GGLInstanceIDDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDDelegate.h; sourceTree = "<group>"; };
+		562F4A461CE6055F00A6581B /* GGLInstanceIDHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDHeaders.h; sourceTree = "<group>"; };
+		562F4A491CE6055F00A6581B /* AdMob-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdMob-Module.h"; sourceTree = "<group>"; };
+		562F4A4A1CE6055F00A6581B /* Analytics-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Analytics-Module.h"; sourceTree = "<group>"; };
+		562F4A4B1CE6055F00A6581B /* AppInvite-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppInvite-Module.h"; sourceTree = "<group>"; };
+		562F4A4C1CE6055F00A6581B /* CloudMessaging-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		562F4A4D1CE6055F00A6581B /* CloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudMessaging.h; sourceTree = "<group>"; };
+		562F4A4E1CE6055F00A6581B /* Core-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Core-Module.h"; sourceTree = "<group>"; };
+		562F4A4F1CE6055F00A6581B /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		562F4A501CE6055F00A6581B /* GGLConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLConfiguration.h; sourceTree = "<group>"; };
+		562F4A511CE6055F00A6581B /* GGLContext+CloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GGLContext+CloudMessaging.h"; sourceTree = "<group>"; };
+		562F4A521CE6055F00A6581B /* GGLContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLContext.h; sourceTree = "<group>"; };
+		562F4A531CE6055F00A6581B /* GGLErrorCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLErrorCode.h; sourceTree = "<group>"; };
+		562F4A541CE6055F00A6581B /* GMRConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMRConfiguration.h; sourceTree = "<group>"; };
+		562F4A551CE6055F00A6581B /* SignIn-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignIn-Module.h"; sourceTree = "<group>"; };
+		562F4A571CE6055F00A6581B /* GCMConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMConfig.h; sourceTree = "<group>"; };
+		562F4A581CE6055F00A6581B /* GCMPubSub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMPubSub.h; sourceTree = "<group>"; };
+		562F4A591CE6055F00A6581B /* GCMReceiverDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMReceiverDelegate.h; sourceTree = "<group>"; };
+		562F4A5A1CE6055F00A6581B /* GCMService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMService.h; sourceTree = "<group>"; };
+		562F4A5B1CE6055F00A6581B /* GoogleCloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleCloudMessaging.h; sourceTree = "<group>"; };
+		562F4A5E1CE6055F00A6581B /* GGLInstanceID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceID.h; sourceTree = "<group>"; };
+		562F4A5F1CE6055F00A6581B /* GGLInstanceIDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDConfig.h; sourceTree = "<group>"; };
+		562F4A601CE6055F00A6581B /* GGLInstanceIDDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDDelegate.h; sourceTree = "<group>"; };
+		562F4A611CE6055F00A6581B /* GGLInstanceIDHeaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLInstanceIDHeaders.h; sourceTree = "<group>"; };
+		562F4A641CE6055F00A6581B /* AdMob-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdMob-Module.h"; sourceTree = "<group>"; };
+		562F4A651CE6055F00A6581B /* Analytics-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Analytics-Module.h"; sourceTree = "<group>"; };
+		562F4A661CE6055F00A6581B /* AppInvite-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppInvite-Module.h"; sourceTree = "<group>"; };
+		562F4A671CE6055F00A6581B /* CloudMessaging-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CloudMessaging-Module.h"; sourceTree = "<group>"; };
+		562F4A681CE6055F00A6581B /* CloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudMessaging.h; sourceTree = "<group>"; };
+		562F4A691CE6055F00A6581B /* Core-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Core-Module.h"; sourceTree = "<group>"; };
+		562F4A6A1CE6055F00A6581B /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		562F4A6B1CE6055F00A6581B /* GGLConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLConfiguration.h; sourceTree = "<group>"; };
+		562F4A6C1CE6055F00A6581B /* GGLContext+CloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GGLContext+CloudMessaging.h"; sourceTree = "<group>"; };
+		562F4A6D1CE6055F00A6581B /* GGLContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLContext.h; sourceTree = "<group>"; };
+		562F4A6E1CE6055F00A6581B /* GGLErrorCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGLErrorCode.h; sourceTree = "<group>"; };
+		562F4A6F1CE6055F00A6581B /* GMRConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMRConfiguration.h; sourceTree = "<group>"; };
+		562F4A701CE6055F00A6581B /* SignIn-Module.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SignIn-Module.h"; sourceTree = "<group>"; };
+		562F4A721CE6055F00A6581B /* GCMConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMConfig.h; sourceTree = "<group>"; };
+		562F4A731CE6055F00A6581B /* GCMPubSub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMPubSub.h; sourceTree = "<group>"; };
+		562F4A741CE6055F00A6581B /* GCMReceiverDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMReceiverDelegate.h; sourceTree = "<group>"; };
+		562F4A751CE6055F00A6581B /* GCMService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMService.h; sourceTree = "<group>"; };
+		562F4A761CE6055F00A6581B /* GoogleCloudMessaging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleCloudMessaging.h; sourceTree = "<group>"; };
+		562F4A781CE6055F00A6581B /* SwiftyJSON.podspec.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SwiftyJSON.podspec.json; sourceTree = "<group>"; };
+		562F4A791CE6055F00A6581B /* Manifest.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		562F4A7E1CE6055F00A6581B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		562F4A7F1CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		562F4A811CE6055F00A6581B /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		562F4A841CE6055F00A6581B /* AEXML-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AEXML-dummy.m"; sourceTree = "<group>"; };
+		562F4A851CE6055F00A6581B /* AEXML-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AEXML-prefix.pch"; sourceTree = "<group>"; };
+		562F4A861CE6055F00A6581B /* AEXML-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AEXML-umbrella.h"; sourceTree = "<group>"; };
+		562F4A871CE6055F00A6581B /* AEXML.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = AEXML.modulemap; sourceTree = "<group>"; };
+		562F4A881CE6055F00A6581B /* AEXML.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AEXML.xcconfig; sourceTree = "<group>"; };
+		562F4A891CE6055F00A6581B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		562F4A8B1CE6055F00A6581B /* Alamofire-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		562F4A8C1CE6055F00A6581B /* Alamofire-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		562F4A8D1CE6055F00A6581B /* Alamofire-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		562F4A8E1CE6055F00A6581B /* Alamofire.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		562F4A8F1CE6055F00A6581B /* Alamofire.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		562F4A901CE6055F00A6581B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		562F4A921CE6055F00A6581B /* AlamofireImage-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AlamofireImage-dummy.m"; sourceTree = "<group>"; };
+		562F4A931CE6055F00A6581B /* AlamofireImage-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlamofireImage-prefix.pch"; sourceTree = "<group>"; };
+		562F4A941CE6055F00A6581B /* AlamofireImage-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AlamofireImage-umbrella.h"; sourceTree = "<group>"; };
+		562F4A951CE6055F00A6581B /* AlamofireImage.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = AlamofireImage.modulemap; sourceTree = "<group>"; };
+		562F4A961CE6055F00A6581B /* AlamofireImage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AlamofireImage.xcconfig; sourceTree = "<group>"; };
+		562F4A971CE6055F00A6581B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		562F4A991CE6055F00A6581B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		562F4A9A1CE6055F00A6581B /* Pods-GolfApp-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Pods-GolfApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		562F4A9B1CE6055F00A6581B /* Pods-GolfApp-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-GolfApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		562F4A9C1CE6055F00A6581B /* Pods-GolfApp-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-GolfApp-dummy.m"; sourceTree = "<group>"; };
+		562F4A9D1CE6055F00A6581B /* Pods-GolfApp-frameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-GolfApp-frameworks.sh"; sourceTree = "<group>"; };
+		562F4A9E1CE6055F00A6581B /* Pods-GolfApp-resources.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-GolfApp-resources.sh"; sourceTree = "<group>"; };
+		562F4A9F1CE6055F00A6581B /* Pods-GolfApp-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-GolfApp-umbrella.h"; sourceTree = "<group>"; };
+		562F4AA01CE6055F00A6581B /* Pods-GolfApp.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-GolfApp.debug.xcconfig"; sourceTree = "<group>"; };
+		562F4AA11CE6055F00A6581B /* Pods-GolfApp.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GolfApp.modulemap"; sourceTree = "<group>"; };
+		562F4AA21CE6055F00A6581B /* Pods-GolfApp.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-GolfApp.release.xcconfig"; sourceTree = "<group>"; };
+		562F4AA41CE6055F00A6581B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		562F4AA51CE6055F00A6581B /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		562F4AA61CE6055F00A6581B /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		562F4AA71CE6055F00A6581B /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		562F4AA81CE6055F00A6581B /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		562F4AA91CE6055F00A6581B /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		562F4ABC1CE6107C00A6581B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+RounCorners.swift"; path = "Extensions/UIView+RounCorners.swift"; sourceTree = "<group>"; };
 		5650C6C61CDC98BF006F5940 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5651AEE11CE4BE7E00040520 /* string_english.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_english.xml; sourceTree = "<group>"; };
 		5651AEE21CE4BE7E00040520 /* string_french.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_french.xml; sourceTree = "<group>"; };
@@ -144,6 +357,7 @@
 				560E3C631CE137A2006F8655 /* API */,
 				560E3C671CE137A2006F8655 /* Parser */,
 				562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */,
+				562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -184,22 +398,23 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				840940361CE4B60D0005A97E /* FacilitiesController */,
 				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				560E3C6E1CE137A2006F8655 /* ListTableController */,
-				560E3C6A1CE137A2006F8655 /* DetailTableController */,
-				562F49C61CE5EA5E00A6581B /* BaseTableViewController.swift */,
+				560E3C6A1CE137A2006F8655 /* DetailViewController */,
 			);
 			name = Controllers;
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		560E3C6A1CE137A2006F8655 /* DetailTableController */ = {
+		560E3C6A1CE137A2006F8655 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				560E3C6B1CE137A2006F8655 /* DetailTableController.swift */,
+				560E3C6B1CE137A2006F8655 /* DetailViewController.swift */,
 			);
+			name = DetailViewController;
 			path = DetailTableController;
 			sourceTree = "<group>";
 		};
@@ -251,13 +466,13 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
+				8436176D1CE2388700F96599 /* ContactView */,
 				840940311CE4A02F0005A97E /* TeeTimeView */,
+				560E3C801CE137A2006F8655 /* CoursTableCell */,
 				8407A5B21CE32D9100500E19 /* DetailInfoCell */,
 				8407A5AF1CE3286E00500E19 /* ViewForDetailHeader */,
-				8436176D1CE2388700F96599 /* ContactView */,
 				560E3C771CE137A2006F8655 /* DetailmageTableCell */,
-				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
-				560E3C801CE137A2006F8655 /* CoursTableCell */,
 			);
 			name = Views;
 			path = View;
@@ -266,9 +481,9 @@
 		560E3C771CE137A2006F8655 /* DetailmageTableCell */ = {
 			isa = PBXGroup;
 			children = (
-				560E3C7A1CE137A2006F8655 /* ImageCollectionCell */,
 				560E3C781CE137A2006F8655 /* DetailmageTableCell.swift */,
 				560E3C791CE137A2006F8655 /* DetailmageTableCell.xib */,
+				560E3C7A1CE137A2006F8655 /* ImageCollectionCell */,
 			);
 			path = DetailmageTableCell;
 			sourceTree = "<group>";
@@ -344,6 +559,621 @@
 				5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */,
 			);
 			name = LocalisationDocument;
+			sourceTree = "<group>";
+		};
+		562F49C81CE6055F00A6581B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				562F49C91CE6055F00A6581B /* AEXML */,
+				562F49CE1CE6055F00A6581B /* Alamofire */,
+				562F49E31CE6055F00A6581B /* AlamofireImage */,
+				562F49EF1CE6055F00A6581B /* GGLInstanceID */,
+				562F49FA1CE6055F00A6581B /* Google */,
+				562F4A131CE6055F00A6581B /* GoogleCloudMessaging */,
+				562F4A1F1CE6055F00A6581B /* GoogleInterchangeUtilities */,
+				562F4A221CE6055F00A6581B /* GoogleIPhoneUtilities */,
+				562F4A261CE6055F00A6581B /* GoogleNetworkingUtilities */,
+				562F4A2A1CE6055F00A6581B /* GoogleSymbolUtilities */,
+				562F4A2D1CE6055F00A6581B /* GoogleUtilities */,
+				562F4A401CE6055F00A6581B /* Headers */,
+				562F4A771CE6055F00A6581B /* Local Podspecs */,
+				562F4A791CE6055F00A6581B /* Manifest.lock */,
+				562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */,
+				562F4A7D1CE6055F00A6581B /* SwiftyJSON */,
+				562F4A821CE6055F00A6581B /* Target Support Files */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		562F49C91CE6055F00A6581B /* AEXML */ = {
+			isa = PBXGroup;
+			children = (
+				562F49CA1CE6055F00A6581B /* LICENSE */,
+				562F49CB1CE6055F00A6581B /* README.md */,
+				562F49CC1CE6055F00A6581B /* Source */,
+			);
+			path = AEXML;
+			sourceTree = "<group>";
+		};
+		562F49CC1CE6055F00A6581B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				562F49CD1CE6055F00A6581B /* AEXML.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		562F49CE1CE6055F00A6581B /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				562F49CF1CE6055F00A6581B /* LICENSE */,
+				562F49D01CE6055F00A6581B /* README.md */,
+				562F49D11CE6055F00A6581B /* Source */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		562F49D11CE6055F00A6581B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				562F49D21CE6055F00A6581B /* Alamofire.swift */,
+				562F49D31CE6055F00A6581B /* Download.swift */,
+				562F49D41CE6055F00A6581B /* Error.swift */,
+				562F49D51CE6055F00A6581B /* Manager.swift */,
+				562F49D61CE6055F00A6581B /* MultipartFormData.swift */,
+				562F49D71CE6055F00A6581B /* NetworkReachabilityManager.swift */,
+				562F49D81CE6055F00A6581B /* Notifications.swift */,
+				562F49D91CE6055F00A6581B /* ParameterEncoding.swift */,
+				562F49DA1CE6055F00A6581B /* Request.swift */,
+				562F49DB1CE6055F00A6581B /* Response.swift */,
+				562F49DC1CE6055F00A6581B /* ResponseSerialization.swift */,
+				562F49DD1CE6055F00A6581B /* Result.swift */,
+				562F49DE1CE6055F00A6581B /* ServerTrustPolicy.swift */,
+				562F49DF1CE6055F00A6581B /* Stream.swift */,
+				562F49E01CE6055F00A6581B /* Timeline.swift */,
+				562F49E11CE6055F00A6581B /* Upload.swift */,
+				562F49E21CE6055F00A6581B /* Validation.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		562F49E31CE6055F00A6581B /* AlamofireImage */ = {
+			isa = PBXGroup;
+			children = (
+				562F49E41CE6055F00A6581B /* LICENSE */,
+				562F49E51CE6055F00A6581B /* README.md */,
+				562F49E61CE6055F00A6581B /* Source */,
+			);
+			path = AlamofireImage;
+			sourceTree = "<group>";
+		};
+		562F49E61CE6055F00A6581B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				562F49E71CE6055F00A6581B /* Image.swift */,
+				562F49E81CE6055F00A6581B /* ImageCache.swift */,
+				562F49E91CE6055F00A6581B /* ImageDownloader.swift */,
+				562F49EA1CE6055F00A6581B /* ImageFilter.swift */,
+				562F49EB1CE6055F00A6581B /* Request+AlamofireImage.swift */,
+				562F49EC1CE6055F00A6581B /* UIButton+AlamofireImage.swift */,
+				562F49ED1CE6055F00A6581B /* UIImage+AlamofireImage.swift */,
+				562F49EE1CE6055F00A6581B /* UIImageView+AlamofireImage.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		562F49EF1CE6055F00A6581B /* GGLInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				562F49F01CE6055F00A6581B /* CHANGELOG.md */,
+				562F49F11CE6055F00A6581B /* Headers */,
+				562F49F71CE6055F00A6581B /* Libraries */,
+				562F49F91CE6055F00A6581B /* README.md */,
+			);
+			path = GGLInstanceID;
+			sourceTree = "<group>";
+		};
+		562F49F11CE6055F00A6581B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				562F49F21CE6055F00A6581B /* Public */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		562F49F21CE6055F00A6581B /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				562F49F31CE6055F00A6581B /* GGLInstanceID.h */,
+				562F49F41CE6055F00A6581B /* GGLInstanceIDConfig.h */,
+				562F49F51CE6055F00A6581B /* GGLInstanceIDDelegate.h */,
+				562F49F61CE6055F00A6581B /* GGLInstanceIDHeaders.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		562F49F71CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F49F81CE6055F00A6581B /* libGGLInstanceIDLib.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F49FA1CE6055F00A6581B /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				562F49FB1CE6055F00A6581B /* Headers */,
+				562F4A0F1CE6055F00A6581B /* Libraries */,
+				562F4A121CE6055F00A6581B /* README.md */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		562F49FB1CE6055F00A6581B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				562F49FC1CE6055F00A6581B /* GGLCloudMessaging */,
+				562F4A001CE6055F00A6581B /* GGLCore */,
+				562F4A071CE6055F00A6581B /* module.modulemap */,
+				562F4A081CE6055F00A6581B /* ModuleHeaders */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		562F49FC1CE6055F00A6581B /* GGLCloudMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				562F49FD1CE6055F00A6581B /* Public */,
+			);
+			path = GGLCloudMessaging;
+			sourceTree = "<group>";
+		};
+		562F49FD1CE6055F00A6581B /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				562F49FE1CE6055F00A6581B /* CloudMessaging.h */,
+				562F49FF1CE6055F00A6581B /* GGLContext+CloudMessaging.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		562F4A001CE6055F00A6581B /* GGLCore */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A011CE6055F00A6581B /* Public */,
+			);
+			path = GGLCore;
+			sourceTree = "<group>";
+		};
+		562F4A011CE6055F00A6581B /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A021CE6055F00A6581B /* Core.h */,
+				562F4A031CE6055F00A6581B /* GGLConfiguration.h */,
+				562F4A041CE6055F00A6581B /* GGLContext.h */,
+				562F4A051CE6055F00A6581B /* GGLErrorCode.h */,
+				562F4A061CE6055F00A6581B /* GMRConfiguration.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		562F4A081CE6055F00A6581B /* ModuleHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A091CE6055F00A6581B /* AdMob-Module.h */,
+				562F4A0A1CE6055F00A6581B /* Analytics-Module.h */,
+				562F4A0B1CE6055F00A6581B /* AppInvite-Module.h */,
+				562F4A0C1CE6055F00A6581B /* CloudMessaging-Module.h */,
+				562F4A0D1CE6055F00A6581B /* Core-Module.h */,
+				562F4A0E1CE6055F00A6581B /* SignIn-Module.h */,
+			);
+			path = ModuleHeaders;
+			sourceTree = "<group>";
+		};
+		562F4A0F1CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A101CE6055F00A6581B /* libGGLCloudMessaging.a */,
+				562F4A111CE6055F00A6581B /* libGGLCore.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A131CE6055F00A6581B /* GoogleCloudMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A141CE6055F00A6581B /* CHANGELOG.md */,
+				562F4A151CE6055F00A6581B /* Headers */,
+				562F4A1C1CE6055F00A6581B /* Libraries */,
+				562F4A1E1CE6055F00A6581B /* README.md */,
+			);
+			path = GoogleCloudMessaging;
+			sourceTree = "<group>";
+		};
+		562F4A151CE6055F00A6581B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A161CE6055F00A6581B /* Public */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		562F4A161CE6055F00A6581B /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A171CE6055F00A6581B /* GCMConfig.h */,
+				562F4A181CE6055F00A6581B /* GCMPubSub.h */,
+				562F4A191CE6055F00A6581B /* GCMReceiverDelegate.h */,
+				562F4A1A1CE6055F00A6581B /* GCMService.h */,
+				562F4A1B1CE6055F00A6581B /* GoogleCloudMessaging.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		562F4A1C1CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A1D1CE6055F00A6581B /* libGcmLib.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A1F1CE6055F00A6581B /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A201CE6055F00A6581B /* Libraries */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		562F4A201CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A211CE6055F00A6581B /* libProtocolBuffers_external.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A221CE6055F00A6581B /* GoogleIPhoneUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A231CE6055F00A6581B /* Libraries */,
+			);
+			path = GoogleIPhoneUtilities;
+			sourceTree = "<group>";
+		};
+		562F4A231CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A241CE6055F00A6581B /* libGIP_Locale.a */,
+				562F4A251CE6055F00A6581B /* libGIP_Reachability.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A261CE6055F00A6581B /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A271CE6055F00A6581B /* Libraries */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		562F4A271CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A281CE6055F00A6581B /* libGTMSessionFetcher_core_external.a */,
+				562F4A291CE6055F00A6581B /* libGTMSessionFetcher_full_external.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A2A1CE6055F00A6581B /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A2B1CE6055F00A6581B /* Libraries */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		562F4A2B1CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A2C1CE6055F00A6581B /* libGSDK_Overload_external.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A2D1CE6055F00A6581B /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A2E1CE6055F00A6581B /* Libraries */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		562F4A2E1CE6055F00A6581B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A2F1CE6055F00A6581B /* libGTM_AddressBook_external.a */,
+				562F4A301CE6055F00A6581B /* libGTM_core_external.a */,
+				562F4A311CE6055F00A6581B /* libGTM_DebugUtils_external.a */,
+				562F4A321CE6055F00A6581B /* libGTM_GTMURLBuilder_external.a */,
+				562F4A331CE6055F00A6581B /* libGTM_iPhone_external.a */,
+				562F4A341CE6055F00A6581B /* libGTM_KVO_external.a */,
+				562F4A351CE6055F00A6581B /* libGTM_NSData+zlib_external.a */,
+				562F4A361CE6055F00A6581B /* libGTM_NSDictionary+URLArguments_external.a */,
+				562F4A371CE6055F00A6581B /* libGTM_NSScannerJSON_external.a */,
+				562F4A381CE6055F00A6581B /* libGTM_NSStringHTML_external.a */,
+				562F4A391CE6055F00A6581B /* libGTM_NSStringXML_external.a */,
+				562F4A3A1CE6055F00A6581B /* libGTM_Regex_external.a */,
+				562F4A3B1CE6055F00A6581B /* libGTM_RoundedRectPath_external.a */,
+				562F4A3C1CE6055F00A6581B /* libGTM_StringEncoding_external.a */,
+				562F4A3D1CE6055F00A6581B /* libGTM_SystemVersion_external.a */,
+				562F4A3E1CE6055F00A6581B /* libGTM_UIFont+LineHeight_external.a */,
+				562F4A3F1CE6055F00A6581B /* libGTMStackTrace_external.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		562F4A401CE6055F00A6581B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A411CE6055F00A6581B /* Private */,
+				562F4A5C1CE6055F00A6581B /* Public */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		562F4A411CE6055F00A6581B /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A421CE6055F00A6581B /* GGLInstanceID */,
+				562F4A471CE6055F00A6581B /* Google */,
+				562F4A561CE6055F00A6581B /* GoogleCloudMessaging */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		562F4A421CE6055F00A6581B /* GGLInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A431CE6055F00A6581B /* GGLInstanceID.h */,
+				562F4A441CE6055F00A6581B /* GGLInstanceIDConfig.h */,
+				562F4A451CE6055F00A6581B /* GGLInstanceIDDelegate.h */,
+				562F4A461CE6055F00A6581B /* GGLInstanceIDHeaders.h */,
+			);
+			path = GGLInstanceID;
+			sourceTree = "<group>";
+		};
+		562F4A471CE6055F00A6581B /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A481CE6055F00A6581B /* Google */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		562F4A481CE6055F00A6581B /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A491CE6055F00A6581B /* AdMob-Module.h */,
+				562F4A4A1CE6055F00A6581B /* Analytics-Module.h */,
+				562F4A4B1CE6055F00A6581B /* AppInvite-Module.h */,
+				562F4A4C1CE6055F00A6581B /* CloudMessaging-Module.h */,
+				562F4A4D1CE6055F00A6581B /* CloudMessaging.h */,
+				562F4A4E1CE6055F00A6581B /* Core-Module.h */,
+				562F4A4F1CE6055F00A6581B /* Core.h */,
+				562F4A501CE6055F00A6581B /* GGLConfiguration.h */,
+				562F4A511CE6055F00A6581B /* GGLContext+CloudMessaging.h */,
+				562F4A521CE6055F00A6581B /* GGLContext.h */,
+				562F4A531CE6055F00A6581B /* GGLErrorCode.h */,
+				562F4A541CE6055F00A6581B /* GMRConfiguration.h */,
+				562F4A551CE6055F00A6581B /* SignIn-Module.h */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		562F4A561CE6055F00A6581B /* GoogleCloudMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A571CE6055F00A6581B /* GCMConfig.h */,
+				562F4A581CE6055F00A6581B /* GCMPubSub.h */,
+				562F4A591CE6055F00A6581B /* GCMReceiverDelegate.h */,
+				562F4A5A1CE6055F00A6581B /* GCMService.h */,
+				562F4A5B1CE6055F00A6581B /* GoogleCloudMessaging.h */,
+			);
+			path = GoogleCloudMessaging;
+			sourceTree = "<group>";
+		};
+		562F4A5C1CE6055F00A6581B /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A5D1CE6055F00A6581B /* GGLInstanceID */,
+				562F4A621CE6055F00A6581B /* Google */,
+				562F4A711CE6055F00A6581B /* GoogleCloudMessaging */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		562F4A5D1CE6055F00A6581B /* GGLInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A5E1CE6055F00A6581B /* GGLInstanceID.h */,
+				562F4A5F1CE6055F00A6581B /* GGLInstanceIDConfig.h */,
+				562F4A601CE6055F00A6581B /* GGLInstanceIDDelegate.h */,
+				562F4A611CE6055F00A6581B /* GGLInstanceIDHeaders.h */,
+			);
+			path = GGLInstanceID;
+			sourceTree = "<group>";
+		};
+		562F4A621CE6055F00A6581B /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A631CE6055F00A6581B /* Google */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		562F4A631CE6055F00A6581B /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A641CE6055F00A6581B /* AdMob-Module.h */,
+				562F4A651CE6055F00A6581B /* Analytics-Module.h */,
+				562F4A661CE6055F00A6581B /* AppInvite-Module.h */,
+				562F4A671CE6055F00A6581B /* CloudMessaging-Module.h */,
+				562F4A681CE6055F00A6581B /* CloudMessaging.h */,
+				562F4A691CE6055F00A6581B /* Core-Module.h */,
+				562F4A6A1CE6055F00A6581B /* Core.h */,
+				562F4A6B1CE6055F00A6581B /* GGLConfiguration.h */,
+				562F4A6C1CE6055F00A6581B /* GGLContext+CloudMessaging.h */,
+				562F4A6D1CE6055F00A6581B /* GGLContext.h */,
+				562F4A6E1CE6055F00A6581B /* GGLErrorCode.h */,
+				562F4A6F1CE6055F00A6581B /* GMRConfiguration.h */,
+				562F4A701CE6055F00A6581B /* SignIn-Module.h */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		562F4A711CE6055F00A6581B /* GoogleCloudMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A721CE6055F00A6581B /* GCMConfig.h */,
+				562F4A731CE6055F00A6581B /* GCMPubSub.h */,
+				562F4A741CE6055F00A6581B /* GCMReceiverDelegate.h */,
+				562F4A751CE6055F00A6581B /* GCMService.h */,
+				562F4A761CE6055F00A6581B /* GoogleCloudMessaging.h */,
+			);
+			path = GoogleCloudMessaging;
+			sourceTree = "<group>";
+		};
+		562F4A771CE6055F00A6581B /* Local Podspecs */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A781CE6055F00A6581B /* SwiftyJSON.podspec.json */,
+			);
+			path = "Local Podspecs";
+			sourceTree = "<group>";
+		};
+		562F4A7B1CE6055F00A6581B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				562F4AB01CE6055F00A6581B /* AEXML.framework */,
+				562F4AB21CE6055F00A6581B /* Alamofire.framework */,
+				562F4AB41CE6055F00A6581B /* AlamofireImage.framework */,
+				562F4AB61CE6055F00A6581B /* Pods_GolfApp.framework */,
+				562F4AB81CE6055F00A6581B /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		562F4A7D1CE6055F00A6581B /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A7E1CE6055F00A6581B /* LICENSE */,
+				562F4A7F1CE6055F00A6581B /* README.md */,
+				562F4A801CE6055F00A6581B /* Source */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		562F4A801CE6055F00A6581B /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A811CE6055F00A6581B /* SwiftyJSON.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		562F4A821CE6055F00A6581B /* Target Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A831CE6055F00A6581B /* AEXML */,
+				562F4A8A1CE6055F00A6581B /* Alamofire */,
+				562F4A911CE6055F00A6581B /* AlamofireImage */,
+				562F4A981CE6055F00A6581B /* Pods-GolfApp */,
+				562F4AA31CE6055F00A6581B /* SwiftyJSON */,
+			);
+			path = "Target Support Files";
+			sourceTree = "<group>";
+		};
+		562F4A831CE6055F00A6581B /* AEXML */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A841CE6055F00A6581B /* AEXML-dummy.m */,
+				562F4A851CE6055F00A6581B /* AEXML-prefix.pch */,
+				562F4A861CE6055F00A6581B /* AEXML-umbrella.h */,
+				562F4A871CE6055F00A6581B /* AEXML.modulemap */,
+				562F4A881CE6055F00A6581B /* AEXML.xcconfig */,
+				562F4A891CE6055F00A6581B /* Info.plist */,
+			);
+			path = AEXML;
+			sourceTree = "<group>";
+		};
+		562F4A8A1CE6055F00A6581B /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A8B1CE6055F00A6581B /* Alamofire-dummy.m */,
+				562F4A8C1CE6055F00A6581B /* Alamofire-prefix.pch */,
+				562F4A8D1CE6055F00A6581B /* Alamofire-umbrella.h */,
+				562F4A8E1CE6055F00A6581B /* Alamofire.modulemap */,
+				562F4A8F1CE6055F00A6581B /* Alamofire.xcconfig */,
+				562F4A901CE6055F00A6581B /* Info.plist */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		562F4A911CE6055F00A6581B /* AlamofireImage */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A921CE6055F00A6581B /* AlamofireImage-dummy.m */,
+				562F4A931CE6055F00A6581B /* AlamofireImage-prefix.pch */,
+				562F4A941CE6055F00A6581B /* AlamofireImage-umbrella.h */,
+				562F4A951CE6055F00A6581B /* AlamofireImage.modulemap */,
+				562F4A961CE6055F00A6581B /* AlamofireImage.xcconfig */,
+				562F4A971CE6055F00A6581B /* Info.plist */,
+			);
+			path = AlamofireImage;
+			sourceTree = "<group>";
+		};
+		562F4A981CE6055F00A6581B /* Pods-GolfApp */ = {
+			isa = PBXGroup;
+			children = (
+				562F4A991CE6055F00A6581B /* Info.plist */,
+				562F4A9A1CE6055F00A6581B /* Pods-GolfApp-acknowledgements.markdown */,
+				562F4A9B1CE6055F00A6581B /* Pods-GolfApp-acknowledgements.plist */,
+				562F4A9C1CE6055F00A6581B /* Pods-GolfApp-dummy.m */,
+				562F4A9D1CE6055F00A6581B /* Pods-GolfApp-frameworks.sh */,
+				562F4A9E1CE6055F00A6581B /* Pods-GolfApp-resources.sh */,
+				562F4A9F1CE6055F00A6581B /* Pods-GolfApp-umbrella.h */,
+				562F4AA01CE6055F00A6581B /* Pods-GolfApp.debug.xcconfig */,
+				562F4AA11CE6055F00A6581B /* Pods-GolfApp.modulemap */,
+				562F4AA21CE6055F00A6581B /* Pods-GolfApp.release.xcconfig */,
+			);
+			path = "Pods-GolfApp";
+			sourceTree = "<group>";
+		};
+		562F4AA31CE6055F00A6581B /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				562F4AA41CE6055F00A6581B /* Info.plist */,
+				562F4AA51CE6055F00A6581B /* SwiftyJSON-dummy.m */,
+				562F4AA61CE6055F00A6581B /* SwiftyJSON-prefix.pch */,
+				562F4AA71CE6055F00A6581B /* SwiftyJSON-umbrella.h */,
+				562F4AA81CE6055F00A6581B /* SwiftyJSON.modulemap */,
+				562F4AA91CE6055F00A6581B /* SwiftyJSON.xcconfig */,
+			);
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		562F4AB91CE60C4700A6581B /* BaseViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				562F4ABC1CE6107C00A6581B /* BaseViewController.swift */,
+				562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */,
+			);
+			path = BaseViewControllers;
 			sourceTree = "<group>";
 		};
 		5650C6BD1CDC98BF006F5940 = {
@@ -473,6 +1303,7 @@
 		F7C4FB67F26D23514690C3C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				562F49C81CE6055F00A6581B /* Pods */,
 				1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */,
 			);
 			name = Frameworks;
@@ -518,6 +1349,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -533,12 +1367,56 @@
 			mainGroup = 5650C6BD1CDC98BF006F5940;
 			productRefGroup = 5650C6C71CDC98BF006F5940 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 562F4A7B1CE6055F00A6581B /* Products */;
+					ProjectRef = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5650C6C51CDC98BF006F5940 /* GolfApp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		562F4AB01CE6055F00A6581B /* AEXML.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AEXML.framework;
+			remoteRef = 562F4AAF1CE6055F00A6581B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		562F4AB21CE6055F00A6581B /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 562F4AB11CE6055F00A6581B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		562F4AB41CE6055F00A6581B /* AlamofireImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AlamofireImage.framework;
+			remoteRef = 562F4AB31CE6055F00A6581B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		562F4AB61CE6055F00A6581B /* Pods_GolfApp.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_GolfApp.framework;
+			remoteRef = 562F4AB51CE6055F00A6581B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		562F4AB81CE6055F00A6581B /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 562F4AB71CE6055F00A6581B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5650C6C41CDC98BF006F5940 /* Resources */ = {
@@ -625,23 +1503,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562F4ABF1CE73A6C00A6581B /* UIView+RounCorners.swift in Sources */,
 				560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */,
 				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
 				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
 				560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */,
 				5651AEED1CE4C0A700040520 /* Global.swift in Sources */,
+				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
-				562F49C71CE5EA5E00A6581B /* BaseTableViewController.swift in Sources */,
+				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
-				560E3C911CE137A2006F8655 /* DetailTableController.swift in Sources */,
+				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
@@ -764,7 +1644,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.golfapp.gclacote141;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -779,7 +1659,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.golfapp.gclacote141;
 				PRODUCT_NAME = "$(TARGET_NAME)";

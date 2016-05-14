@@ -11,7 +11,7 @@ import UIKit
     private let identifierOfPageController = "PageController"
 
 
-class SwipePageCourseController: UIViewController , UIPageViewControllerDataSource {
+class SwipePageCourseController: BaseViewController , UIPageViewControllerDataSource {
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
@@ -26,7 +26,7 @@ class SwipePageCourseController: UIViewController , UIPageViewControllerDataSour
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(courseImage)
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_btn_detail_nav_bar")
         createPageViewController()
         setupPageControl()
     }
@@ -85,7 +85,6 @@ class SwipePageCourseController: UIViewController , UIPageViewControllerDataSour
         if itemIndex < courseImage.count {
             let pageItemController = self.storyboard!.instantiateViewControllerWithIdentifier("ItemController") as! PageItemController
             pageItemController.itemIndex = itemIndex
-               // ***************************
             pageItemController.imageName = courseImage[itemIndex]
             return pageItemController
         }
