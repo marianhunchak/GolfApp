@@ -87,6 +87,10 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
          self.performSegueWithIdentifier(segueIdetifireToSwipeCourseController, sender: self)
     }
     
+    func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
+        self.performSegueWithIdentifier("showFacilites", sender: self)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSwipeCourseController" {
             let destinationController = segue.destinationViewController as! SwipePageCourseController

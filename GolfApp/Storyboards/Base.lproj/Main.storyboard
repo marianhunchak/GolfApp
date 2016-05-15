@@ -54,6 +54,64 @@
             </objects>
             <point key="canvasLocation" x="264" y="-31"/>
         </scene>
+        <!--Facilites Collection View Controller-->
+        <scene sceneID="M22-wA-6gj">
+            <objects>
+                <viewController id="MeF-WL-zuX" customClass="FacilitesCollectionViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rF4-BK-U8S"/>
+                        <viewControllerLayoutGuide type="bottom" id="SuB-iZ-hLA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M7C-CZ-qcH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Ai-4b-oGr">
+                                <rect key="frame" x="12" y="76" width="576" height="512"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="F6v-aS-slG">
+                                        <rect key="frame" x="0.0" y="0.0" width="576" height="512"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AMF-l5-zGs">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="MeF-WL-zuX" id="eAm-jA-cy4"/>
+                                            <outlet property="delegate" destination="MeF-WL-zuX" id="EBN-9R-qb1"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.19215686274509805" green="0.19215686274509805" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="F6v-aS-slG" firstAttribute="leading" secondItem="3Ai-4b-oGr" secondAttribute="leading" id="05h-ZR-IoC"/>
+                                    <constraint firstAttribute="bottom" secondItem="F6v-aS-slG" secondAttribute="bottom" id="3DM-6j-07Q"/>
+                                    <constraint firstItem="F6v-aS-slG" firstAttribute="top" secondItem="3Ai-4b-oGr" secondAttribute="top" id="azw-jz-iF6"/>
+                                    <constraint firstAttribute="trailing" secondItem="F6v-aS-slG" secondAttribute="trailing" id="xWV-cy-KRb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78431372549019607" green="0.86274509803921573" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3Ai-4b-oGr" secondAttribute="trailing" constant="12" id="0IO-ET-K0I"/>
+                            <constraint firstItem="SuB-iZ-hLA" firstAttribute="top" secondItem="3Ai-4b-oGr" secondAttribute="bottom" constant="12" id="2P9-bY-tci"/>
+                            <constraint firstItem="3Ai-4b-oGr" firstAttribute="leading" secondItem="M7C-CZ-qcH" secondAttribute="leading" constant="12" id="Fqz-ea-FbX"/>
+                            <constraint firstItem="3Ai-4b-oGr" firstAttribute="top" secondItem="rF4-BK-U8S" secondAttribute="bottom" constant="12" id="Nmj-OJ-ABK"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="backgroundCollectionView" destination="3Ai-4b-oGr" id="FsZ-wO-gXH"/>
+                        <outlet property="facilitesCollectonView" destination="F6v-aS-slG" id="jtS-Qo-bkt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p82-MR-pCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="699"/>
+        </scene>
         <!--Detail Table Controller-->
         <scene sceneID="Z9j-LV-aDO">
             <objects>
@@ -69,6 +127,7 @@
                     </tableView>
                     <connections>
                         <segue destination="haB-bB-DY2" kind="show" identifier="showSwipeCourseController" id="Wv1-cd-E13"/>
+                        <segue destination="MeF-WL-zuX" kind="show" identifier="showFacilites" id="8cp-T7-uTn"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKb-J3-3gT" userLabel="First Responder" sceneMemberID="firstResponder"/>

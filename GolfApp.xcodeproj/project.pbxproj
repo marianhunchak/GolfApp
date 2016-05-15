@@ -53,6 +53,9 @@
 		840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840940341CE4A5350005A97E /* TeeTimeView.swift */; };
 		8436176F1CE2389900F96599 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436176E1CE2389900F96599 /* ContactView.xib */; };
 		843617711CE2389E00F96599 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843617701CE2389E00F96599 /* ContactView.swift */; };
+		8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */; };
+		8441945F1CE61B4C0056742E /* FacilitesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */; };
+		84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +108,9 @@
 		840940341CE4A5350005A97E /* TeeTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeeTimeView.swift; sourceTree = "<group>"; };
 		8436176E1CE2389900F96599 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactView.xib; sourceTree = "<group>"; };
 		843617701CE2389E00F96599 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionViewController.swift; sourceTree = "<group>"; };
+		8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacilitesCollectionCell.xib; sourceTree = "<group>"; };
+		84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionCell.swift; sourceTree = "<group>"; };
 		D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +257,7 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8441945D1CE61A450056742E /* FacilitesCollectionCell */,
 				840940311CE4A02F0005A97E /* TeeTimeView */,
 				8407A5B21CE32D9100500E19 /* DetailInfoCell */,
 				8407A5AF1CE3286E00500E19 /* ViewForDetailHeader */,
@@ -457,6 +464,7 @@
 		840940361CE4B60D0005A97E /* FacilitiesController */ = {
 			isa = PBXGroup;
 			children = (
+				8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */,
 			);
 			name = FacilitiesController;
 			sourceTree = "<group>";
@@ -468,6 +476,15 @@
 				8436176E1CE2389900F96599 /* ContactView.xib */,
 			);
 			name = ContactView;
+			sourceTree = "<group>";
+		};
+		8441945D1CE61A450056742E /* FacilitesCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */,
+				84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */,
+			);
+			name = FacilitesCollectionCell;
 			sourceTree = "<group>";
 		};
 		F7C4FB67F26D23514690C3C9 /* Frameworks */ = {
@@ -558,6 +575,7 @@
 				560E3C9E1CE137A2006F8655 /* Assets.xcassets in Resources */,
 				840940331CE4A0950005A97E /* TeeTimeView.xib in Resources */,
 				8407A5B41CE32DD600500E19 /* DetailInfoCell.xib in Resources */,
+				8441945F1CE61B4C0056742E /* FacilitesCollectionCell.xib in Resources */,
 				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
 				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
@@ -626,6 +644,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */,
+				8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */,
 				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
 				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
 				560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */,
@@ -637,6 +656,7 @@
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
 				562F49C71CE5EA5E00A6581B /* BaseTableViewController.swift in Sources */,
+				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
