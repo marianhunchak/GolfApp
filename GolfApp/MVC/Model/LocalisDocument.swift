@@ -37,7 +37,7 @@ class LocalisationDocument {
         var returningString = ""
         
         if let titles = xmlDOC?.root["string"].allWithAttributes(["name" : pName]) {
-            print(titles.first?.stringValue)
+//            print(titles.first?.stringValue)
             returningString = (titles.first?.stringValue)!
         }
         
