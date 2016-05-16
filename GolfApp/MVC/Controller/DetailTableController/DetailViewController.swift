@@ -49,9 +49,7 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
 //        self.tableView.rowHeight = UITableViewAutomaticDimension;
 
         NetworkManager.sharedInstance.getRate(urlToRate: urlToRate) { array in
-        
             self.rateArray = array!
-            
         }
     }
     
@@ -110,11 +108,11 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         
         categories.setButtonEnabled(categories.button1, enabled: arrayOfImages.count > 0 ? true : false)
         categories.setButtonEnabled(categories.button2, enabled: true)
-        categories.setButtonEnabled(categories.button3, enabled: rateArray.count > 0 ? true : false)
+        categories.setButtonEnabled(categories.button3, enabled: course.rate_count > 0 ? true : false)
         categories.delegate = self
     }
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        self.performSegueWithIdentifier("showFacilites", sender: self)
+        self.performSegueWithIdentifier("showFacilities", sender: self)
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         self.performSegueWithIdentifier("showRates", sender: self)

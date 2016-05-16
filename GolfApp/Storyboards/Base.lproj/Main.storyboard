@@ -50,10 +50,72 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="96i-BO-Qn3"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="CXf-3n-VVW" kind="show" identifier="showProsList" id="eG5-vN-yhs"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-6x-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="264" y="-31"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="K5S-FZ-TAx">
+            <objects>
+                <viewController id="CXf-3n-VVW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FEn-2r-KpE"/>
+                        <viewControllerLayoutGuide type="bottom" id="IzY-gW-Scc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Re2-Yo-ksG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="WPl-kx-N8D" kind="show" identifier="showPros" id="FyV-oJ-WC8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYc-KP-EFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="629"/>
+        </scene>
+        <!--Pros View Controller-->
+        <scene sceneID="PGE-fT-fwp">
+            <objects>
+                <viewController id="WPl-kx-N8D" customClass="ProsViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZR1-E3-vdg"/>
+                        <viewControllerLayoutGuide type="bottom" id="oyP-6R-e0q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lr2-w6-ynq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-9U-Pzz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="WPl-kx-N8D" id="iX7-gY-RgT"/>
+                                    <outlet property="delegate" destination="WPl-kx-N8D" id="3dY-uG-sKA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Amp-9U-Pzz" firstAttribute="top" secondItem="lr2-w6-ynq" secondAttribute="top" constant="64" id="6B7-oM-sN4"/>
+                            <constraint firstItem="oyP-6R-e0q" firstAttribute="top" secondItem="Amp-9U-Pzz" secondAttribute="bottom" id="IWI-oJ-okY"/>
+                            <constraint firstAttribute="trailing" secondItem="Amp-9U-Pzz" secondAttribute="trailing" id="NPA-qc-lcq"/>
+                            <constraint firstItem="Amp-9U-Pzz" firstAttribute="leading" secondItem="lr2-w6-ynq" secondAttribute="leading" id="QaY-pZ-BsU"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="prosTableView" destination="Amp-9U-Pzz" id="9Hx-48-kTn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hpc-Mt-DpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264" y="1318"/>
         </scene>
         <!--Facilites Collection View Controller-->
         <scene sceneID="M22-wA-6gj">
@@ -111,7 +173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p82-MR-pCo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="943" y="699"/>
+            <point key="canvasLocation" x="1554" y="823"/>
         </scene>
         <!--Rate View Controller-->
         <scene sceneID="WuT-HP-jD4">
@@ -131,7 +193,7 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateCell" id="9Bd-Hu-lBK">
-                                        <rect key="frame" x="0.0" y="1" width="576" height="44"/>
+                                        <rect key="frame" x="0.0" y="65" width="576" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Bd-Hu-lBK" id="93v-pN-7qm">
                                             <rect key="frame" x="0.0" y="0.0" width="576" height="43"/>
@@ -160,30 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1l-ZZ-zwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="699"/>
-        </scene>
-        <!--Detail Table Controller-->
-        <scene sceneID="Z9j-LV-aDO">
-            <objects>
-                <tableViewController storyboardIdentifier="DetailTableController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nAe-6n-uoU" customClass="DetailTableController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mu0-OT-at1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.7843137255" green="0.86274509799999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="nAe-6n-uoU" id="dbY-R6-KSD"/>
-                            <outlet property="delegate" destination="nAe-6n-uoU" id="sNR-OH-oHK"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <segue destination="haB-bB-DY2" kind="show" identifier="showSwipeCourseController" id="Wv1-cd-E13"/>
-                        <segue destination="MeF-WL-zuX" kind="show" identifier="showFacilites" id="8cp-T7-uTn"/>
-                        <segue destination="LwV-BP-yQI" kind="show" identifier="showRates" id="0I4-FB-Cxw"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gKb-J3-3gT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="930" y="31"/>
+            <point key="canvasLocation" x="2316" y="823"/>
         </scene>
         <!--List Table Controller-->
         <scene sceneID="TsG-aE-wye">
@@ -209,6 +248,7 @@
         <!--Detail View Controller-->
         <scene sceneID="UkS-xh-kcy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3q-Ac-3Ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h7Z-Qm-oUz" customClass="DetailViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sc3-bM-8rb"/>
@@ -248,9 +288,10 @@
                     <connections>
                         <outlet property="headerView" destination="K6G-Y8-RKe" id="45f-hV-1ii"/>
                         <outlet property="tableView" destination="Xat-nm-wom" id="s0z-rU-z2A"/>
+                        <segue destination="MeF-WL-zuX" kind="show" identifier="showFacilities" id="4nH-qq-daa"/>
+                        <segue destination="LwV-BP-yQI" kind="show" identifier="showRates" id="LFx-Dt-DGC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H3q-Ac-3Ma" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="924" y="-33"/>
         </scene>

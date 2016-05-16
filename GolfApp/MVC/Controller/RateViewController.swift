@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let cellIdetifire = "RateCell"
+private let cellIdetifier = "RateCell"
 
 class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
     
@@ -19,8 +19,12 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         super.viewDidLoad()
         
         rateTableView.layer.cornerRadius = 5
+        rateTableView.layer.masksToBounds = true
         self.rateTableView.estimatedSectionHeaderHeight = 30
         self.rateTableView.estimatedRowHeight = 20
+        
+        let nib = UINib(nibName: "RateCell", bundle: nil)
+        rateTableView.registerNib(nib, forCellReuseIdentifier: cellIdetifier)
     }
     
     //MARK: UITableViewDataSource
@@ -39,14 +43,15 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdetifire, forIndexPath: indexPath) as! RateCell
-        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdetifier, forIndexPath: indexPath) as! RateCell
+        cell.frame = CGRect(origin: CGPointZero, size: CGSizeMake(tableView.frame.width, tableView.frame.height))
         if rateArray.count > 0 {
             
             let lRate = rateArray[indexPath.section]
 
             cell.toursLabel.text = lRate.items[indexPath.row].descr
             cell.priceLabel.text = lRate.items[indexPath.row].price
+            cell.priceLabel.sizeToFit()
             
             }
  

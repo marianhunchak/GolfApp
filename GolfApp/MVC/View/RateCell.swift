@@ -16,21 +16,8 @@ class RateCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-    }
-
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
-    }
-    
-    static func loadViewFromNib() -> RateCell
-    {
-        let nib = UINib(nibName: "RateCell", bundle: nil)
-        let cell = nib.instantiateWithOwner(self, options: nil)[0] as! RateCell
-        
-        return cell
+        toursLabel.intrinsicContentSize().width
+        priceLabel.intrinsicContentSize().width
     }
 
 }

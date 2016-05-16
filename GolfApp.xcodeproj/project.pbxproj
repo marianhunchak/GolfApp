@@ -31,6 +31,7 @@
 		560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA31CE138CE006F8655 /* Default-568h@2x.png */; };
 		5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */; };
 		5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B81CE4E699001B6E2F /* Profile.swift */; };
+		562ECB6C1CE9FA5100985213 /* ProsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECB6B1CE9FA5100985213 /* ProsViewController.swift */; };
 		562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */; };
 		562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */; };
 		562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABC1CE6107C00A6581B /* BaseViewController.swift */; };
@@ -132,6 +133,7 @@
 		560E3CA51CE13921006F8655 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisDocument.swift; sourceTree = "<group>"; };
 		5624E2B81CE4E699001B6E2F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		562ECB6B1CE9FA5100985213 /* ProsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsViewController.swift; sourceTree = "<group>"; };
 		562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+CustomColor.swift"; path = "Extensions/UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		562F49CA1CE6055F00A6581B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		562F49CB1CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				562ECB651CE9F97900985213 /* ProsViewController */,
 				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				84F6100E1CE90C5F00FF3A87 /* RateController */,
 				840940361CE4B60D0005A97E /* FacilitiesController */,
@@ -489,7 +492,6 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-
 				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
 				8436176D1CE2388700F96599 /* ContactView */,
 				84FEF1E81CE9D00700D72858 /* RateCell */,
@@ -586,6 +588,14 @@
 				5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */,
 			);
 			name = LocalisationDocument;
+			sourceTree = "<group>";
+		};
+		562ECB651CE9F97900985213 /* ProsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				562ECB6B1CE9FA5100985213 /* ProsViewController.swift */,
+			);
+			name = ProsViewController;
 			sourceTree = "<group>";
 		};
 		562F49C81CE6055F00A6581B /* Pods */ = {
@@ -1586,6 +1596,7 @@
 				560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */,
 				5651AEED1CE4C0A700040520 /* Global.swift in Sources */,
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
+				562ECB6C1CE9FA5100985213 /* ProsViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
@@ -1593,14 +1604,12 @@
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
-
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
-
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,

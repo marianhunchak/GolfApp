@@ -118,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         // token to enable reception of notifications
         GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
         registrationOptions = [kGGLInstanceIDRegisterAPNSOption:deviceToken,
-                               kGGLInstanceIDAPNSServerTypeSandboxOption:true]
+                               kGGLInstanceIDAPNSServerTypeSandboxOption:false]
         GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(gcmSenderID,
                                                                  scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
         // [END get_gcm_reg_token]
@@ -171,7 +171,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             
             NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
             })
-            //            NetworkManager.sharedInstance.unregisterDevice()
+//                        NetworkManager.sharedInstance.unregisterDevice()
         } else {
             print("Registration to GCM failed with error: \(error.localizedDescription)")
         }

@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "parcoursCell"
 private let parcouseTableCellNibname = "CoursTableCell"
-private let indifireOfDetailTableController = "DetailViewController"
+private let detailConreoolerIdentfier = "DetailViewController"
 
 private let course_1_Images = ["course_1_hole_1.jpg",  "course_1_hole_2.jpg",  "course_1_hole_3.jpg",
                                "course_1_hole_4",      "course_1_hole_5.jpg",  "course_1_hole_6.jpg",
@@ -73,10 +73,12 @@ class ListTableController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(indifireOfDetailTableController) as! DetailViewController
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailConreoolerIdentfier) as! DetailViewController
         
+        if indexPath.row < coursesImages.count {
+            vc.arrayOfImages =  coursesImages[indexPath.row]
+        }
         vc.course = coursesArray[indexPath.row]
-        vc.arrayOfImages = coursesImages[indexPath.row]
         vc.facilitiesArray = coursesArray[indexPath.row].facilities as! [String]
         vc.urlToRate = coursesArray[indexPath.row].rate_url as String
 
