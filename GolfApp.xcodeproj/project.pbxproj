@@ -42,6 +42,7 @@
 		5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE51CE4BE7E00040520 /* string_spanish.xml */; };
 		5651AEED1CE4C0A700040520 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651AEEC1CE4C0A700040520 /* Global.swift */; };
 		5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */; };
+		565BE0121CE8AE230018251E /* UIView+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BE0111CE8AE230018251E /* UIView+Size.swift */; };
 		5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */; };
 		5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */; };
 		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
@@ -305,6 +306,7 @@
 		5651AEE51CE4BE7E00040520 /* string_spanish.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_spanish.xml; sourceTree = "<group>"; };
 		5651AEEC1CE4C0A700040520 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		565BE0111CE8AE230018251E /* UIView+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Size.swift"; path = "GolfApp/Helpers/Extensions/UIView+Size.swift"; sourceTree = SOURCE_ROOT; };
 		5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMAL LT.ttf"; sourceTree = "<group>"; };
 		5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMEL LT SEMI-BOLD.ttf"; sourceTree = "<group>"; };
 		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				560E3C671CE137A2006F8655 /* Parser */,
 				562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */,
 				562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */,
+				565BE0111CE8AE230018251E /* UIView+Size.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1507,6 +1510,7 @@
 				560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */,
 				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
 				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
+				565BE0121CE8AE230018251E /* UIView+Size.swift in Sources */,
 				560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */,
 				5651AEED1CE4C0A700040520 /* Global.swift in Sources */,
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,

@@ -21,7 +21,6 @@ class BaseTableViewController: UITableViewController {
         
         let backButton = UIBarButtonItem.init(image: UIImage(named: "a_back_btn"), style: .Plain, target: self, action: #selector(showPreviousController))
         backButton.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        
         let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: self, action: nil)
         negativeSpacer.width = -10
         

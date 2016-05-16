@@ -29,6 +29,11 @@ class PageItemController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        contentImageView?.layer.cornerRadius = 5
+        contentImageView?.layer.masksToBounds = true
+        
         contentImageView!.image = UIImage(named: imageName)
+        
     }
 }

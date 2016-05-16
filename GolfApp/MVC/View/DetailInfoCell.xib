@@ -32,13 +32,22 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42m-2e-mfd">
                         <rect key="frame" x="12" y="12" width="324" height="91"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-ys-2Ji">
-                                <rect key="frame" x="8" y="3" width="308" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJq-ys-2Ji">
+                                <rect key="frame" x="8" y="11" width="308" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="IF5-YQ-l9b"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="IF5-YQ-l9b"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="14"/>
                                 <color key="textColor" red="0.4823529411764706" green="0.65490196078431373" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-bF-eZX">
+                                <rect key="frame" x="8" y="66" width="308" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="qze-O8-qD1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18-hole-Par 70 - 5666 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="czc-vN-3nT">
@@ -50,25 +59,22 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-bF-eZX">
-                                <rect key="frame" x="8" y="66" width="308" height="17"/>
-                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686274509805" green="0.19215686274509805" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yPs-bF-eZX" secondAttribute="trailing" constant="8" id="5Vj-GQ-AXi"/>
                             <constraint firstItem="yPs-bF-eZX" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="7Oi-4D-1Oo"/>
                             <constraint firstAttribute="trailing" secondItem="czc-vN-3nT" secondAttribute="trailing" constant="8" id="N4O-Ze-2mn"/>
-                            <constraint firstItem="iJq-ys-2Ji" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" constant="3" id="S1S-Am-vSZ"/>
+                            <constraint firstItem="czc-vN-3nT" firstAttribute="top" secondItem="iJq-ys-2Ji" secondAttribute="bottom" constant="5" id="ROw-xk-KQ9"/>
+                            <constraint firstItem="iJq-ys-2Ji" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" constant="11" id="S1S-Am-vSZ"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iJq-ys-2Ji" secondAttribute="bottom" constant="59" id="WeH-Xx-ikd"/>
                             <constraint firstAttribute="trailing" secondItem="iJq-ys-2Ji" secondAttribute="trailing" constant="8" id="arD-Z0-sTM"/>
                             <constraint firstAttribute="bottom" secondItem="yPs-bF-eZX" secondAttribute="bottom" constant="8" id="c66-Q2-KI3"/>
+                            <constraint firstItem="yPs-bF-eZX" firstAttribute="top" secondItem="czc-vN-3nT" secondAttribute="bottom" constant="8" id="g7g-kN-WtN"/>
                             <constraint firstItem="iJq-ys-2Ji" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="htu-gO-Z8x"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="91" id="kB7-XH-4Qn"/>
+                            <constraint firstItem="yPs-bF-eZX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="42m-2e-mfd" secondAttribute="top" constant="66" id="lEC-Bc-S7K"/>
                             <constraint firstItem="czc-vN-3nT" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="oqV-mL-GEb"/>
-                            <constraint firstItem="yPs-bF-eZX" firstAttribute="top" secondItem="czc-vN-3nT" secondAttribute="bottom" constant="8" id="w7m-Ye-jIZ"/>
-                            <constraint firstItem="czc-vN-3nT" firstAttribute="top" secondItem="iJq-ys-2Ji" secondAttribute="bottom" constant="-2" id="xCZ-Et-FEN"/>
                         </constraints>
                     </view>
                 </subviews>

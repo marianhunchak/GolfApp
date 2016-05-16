@@ -88,13 +88,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6G-Y8-RKe">
-                                <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ubp-3V-pBn"/>
+                                    <constraint firstAttribute="height" constant="45" id="Ubp-3V-pBn"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xat-nm-wom">
-                                <rect key="frame" x="0.0" y="114" width="600" height="486"/>
+                                <rect key="frame" x="0.0" y="109" width="600" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="h7Z-Qm-oUz" id="bsx-XA-IFZ"/>
@@ -106,7 +106,7 @@
                         <constraints>
                             <constraint firstItem="K6G-Y8-RKe" firstAttribute="leading" secondItem="Deh-8d-AVW" secondAttribute="leading" id="CQz-LW-3lT"/>
                             <constraint firstAttribute="trailing" secondItem="K6G-Y8-RKe" secondAttribute="trailing" id="E7o-cZ-WhL"/>
-                            <constraint firstItem="L9r-U6-Yc1" firstAttribute="top" secondItem="Xat-nm-wom" secondAttribute="bottom" id="G97-zC-Qel"/>
+                            <constraint firstItem="L9r-U6-Yc1" firstAttribute="top" secondItem="Xat-nm-wom" secondAttribute="bottom" constant="-2" id="G97-zC-Qel"/>
                             <constraint firstAttribute="trailing" secondItem="Xat-nm-wom" secondAttribute="trailing" id="HIW-CY-WhO"/>
                             <constraint firstItem="Xat-nm-wom" firstAttribute="leading" secondItem="Deh-8d-AVW" secondAttribute="leading" id="IL9-jc-g5j"/>
                             <constraint firstItem="Xat-nm-wom" firstAttribute="top" secondItem="K6G-Y8-RKe" secondAttribute="bottom" id="RcY-e4-zsr"/>
@@ -136,6 +136,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtd-7d-h6O" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,15 +155,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mn7-S9-W8z">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="16" y="84" width="568" height="516"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.89512310610000001" green="0.89512310610000001" blue="0.89512310610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Mn7-S9-W8z" secondAttribute="trailing" id="DDD-Mc-qhJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Mn7-S9-W8z" secondAttribute="trailing" constant="16" id="DDD-Mc-qhJ"/>
                             <constraint firstItem="A6a-Q6-GJm" firstAttribute="top" secondItem="Mn7-S9-W8z" secondAttribute="bottom" id="Fco-2e-OSg"/>
-                            <constraint firstItem="Mn7-S9-W8z" firstAttribute="leading" secondItem="c60-Zu-TjG" secondAttribute="leading" id="t0t-GV-RIy"/>
-                            <constraint firstItem="Mn7-S9-W8z" firstAttribute="top" secondItem="cKI-6T-DLh" secondAttribute="bottom" id="vfH-9t-rRV"/>
+                            <constraint firstItem="Mn7-S9-W8z" firstAttribute="leading" secondItem="c60-Zu-TjG" secondAttribute="leading" constant="16" id="t0t-GV-RIy"/>
+                            <constraint firstItem="Mn7-S9-W8z" firstAttribute="top" secondItem="cKI-6T-DLh" secondAttribute="bottom" constant="20" id="vfH-9t-rRV"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -178,7 +179,9 @@
         <!--Page View Controller-->
         <scene sceneID="2mA-1s-57G">
             <objects>
-                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KUz-MS-Mr0" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="KUz-MS-Mr0" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1W8-dX-CwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2282" y="-31"/>

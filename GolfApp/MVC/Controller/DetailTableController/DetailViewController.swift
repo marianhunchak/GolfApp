@@ -37,6 +37,8 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         self.setupHeaderView()
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.view.backgroundColor = Global.viewsBackgroundColor
+        self.tableView.estimatedRowHeight = 80;
+//        self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
     
     // MARK: - Table view data source
@@ -73,7 +75,11 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.view.frame.height / 3.0
+        if indexPath.row == 0 {
+            return self.view.frame.height / 3.0
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
     //MARK: CourseHeaderDelegate
     

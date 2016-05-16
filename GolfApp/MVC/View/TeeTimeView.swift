@@ -31,11 +31,6 @@ class TeeTimeView : UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        title.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_book_tee_pop_up_title")
-        email.titleLabel?.text = LocalisationDocument.sharedInstance.getStringWhinName("email_button_btn")
-        telephone.titleLabel?.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_phone_btn")
-        cancel.titleLabel?.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_cancel_btn")
-        
         email.layer.cornerRadius = 5
         telephone.layer.cornerRadius = 5
         cancel.layer.cornerRadius = 5
@@ -61,6 +56,10 @@ class TeeTimeView : UIView {
     {
         let nib = UINib(nibName: "TeeTimeView", bundle: nil)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! TeeTimeView
+        view.title.text = LocalisationDocument.sharedInstance.getStringWhinName("tt_book_tee_pop_up_title")
+        view.email.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("email_button_btn"), forState: .Normal)
+        view.telephone.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("tt_phone_btn"), forState: .Normal)
+        view.cancel.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("tt_cancel_btn"), forState: .Normal)
         
         return view
     }

@@ -21,8 +21,6 @@ class NetworkManager {
     
     func registerDeviceWhithToken( tokenString: String, completion: (NSArray?, NSError?) -> Void)  {
         
-        print(LocalisationDocument.sharedInstance.getStringWhinName("tt_book_tee_pop_up_title"))
-        
         let parameters = [
             "device_token": tokenString,
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
@@ -36,7 +34,7 @@ class NetworkManager {
                 
                 if let JSON = response.result.value as? NSDictionary{
                     NSUserDefaults.standardUserDefaults().setObject(JSON["regid"], forKey: "regid")
-//                    print("JSON: \(JSON)")
+                    print("JSON: \(JSON)")
                 }
         }
     }
@@ -48,13 +46,38 @@ class NetworkManager {
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
         Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
+            .responseJSON {
+                response in switch response.result {
+                    
+                            case .Success(let JSON):
+                            print("Success with JSON: \(JSON)")
+//                            let response = JSON as! NSDictionary
+                    
+                            case .Failure(let error):
+                            print("Request failed with error: \(error)")
+                    
+                            }
+
+        }
+    }
+    
+    func getNotifications(completion: (NSArray?, NSError?) -> Void)  {
+        
+        let parameters = [
+            "regid": "",
+            "selector": "news"
+        ]
+        
+        Alamofire.request(.POST, "http://golfapp.ch/app_fe_dev/api/device/notifications", parameters:parameters )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
-//                    print("JSON: \(JSON)")
+                    NSUserDefaults.standardUserDefaults().setObject(JSON["regid"], forKey: "regid")
+                    print("JSON: \(JSON)")
                 }
         }
     }
+    
     
     //MARK: Profile & Advertising
     
@@ -107,9 +130,6 @@ class NetworkManager {
         if let image = HCCache.sharedCache.imageWithIdentifier(imageName) {
             completion(image)
         } else {
-            
-//            completion(nil)
-            
             Alamofire.request(.GET, imageURL)
                 .responseImage { response in
                     

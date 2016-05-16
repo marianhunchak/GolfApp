@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    convenience init(colorCode: String, alpha: Float = 1.0){
+    convenience init(colorCode: String, alpha: Float = 1.0) {
         let scanner = NSScanner(string:colorCode)
         var color:UInt32 = 0;
         scanner.scanHexInt(&color)

@@ -21,7 +21,7 @@ class MainCollectionController: UICollectionViewController  {
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
                               "hm_contact_btn",  "hm_news_btn",    "hm_htls_btn"]
     
-    var menuItemsImgArray = ["a_tee_time", "a_restaurant", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
+    var menuItemsImgArray = ["a_tee_time", "a_restaurant_off", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
