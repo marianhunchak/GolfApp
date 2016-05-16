@@ -18,6 +18,8 @@ class RateCell: UITableViewCell {
         super.awakeFromNib()
         toursLabel.intrinsicContentSize().width
         priceLabel.intrinsicContentSize().width
+        
+        priceLabel.textColor = Global.navigationBarColor
     }
 
 }

@@ -4,35 +4,50 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="STONE INFROMAL LT ITALIC_0.ttf">
+            <string>StoneInformalLT-Italic</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ViewForRateHeader" customModule="GolfApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="418" height="27"/>
+            <rect key="frame" x="0.0" y="0.0" width="418" height="36"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkp-tM-xKe">
+                    <rect key="frame" x="0.0" y="0.0" width="418" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1LZ-xe-cIK">
-                    <rect key="frame" x="0.0" y="0.0" width="418" height="27"/>
+                    <rect key="frame" x="8" y="8" width="402" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="1EL-du-cR0"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="DZe-nT-nVC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="1LZ-xe-cIK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4Vx-vw-Px2"/>
-                <constraint firstAttribute="bottom" secondItem="1LZ-xe-cIK" secondAttribute="bottom" id="Bgp-eJ-CQn"/>
-                <constraint firstItem="1LZ-xe-cIK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kS9-ba-Ou5"/>
-                <constraint firstAttribute="trailing" secondItem="1LZ-xe-cIK" secondAttribute="trailing" id="uAz-aw-r6j"/>
+                <constraint firstItem="qkp-tM-xKe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2aR-V3-PcR"/>
+                <constraint firstAttribute="bottom" secondItem="qkp-tM-xKe" secondAttribute="bottom" id="742-Vk-1yT"/>
+                <constraint firstItem="1LZ-xe-cIK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Aw2-gw-zyS"/>
+                <constraint firstAttribute="trailing" secondItem="1LZ-xe-cIK" secondAttribute="trailing" constant="8" id="FhA-ZB-sQI"/>
+                <constraint firstAttribute="trailing" secondItem="qkp-tM-xKe" secondAttribute="trailing" id="IGq-iQ-OnU"/>
+                <constraint firstItem="qkp-tM-xKe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aLX-OP-tS1"/>
+                <constraint firstAttribute="bottom" secondItem="1LZ-xe-cIK" secondAttribute="bottom" constant="8" id="nnY-g5-wNh"/>
+                <constraint firstItem="1LZ-xe-cIK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xZz-tf-GWv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backgroundView" destination="qkp-tM-xKe" id="xt5-u6-B5S"/>
                 <outlet property="textLabeForRateHeader" destination="1LZ-xe-cIK" id="yii-gN-4X4"/>
             </connections>
-            <point key="canvasLocation" x="192" y="-87.5"/>
+            <point key="canvasLocation" x="195" y="-73"/>
         </view>
     </objects>
 </document>
