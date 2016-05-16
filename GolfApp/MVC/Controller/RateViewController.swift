@@ -42,7 +42,7 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RateCell", forIndexPath: indexPath) as! RateCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdetifire, forIndexPath: indexPath) as! RateCell
         
         if rateArray.count > 0 {
             
