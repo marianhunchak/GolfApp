@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RateCell" rowHeight="24" id="L5r-MY-Qb8" customClass="RateCell" customModule="GolfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="24"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L5r-MY-Qb8" id="Zng-Ai-uhY">
+                <rect key="frame" x="0.0" y="0.0" width="418" height="23"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRB-CP-ZAy">
+                        <rect key="frame" x="0.0" y="0.0" width="385" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="sPk-vR-aR0"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="385" id="yjb-vb-G2T"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hf-we-vCV">
+                        <rect key="frame" x="408" y="0.0" width="10" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="yxN-Gh-cFK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3Hf-we-vCV" firstAttribute="leading" secondItem="Zng-Ai-uhY" secondAttribute="leading" constant="408" id="4AS-fI-5iB"/>
+                    <constraint firstAttribute="bottom" secondItem="3Hf-we-vCV" secondAttribute="bottom" id="63f-bY-nHc"/>
+                    <constraint firstAttribute="trailing" secondItem="IRB-CP-ZAy" secondAttribute="trailing" constant="33" id="FXR-1g-T7P"/>
+                    <constraint firstAttribute="bottom" secondItem="IRB-CP-ZAy" secondAttribute="bottom" id="WzH-Tg-rMD"/>
+                    <constraint firstItem="IRB-CP-ZAy" firstAttribute="top" secondItem="Zng-Ai-uhY" secondAttribute="top" id="emR-ua-9mv"/>
+                    <constraint firstAttribute="trailing" secondItem="3Hf-we-vCV" secondAttribute="trailing" id="kf3-PH-ctt"/>
+                    <constraint firstItem="IRB-CP-ZAy" firstAttribute="leading" secondItem="Zng-Ai-uhY" secondAttribute="leading" id="sL2-iT-7oT"/>
+                    <constraint firstItem="3Hf-we-vCV" firstAttribute="top" secondItem="Zng-Ai-uhY" secondAttribute="top" id="xTB-Jn-wh5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="priceLabel" destination="3Hf-we-vCV" id="7Bx-vw-1Sj"/>
+                <outlet property="toursLabel" destination="IRB-CP-ZAy" id="UWA-lD-PCz"/>
+            </connections>
+            <point key="canvasLocation" x="240" y="229"/>
+        </tableViewCell>
+    </objects>
+</document>
