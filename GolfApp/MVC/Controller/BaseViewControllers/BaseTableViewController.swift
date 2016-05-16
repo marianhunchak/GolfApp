@@ -15,11 +15,17 @@ class BaseTableViewController: UITableViewController {
 
         self.navigationController?.navigationBar.barTintColor = Global.navigationBarColor
         
-        let homeButton = UIBarButtonItem.init(image: UIImage(named: "a_home_icon"), style: .Plain, target: self, action: #selector(showMainController))
+        let homeButton = UIBarButtonItem.init(image: UIImage(named: "a_home_icon"),
+                                              style: .Plain,
+                                              target: self,
+                                              action: #selector(showMainController))
         homeButton.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         self.navigationItem.rightBarButtonItem = homeButton
         
-        let backButton = UIBarButtonItem.init(image: UIImage(named: "a_back_btn"), style: .Plain, target: self, action: #selector(showPreviousController))
+        let backButton = UIBarButtonItem.init(image: UIImage(named: "a_back_btn"),
+                                              style: .Plain,
+                                              target: self,
+                                              action: #selector(showPreviousController))
         backButton.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: self, action: nil)
         negativeSpacer.width = -10

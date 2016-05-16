@@ -23,7 +23,7 @@ private let course_2_Images = ["course_2_hole_1.jpg", "course_2_hole_2.jpg", "co
                                "course_2_hole_4",     "course_2_hole_5.jpg", "course_2_hole_6.jpg",
                                "course_2_hole_7.jpg", "course_2_hole_8.jpg", "course_2_hole_9.jpg"]
 
-private let course_3_Images = ["course_2_hole_1.jpg", "course_2_hole_2.jpg", "course_2_hole_3.jpg"]
+private let coursesImages = [course_1_Images, course_2_Images]
 
 
 class ListTableController: BaseTableViewController {
@@ -74,14 +74,12 @@ class ListTableController: BaseTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier(indifireOfDetailTableController) as! DetailViewController
-        vc.course = coursesArray[indexPath.row]
         
-        if indexPath.row == 0 {
-            vc.arrayOfImages = course_1_Images
-        } else if indexPath.row == 1 {
-            vc.arrayOfImages = course_2_Images
-        } else if indexPath.row == 2 {
-        }
+        vc.course = coursesArray[indexPath.row]
+        vc.arrayOfImages = coursesImages[indexPath.row]
+        vc.facilitiesArray = coursesArray[indexPath.row].facilities as! [String]
+        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
+
 
         self.navigationController?.pushViewController(vc, animated: true)
     }

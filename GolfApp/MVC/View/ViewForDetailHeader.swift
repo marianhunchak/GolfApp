@@ -11,22 +11,14 @@ import UIKit
 protocol CourseHeaderDelegate {
     
     func tableCourseHeader(tableCourseHeader : ViewForDetailHeader ,button1Pressed button1 : AnyObject )
+    func pressedButton2(tableCourseHeader : ViewForDetailHeader ,button2Pressed button2 : AnyObject )
+    func pressedButton3(tableCourseHeader : ViewForDetailHeader ,button3Pressed button3 : AnyObject )
 }
 
 class ViewForDetailHeader: UIView {
     
     var delegate : CourseHeaderDelegate?
-    var button1Available = false {
-        didSet {
-            if button1Available {
-                button1.backgroundColor = Global.buttonOnColor
-                button1.userInteractionEnabled = true
-            }
-        }
-    }
-    var button2Available = false
-    var button3Available = false
-    
+
     // MARK: - Connections outlet elements DetailCourseHeader
     
     @IBOutlet weak var backgroundView: UIView!
@@ -62,19 +54,32 @@ class ViewForDetailHeader: UIView {
     @IBAction func button1Action(sender: AnyObject) {
         self.delegate?.tableCourseHeader(self, button1Pressed: sender)
     }
-    
+
     @IBAction func button2Action(sender: AnyObject) {
+        self.delegate?.pressedButton2(self, button2Pressed: sender)
     }
-    
     @IBAction func button3Action(sender: AnyObject) {
+        self.delegate?.pressedButton3(self, button3Pressed: sender)
     }
-    
+
+    //MARK - Private methods
     static func loadViewFromNib() -> ViewForDetailHeader
     {
         let nib = UINib(nibName: "ViewForDetailHeader", bundle: nil)
         let header = nib.instantiateWithOwner(self, options: nil)[0] as! ViewForDetailHeader
         
         return header
+    }
+    
+    func setButtonEnabled(button: UIButton, enabled: Bool) {
+    
+        if enabled {
+            button.backgroundColor = Global.buttonOnColor
+            button.userInteractionEnabled = true
+        } else {
+            button.backgroundColor = Global.buttonOffColor
+            button.userInteractionEnabled = false
+        }
     }
  
 }

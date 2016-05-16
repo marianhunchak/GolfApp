@@ -19,12 +19,19 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
   
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
+    let categories = ViewForDetailHeader.loadViewFromNib()
     var course = Course()
     var arrayOfImages = [String]()
-    let categories = ViewForDetailHeader.loadViewFromNib()
+    var facilitiesArray = [String]()
+    var urlToRate = String()
+    var rateArray = [Rate]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(urlToRate)
 
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_detail_nav_bar")
         
@@ -33,12 +40,19 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+
         
         self.setupHeaderView()
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.view.backgroundColor = Global.viewsBackgroundColor
         self.tableView.estimatedRowHeight = 80;
 //        self.tableView.rowHeight = UITableViewAutomaticDimension;
+
+        NetworkManager.sharedInstance.getRate(urlToRate: urlToRate) { array in
+        
+            self.rateArray = array!
+            
+        }
     }
     
     // MARK: - Table view data source
@@ -90,13 +104,34 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
     }
 
     //MARK: Private methods
-    
     func setupHeaderView() {
         categories.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , headerView.frame.size.height)
         headerView.addSubview(categories)
-        if arrayOfImages.count > 0 {
-            categories.button1Available = true
-        }
+        
+        categories.setButtonEnabled(categories.button1, enabled: arrayOfImages.count > 0 ? true : false)
+        categories.setButtonEnabled(categories.button2, enabled: true)
+        categories.setButtonEnabled(categories.button3, enabled: rateArray.count > 0 ? true : false)
         categories.delegate = self
+    }
+    func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
+        self.performSegueWithIdentifier("showFacilites", sender: self)
+    }
+    func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
+        self.performSegueWithIdentifier("showRates", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showSwipeCourseController" {
+            let destinationController = segue.destinationViewController as! SwipePageCourseController
+            destinationController.courseImage = arrayOfImages
+        }
+        if segue.identifier == "showFacilites" {
+            let destinationController = segue.destinationViewController as! FacilitesCollectionViewController
+            destinationController.facilitesOnItemsImgArray = facilitiesArray
+        }
+        if segue.identifier == "showRates" {
+            let destinationController = segue.destinationViewController as! RateViewController
+            destinationController.rateArray = rateArray
+        }
     }
 }

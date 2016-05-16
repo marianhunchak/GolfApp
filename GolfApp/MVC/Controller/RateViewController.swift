@@ -17,18 +17,14 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     @IBOutlet weak var rateTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(rateArray)
+        
         rateTableView.layer.cornerRadius = 5
         self.rateTableView.estimatedSectionHeaderHeight = 30
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.rateTableView.estimatedRowHeight = 20
     }
     
-
+    //MARK: UITableViewDataSource
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
   
         return rateArray.count
@@ -42,6 +38,7 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdetifire, forIndexPath: indexPath) as! RateCell
         
         if rateArray.count > 0 {
@@ -50,6 +47,7 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
 
             cell.toursLabel.text = lRate.items[indexPath.row].descr
             cell.priceLabel.text = lRate.items[indexPath.row].price
+            
             }
  
         return cell
@@ -57,20 +55,20 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 
-        
         return UITableViewAutomaticDimension
         
     }
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
         return UITableViewAutomaticDimension
     }
     
- func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let rates : ViewForRateHeader = ViewForRateHeader.loadViewFromNib()
-        rates.center = self.view.center
+        let rates = ViewForRateHeader.loadViewFromNib()
         rates.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
         rates.textLabeForRateHeader.text = rateArray[section].section
+        
         return rates
     }
     

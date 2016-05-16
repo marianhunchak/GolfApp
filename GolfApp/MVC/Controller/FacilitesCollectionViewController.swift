@@ -43,28 +43,18 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(facilitesOnItemsImgArray)
-        
-        lTopInset = self.view.center.y
         
         backgroundCollectionView.layer.cornerRadius = 5
-        self.facilitesCollectonView.delegate = self
         
         let nib = UINib(nibName: nibNameFacilitesCollectionCell, bundle: nil)
         self.facilitesCollectonView?.registerNib(nib, forCellWithReuseIdentifier: facilitesCollectionCellIdentifier)
-
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-    
-    
+    //MARK:UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        
+        return facilitesItemNameArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -80,13 +70,16 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        let lCellWidth:CGFloat = self.view.frame.width / 3.0 - 32.0;
+        let lCellWidth:CGFloat = self.view.frame.width / 3.0 - 32.0
         let lcellHeigt:CGFloat = (self.view.frame.height) / 5.0 - 30
+        
         return CGSize(width: lCellWidth, height: lcellHeigt)
     }
+    
     func collectionView(collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                                insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
         return UIEdgeInsets(top: -50.0, left: 20.0, bottom: 0.0, right: 20.0)
     }
 }
