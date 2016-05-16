@@ -55,7 +55,13 @@
 		843617711CE2389E00F96599 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843617701CE2389E00F96599 /* ContactView.swift */; };
 		8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */; };
 		8441945F1CE61B4C0056742E /* FacilitesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */; };
+		84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F190FE1CE89A5300B1DDDC /* Rate.swift */; };
 		84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */; };
+		84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6100F1CE90CC000FF3A87 /* RateViewController.swift */; };
+		84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FEF1E41CE9C3A100D72858 /* ViewForRateHeader.xib */; };
+		84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */; };
+		84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FEF1E91CE9D03100D72858 /* RateCell.xib */; };
+		84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1EB1CE9D22200D72858 /* RateCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +116,13 @@
 		843617701CE2389E00F96599 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionViewController.swift; sourceTree = "<group>"; };
 		8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacilitesCollectionCell.xib; sourceTree = "<group>"; };
+		84F190FE1CE89A5300B1DDDC /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionCell.swift; sourceTree = "<group>"; };
+		84F6100F1CE90CC000FF3A87 /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
+		84FEF1E41CE9C3A100D72858 /* ViewForRateHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForRateHeader.xib; sourceTree = "<group>"; };
+		84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForRateHeader.swift; sourceTree = "<group>"; };
+		84FEF1E91CE9D03100D72858 /* RateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
+		84FEF1EB1CE9D22200D72858 /* RateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
 		D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +202,7 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84F6100E1CE90C5F00FF3A87 /* RateController */,
 				840940361CE4B60D0005A97E /* FacilitiesController */,
 				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
@@ -229,6 +242,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84F190FD1CE899F800B1DDDC /* Rate */,
 				5663B5C11CE5B93F0039D1FC /* Profile */,
 				5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */,
 				560E3C711CE137A2006F8655 /* Course */,
@@ -257,6 +271,8 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84FEF1E81CE9D00700D72858 /* RateCell */,
+				84FEF1E31CE9C32900D72858 /* ViewForRateHeader */,
 				8441945D1CE61A450056742E /* FacilitesCollectionCell */,
 				840940311CE4A02F0005A97E /* TeeTimeView */,
 				8407A5B21CE32D9100500E19 /* DetailInfoCell */,
@@ -487,6 +503,40 @@
 			name = FacilitesCollectionCell;
 			sourceTree = "<group>";
 		};
+		84F190FD1CE899F800B1DDDC /* Rate */ = {
+			isa = PBXGroup;
+			children = (
+				84F190FE1CE89A5300B1DDDC /* Rate.swift */,
+			);
+			name = Rate;
+			sourceTree = "<group>";
+		};
+		84F6100E1CE90C5F00FF3A87 /* RateController */ = {
+			isa = PBXGroup;
+			children = (
+				84F6100F1CE90CC000FF3A87 /* RateViewController.swift */,
+			);
+			name = RateController;
+			sourceTree = "<group>";
+		};
+		84FEF1E31CE9C32900D72858 /* ViewForRateHeader */ = {
+			isa = PBXGroup;
+			children = (
+				84FEF1E41CE9C3A100D72858 /* ViewForRateHeader.xib */,
+				84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */,
+			);
+			name = ViewForRateHeader;
+			sourceTree = "<group>";
+		};
+		84FEF1E81CE9D00700D72858 /* RateCell */ = {
+			isa = PBXGroup;
+			children = (
+				84FEF1E91CE9D03100D72858 /* RateCell.xib */,
+				84FEF1EB1CE9D22200D72858 /* RateCell.swift */,
+			);
+			name = RateCell;
+			sourceTree = "<group>";
+		};
 		F7C4FB67F26D23514690C3C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +617,8 @@
 				560E3C9D1CE137A2006F8655 /* CoursTableCell.xib in Resources */,
 				560E3C9B1CE137A2006F8655 /* MenuCollectionCell.xib in Resources */,
 				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
+				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
+				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
 				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
@@ -652,6 +704,7 @@
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
+				84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
@@ -662,10 +715,13 @@
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailTableController.swift in Sources */,
+				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
+				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
+				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
 			);

@@ -99,6 +99,31 @@ class NetworkManager {
         }
     }
     
+    //MARK: Rate
+    
+    func getRate(urlToRate URL: String ,completion: ([Rate]?) -> Void) {
+        Alamofire.request(.GET, URL, parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                                     //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let coursesArray: NSArray = [self.jsonArray!["rates"]!]
+                    var responseArray = [Rate]()
+                    
+                    for rateDict in coursesArray.firstObject as! NSArray {
+                        responseArray.append(Rate.rateWhithDictionary(rateDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
     //MARK: Images
     
     // method for loading images whith URL ant your image name

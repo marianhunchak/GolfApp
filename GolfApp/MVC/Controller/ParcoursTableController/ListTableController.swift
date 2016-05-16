@@ -78,10 +78,16 @@ class ListTableController: UITableViewController {
         
         if indexPath.row == 0 {
             vc.arrayOfImages = course_1_Images
+            vc.facilitiesArray = coursesArray[0].facilities as! [String]
+            vc.urlToRate = coursesArray[0].rate_url as String
         } else if indexPath.row == 1 {
             vc.arrayOfImages = course_2_Images
+            vc.facilitiesArray = coursesArray[1].facilities as! [String]
+            vc.urlToRate = coursesArray[1].rate_url as String
         } else if indexPath.row == 2 {
             vc.arrayOfImages = course_3_Images
+            vc.facilitiesArray = coursesArray[2].facilities as! [String]
+            vc.urlToRate = coursesArray[2].rate_url as String
         }
 
         self.navigationController?.pushViewController(vc, animated: true)

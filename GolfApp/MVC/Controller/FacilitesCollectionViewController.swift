@@ -32,6 +32,8 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
                                   "Wifi",       "Restaurant",  "Hotel",
                                   "Piscine",    "Tennis",      "Parking"]
     
+    var facilitesOnItemsImgArray = [String]()
+    
     var lTopInset : CGFloat?
     
     
@@ -41,6 +43,7 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(facilitesOnItemsImgArray)
         
         lTopInset = self.view.center.y
         

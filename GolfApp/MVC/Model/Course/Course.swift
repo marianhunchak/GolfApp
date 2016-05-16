@@ -17,6 +17,7 @@ class Course {
     var par: String!
     var length: String!
     var length_unit: String!
+    var rate_url : String!
     var facilities: NSArray!
     var images: NSArray!
     
@@ -29,6 +30,7 @@ class Course {
         lCourse.par = pDictionary["par"] as! String
         lCourse.length = pDictionary["length"] as! String
         lCourse.length_unit = pDictionary["length_unit"] as! String
+        lCourse.rate_url = pDictionary["rate_url"] as! String
         lCourse.facilities = pDictionary["facilities"] as! NSArray
         lCourse.images = pDictionary["images"] as! NSArray
         

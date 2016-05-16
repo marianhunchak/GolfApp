@@ -19,9 +19,14 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
   
     var course = Course()
     var arrayOfImages = [String]()
+    var facilitiesArray = [String]()
+    var urlToRate = String()
+    var rateArray = [Rate]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(urlToRate)
 
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_detail_nav_bar")
         
@@ -30,6 +35,32 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+
+        
+        NetworkManager.sharedInstance.getRate(urlToRate: urlToRate) { array in
+            self.rateArray = array!
+
+            if self.rateArray.count > 0 {
+            
+                print(self.rateArray.count)
+                print(self.rateArray[0].section)
+                print(self.rateArray[0].position)
+                print(self.rateArray[0].items)
+                
+                print(self.rateArray[1].section)
+                print(self.rateArray[1].position)
+                print(self.rateArray[1].items)
+            
+                print(self.rateArray[2].section)
+                print(self.rateArray[2].position)
+                print(self.rateArray[2].items)
+            } else {
+            
+                print("No Rates")
+            
+            }
+            
+        }
     }
     
     // MARK: - Table view data source
@@ -90,11 +121,22 @@ class DetailTableController: UITableViewController , CourseHeaderDelegate {
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
         self.performSegueWithIdentifier("showFacilites", sender: self)
     }
+    func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
+        self.performSegueWithIdentifier("showRates", sender: self)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSwipeCourseController" {
             let destinationController = segue.destinationViewController as! SwipePageCourseController
             destinationController.courseImage = arrayOfImages
+        }
+        if segue.identifier == "showFacilites" {
+            let destinationController = segue.destinationViewController as! FacilitesCollectionViewController
+            destinationController.facilitesOnItemsImgArray = facilitiesArray
+        }
+        if segue.identifier == "showRates" {
+            let destinationController = segue.destinationViewController as! RateViewController
+            destinationController.rateArray = rateArray
         }
     }
 

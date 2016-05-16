@@ -12,6 +12,7 @@ protocol CourseHeaderDelegate {
     
     func tableCourseHeader(tableCourseHeader : ViewForDetailHeader ,button1Pressed button1 : AnyObject )
     func pressedButton2(tableCourseHeader : ViewForDetailHeader ,button2Pressed button2 : AnyObject )
+        func pressedButton3(tableCourseHeader : ViewForDetailHeader ,button3Pressed button3 : AnyObject )
 }
 
 class ViewForDetailHeader: UIView {
@@ -46,6 +47,7 @@ class ViewForDetailHeader: UIView {
         self.delegate?.pressedButton2(self, button2Pressed: sender)
     }
     @IBAction func button3Action(sender: AnyObject) {
+        self.delegate?.pressedButton3(self, button3Pressed: sender)
     }
     
     override init(frame: CGRect) {

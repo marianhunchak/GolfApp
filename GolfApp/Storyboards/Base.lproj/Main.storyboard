@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -112,6 +113,55 @@
             </objects>
             <point key="canvasLocation" x="943" y="699"/>
         </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="WuT-HP-jD4">
+            <objects>
+                <viewController id="LwV-BP-yQI" customClass="RateViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k0n-lN-h3b"/>
+                        <viewControllerLayoutGuide type="bottom" id="fnU-mM-9xM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3RV-bc-vmZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kE-1S-JjD">
+                                <rect key="frame" x="12" y="12" width="576" height="576"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateCell" id="9Bd-Hu-lBK">
+                                        <rect key="frame" x="0.0" y="1" width="576" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Bd-Hu-lBK" id="93v-pN-7qm">
+                                            <rect key="frame" x="0.0" y="0.0" width="576" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LwV-BP-yQI" id="QyO-nV-Vgn"/>
+                                    <outlet property="delegate" destination="LwV-BP-yQI" id="kbj-bW-yuL"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78431372549019607" green="0.86274509803921573" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5kE-1S-JjD" secondAttribute="trailing" constant="12" id="B1T-LB-v6G"/>
+                            <constraint firstItem="5kE-1S-JjD" firstAttribute="leading" secondItem="3RV-bc-vmZ" secondAttribute="leading" constant="12" id="II5-cW-NrT"/>
+                            <constraint firstItem="fnU-mM-9xM" firstAttribute="top" secondItem="5kE-1S-JjD" secondAttribute="bottom" constant="12" id="R93-hf-0pO"/>
+                            <constraint firstItem="5kE-1S-JjD" firstAttribute="top" secondItem="3RV-bc-vmZ" secondAttribute="topMargin" constant="12" id="SDE-3E-BMr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rateTableView" destination="5kE-1S-JjD" id="18d-MW-eu1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1l-ZZ-zwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="699"/>
+        </scene>
         <!--Detail Table Controller-->
         <scene sceneID="Z9j-LV-aDO">
             <objects>
@@ -128,6 +178,7 @@
                     <connections>
                         <segue destination="haB-bB-DY2" kind="show" identifier="showSwipeCourseController" id="Wv1-cd-E13"/>
                         <segue destination="MeF-WL-zuX" kind="show" identifier="showFacilites" id="8cp-T7-uTn"/>
+                        <segue destination="LwV-BP-yQI" kind="show" identifier="showRates" id="0I4-FB-Cxw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKb-J3-3gT" userLabel="First Responder" sceneMemberID="firstResponder"/>
