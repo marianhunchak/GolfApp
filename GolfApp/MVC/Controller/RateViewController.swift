@@ -15,8 +15,6 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     var rateArray = [Rate]()
     
     @IBOutlet weak var rateTableView: UITableView!
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
