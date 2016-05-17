@@ -10,7 +10,7 @@ import UIKit
 
 private let cellIdetifier = "RateCell"
 
-class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDataSource {
     
     var rateArray = [Rate]()
     
@@ -27,6 +27,8 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         self.rateTableView.estimatedSectionHeaderHeight = 30
         self.rateTableView.estimatedRowHeight = 20
         self.rateTableView.separatorColor = Global.navigationBarColor
+        
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_rate_details_nav_bar")
         
         let nib = UINib(nibName: "RateCell", bundle: nil)
         rateTableView.registerNib(nib, forCellReuseIdentifier: cellIdetifier)

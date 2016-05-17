@@ -15,15 +15,15 @@ class ProsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
         NetworkManager.sharedInstance.getPros { array in
             self.prosArray = array!
             print("<<<<\(self.prosArray)>>>>")
         }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+ 
     }
     
 
