@@ -26,7 +26,6 @@ class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDa
         rateTableView.layer.masksToBounds = true
         self.rateTableView.estimatedSectionHeaderHeight = 30
         self.rateTableView.estimatedRowHeight = 20
-        self.rateTableView.separatorColor = Global.navigationBarColor
         
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_rate_details_nav_bar")
         

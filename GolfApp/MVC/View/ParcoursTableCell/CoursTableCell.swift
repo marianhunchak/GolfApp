@@ -39,5 +39,11 @@ class CoursTableCell: UITableViewCell {
         cellImage.layer.masksToBounds = true
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.cellImage.image = UIImage(named: "a_place_holder_list_view")
+    }
+    
     
 }

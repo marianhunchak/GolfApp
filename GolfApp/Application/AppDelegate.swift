@@ -118,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         // token to enable reception of notifications
         GGLInstanceID.sharedInstance().startWithConfig(instanceIDConfig)
         registrationOptions = [kGGLInstanceIDRegisterAPNSOption:deviceToken,
-                               kGGLInstanceIDAPNSServerTypeSandboxOption:false]
+                               kGGLInstanceIDAPNSServerTypeSandboxOption:true]
         GGLInstanceID.sharedInstance().tokenWithAuthorizedEntity(gcmSenderID,
                                                                  scope: kGGLInstanceIDScopeGCM, options: registrationOptions, handler: registrationHandler)
         // [END get_gcm_reg_token]

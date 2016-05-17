@@ -32,7 +32,9 @@ class ProsTableCell: UITableViewCell {
         prosImage.layer.cornerRadius = 5.0
         prosImage.layer.masksToBounds = true
     }
-
-
+    
+    override func prepareForReuse() {
+        self.prosImage.image = UIImage(named: "a_place_holder_list_view")
+    }
 
 }
