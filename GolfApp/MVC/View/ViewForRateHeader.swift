@@ -11,23 +11,16 @@ import UIKit
 class ViewForRateHeader: UIView {
     
     @IBOutlet weak var textLabeForRateHeader: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        textLabeForRateHeader.backgroundColor = UIColor.blackColor()
+        
+        self.backgroundColor = Global.navigationBarColor
+        self.backgroundView.backgroundColor = Global.navigationBarColor
         textLabeForRateHeader.textColor = UIColor.whiteColor()
         
-    }
-    
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        
-        super.init(coder: aDecoder)
     }
     
     static func loadViewFromNib() -> ViewForRateHeader

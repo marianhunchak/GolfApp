@@ -12,10 +12,12 @@ private let reuseIdentifier = "menuCollectionCell"
 private let nibNameMenuCollectionCell = "MenuCollectionCell"
 private let nameForBackgroundImage = "a_home"
 private let identifierOfListTableController = "ListTableController"
+private var identifierOfProsListViewController = "ProsListViewController"
 
 class MainCollectionController: UICollectionViewController  {
     
     var profile:Profile?
+    var prosArray = [Pros]()
     var lTopInset : CGFloat?
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
@@ -42,6 +44,11 @@ class MainCollectionController: UICollectionViewController  {
         NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
             self.profile = pProfile
         }
+        
+//        NetworkManager.sharedInstance.getPros { array in
+//            self.prosArray = array!
+//            print("<<<<\(self.prosArray)>>>>")
+//        }
         
     }
     
@@ -72,11 +79,18 @@ class MainCollectionController: UICollectionViewController  {
             
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)
             self.navigationController?.pushViewController(vc!, animated: true)
+            
         }
         if indexPath.item == 0 {
         
             showTeeTimeSubView()
         
+        }
+        if indexPath.item == 5 {
+            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfProsListViewController)
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
         }
     }
 }

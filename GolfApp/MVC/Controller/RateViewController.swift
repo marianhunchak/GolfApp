@@ -14,14 +14,19 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     var rateArray = [Rate]()
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var rateTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
         
+        backgroundView.backgroundColor = Global.navigationBarColor
+        backgroundView.layer.cornerRadius = 5
         rateTableView.layer.cornerRadius = 5
         rateTableView.layer.masksToBounds = true
         self.rateTableView.estimatedSectionHeaderHeight = 30
         self.rateTableView.estimatedRowHeight = 20
+        self.rateTableView.separatorColor = Global.navigationBarColor
         
         let nib = UINib(nibName: "RateCell", bundle: nil)
         rateTableView.registerNib(nib, forCellReuseIdentifier: cellIdetifier)
@@ -58,22 +63,20 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
         return cell
     }
     
+    //MARK: Size
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
         return UITableViewAutomaticDimension
-        
     }
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
         return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let rates = ViewForRateHeader.loadViewFromNib()
         rates.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
         rates.textLabeForRateHeader.text = rateArray[section].section
-        
         return rates
     }
     
