@@ -8,17 +8,30 @@
 
 import UIKit
 
-class ProsListViewController: UIViewController {
+private var reuseIdentifier = "ProsTableCell"
+private let parcouseTableCellNibname = "ProsTableCell"
+private let detailProsControllerIdentfier = "detailProsControllerIdentfier"
+
+class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableViewDataSource{
 
     var prosArray = [Pros]()
     
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var prosTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backgroundView.backgroundColor = Global.viewsBackgroundColor
+        
+        let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
+        self.prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
 
         NetworkManager.sharedInstance.getPros { array in
             self.prosArray = array!
             print("<<<<\(self.prosArray)>>>>")
+            self.prosTableView.reloadData()
         }
+//         refreshControl?.addTarget(self, action:#selector(ProsListViewController.reloadAllData(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +39,60 @@ class ProsListViewController: UIViewController {
  
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.hidden = false;
     }
-    */
+    
+    // MARK: - Table view data source
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.prosArray.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProsTableCell
+
+        cell.prosLabel.text = prosArray[indexPath.row].name
+        
+        cell.imageForCell = prosArray[indexPath.row].images.first
+
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return self.view.frame.height / 3.0
+    }
+    // MARK: - UITableViewDelegate
+     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! DetailViewController
+//        
+//        if indexPath.row < coursesImages.count {
+//            vc.arrayOfImages =  coursesImages[indexPath.row]
+//        }
+//        vc.course = coursesArray[indexPath.row]
+//        vc.facilitiesArray = coursesArray[indexPath.row].facilities
+//        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
+//        
+//        
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Private methods
+    
+    func reloadAllData(sender:AnyObject) {
+        
+        NetworkManager.sharedInstance.getPros { array in
+            self.prosArray = array!
+            dispatch_async(dispatch_get_main_queue(), {
+                self.prosTableView.reloadData()
+                //self.refreshControl?.endRefreshing()
+            })
+            
+        }
+    }
+
 
 }

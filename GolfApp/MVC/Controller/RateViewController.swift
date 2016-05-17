@@ -20,7 +20,7 @@ class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDa
         super.viewDidLoad()
  
         
-        backgroundView.backgroundColor = Global.navigationBarColor
+        backgroundView.backgroundColor = Global.viewsBackgroundColor
         backgroundView.layer.cornerRadius = 5
         rateTableView.layer.cornerRadius = 5
         rateTableView.layer.masksToBounds = true
