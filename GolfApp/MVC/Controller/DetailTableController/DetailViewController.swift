@@ -30,8 +30,6 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(urlToRate)
 
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_detail_nav_bar")
         

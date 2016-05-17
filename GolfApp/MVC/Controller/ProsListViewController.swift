@@ -67,17 +67,20 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
     // MARK: - UITableViewDelegate
      func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! DetailViewController
-//        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! ProsViewController
+//
 //        if indexPath.row < coursesImages.count {
 //            vc.arrayOfImages =  coursesImages[indexPath.row]
 //        }
 //        vc.course = coursesArray[indexPath.row]
 //        vc.facilitiesArray = coursesArray[indexPath.row].facilities
 //        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
-//        
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
+        vc.package_url = prosArray[indexPath.row].package_url!
+        //vc.prosArray = prosArray
+        vc.pros = prosArray[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     // MARK: - Private methods
