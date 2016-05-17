@@ -23,7 +23,7 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var imagesArray  = [NSDictionary]() {
+    var imagesArray  = [Image]() {
         didSet {
             self.collectionView.reloadData()
             self.pageControl.numberOfPages = self.imagesArray.count
@@ -67,9 +67,10 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         
         if self.imagesArray.count > 0 {
             
-        let imageURL = NSURL.init(string: self.imagesArray[indexPath.row]["url"] as! String)
-        let imageName = self.imagesArray[indexPath.row]["name"] as! String
-        NetworkManager.sharedInstance.getImageWhihURL(imageURL!, imageName: imageName, completion: { (image) in
+        let lImage = imagesArray[indexPath.row]
+
+        NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)!, imageName: lImage.name!, completion: {
+            (image) in
             
             if let lImage = image {
                 cell.cellImageView.image = lImage

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="STONE INFORMEL LT SEMI-BOLD.ttf">
@@ -26,45 +25,45 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_place_holder_list_view" translatesAutoresizingMaskIntoConstraints="NO" id="ZFX-YI-2Il">
                         <rect key="frame" x="12" y="12" width="376" height="187"/>
                     </imageView>
-                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dth-XP-QGh">
-                        <rect key="frame" x="12" y="130" width="376" height="55"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dth-XP-QGh">
+                        <rect key="frame" x="12" y="140" width="376" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Berder lfm g l mg sm ml " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-Gz-A5Y">
+                                <rect key="frame" x="16" y="3" width="344" height="22"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 trou - 222- 772m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WND-PV-DAq">
+                                <rect key="frame" x="8" y="25" width="360" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="MVH-Xf-WyZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="55" id="9q8-a1-B6q"/>
+                            <constraint firstAttribute="trailing" secondItem="WND-PV-DAq" secondAttribute="trailing" constant="8" id="1hx-F9-kN6"/>
+                            <constraint firstItem="WND-PV-DAq" firstAttribute="leading" secondItem="Dth-XP-QGh" secondAttribute="leading" constant="8" id="2zn-2D-u5x"/>
+                            <constraint firstAttribute="bottom" secondItem="WND-PV-DAq" secondAttribute="bottom" constant="3" id="4hk-JA-7X6"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="9q8-a1-B6q"/>
+                            <constraint firstItem="O9c-Gz-A5Y" firstAttribute="leading" secondItem="Dth-XP-QGh" secondAttribute="leading" constant="16" id="C39-6v-Bqr"/>
+                            <constraint firstItem="WND-PV-DAq" firstAttribute="top" secondItem="O9c-Gz-A5Y" secondAttribute="bottom" id="CrY-8Z-urk"/>
+                            <constraint firstItem="O9c-Gz-A5Y" firstAttribute="top" secondItem="Dth-XP-QGh" secondAttribute="top" constant="3" id="GeI-r8-LR2"/>
+                            <constraint firstAttribute="trailing" secondItem="O9c-Gz-A5Y" secondAttribute="trailing" constant="16" id="Pgo-8P-OT3"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Berder lfm g l mg sm ml ml  dffs msd k nk nk dn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-Gz-A5Y">
-                        <rect key="frame" x="28" y="130" width="344" height="36"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="36" id="rMB-Yf-Rgs"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="14"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 trou - 222- 772m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WND-PV-DAq">
-                        <rect key="frame" x="20" y="157" width="360" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Va5-5b-vJZ"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="14"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="WND-PV-DAq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="1SU-1d-bNB"/>
                     <constraint firstAttribute="trailing" secondItem="ZFX-YI-2Il" secondAttribute="trailing" constant="12" id="G1V-6n-gSr"/>
                     <constraint firstAttribute="bottom" secondItem="Dth-XP-QGh" secondAttribute="bottom" constant="14" id="PPo-2u-Cd2"/>
-                    <constraint firstAttribute="trailing" secondItem="WND-PV-DAq" secondAttribute="trailing" constant="20" id="Q31-8n-Vhs"/>
                     <constraint firstAttribute="trailing" secondItem="Dth-XP-QGh" secondAttribute="trailing" constant="12" id="ffe-Yk-zNT"/>
                     <constraint firstAttribute="bottom" secondItem="ZFX-YI-2Il" secondAttribute="bottom" id="ijY-JW-kQx"/>
-                    <constraint firstItem="O9c-Gz-A5Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="k3A-vO-S2G"/>
                     <constraint firstItem="ZFX-YI-2Il" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="pRG-k4-sVo"/>
-                    <constraint firstItem="WND-PV-DAq" firstAttribute="top" secondItem="O9c-Gz-A5Y" secondAttribute="bottom" constant="-9" id="sm3-RB-GQk"/>
                     <constraint firstItem="Dth-XP-QGh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="wfu-XK-tHY"/>
-                    <constraint firstAttribute="bottom" secondItem="WND-PV-DAq" secondAttribute="bottom" constant="12" id="y5S-gx-eCq"/>
-                    <constraint firstItem="O9c-Gz-A5Y" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="-20" id="yYr-Ci-Vy6"/>
                     <constraint firstItem="ZFX-YI-2Il" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="z0V-WL-cFV"/>
                 </constraints>
             </tableViewCellContentView>
@@ -72,6 +71,7 @@
             <connections>
                 <outlet property="cellImage" destination="ZFX-YI-2Il" id="tPc-9K-xEv"/>
                 <outlet property="cellInfoLabel" destination="WND-PV-DAq" id="syS-dU-rde"/>
+                <outlet property="cellInfoLabelHeight" destination="MVH-Xf-WyZ" id="UXQ-af-4TF"/>
                 <outlet property="cellItemLabel" destination="O9c-Gz-A5Y" id="nc4-Ew-oep"/>
             </connections>
             <point key="canvasLocation" x="341" y="272"/>

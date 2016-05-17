@@ -72,25 +72,32 @@ class MainCollectionController: UICollectionViewController  {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.item == 6 {
-            showContactSubView()
-        }
-        if indexPath.item == 4 {
+        switch indexPath.item {
+            case 0:
+                showTeeTimeSubView()
+            case 1: break
+
+            case 2: break
+
+            case 3: break
+
+            case 4:
+                let coursesVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)
+                self.navigationController?.pushViewController(coursesVC!, animated: true)
+            case 5:
+                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfProsListViewController)
+                self.navigationController?.pushViewController(prosVC!, animated: true)
+            case 6:
+                showContactSubView()
+            case 7: break
             
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)
-            self.navigationController?.pushViewController(vc!, animated: true)
+            case 8:
+                let hotelsVC = HotelsTableViewController(nibName: "HotelsTableViewController", bundle: nil)
+                self.navigationController?.pushViewController(hotelsVC, animated: true)
             
-        }
-        if indexPath.item == 0 {
+            
+            default: break
         
-            showTeeTimeSubView()
-        
-        }
-        if indexPath.item == 5 {
-            
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfProsListViewController)
-            self.navigationController?.pushViewController(vc!, animated: true)
-            
         }
     }
 }

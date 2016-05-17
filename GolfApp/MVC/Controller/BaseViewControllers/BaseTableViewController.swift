@@ -12,7 +12,7 @@ class BaseTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.hidden = false;
         self.navigationController?.navigationBar.barTintColor = Global.navigationBarColor
         
         let homeButton = UIBarButtonItem.init(image: UIImage(named: "a_home_icon"),

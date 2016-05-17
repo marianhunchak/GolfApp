@@ -62,10 +62,9 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         
         if indexPath.row == 0 {
             let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-            if let lArray = self.course.images {
-                lCell.imagesArray = lArray as! [NSDictionary]
-                return lCell
-            }
+            lCell.imagesArray = self.course.images
+            
+            return lCell
         }
         
         else if indexPath.row == 1{
@@ -79,10 +78,7 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        if let lArray = self.course.images {
-            cell.imagesArray = lArray as! [NSDictionary]
-            return cell
-        }
+            cell.imagesArray = self.course.images
         return cell
     }
     

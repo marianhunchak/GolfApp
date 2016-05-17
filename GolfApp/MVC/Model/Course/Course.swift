@@ -20,7 +20,7 @@ class Course {
     var rate_url : String!
     var rate_count : Int!
     var facilities = [String]()
-    var images: NSArray!
+    var images = [Image]()
     
     static func courseWhithDictionary(pDictionary:NSDictionary) -> Course {
         
@@ -34,7 +34,10 @@ class Course {
         lCourse.rate_count = pDictionary["rate_count"] as! Int
         lCourse.rate_url = pDictionary["rate_url"] as! String
         lCourse.facilities = pDictionary["facilities"] as! [String]
-        lCourse.images = pDictionary["images"] as! NSArray
+        
+        for imageDict in pDictionary["images"] as! NSArray {
+            lCourse.images += [Image.imageWhithDictionary(imageDict as! NSDictionary)]
+        }
         
         return lCourse
     }

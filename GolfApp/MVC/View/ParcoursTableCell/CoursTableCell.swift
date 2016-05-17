@@ -18,16 +18,15 @@ class CoursTableCell: UITableViewCell {
     @IBOutlet weak var cellItemLabel: UILabel!
     @IBOutlet weak var cellInfoLabel: UILabel!
     
-    var course: Course! {
+    //MARK: Constraints
+    
+    @IBOutlet weak var cellInfoLabelHeight: NSLayoutConstraint!
+    
+    var imageForCell: Image? {
         didSet {
-            self.cellItemLabel.text = self.course.name
-            self.cellInfoLabel.text = self.course.holes + " \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - Par " +
-                                      self.course.par + " - " + self.course.length + " " + self.course.length_unit
-            
-            if let imageDictionary = self.course.images.firstObject as? NSDictionary {
-                let imageURL = NSURL(string: imageDictionary.objectForKey("url") as! String)!
-                let imageName = imageDictionary.objectForKey("name") as! String
-                NetworkManager.sharedInstance.getImageWhihURL(imageURL, imageName: imageName, completion: { (image) in
+            if let lImage = imageForCell {
+                NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
+                    (image) in
                     self.cellImage.image = image
                 })
             }
@@ -39,4 +38,6 @@ class CoursTableCell: UITableViewCell {
         cellImage.layer.cornerRadius = 5.0
         cellImage.layer.masksToBounds = true
     }
+    
+    
 }

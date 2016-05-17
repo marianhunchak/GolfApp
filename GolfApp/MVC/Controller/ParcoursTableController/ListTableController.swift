@@ -63,7 +63,14 @@ class ListTableController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CoursTableCell
-        cell.course = coursesArray[indexPath.row] 
+        
+        let lCourse = coursesArray[indexPath.row]
+        
+        cell.imageForCell = lCourse.images.first
+        cell.cellItemLabel.text = lCourse.name
+        cell.cellInfoLabel.text = lCourse.holes + " \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - Par " +
+            lCourse.par + " - " + lCourse.length + " " + lCourse.length_unit
+        
         return cell
     }
     

@@ -47,6 +47,8 @@
 		5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */; };
 		5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */; };
 		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
+		5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */; };
+		568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */; };
 		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
 		84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D491CE3E2D400164917 /* SwipePageCourseController.swift */; };
 		8407A5B11CE3296100500E19 /* ViewForDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */; };
@@ -325,6 +327,8 @@
 		5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMAL LT.ttf"; sourceTree = "<group>"; };
 		5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMEL LT SEMI-BOLD.ttf"; sourceTree = "<group>"; };
 		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
+		5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTableViewController.swift; sourceTree = "<group>"; };
+		5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTableViewController.xib; sourceTree = "<group>"; };
 		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		84051D491CE3E2D400164917 /* SwipePageCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipePageCourseController.swift; sourceTree = "<group>"; };
 		8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForDetailHeader.xib; sourceTree = "<group>"; };
@@ -429,13 +433,14 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
+				568951661CEB219500D7F5DF /* HotelsTableViewController */,
 				84FE090C1CEA6D070074373B /* ProsListViewController */,
 				562ECB651CE9F97900985213 /* ProsViewController */,
 				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				84F6100E1CE90C5F00FF3A87 /* RateController */,
 				840940361CE4B60D0005A97E /* FacilitiesController */,
 				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
-				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				560E3C6E1CE137A2006F8655 /* ListTableController */,
 				560E3C6A1CE137A2006F8655 /* DetailViewController */,
 			);
@@ -502,6 +507,7 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				568951671CEB260700D7F5DF /* HotelsSubviews */,
 				844A94121CEB134700BCC86F /* ProsTableCell */,
 				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
 				8436176D1CE2388700F96599 /* ContactView */,
@@ -1296,6 +1302,22 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		568951661CEB219500D7F5DF /* HotelsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */,
+				5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */,
+			);
+			name = HotelsTableViewController;
+			sourceTree = "<group>";
+		};
+		568951671CEB260700D7F5DF /* HotelsSubviews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HotelsSubviews;
+			sourceTree = "<group>";
+		};
 		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1549,6 +1571,7 @@
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
+				568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */,
 				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
 				560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */,
 				560E3C9F1CE137A2006F8655 /* backroundImage.jpg in Resources */,
@@ -1647,6 +1670,7 @@
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
+				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
