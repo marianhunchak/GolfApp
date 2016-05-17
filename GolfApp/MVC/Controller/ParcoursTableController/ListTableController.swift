@@ -79,7 +79,7 @@ class ListTableController: BaseTableViewController {
             vc.arrayOfImages =  coursesImages[indexPath.row]
         }
         vc.course = coursesArray[indexPath.row]
-        vc.facilitiesArray = coursesArray[indexPath.row].facilities as! [String]
+        vc.facilitiesArray = coursesArray[indexPath.row].facilities
         vc.urlToRate = coursesArray[indexPath.row].rate_url as String
 
 

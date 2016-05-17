@@ -19,7 +19,7 @@ class Course {
     var length_unit: String!
     var rate_url : String!
     var rate_count : Int!
-    var facilities: NSArray!
+    var facilities = [String]()
     var images: NSArray!
     
     static func courseWhithDictionary(pDictionary:NSDictionary) -> Course {
@@ -33,7 +33,7 @@ class Course {
         lCourse.length_unit = (pDictionary["length_unit"] as! String) == "meter" ? "m" : "yd"
         lCourse.rate_count = pDictionary["rate_count"] as! Int
         lCourse.rate_url = pDictionary["rate_url"] as! String
-        lCourse.facilities = pDictionary["facilities"] as! NSArray
+        lCourse.facilities = pDictionary["facilities"] as! [String]
         lCourse.images = pDictionary["images"] as! NSArray
         
         return lCourse

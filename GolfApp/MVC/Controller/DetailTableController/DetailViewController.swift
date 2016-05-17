@@ -123,9 +123,9 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
             let destinationController = segue.destinationViewController as! SwipePageCourseController
             destinationController.courseImage = arrayOfImages
         }
-        if segue.identifier == "showFacilites" {
+        if segue.identifier == "showFacilities" {
             let destinationController = segue.destinationViewController as! FacilitesCollectionViewController
-            destinationController.facilitesOnItemsImgArray = facilitiesArray
+            destinationController.facilites = course.facilities
         }
         if segue.identifier == "showRates" {
             let destinationController = segue.destinationViewController as! RateViewController

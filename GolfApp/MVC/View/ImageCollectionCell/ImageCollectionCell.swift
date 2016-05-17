@@ -17,6 +17,7 @@ class ImageCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         cellImageView.layer.cornerRadius = 5
+        cellImageView.layer.masksToBounds = true
     }
 
 }

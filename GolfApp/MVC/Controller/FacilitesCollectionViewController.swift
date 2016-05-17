@@ -11,28 +11,31 @@ import UIKit
 private var nibNameFacilitesCollectionCell = "FacilitesCollectionCell"
 private var facilitesCollectionCellIdentifier = "FacilitesCollectionCell"
 
-class FacilitesCollectionViewController: UIViewController , UICollectionViewDelegate ,UICollectionViewDataSource
+class FacilitesCollectionViewController: BaseViewController , UICollectionViewDelegate ,UICollectionViewDataSource
  {
     
-    var facilitesItemsImgOnArray = ["facilites_club_house_on", "facilites_practice_on",   "facilites_pitching_on",
-                                  "facilites_putting_on" ,     "facilites_buggy_on",      "facilites_club_hire_on",
-                                  "facilites_proshop_on",      "facilites_pro_on",        "facilites_changing_room_on",
-                                  "facilites_wifi_on" ,        "facilites_restaurant_on", "facilites_hotel_on_site_on",
-                                  "facilites_poll_on" ,        "facilites_tennis_on",     "facilites_parking_on"]
+    var facilitesItemsImgOnArray = ["facilites_club_house_", "facilites_practice_",   "facilites_pitching_",
+                                  "facilites_putting_" ,     "facilites_buggy_",      "facilites_club_hire_",
+                                  "facilites_proshop_",      "facilites_pro_",        "facilites_changing_room_",
+                                  "facilites_wifi_" ,        "facilites_restaurant_", "facilites_hotel_on_site_",
+                                  "facilites_poll_" ,        "facilites_tennis_",     "facilites_parking_"]
+ 
     
-    var facilitesItemsImgOfArray = ["facilites_club_house_off", "facilites_practice_off",   "facilites_pitching_off",
-                                  "facilites_putting_off" ,     "facilites_buggy_off",      "facilites_club_hire_off",
-                                  "facilites_proshop_off",      "facilites_pro_off",        "facilites_changing_room_off",
-                                  "facilites_wifi_off" ,        "facilites_restaurant_off", "facilites_hotel_on_site_off",
-                                  "facilites_poll_off" ,        "facilites_tennis_off",     "facilites_parking_off"]
+    var facilitesItemNameArray = ["Club house" , "Practice",    "Pitching",
+                                  "Putting" ,    "Buggy",       "Club Hire" ,
+                                  "Proshop" ,    "Pros" ,       "Shower"  ,
+                                  "Wi-fi",       "Restaurant",  "Hotel" ,
+                                  "Pool",        "Tennis",      "Parking"]
     
-    var facilitesItemNameArray = ["Club house", "Practice",    "Pitching",
-                                  "Putting",    "Buggy",       "Location",
-                                  "Proshop",    "Pros",        "Vestiaire",
-                                  "Wifi",       "Restaurant",  "Hotel",
-                                  "Piscine",    "Tennis",      "Parking"]
+    var facilitiesLocalisNames = ["crs_club_house_icon", "crs_practice_icon",   "crs_pitching_icon",
+                                  "crs_putting_icon",    "crs_buggy_icon",      "crs_club_hire_icon",
+                                  "crs_proshop_icon",    "crs_pros_icon",       "crs_shower_icon",
+                                  "crs_wifi_icon",       "crs_restaurant_icon", "crs_hotel_icon",
+                                  "crs_pool_icon",       "crs_tennis_icon",     "crs_parking_icon"]
+                                  
+                                  
     
-    var facilitesOnItemsImgArray = [String]()
+    var facilites = [String]()
     
     var lTopInset : CGFloat?
     
@@ -44,6 +47,7 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_facilities_details_nav_bar")
         backgroundCollectionView.layer.cornerRadius = 5
         
         let nib = UINib(nibName: nibNameFacilitesCollectionCell, bundle: nil)
@@ -59,9 +63,17 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(facilitesCollectionCellIdentifier, forIndexPath: indexPath) as! FacilitesCollectionCell
+        var imgName = facilitesItemsImgOnArray[indexPath.row]
         
-        cell.facilitesCellImage.image = UIImage(named: facilitesItemsImgOfArray[indexPath.row])
-        cell.facilitesCellLabel.text = facilitesItemNameArray[indexPath.row]
+        if self.facilites.contains(facilitesItemNameArray[indexPath.row]) {
+            
+            imgName += "on"
+        } else {
+            imgName += "off"
+        }
+        cell.facilitesCellImage.image = UIImage(named: imgName)
+        let name = facilitiesLocalisNames[indexPath.row]
+        cell.facilitesCellLabel.text = LocalisationDocument.sharedInstance.getStringWhinName(name)
         
         return cell
     }
