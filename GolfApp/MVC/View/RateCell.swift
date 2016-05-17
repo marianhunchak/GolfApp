@@ -12,6 +12,7 @@ class RateCell: UITableViewCell {
     
     @IBOutlet weak var toursLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var separeteView: UIView!
     
 
     override func awakeFromNib() {
@@ -20,6 +21,7 @@ class RateCell: UITableViewCell {
         priceLabel.intrinsicContentSize().width
         
         priceLabel.textColor = Global.navigationBarColor
+        separeteView.backgroundColor = Global.navigationBarColor
     }
 
 }
