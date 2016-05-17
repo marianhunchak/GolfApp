@@ -21,6 +21,7 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_list_nav_bar")
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
@@ -28,7 +29,7 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
 
         NetworkManager.sharedInstance.getPros { array in
             self.prosArray = array!
-            print("<<<<\(self.prosArray)>>>>")
+//            print("<<<<\(self.prosArray)>>>>")
             self.prosTableView.reloadData()
         }
 //         refreshControl?.addTarget(self, action:#selector(ProsListViewController.reloadAllData(_:)), forControlEvents: UIControlEvents.ValueChanged)
@@ -46,6 +47,7 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
     
     // MARK: - Table view data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.prosArray.count
     }
     
@@ -67,17 +69,20 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
     // MARK: - UITableViewDelegate
      func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! DetailViewController
-//        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! ProsViewController
+//
 //        if indexPath.row < coursesImages.count {
 //            vc.arrayOfImages =  coursesImages[indexPath.row]
 //        }
 //        vc.course = coursesArray[indexPath.row]
 //        vc.facilitiesArray = coursesArray[indexPath.row].facilities
 //        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
-//        
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
+        vc.package_url = prosArray[indexPath.row].package_url!
+        //vc.prosArray = prosArray
+        vc.pros = prosArray[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     // MARK: - Private methods

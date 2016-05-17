@@ -147,6 +147,31 @@ class NetworkManager {
         }
     }
     
+    //MARK: Packages
+    
+    func getPackages(urlToPackage URL: String ,completion: ([Pro]?) -> Void) {
+        Alamofire.request(.GET, URL, parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let packageArray: NSArray = [self.jsonArray!["packages"]!]
+                    var responseArray = [Pro]()
+                    
+                    for packageDict in packageArray.firstObject as! NSArray {
+                        responseArray.append(Pro.packageWhithDictionary(packageDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
     //MARK: Images
     
     // method for loading images whith URL ant your image name

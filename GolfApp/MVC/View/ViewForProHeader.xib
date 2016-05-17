@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+            <string>StoneInformalLT</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bfW-qb-FGo" customClass="ViewForProHeader" customModule="GolfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEE-Xp-uhQ">
+                    <rect key="frame" x="0.0" y="0.0" width="355" height="89"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uf6-1f-Zdy">
+                            <rect key="frame" x="12" y="-3" width="331" height="92"/>
+                            <color key="backgroundColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="uf6-1f-Zdy" secondAttribute="bottom" id="7Sy-IG-iYm"/>
+                        <constraint firstItem="uf6-1f-Zdy" firstAttribute="top" secondItem="eEE-Xp-uhQ" secondAttribute="top" constant="-3" id="VsE-a2-AU4"/>
+                        <constraint firstItem="uf6-1f-Zdy" firstAttribute="leading" secondItem="eEE-Xp-uhQ" secondAttribute="leading" constant="12" id="hYf-AF-iBg"/>
+                        <constraint firstAttribute="trailing" secondItem="uf6-1f-Zdy" secondAttribute="trailing" constant="12" id="zIs-4D-4lh"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuL-pl-69A">
+                    <rect key="frame" x="18" y="8" width="156" height="73"/>
+                    <color key="backgroundColor" red="0.30196078430000001" green="0.41568627450000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="15"/>
+                    <state key="normal" title="Contact">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="button1Action:" destination="bfW-qb-FGo" eventType="touchUpInside" id="1EA-il-NyA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtS-BJ-QiW">
+                    <rect key="frame" x="182" y="8" width="155" height="73"/>
+                    <color key="backgroundColor" red="0.30196078430000001" green="0.41568627450000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="15"/>
+                    <state key="normal" title="Tarifes &amp; Offres">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="button2Action:" destination="bfW-qb-FGo" eventType="touchUpInside" id="bDF-jG-6BF"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-uE-b0X" userLabel="Separator">
+                    <rect key="frame" x="0.0" y="0.0" width="355" height="2"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="MD5-EM-B5X"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Cu0-uE-b0X" firstAttribute="top" secondItem="bfW-qb-FGo" secondAttribute="top" id="0PB-qg-w8U"/>
+                <constraint firstItem="GuL-pl-69A" firstAttribute="width" secondItem="jtS-BJ-QiW" secondAttribute="width" id="1wd-eO-p0j"/>
+                <constraint firstItem="Cu0-uE-b0X" firstAttribute="leading" secondItem="bfW-qb-FGo" secondAttribute="leading" id="61q-Nh-9T3"/>
+                <constraint firstAttribute="trailing" secondItem="Cu0-uE-b0X" secondAttribute="trailing" id="9s2-S8-ktV"/>
+                <constraint firstAttribute="trailing" secondItem="jtS-BJ-QiW" secondAttribute="trailing" constant="18" id="DWF-ji-xwo"/>
+                <constraint firstAttribute="trailing" secondItem="eEE-Xp-uhQ" secondAttribute="trailing" id="EEe-Ap-itG"/>
+                <constraint firstItem="GuL-pl-69A" firstAttribute="leading" secondItem="bfW-qb-FGo" secondAttribute="leading" constant="18" id="K7f-pE-dYy"/>
+                <constraint firstItem="eEE-Xp-uhQ" firstAttribute="top" secondItem="bfW-qb-FGo" secondAttribute="top" id="UCF-sT-NQh"/>
+                <constraint firstItem="jtS-BJ-QiW" firstAttribute="leading" secondItem="GuL-pl-69A" secondAttribute="trailing" constant="8" id="ZEb-uu-EfF"/>
+                <constraint firstItem="GuL-pl-69A" firstAttribute="top" secondItem="Cu0-uE-b0X" secondAttribute="bottom" constant="6" id="Zhj-ps-Mv9"/>
+                <constraint firstAttribute="bottom" secondItem="eEE-Xp-uhQ" secondAttribute="bottom" id="aW2-vg-ALp"/>
+                <constraint firstItem="eEE-Xp-uhQ" firstAttribute="leading" secondItem="bfW-qb-FGo" secondAttribute="leading" id="kac-Es-j5M"/>
+                <constraint firstAttribute="bottom" secondItem="jtS-BJ-QiW" secondAttribute="bottom" constant="8" id="kwl-rA-qVV"/>
+                <constraint firstItem="jtS-BJ-QiW" firstAttribute="top" secondItem="Cu0-uE-b0X" secondAttribute="bottom" constant="6" id="sm9-zF-JxW"/>
+                <constraint firstAttribute="bottom" secondItem="GuL-pl-69A" secondAttribute="bottom" constant="8" id="uPa-pp-Y3g"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundView" destination="eEE-Xp-uhQ" id="LMc-lo-JDY"/>
+                <outlet property="button1" destination="GuL-pl-69A" id="PtM-Yc-iY2"/>
+                <outlet property="button2" destination="jtS-BJ-QiW" id="Tbq-y3-qsH"/>
+                <outlet property="menuBarBackgrView" destination="uf6-1f-Zdy" id="gd6-PE-Ee3"/>
+            </connections>
+            <point key="canvasLocation" x="464.5" y="263.5"/>
+        </view>
+    </objects>
+</document>

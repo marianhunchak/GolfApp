@@ -8,31 +8,87 @@
 
 import UIKit
 
-class ProsViewController: UIViewController {
+private let reuseIdentifier = "detailImageTableCell"
+private let courseFooterIndetifire = "courseFooterIndetifire"
+private let detailImageTableCellNibName = "DetailmageTableCell"
+private let detailDescriptionCellNibName = "DetailInfoCell"
+private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
+
+class ProsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var proArray = [Pro]()
+    //var prosArray = [Pros]()
+    var pros = Pros()
+    var package_url = String()
+    let viewForHead = ViewForProHeader.loadViewFromNib()
     
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var prosTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupHeaderView()
+        
+        NetworkManager.sharedInstance.getPackages(urlToPackage: package_url) { array in
+            self.proArray = array!
+
+        }
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
+        
+        let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
+        prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        
+        let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
+        prosTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+        
+        self.prosTableView.estimatedRowHeight = 80;
+        prosTableView.backgroundColor = Global.viewsBackgroundColor
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - Table view data source
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+            let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
+            lCell.imagesArray = pros.images
+            
+            
+            
+            return lCell
+        }
+            
+        else if indexPath.row == 1{
+            let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
+           cell2.nameLabel.text = pros.name
+            cell2.detailLabel.hidden = true
+            cell2.descriptionLabel.text = pros.descr
+         
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+            return cell2
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
+        cell.imagesArray = pros.images
+        return cell
     }
-    */
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return self.view.frame.height / 3.0
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+    
+    //MARK: Private methods
+    func setupHeaderView() {
+        viewForHead.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , headerView.frame.size.height)
+        headerView.addSubview(viewForHead)
+    }
 
 }
