@@ -30,7 +30,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Le Berder lfm g l mg sm ml " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9c-Gz-A5Y">
                                 <rect key="frame" x="16" y="3" width="344" height="22"/>
-                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

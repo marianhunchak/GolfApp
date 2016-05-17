@@ -8,12 +8,27 @@
 
 import UIKit
 
+private let cellIdentifier = "parcoursCell"
+
 class HotelsTableViewController: BaseTableViewController {
+    
+    var hotelsArray = [Hotel]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_list_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
+        
+        let nib = UINib(nibName: "CoursTableCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
+        
+        NetworkManager.sharedInstance.getHotels( { (pHotels) in
+            if  let lHotelsArray = pHotels {
+                self.hotelsArray = lHotelsArray
+                self.tableView.reloadData()
+            }
+        })
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,60 +38,39 @@ class HotelsTableViewController: BaseTableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return hotelsArray.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CoursTableCell
+        cell.cellInfoLabelHeight.constant = 0
+        
+        cell.cellItemLabel.text = hotelsArray[indexPath.row].name
+        cell.imageForCell = hotelsArray[indexPath.row].images.first
 
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return view.frame.height / 3
     }
-    */
+    
+    //MARK: UITableViewDelegate 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let hotelVC = HotelDetailViewController(nibName: "HotelDetailViewController", bundle: nil)
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        hotelVC.hotel = hotelsArray[indexPath.row]
+//        hotelVC.facilitiesArray = coursesArray[indexPath.row].facilities
+//        hotelVC.urlToRate = coursesArray[indexPath.row].rate_url as String
+
+        self.navigationController?.pushViewController(hotelVC, animated: true)
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

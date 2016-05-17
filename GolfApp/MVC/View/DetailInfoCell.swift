@@ -19,6 +19,7 @@ class DetailInfoCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backgroundCourseFooter: UIView!
 
+    @IBOutlet weak var detailLabelHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         

@@ -27,7 +27,11 @@ class CoursTableCell: UITableViewCell {
             if let lImage = imageForCell {
                 NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
                     (image) in
-                    self.cellImage.image = image
+                    
+                        if lImage.name == self.imageForCell?.name {
+                        self.cellImage.image = image
+                        self.setNeedsLayout()
+                        }
                 })
             }
         }

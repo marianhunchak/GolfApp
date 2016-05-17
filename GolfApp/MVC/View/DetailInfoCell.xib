@@ -37,7 +37,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="IF5-YQ-l9b"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="16"/>
                                 <color key="textColor" red="0.4823529411764706" green="0.65490196078431373" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -46,7 +46,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="qze-O8-qD1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -55,7 +55,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="uO5-su-0hB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -95,6 +95,7 @@
                 <outlet property="backgroundCourseFooter" destination="42m-2e-mfd" id="Dx5-tI-H4u"/>
                 <outlet property="descriptionLabel" destination="yPs-bF-eZX" id="Kru-61-Orb"/>
                 <outlet property="detailLabel" destination="czc-vN-3nT" id="9V9-D3-jw5"/>
+                <outlet property="detailLabelHeight" destination="uO5-su-0hB" id="Bek-kK-mzM"/>
                 <outlet property="nameLabel" destination="iJq-ys-2Ji" id="yij-6g-Rl8"/>
             </connections>
             <point key="canvasLocation" x="383" y="208"/>

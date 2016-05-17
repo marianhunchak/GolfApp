@@ -28,7 +28,7 @@
                             <outlet property="delegate" destination="-1" id="owY-ns-f2I"/>
                         </connections>
                     </collectionView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-x1-wgv">
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-x1-wgv">
                         <rect key="frame" x="0.0" y="224" width="403" height="37"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="37" id="ExN-00-0D0"/>

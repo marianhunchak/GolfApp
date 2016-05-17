@@ -13,7 +13,10 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
     
     // MARK: - Variables
     
-    var profile: Profile?
+    var phoneString: String?
+    var emailString: String?
+    var navigationString: String?
+    
     
     // MARK: - Connections outlet elements
     
@@ -29,23 +32,21 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
     @IBAction func emailButton(sender: AnyObject) {
         
         if MFMailComposeViewController.canSendMail() {
+            
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            if let lProfile = profile {
-            mail.setToRecipients([lProfile.email])
-            }
+            mail.setToRecipients([emailString!])
+            
             UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
         } else {
+    
             let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problen with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "ok")
             sendMailErrorAlert.show()
         }
     }
     @IBAction func telephoneButton(sender: AnyObject) {
-        
-        if let lProfile = profile {
-            print(lProfile.phone)
-        UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + lProfile.phone)!)
-        }
+
+        UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phoneString!)!)
 //        let installed = UIApplication.sharedApplication().canOpenURL(NSURL(string: "skype:")!)
 //        if installed {
 //            UIApplication.sharedApplication().openURL(NSURL(string: "skype:echo123?call")!)

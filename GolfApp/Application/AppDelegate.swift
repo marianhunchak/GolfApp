@@ -99,10 +99,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     
     // [START disconnect_gcm_service]
     func applicationDidEnterBackground(application: UIApplication) {
-        GCMService.sharedInstance().disconnect()
-        // [START_EXCLUDE]
-        self.connectedToGCM = false
-        // [END_EXCLUDE]
+//        GCMService.sharedInstance().disconnect()
+//        // [START_EXCLUDE]
+//        self.connectedToGCM = false
+//        // [END_EXCLUDE]
     }
     // [END disconnect_gcm_service]
     
@@ -137,11 +137,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     // [START ack_message_reception]
     func application( application: UIApplication,
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
         print("Notification received: \(userInfo)")
-        // This works only if the app started the GCM service
+                    // This works only if the app started the GCM service
         GCMService.sharedInstance().appDidReceiveMessage(userInfo);
         // Handle the received message
         // [START_EXCLUDE]
+        UIApplication.sharedApplication().applicationIconBadgeNumber += 1
         NSNotificationCenter.defaultCenter().postNotificationName(messageKey, object: nil,
                                                                   userInfo: userInfo)
         // [END_EXCLUDE]
@@ -153,9 +155,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         print("Notification received: \(userInfo)")
         // This works only if the app started the GCM service
         GCMService.sharedInstance().appDidReceiveMessage(userInfo);
-        // Handle the received message
+              // Handle the received message
         // Invoke the completion handler passing the appropriate UIBackgroundFetchResult value
         // [START_EXCLUDE]
+        
         NSNotificationCenter.defaultCenter().postNotificationName(messageKey, object: nil,
                                                                   userInfo: userInfo)
         handler(UIBackgroundFetchResult.NoData);
@@ -171,6 +174,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             
             NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
             })
+//            NetworkManager.sharedInstance.getNotifications({ (array, error) in
+//                
+//            })
 //                        NetworkManager.sharedInstance.unregisterDevice()
         } else {
             print("Registration to GCM failed with error: \(error.localizedDescription)")

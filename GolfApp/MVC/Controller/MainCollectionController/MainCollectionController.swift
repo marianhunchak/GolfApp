@@ -45,11 +45,20 @@ class MainCollectionController: UICollectionViewController  {
             self.profile = pProfile
         }
         
-//        NetworkManager.sharedInstance.getPros { array in
-//            self.prosArray = array!
-//            print("<<<<\(self.prosArray)>>>>")
-//        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNotification), name: "onMessageReceived", object: nil)
         
+    }
+    
+    func pushNotification(sender:NSNotification) {
+        
+        let notificationBody = sender.userInfo
+        
+        let notificationTitle = notificationBody!["message"]! as! String
+        
+        let sendMailErrorAlert = UIAlertView(title: "Recieved Notification", message: notificationTitle, delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+        
+
     }
     
     //MARK: UICollectionViewDataSource
@@ -124,7 +133,8 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         let contact = ContactView.loadViewFromNib()
         contact.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
         self.view.addSubview(contact)
-        contact.profile = profile
+        contact.emailString = profile?.email
+        contact.phoneString = profile?.phone
         contact.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             contact.alpha = 1

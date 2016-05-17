@@ -30,8 +30,6 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(urlToRate)
 
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_detail_nav_bar")
         
@@ -101,6 +99,10 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
     func setupHeaderView() {
         categories.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , headerView.frame.size.height)
         headerView.addSubview(categories)
+        
+        categories.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_btn"), forState: .Normal)
+        categories.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("crs_facilities_btn"), forState: .Normal)
+        categories.button3.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("crs_rates_btn"), forState: .Normal)
         
         categories.setButtonEnabled(categories.button1, enabled: arrayOfImages.count > 0 ? true : false)
         categories.setButtonEnabled(categories.button2, enabled: true)

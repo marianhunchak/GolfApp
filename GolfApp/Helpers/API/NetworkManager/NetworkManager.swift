@@ -23,7 +23,7 @@ class NetworkManager {
         
         let parameters = [
             "device_token": tokenString,
-            "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
+            "device_id": UIDevice.currentDevice().identifierForVendor!,
             "device_os": "ios",
             "client": Global.clientId,
             "language": Global.languageID
@@ -64,7 +64,7 @@ class NetworkManager {
     func getNotifications(completion: (NSArray?, NSError?) -> Void)  {
         
         let parameters = [
-            "regid": "",
+            "regid": "650",
             "selector": "news"
         ]
         
@@ -190,5 +190,30 @@ class NetworkManager {
                 }
         }
     }
+    
+    //MARK: Hotels 
+    
+    func getHotels(completion: ([Hotel]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/hotels?client=22&language=1", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let prosArray: NSArray = [self.jsonArray!["hotels"]!]
+                    var responseArray = [Hotel]()
+                    
+                    for courseDict in prosArray.firstObject as! NSArray {
+                        responseArray.append(Hotel.hotelsWhithDictionary(courseDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+
     
 }

@@ -31,11 +31,7 @@ class ViewForDetailHeader: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_btn"), forState: .Normal)
-        button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("crs_facilities_btn"), forState: .Normal)
-        button3.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("crs_rates_btn"), forState: .Normal)
-
+ 
         button1.layer.cornerRadius = 5
         button2.layer.cornerRadius = 5
         button3.layer.cornerRadius = 5

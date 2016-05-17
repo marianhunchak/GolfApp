@@ -36,6 +36,11 @@
 		562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */; };
 		562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABC1CE6107C00A6581B /* BaseViewController.swift */; };
 		562F4ABF1CE73A6C00A6581B /* UIView+RounCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */; };
+		564A5F771CEB7475009F7759 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5F761CEB7475009F7759 /* Hotel.swift */; };
+		564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5F7E1CEB81A9009F7759 /* HotelDetailViewController.swift */; };
+		564A5F811CEB81A9009F7759 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564A5F7F1CEB81A9009F7759 /* HotelDetailViewController.xib */; };
+		564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5F831CEB948E009F7759 /* WebViewController.swift */; };
+		564A5F861CEB948E009F7759 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564A5F841CEB948E009F7759 /* WebViewController.xib */; };
 		5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE11CE4BE7E00040520 /* string_english.xml */; };
 		5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE21CE4BE7E00040520 /* string_french.xml */; };
 		5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE31CE4BE7E00040520 /* string_german.xml */; };
@@ -315,6 +320,11 @@
 		562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		562F4ABC1CE6107C00A6581B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+RounCorners.swift"; path = "Extensions/UIView+RounCorners.swift"; sourceTree = "<group>"; };
+		564A5F761CEB7475009F7759 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
+		564A5F7E1CEB81A9009F7759 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
+		564A5F7F1CEB81A9009F7759 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
+		564A5F831CEB948E009F7759 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		564A5F841CEB948E009F7759 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		5650C6C61CDC98BF006F5940 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5651AEE11CE4BE7E00040520 /* string_english.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_english.xml; sourceTree = "<group>"; };
 		5651AEE21CE4BE7E00040520 /* string_french.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = string_french.xml; sourceTree = "<group>"; };
@@ -433,8 +443,10 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				564A5F871CEB9873009F7759 /* WebViewController */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				568951661CEB219500D7F5DF /* HotelsTableViewController */,
+				564A5F821CEB81B3009F7759 /* HotelDetailViewController */,
 				84FE090C1CEA6D070074373B /* ProsListViewController */,
 				562ECB651CE9F97900985213 /* ProsViewController */,
 				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
@@ -477,6 +489,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				564A5F7D1CEB75F2009F7759 /* Hotel */,
 				84FE09141CEA75420074373B /* Pros */,
 				84F190FD1CE899F800B1DDDC /* Rate */,
 				5663B5C11CE5B93F0039D1FC /* Profile */,
@@ -1230,6 +1243,32 @@
 			path = BaseViewControllers;
 			sourceTree = "<group>";
 		};
+		564A5F7D1CEB75F2009F7759 /* Hotel */ = {
+			isa = PBXGroup;
+			children = (
+				564A5F761CEB7475009F7759 /* Hotel.swift */,
+			);
+			name = Hotel;
+			sourceTree = "<group>";
+		};
+		564A5F821CEB81B3009F7759 /* HotelDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				564A5F7E1CEB81A9009F7759 /* HotelDetailViewController.swift */,
+				564A5F7F1CEB81A9009F7759 /* HotelDetailViewController.xib */,
+			);
+			name = HotelDetailViewController;
+			sourceTree = "<group>";
+		};
+		564A5F871CEB9873009F7759 /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				564A5F831CEB948E009F7759 /* WebViewController.swift */,
+				564A5F841CEB948E009F7759 /* WebViewController.xib */,
+			);
+			name = WebViewController;
+			sourceTree = "<group>";
+		};
 		5650C6BD1CDC98BF006F5940 = {
 			isa = PBXGroup;
 			children = (
@@ -1567,9 +1606,11 @@
 				560E3C9D1CE137A2006F8655 /* CoursTableCell.xib in Resources */,
 				560E3C9B1CE137A2006F8655 /* MenuCollectionCell.xib in Resources */,
 				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
+				564A5F861CEB948E009F7759 /* WebViewController.xib in Resources */,
 				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
+				564A5F811CEB81A9009F7759 /* HotelDetailViewController.xib in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
 				568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */,
 				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
@@ -1670,13 +1711,16 @@
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
+				564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */,
 				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
+				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				84FE09161CEA75570074373B /* Pros.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
+				564A5F771CEB7475009F7759 /* Hotel.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
