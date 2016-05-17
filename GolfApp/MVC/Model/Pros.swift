@@ -23,7 +23,7 @@ class Pros {
     var latitude : String?
     var package_count : Int?
     var package_url : String?
-    var image = [Image]()
+    var images = [Image]()
     
     static func prosWhithDictionary(pDictionary:NSDictionary) -> Pros {
         
@@ -43,7 +43,7 @@ class Pros {
         lPros.package_url = pDictionary["package_url"] as? String
         
         for imageDict in pDictionary["images"] as! NSArray {
-            lPros.image += [Image.imageWhithDictionary(imageDict as! NSDictionary)]
+            lPros.images += [Image.imageWhithDictionary(imageDict as! NSDictionary)]
         }
         
         return lPros

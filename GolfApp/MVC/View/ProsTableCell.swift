@@ -14,6 +14,17 @@ class ProsTableCell: UITableViewCell {
     @IBOutlet weak var prosImage: UIImageView!
     @IBOutlet weak var prosLabel: UILabel!
     
+    var imageForCell: Image? {
+        didSet {
+            if let lImage = imageForCell {
+            NetworkManager.sharedInstance.getImageWhihURL(NSURL(string:lImage.url!)!, imageName: lImage.name!, completion: {
+                (image) in
+                self.prosImage.image = image
+            })
+            }
+
+        }
+    }
 
 
     override func awakeFromNib() {
