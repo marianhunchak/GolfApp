@@ -42,7 +42,7 @@ class Pros {
         lPros.package_count = pDictionary["package_count"] as? Int
         lPros.package_url = pDictionary["package_url"] as? String
         
-        for imageDict in pDictionary["items"] as! NSArray {
+        for imageDict in pDictionary["images"] as! NSArray {
             lPros.image += [Image.imageWhithDictionary(imageDict as! NSDictionary)]
         }
         
@@ -53,15 +53,15 @@ class Pros {
 
 struct Image {
     
-    var name : String!
-    var url : String!
+    var name : String?
+    var url : String?
 
     
     static func imageWhithDictionary(pDictionary:NSDictionary) -> Image {
         
         var lImage = Image()
-        lImage.name = pDictionary["name"] as! String
-        lImage.url = pDictionary["url"] as! String
+        lImage.name = pDictionary["name"] as? String
+        lImage.url = pDictionary["url"] as? String
 
         return lImage
     }

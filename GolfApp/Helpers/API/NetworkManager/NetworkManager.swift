@@ -166,5 +166,29 @@ class NetworkManager {
         }
     }
     
+    //MARK: Pros
+    
+    func getPros(completion: ([Pros]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/pros?client=22&language=1", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //                    print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let prosArray: NSArray = [self.jsonArray!["pros"]!]
+                    var responseArray = [Pros]()
+                    
+                    for courseDict in prosArray.firstObject as! NSArray {
+                        responseArray.append(Pros.prosWhithDictionary(courseDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
     
 }

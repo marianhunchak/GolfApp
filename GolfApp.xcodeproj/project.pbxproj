@@ -59,6 +59,8 @@
 		843617711CE2389E00F96599 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843617701CE2389E00F96599 /* ContactView.swift */; };
 		8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */; };
 		8441945F1CE61B4C0056742E /* FacilitesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */; };
+		844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A94181CEB138000BCC86F /* ProsTableCell.xib */; };
+		844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A941A1CEB13F600BCC86F /* ProsTableCell.swift */; };
 		84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F190FE1CE89A5300B1DDDC /* Rate.swift */; };
 		84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */; };
 		84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6100F1CE90CC000FF3A87 /* RateViewController.swift */; };
@@ -335,6 +337,8 @@
 		843617701CE2389E00F96599 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionViewController.swift; sourceTree = "<group>"; };
 		8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacilitesCollectionCell.xib; sourceTree = "<group>"; };
+		844A94181CEB138000BCC86F /* ProsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsTableCell.xib; sourceTree = "<group>"; };
+		844A941A1CEB13F600BCC86F /* ProsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsTableCell.swift; sourceTree = "<group>"; };
 		84F190FE1CE89A5300B1DDDC /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionCell.swift; sourceTree = "<group>"; };
 		84F6100F1CE90CC000FF3A87 /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
@@ -498,6 +502,7 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				844A94121CEB134700BCC86F /* ProsTableCell */,
 				560E3C7D1CE137A2006F8655 /* MenuCollectionCell */,
 				8436176D1CE2388700F96599 /* ContactView */,
 				84FEF1E81CE9D00700D72858 /* RateCell */,
@@ -1353,6 +1358,15 @@
 			name = FacilitesCollectionCell;
 			sourceTree = "<group>";
 		};
+		844A94121CEB134700BCC86F /* ProsTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				844A94181CEB138000BCC86F /* ProsTableCell.xib */,
+				844A941A1CEB13F600BCC86F /* ProsTableCell.swift */,
+			);
+			name = ProsTableCell;
+			sourceTree = "<group>";
+		};
 		84F190FD1CE899F800B1DDDC /* Rate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1548,6 +1562,7 @@
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
+				844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */,
 				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
 				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
 				8436176F1CE2389900F96599 /* ContactView.xib in Resources */,
@@ -1627,6 +1642,7 @@
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
 				84FE09131CEA6F800074373B /* ProsListViewController.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
+				844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */,
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,

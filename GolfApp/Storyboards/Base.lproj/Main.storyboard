@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="264" y="-31"/>
         </scene>
-        <!--View Controller-->
+        <!--Pros List View Controller-->
         <scene sceneID="K5S-FZ-TAx">
             <objects>
-                <viewController id="CXf-3n-VVW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProsListViewController" id="CXf-3n-VVW" customClass="ProsListViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FEn-2r-KpE"/>
                         <viewControllerLayoutGuide type="bottom" id="IzY-gW-Scc"/>
@@ -69,8 +69,29 @@
                     <view key="view" contentMode="scaleToFill" id="Re2-Yo-ksG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afY-j7-aVK">
+                                <rect key="frame" x="12" y="76" width="576" height="512"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-Bv-Y7j">
+                                <rect key="frame" x="12" y="76" width="576" height="512"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mZU-Bv-Y7j" firstAttribute="leading" secondItem="Re2-Yo-ksG" secondAttribute="leading" constant="12" id="9vr-V1-gEs"/>
+                            <constraint firstItem="afY-j7-aVK" firstAttribute="top" secondItem="FEn-2r-KpE" secondAttribute="bottom" constant="12" id="d81-9F-LVb"/>
+                            <constraint firstItem="afY-j7-aVK" firstAttribute="leading" secondItem="Re2-Yo-ksG" secondAttribute="leading" constant="12" id="dTU-f3-6bZ"/>
+                            <constraint firstItem="IzY-gW-Scc" firstAttribute="top" secondItem="afY-j7-aVK" secondAttribute="bottom" constant="12" id="hug-i0-dxM"/>
+                            <constraint firstItem="IzY-gW-Scc" firstAttribute="top" secondItem="mZU-Bv-Y7j" secondAttribute="bottom" constant="12" id="iB6-Z9-iNa"/>
+                            <constraint firstItem="mZU-Bv-Y7j" firstAttribute="top" secondItem="FEn-2r-KpE" secondAttribute="bottom" constant="12" id="iLA-gq-TCD"/>
+                            <constraint firstAttribute="trailing" secondItem="mZU-Bv-Y7j" secondAttribute="trailing" constant="12" id="jX1-GI-UEC"/>
+                            <constraint firstAttribute="trailing" secondItem="afY-j7-aVK" secondAttribute="trailing" constant="12" id="kk0-Ml-a29"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <segue destination="WPl-kx-N8D" kind="show" identifier="showPros" id="FyV-oJ-WC8"/>
                     </connections>

@@ -10,6 +10,8 @@ import UIKit
 
 class ProsListViewController: UIViewController {
 
+    var prosArray = [Pros]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,7 +20,10 @@ class ProsListViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        NetworkManager.sharedInstance.getPros { array in
+            self.prosArray = array!
+            print("<<<<\(self.prosArray)>>>>")
+        }
     }
     
 
