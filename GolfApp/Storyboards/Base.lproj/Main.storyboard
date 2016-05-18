@@ -26,7 +26,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpN-34-5Hh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-513" y="-31"/>
+            <point key="canvasLocation" x="-426" y="-31"/>
         </scene>
         <!--Main Collection Controller-->
         <scene sceneID="OEe-6g-f16">
@@ -57,6 +57,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-6x-x9O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="264" y="-31"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="F5Q-9M-HRh">
+            <objects>
+                <tableViewController id="fGC-6d-gbW" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7tN-QP-vgp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="fGC-6d-gbW" id="UIf-bO-kye"/>
+                            <outlet property="delegate" destination="fGC-6d-gbW" id="oSF-Wx-jkn"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZON-mN-aUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426" y="629"/>
         </scene>
         <!--Pros List View Controller-->
         <scene sceneID="K5S-FZ-TAx">
@@ -457,6 +476,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1W8-dX-CwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2282" y="-31"/>
+        </scene>
+        <!--Pros Shop View Controller-->
+        <scene sceneID="piv-Th-a22">
+            <objects>
+                <viewController storyboardIdentifier="ProsShopViewController" id="Vg0-0r-1Mh" customClass="ProsShopViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RGj-t0-D13"/>
+                        <viewControllerLayoutGuide type="bottom" id="c8U-l7-Xlf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZIc-Hx-dVE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veW-l5-Lcw">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="2MQ-7X-LhS"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F55-72-r6b">
+                                <rect key="frame" x="0.0" y="109" width="600" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F55-72-r6b" firstAttribute="top" secondItem="veW-l5-Lcw" secondAttribute="bottom" id="BDy-sm-baH"/>
+                            <constraint firstItem="veW-l5-Lcw" firstAttribute="leading" secondItem="ZIc-Hx-dVE" secondAttribute="leading" id="Bvu-J1-pXj"/>
+                            <constraint firstItem="F55-72-r6b" firstAttribute="leading" secondItem="ZIc-Hx-dVE" secondAttribute="leading" id="bbT-hq-vgK"/>
+                            <constraint firstAttribute="trailing" secondItem="F55-72-r6b" secondAttribute="trailing" id="g4T-NB-Z02"/>
+                            <constraint firstItem="veW-l5-Lcw" firstAttribute="top" secondItem="RGj-t0-D13" secondAttribute="bottom" id="tGr-Nw-sPR"/>
+                            <constraint firstAttribute="trailing" secondItem="veW-l5-Lcw" secondAttribute="trailing" id="upM-gU-2q7"/>
+                            <constraint firstItem="c8U-l7-Xlf" firstAttribute="top" secondItem="F55-72-r6b" secondAttribute="bottom" id="vOG-0z-xwk"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="headerView" destination="veW-l5-Lcw" id="ayG-Nc-ZRn"/>
+                        <outlet property="prosShopTableView" destination="F55-72-r6b" id="8zC-8g-PLZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9c-TS-R2M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426" y="1331"/>
         </scene>
     </scenes>
 </document>
