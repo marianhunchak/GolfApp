@@ -1,8 +1,8 @@
 //
-//  ProsViewController.swift
+//  ProsShopViewController.swift
 //  GolfApp
 //
-//  Created by Marian Hunchak on 5/16/16.
+//  Created by Admin on 18.05.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -14,7 +14,8 @@ private let detailImageTableCellNibName = "DetailmageTableCell"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
-class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDelegate, UITableViewDataSource {
+
+class ProsShopViewController:BaseViewController, ProHeaderDelegate,UITableViewDelegate, UITableViewDataSource {
     
     var proArray = [Package]()
     var pros = Pros()
@@ -22,30 +23,32 @@ class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDeleg
     let viewForHead = ViewForProHeader.loadViewFromNib()
     
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var prosTableView: UITableView!
-
+    @IBOutlet weak var prosShopTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.setupHeaderView()
+        
         
         NetworkManager.sharedInstance.getPackages(urlToPackage: package_url) { array in
             self.proArray = array!
+            print(self.proArray)
+            self.setupHeaderView()
+            
         }
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
         
-        let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
-        prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
-        
-        let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
-        prosTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
-        
-        self.prosTableView.estimatedRowHeight = 80;
-        prosTableView.backgroundColor = Global.viewsBackgroundColor
-        
+//        let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
+//        prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+//        
+//        let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
+//        prosTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+//        
+//        self.prosTableView.estimatedRowHeight = 80;
+//        prosTableView.backgroundColor = Global.viewsBackgroundColor
+//        
         //setupHeaderView()
     }
-
+    
     // MARK: - Table view data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -65,10 +68,10 @@ class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDeleg
         else if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.nameLabel.text = pros.name
-            cell2.detailLabelHeight.constant = 0
+            cell2.detailLabelHeight.constant = 0.0
             cell2.descriptionLabel.text = pros.descr
-         
-
+            
+            
             return cell2
         }
         
@@ -94,12 +97,12 @@ class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDeleg
         viewForHead.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar"), forState: .Normal)
         
         viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
-        viewForHead.setButtonEnabled(viewForHead.button2, enabled: pros.package_count > 0 ? true : false)
-
+        viewForHead.setButtonEnabled(viewForHead.button2, enabled: proArray.count > 0 ? true : false)
+        
         viewForHead.delegate = self
     }
     func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
-       
+        
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         vc.offertsArray = proArray
         self.navigationController?.pushViewController(vc, animated: true)
@@ -123,5 +126,5 @@ class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDeleg
             teeTime.alpha = 1
         }
     }
-
+    
 }

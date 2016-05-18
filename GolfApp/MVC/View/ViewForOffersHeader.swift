@@ -1,34 +1,32 @@
 //
-//  ViewForProHeader.swift
+//  ViewForOffersHeader.swift
 //  GolfApp
 //
-//  Created by Admin on 17.05.16.
+//  Created by Admin on 18.05.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
 import UIKit
 
-protocol ProHeaderDelegate {
-
-    func pressedButton2(tableProHeader : ViewForProHeader ,button2Pressed button2 : AnyObject )
-    func pressedButton1(tableProHeader : ViewForProHeader ,button1Pressed button1 : AnyObject )
+protocol OffersHeaderDelegate {
+    
+    func pressedButton1(tableOffersHeader : ViewForOffersHeader ,button1Pressed button1 : AnyObject )
 }
 
-class ViewForProHeader: UIView {
+class ViewForOffersHeader: UIView {
 
-    var delegate : ProHeaderDelegate?
+    var delegate : OffersHeaderDelegate?
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var menuBarBackgrView: UIView!
     @IBOutlet weak var button1: UIButton!
-    @IBOutlet weak var button2: UIButton!
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         
         button1.layer.cornerRadius = 5
-        button2.layer.cornerRadius = 5
 
         
         menuBarBackgrView.layer.cornerRadius = 5
@@ -41,18 +39,13 @@ class ViewForProHeader: UIView {
         self.delegate?.pressedButton1(self, button1Pressed: sender)
         
     }
-    
-    @IBAction func button2Action(sender: AnyObject) {
-        
-        self.delegate?.pressedButton2(self, button2Pressed: sender)
-        
-    }
+
     
     //MARK - Private methods
-    static func loadViewFromNib() -> ViewForProHeader
+    static func loadViewFromNib() -> ViewForOffersHeader
     {
-        let nib = UINib(nibName: "ViewForProHeader", bundle: nil)
-        let header = nib.instantiateWithOwner(self, options: nil)[0] as! ViewForProHeader
+        let nib = UINib(nibName: "ViewForOffersHeader", bundle: nil)
+        let header = nib.instantiateWithOwner(self, options: nil)[0] as! ViewForOffersHeader
         
         return header
     }

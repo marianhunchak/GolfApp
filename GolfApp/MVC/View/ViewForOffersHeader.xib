@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="ViewForOffersHeader" id="Xmc-ei-2Lx" customClass="ViewForOffersHeader" customModule="GolfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9C4-r5-NWH">
+                    <rect key="frame" x="0.0" y="0.0" width="355" height="89"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtm-j9-Yke">
+                            <rect key="frame" x="12" y="-3" width="331" height="92"/>
+                            <color key="backgroundColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="gtm-j9-Yke" firstAttribute="leading" secondItem="9C4-r5-NWH" secondAttribute="leading" constant="12" id="9YC-gb-keS"/>
+                        <constraint firstAttribute="trailing" secondItem="gtm-j9-Yke" secondAttribute="trailing" constant="12" id="RTv-Y9-lsX"/>
+                        <constraint firstItem="gtm-j9-Yke" firstAttribute="top" secondItem="9C4-r5-NWH" secondAttribute="top" constant="-3" id="cC1-iP-CHt"/>
+                        <constraint firstAttribute="bottom" secondItem="gtm-j9-Yke" secondAttribute="bottom" id="hfw-PE-1nd"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4be-7D-oi2">
+                    <rect key="frame" x="100" y="8" width="155" height="73"/>
+                    <color key="backgroundColor" red="0.30196078430000001" green="0.41568627450000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="15"/>
+                    <state key="normal" title="Partager">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="button1Action:" destination="Xmc-ei-2Lx" eventType="touchUpInside" id="KNp-Cd-jmJ"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-Wd-PqS" userLabel="Separator">
+                    <rect key="frame" x="0.0" y="0.0" width="355" height="2"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="iV9-dp-voH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="tEe-Wd-PqS" firstAttribute="leading" secondItem="Xmc-ei-2Lx" secondAttribute="leading" id="2Xg-hV-edP"/>
+                <constraint firstItem="4be-7D-oi2" firstAttribute="top" secondItem="tEe-Wd-PqS" secondAttribute="bottom" constant="6" id="3fk-AD-ZH9"/>
+                <constraint firstAttribute="bottom" secondItem="4be-7D-oi2" secondAttribute="bottom" constant="8" id="A1z-wN-YYq"/>
+                <constraint firstItem="9C4-r5-NWH" firstAttribute="leading" secondItem="Xmc-ei-2Lx" secondAttribute="leading" id="OfB-XX-ygx"/>
+                <constraint firstItem="9C4-r5-NWH" firstAttribute="top" secondItem="Xmc-ei-2Lx" secondAttribute="top" id="PLx-kN-Bl3"/>
+                <constraint firstItem="4be-7D-oi2" firstAttribute="leading" secondItem="Xmc-ei-2Lx" secondAttribute="leading" constant="100" id="eJe-MK-5LZ"/>
+                <constraint firstAttribute="trailing" secondItem="4be-7D-oi2" secondAttribute="trailing" constant="100" id="erS-F5-IR9"/>
+                <constraint firstAttribute="trailing" secondItem="9C4-r5-NWH" secondAttribute="trailing" id="fnl-5Q-oAh"/>
+                <constraint firstAttribute="trailing" secondItem="tEe-Wd-PqS" secondAttribute="trailing" id="nPG-i4-gqp"/>
+                <constraint firstItem="tEe-Wd-PqS" firstAttribute="top" secondItem="Xmc-ei-2Lx" secondAttribute="top" id="xey-1P-7pc"/>
+                <constraint firstAttribute="bottom" secondItem="9C4-r5-NWH" secondAttribute="bottom" id="z1D-hT-fzH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backgroundView" destination="9C4-r5-NWH" id="Bne-vB-IZt"/>
+                <outlet property="button1" destination="4be-7D-oi2" id="u8C-SK-NxD"/>
+                <outlet property="menuBarBackgrView" destination="gtm-j9-Yke" id="iMY-5O-9KI"/>
+            </connections>
+            <point key="canvasLocation" x="464.5" y="263.5"/>
+        </view>
+    </objects>
+</document>

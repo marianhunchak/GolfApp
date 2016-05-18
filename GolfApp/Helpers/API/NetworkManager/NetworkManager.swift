@@ -149,7 +149,7 @@ class NetworkManager {
     
     //MARK: Packages
     
-    func getPackages(urlToPackage URL: String ,completion: ([Pro]?) -> Void) {
+    func getPackages(urlToPackage URL: String ,completion: ([Package]?) -> Void) {
         Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
@@ -158,10 +158,11 @@ class NetworkManager {
                     self.jsonArray = JSON as? NSDictionary
                     
                     let packageArray: NSArray = [self.jsonArray!["packages"]!]
-                    var responseArray = [Pro]()
+                    var responseArray = [Package]()
                     
                     for packageDict in packageArray.firstObject as! NSArray {
-                        responseArray.append(Pro.packageWhithDictionary(packageDict as! NSDictionary))
+                        responseArray.append(Package.itemWhithDictionary(packageDict as! NSDictionary))
+
                     }
                     
                     completion(responseArray)
