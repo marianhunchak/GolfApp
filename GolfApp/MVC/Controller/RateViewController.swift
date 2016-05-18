@@ -21,9 +21,13 @@ class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDa
  
         
         backgroundView.backgroundColor = Global.viewsBackgroundColor
-        backgroundView.layer.cornerRadius = 5
         rateTableView.layer.cornerRadius = 5
         rateTableView.layer.masksToBounds = true
+        rateTableView.backgroundColor = Global.viewsBackgroundColor
+        
+        rateTableView.sectionHeaderHeight = 0.0
+        rateTableView.sectionFooterHeight = 0.0
+
         self.rateTableView.estimatedSectionHeaderHeight = 30
         self.rateTableView.estimatedRowHeight = 20
         

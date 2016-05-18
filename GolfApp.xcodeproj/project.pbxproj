@@ -495,7 +495,6 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-
 				564A5F7D1CEB75F2009F7759 /* Hotel */,
 				844A94201CEB52E500BCC86F /* Pro */,
 				84FE09141CEA75420074373B /* Pros */,

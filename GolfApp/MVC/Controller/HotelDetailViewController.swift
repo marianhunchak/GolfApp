@@ -104,6 +104,8 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
             self.view.addSubview(contact)
             contact.phoneString = hotel.phone
             contact.emailString = hotel.email
+            contact.longitude = hotel.longitude
+            contact.latitude = hotel.latitude
             contact.alpha = 0
             UIView.animateWithDuration(0.25) { () -> Void in
                 contact.alpha = 1
@@ -118,7 +120,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
 
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
-
+        
     }
 
     /*

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class Hotel {
     
@@ -24,6 +25,7 @@ class Hotel {
     var package_count : Int!
     var package_url : String!
     var images = [Image]()
+    var location: CLLocation?
     
     static func hotelsWhithDictionary(pDictionary:NSDictionary) -> Hotel {
         

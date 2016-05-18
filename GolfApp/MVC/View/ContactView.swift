@@ -15,7 +15,8 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
     
     var phoneString: String?
     var emailString: String?
-    var navigationString: String?
+    var longitude: String?
+    var latitude: String?
     
     
     // MARK: - Connections outlet elements
@@ -56,8 +57,15 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
     }
     
     @IBAction func navigationButton(sender: AnyObject) {
-        
+        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+            UIApplication.sharedApplication().openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(latitude ?? ""),\(longitude ?? "")&directionsmode=driving")!)
+            
+        } else {
+            NSLog("Can't use comgooglemaps://");
+        }
     }
+
     @IBAction func cancelButton(sender: AnyObject) {
         
         self.removeFromSuperview()
