@@ -36,7 +36,16 @@ class ViewForOffersHeader: UIView {
     
     @IBAction func button1Action(sender: AnyObject) {
         
-        self.delegate?.pressedButton1(self, button1Pressed: sender)
+//        self.delegate?.pressedButton1(self, button1Pressed: sender)
+        let textToShare = "Swift is awesome!  Check out this website about it!"
+        
+        if let myWebsite = NSURL(string: "http://www.codingexplorer.com/") {
+            let objectsToShare = [textToShare, myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+//            activityVC.popoverPresentationController?.sourceView = sender
+            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentViewController(activityVC, animated: true, completion: nil)
+        }
         
     }
 
