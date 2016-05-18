@@ -80,6 +80,9 @@
 		84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */; };
 		84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FEF1E91CE9D03100D72858 /* RateCell.xib */; };
 		84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1EB1CE9D22200D72858 /* RateCell.swift */; };
+		84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF8C951CEBD4350007BC8E /* OffersViewController.swift */; };
+		84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF8C9E1CEBDA010007BC8E /* ViewForOffersHeader.swift */; };
+		84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FF8CA01CEBDA1C0007BC8E /* ViewForOffersHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,6 +371,9 @@
 		84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForRateHeader.swift; sourceTree = "<group>"; };
 		84FEF1E91CE9D03100D72858 /* RateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
 		84FEF1EB1CE9D22200D72858 /* RateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
+		84FF8C951CEBD4350007BC8E /* OffersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
+		84FF8C9E1CEBDA010007BC8E /* ViewForOffersHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForOffersHeader.swift; sourceTree = "<group>"; };
+		84FF8CA01CEBDA1C0007BC8E /* ViewForOffersHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForOffersHeader.xib; sourceTree = "<group>"; };
 		D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -449,6 +455,7 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				84FF8C9C1CEBD4610007BC8E /* OffersViewController */,
 				564A5F871CEB9873009F7759 /* WebViewController */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				568951661CEB219500D7F5DF /* HotelsTableViewController */,
@@ -495,7 +502,6 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-
 				564A5F7D1CEB75F2009F7759 /* Hotel */,
 				844A94201CEB52E500BCC86F /* Pro */,
 				84FE09141CEA75420074373B /* Pros */,
@@ -528,6 +534,7 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84FF8C9D1CEBD99B0007BC8E /* ViewForOffersHeader */,
 				844A942A1CEB6C0000BCC86F /* ViewForProHeader */,
 				568951671CEB260700D7F5DF /* HotelsSubviews */,
 				844A94121CEB134700BCC86F /* ProsTableCell */,
@@ -1504,6 +1511,23 @@
 			name = RateCell;
 			sourceTree = "<group>";
 		};
+		84FF8C9C1CEBD4610007BC8E /* OffersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84FF8C951CEBD4350007BC8E /* OffersViewController.swift */,
+			);
+			name = OffersViewController;
+			sourceTree = "<group>";
+		};
+		84FF8C9D1CEBD99B0007BC8E /* ViewForOffersHeader */ = {
+			isa = PBXGroup;
+			children = (
+				84FF8C9E1CEBDA010007BC8E /* ViewForOffersHeader.swift */,
+				84FF8CA01CEBDA1C0007BC8E /* ViewForOffersHeader.xib */,
+			);
+			name = ViewForOffersHeader;
+			sourceTree = "<group>";
+		};
 		F7C4FB67F26D23514690C3C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1650,6 +1674,7 @@
 				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
 				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
+				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
@@ -1725,7 +1750,9 @@
 				5651AEED1CE4C0A700040520 /* Global.swift in Sources */,
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
 				562ECB6C1CE9FA5100985213 /* ProsViewController.swift in Sources */,
+				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
+				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
 				84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */,

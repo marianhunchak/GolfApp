@@ -94,6 +94,12 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         vc.courseImage = arrayOfImages
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
+        self.performSegueWithIdentifier("showFacilities", sender: self)
+    }
+    func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
+        self.performSegueWithIdentifier("showRates", sender: self)
+    }
 
     //MARK: Private methods
     func setupHeaderView() {
@@ -109,12 +115,7 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         categories.setButtonEnabled(categories.button3, enabled: course.rate_count > 0 ? true : false)
         categories.delegate = self
     }
-    func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        self.performSegueWithIdentifier("showFacilities", sender: self)
-    }
-    func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
-        self.performSegueWithIdentifier("showRates", sender: self)
-    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showSwipeCourseController" {

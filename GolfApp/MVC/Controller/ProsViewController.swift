@@ -14,10 +14,9 @@ private let detailImageTableCellNibName = "DetailmageTableCell"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
-class ProsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDelegate, UITableViewDataSource {
     
     var proArray = [Pro]()
-    //var prosArray = [Pros]()
     var pros = Pros()
     var package_url = String()
     let viewForHead = ViewForProHeader.loadViewFromNib()
@@ -28,10 +27,11 @@ class ProsViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupHeaderView()
         
         NetworkManager.sharedInstance.getPackages(urlToPackage: package_url) { array in
             self.proArray = array!
+            print(self.proArray)
+            self.setupHeaderView()
 
         }
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
@@ -44,6 +44,8 @@ class ProsViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         
         self.prosTableView.estimatedRowHeight = 80;
         prosTableView.backgroundColor = Global.viewsBackgroundColor
+        
+        //setupHeaderView()
     }
 
     // MARK: - Table view data source
@@ -64,8 +66,8 @@ class ProsViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             
         else if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-           cell2.nameLabel.text = pros.name
-            cell2.detailLabel.hidden = true
+            cell2.nameLabel.text = pros.name
+            cell2.detailLabelHeight.constant = 0.0
             cell2.descriptionLabel.text = pros.descr
          
 
@@ -89,6 +91,39 @@ class ProsViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     func setupHeaderView() {
         viewForHead.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , headerView.frame.size.height)
         headerView.addSubview(viewForHead)
+        
+        viewForHead.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_contact_btn"), forState: .Normal)
+        viewForHead.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar"), forState: .Normal)
+        
+        viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
+        viewForHead.setButtonEnabled(viewForHead.button2, enabled: proArray.count > 0 ? true : false)
+
+        viewForHead.delegate = self
+    }
+    func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
+       
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
+        vc.offertsArray = proArray
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func pressedButton1(tableProHeader: ViewForProHeader, button1Pressed button1: AnyObject) {
+        showContactSubView()
+    }
+    
+    func showContactSubView() {
+        
+        let teeTime = TeeTimeView.loadViewFromNib()
+        teeTime.title.text = LocalisationDocument.sharedInstance.getStringWhinName("pro_contact_pop_up_title")
+        teeTime.emailString = pros.email
+        teeTime.phoneString = pros.phone
+        teeTime.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
+        self.view.addSubview(teeTime)
+        teeTime.alpha = 0
+        UIView.animateWithDuration(0.25) { () -> Void in
+            teeTime.alpha = 1
+        }
     }
 
 }

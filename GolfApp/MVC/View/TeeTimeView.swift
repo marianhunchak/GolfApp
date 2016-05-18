@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import MessageUI
 
-class TeeTimeView : UIView {
+class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
+    
+    // MARK: - Variables
+    
+    var phoneString: String?
+    var emailString: String?
     
    // MARK: - Connections outlet elements
     
@@ -21,8 +27,25 @@ class TeeTimeView : UIView {
     // MARK: - Connections action elements
     
     @IBAction func emailButton(sender: AnyObject) {
+        print(emailString)
+        if MFMailComposeViewController.canSendMail() {
+            
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([emailString!])
+
+            
+            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
+        } else {
+            
+            let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problen with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "ok")
+            sendMailErrorAlert.show()
+        }
+        
     }
     @IBAction func telephoneButton(sender: AnyObject) {
+             print(phoneString)
+             UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phoneString!)!)
     }
     @IBAction func cancelButton(sender: AnyObject) {
         self.removeFromSuperview()

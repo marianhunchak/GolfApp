@@ -29,10 +29,9 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
 
         NetworkManager.sharedInstance.getPros { array in
             self.prosArray = array!
-//            print("<<<<\(self.prosArray)>>>>")
             self.prosTableView.reloadData()
         }
-//         refreshControl?.addTarget(self, action:#selector(ProsListViewController.reloadAllData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +77,6 @@ class ProsListViewController: BaseViewController ,UITableViewDelegate ,UITableVi
 //        vc.facilitiesArray = coursesArray[indexPath.row].facilities
 //        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
         vc.package_url = prosArray[indexPath.row].package_url!
-        //vc.prosArray = prosArray
         vc.pros = prosArray[indexPath.row]
         
         self.navigationController?.pushViewController(vc, animated: true)

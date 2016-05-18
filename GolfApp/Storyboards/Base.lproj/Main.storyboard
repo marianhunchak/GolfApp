@@ -157,6 +157,55 @@
             </objects>
             <point key="canvasLocation" x="264" y="1326"/>
         </scene>
+        <!--Offers View Controller-->
+        <scene sceneID="8LP-jP-FTd">
+            <objects>
+                <viewController storyboardIdentifier="OffersViewController" id="coa-pZ-dlE" customClass="OffersViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qn4-6D-6eQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="O0F-5c-qmJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bw9-vP-JHD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A6-kC-7mb">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="LfD-UY-I87"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b8P-fi-A32">
+                                <rect key="frame" x="0.0" y="109" width="600" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="coa-pZ-dlE" id="sDa-nD-EiM"/>
+                                    <outlet property="delegate" destination="coa-pZ-dlE" id="2JE-g0-FZ3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4A6-kC-7mb" firstAttribute="top" secondItem="Qn4-6D-6eQ" secondAttribute="bottom" id="Hec-o3-1kE"/>
+                            <constraint firstItem="O0F-5c-qmJ" firstAttribute="top" secondItem="b8P-fi-A32" secondAttribute="bottom" id="L2Q-Vq-Xad"/>
+                            <constraint firstAttribute="trailing" secondItem="4A6-kC-7mb" secondAttribute="trailing" id="NbP-lG-RIN"/>
+                            <constraint firstItem="b8P-fi-A32" firstAttribute="top" secondItem="4A6-kC-7mb" secondAttribute="bottom" id="QMe-ln-OII"/>
+                            <constraint firstItem="b8P-fi-A32" firstAttribute="leading" secondItem="Bw9-vP-JHD" secondAttribute="leading" id="RVx-mw-an2"/>
+                            <constraint firstAttribute="trailing" secondItem="b8P-fi-A32" secondAttribute="trailing" id="jO3-2K-HfV"/>
+                            <constraint firstItem="4A6-kC-7mb" firstAttribute="leading" secondItem="Bw9-vP-JHD" secondAttribute="leading" id="oH0-LK-8O8"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="4A6-kC-7mb" id="Igk-EL-9ov"/>
+                        <outlet property="offersTableView" destination="b8P-fi-A32" id="bjK-wd-VrV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6Q-pQ-rvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888" y="1331"/>
+        </scene>
         <!--Facilites Collection View Controller-->
         <scene sceneID="M22-wA-6gj">
             <objects>
