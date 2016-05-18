@@ -240,6 +240,30 @@ class NetworkManager {
                 }
         }
     }
+    
+    //MARK: ProsShop
+    
+    func getProsShop(completion: ([ProsShop]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/proshops?client=22&language=1", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let prosArray: NSArray = [self.jsonArray!["proshops"]!]
+                    var responseArray = [ProsShop]()
+                    
+                    for courseDict in prosArray.firstObject as! NSArray {
+                        responseArray.append(ProsShop.hotelsWhithDictionary(courseDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
 
     
 }

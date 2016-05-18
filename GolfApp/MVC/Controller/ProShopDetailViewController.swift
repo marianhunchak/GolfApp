@@ -1,8 +1,8 @@
 //
-//  ProsShopViewController.swift
+//  ProShopDetailViewController.swift
 //  GolfApp
 //
-//  Created by Admin on 18.05.16.
+//  Created by Admin on 19.05.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -14,38 +14,35 @@ private let detailImageTableCellNibName = "DetailmageTableCell"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
-
-class ProsShopViewController:BaseViewController, ProHeaderDelegate,UITableViewDelegate, UITableViewDataSource {
+class ProShopDetailViewController: BaseViewController, ProHeaderDelegate ,UITableViewDelegate, UITableViewDataSource{
     
     var proArray = [Package]()
-    var pros = Pros()
+    var prosShop = ProsShop()
     var package_url = String()
     let viewForHead = ViewForProHeader.loadViewFromNib()
     
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var prosShopTableView: UITableView!
+    @IBOutlet weak var prosTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupHeaderView()
         
         NetworkManager.sharedInstance.getPackages(urlToPackage: package_url) { array in
             self.proArray = array!
-            print(self.proArray)
-            self.setupHeaderView()
-            
         }
-        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("ps_detail_nav_bar")
         
-//        let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
-//        prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
-//        
-//        let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
-//        prosTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
-//        
-//        self.prosTableView.estimatedRowHeight = 80;
-//        prosTableView.backgroundColor = Global.viewsBackgroundColor
-//        
+        let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
+        prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        
+        let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
+        prosTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+        
+        self.prosTableView.estimatedRowHeight = 80;
+        prosTableView.backgroundColor = Global.viewsBackgroundColor
+        
         //setupHeaderView()
     }
     
@@ -58,25 +55,22 @@ class ProsShopViewController:BaseViewController, ProHeaderDelegate,UITableViewDe
         
         if indexPath.row == 0 {
             let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-            lCell.imagesArray = pros.images
-            
-            
-            
+            lCell.imagesArray = prosShop.images
+
             return lCell
         }
             
         else if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-            cell2.nameLabel.text = pros.name
-            cell2.detailLabelHeight.constant = 0.0
-            cell2.descriptionLabel.text = pros.descr
-            
-            
+            cell2.nameLabel.text = prosShop.name
+            cell2.detailLabelHeight.constant = 0
+            cell2.descriptionLabel.text = prosShop.descr
+
             return cell2
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = pros.images
+        cell.imagesArray = prosShop.images
         return cell
     }
     
@@ -97,7 +91,7 @@ class ProsShopViewController:BaseViewController, ProHeaderDelegate,UITableViewDe
         viewForHead.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar"), forState: .Normal)
         
         viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
-        viewForHead.setButtonEnabled(viewForHead.button2, enabled: proArray.count > 0 ? true : false)
+        viewForHead.setButtonEnabled(viewForHead.button2, enabled: prosShop.package_count > 0 ? true : false)
         
         viewForHead.delegate = self
     }
@@ -117,8 +111,8 @@ class ProsShopViewController:BaseViewController, ProHeaderDelegate,UITableViewDe
         
         let teeTime = TeeTimeView.loadViewFromNib()
         teeTime.title.text = LocalisationDocument.sharedInstance.getStringWhinName("pro_contact_pop_up_title")
-        teeTime.emailString = pros.email
-        teeTime.phoneString = pros.phone
+        teeTime.emailString = prosShop.email
+        teeTime.phoneString = prosShop.phone
         teeTime.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
         self.view.addSubview(teeTime)
         teeTime.alpha = 0

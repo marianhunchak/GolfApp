@@ -88,7 +88,9 @@ class MainCollectionController: UICollectionViewController  {
 
             case 2: break
 
-            case 3: break
+            case 3:
+                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
+                self.navigationController?.pushViewController(prosVC!, animated: true)
 
             case 4:
                 let coursesVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)

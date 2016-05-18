@@ -15,7 +15,7 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
     
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
     var seleted = false
-    var shareItem : Int!
+    var shareItem = -1
     var offertsArray = [Package]()
     
     @IBOutlet weak var backgroundView: UIView!
@@ -49,17 +49,10 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
-        if seleted == false {
-            viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
-            seleted = true
-            shareItem = indexPath.row
-            print(shareItem)
-        } else {
         
-            viewForHead.setButtonEnabled(viewForHead.button1, enabled: false)
-            seleted = false
-            
-        }
+            viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
+            shareItem = indexPath.row
+
     
     }
     
@@ -99,10 +92,12 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
         viewForHead.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_share_btn"), forState: .Normal)
 
         viewForHead.delegate = self
+       // viewForHead.textToShare = offertsArray[shareItem].name!
     }
     
     func pressedButton1(tableProHeader: ViewForOffersHeader, button1Pressed button1: AnyObject) {
-        print("Some action")
+
+        
     }
 
 }

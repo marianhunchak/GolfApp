@@ -16,6 +16,9 @@ protocol OffersHeaderDelegate {
 class ViewForOffersHeader: UIView {
 
     var delegate : OffersHeaderDelegate?
+    var textToShare = String()
+    var urlToShare : String?
+    
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var menuBarBackgrView: UIView!
@@ -37,9 +40,9 @@ class ViewForOffersHeader: UIView {
     @IBAction func button1Action(sender: AnyObject) {
         
 //        self.delegate?.pressedButton1(self, button1Pressed: sender)
-        let textToShare = "Swift is awesome!  Check out this website about it!"
+        //let textToShare = "Swift is awesome!  Check out this website about it!"
         
-        if let myWebsite = NSURL(string: "http://www.codingexplorer.com/") {
+        if let myWebsite = NSURL(string: urlToShare!) {
             let objectsToShare = [textToShare, myWebsite]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             
@@ -47,6 +50,20 @@ class ViewForOffersHeader: UIView {
             UIApplication.sharedApplication().keyWindow?.rootViewController!.presentViewController(activityVC, animated: true, completion: nil)
         }
         
+
+        
+    }
+    
+    func shareThisItem(titleToShare :String, myWebsite : String) {
+    
+        if let myWebsite = NSURL(string: titleToShare) {
+            let objectsToShare = [titleToShare, myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //            activityVC.popoverPresentationController?.sourceView = sender
+            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentViewController(activityVC, animated: true, completion: nil)
+        }
+    
     }
 
     
