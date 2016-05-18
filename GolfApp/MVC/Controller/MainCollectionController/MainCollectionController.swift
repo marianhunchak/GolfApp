@@ -96,7 +96,7 @@ class MainCollectionController: UICollectionViewController  {
                 let coursesVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)
                 self.navigationController?.pushViewController(coursesVC!, animated: true)
             case 5:
-                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfProsListViewController)
+                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProsListTableViewController")
                 self.navigationController?.pushViewController(prosVC!, animated: true)
             case 6:
                 showContactSubView()
