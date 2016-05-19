@@ -124,9 +124,9 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
         
-        let vc = OffersViewController(nibName: "OffersViewController", bundle: nil)
-//        vc.offertsArray = proArray
-        self.navigationController?.pushViewController(vc, animated: true)
+        let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
+        packageVC.packageUrl = hotel.package_url
+        self.navigationController?.pushViewController(packageVC, animated: true)
     }
 
 }

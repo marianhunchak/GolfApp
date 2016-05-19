@@ -38,7 +38,6 @@
 		562F4ABF1CE73A6C00A6581B /* UIView+RounCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */; };
 		564A5F771CEB7475009F7759 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5F761CEB7475009F7759 /* Hotel.swift */; };
 		564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5F7E1CEB81A9009F7759 /* HotelDetailViewController.swift */; };
-		564A5F811CEB81A9009F7759 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564A5F7F1CEB81A9009F7759 /* HotelDetailViewController.xib */; };
 		564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564A5F831CEB948E009F7759 /* WebViewController.swift */; };
 		564A5F861CEB948E009F7759 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 564A5F841CEB948E009F7759 /* WebViewController.xib */; };
 		5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEE11CE4BE7E00040520 /* string_english.xml */; };
@@ -54,6 +53,7 @@
 		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
 		5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */; };
 		568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */; };
+		56FC0D8B1CEE13AC006F3AB1 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */; };
 		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
 		84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D491CE3E2D400164917 /* SwipePageCourseController.swift */; };
 		8407A5B11CE3296100500E19 /* ViewForDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */; };
@@ -335,7 +335,6 @@
 		562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+RounCorners.swift"; path = "Extensions/UIView+RounCorners.swift"; sourceTree = "<group>"; };
 		564A5F761CEB7475009F7759 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		564A5F7E1CEB81A9009F7759 /* HotelDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelDetailViewController.swift; sourceTree = "<group>"; };
-		564A5F7F1CEB81A9009F7759 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
 		564A5F831CEB948E009F7759 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		564A5F841CEB948E009F7759 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		5650C6C61CDC98BF006F5940 /* GolfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GolfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,6 +351,7 @@
 		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
 		5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTableViewController.swift; sourceTree = "<group>"; };
 		5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTableViewController.xib; sourceTree = "<group>"; };
+		56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
 		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		84051D491CE3E2D400164917 /* SwipePageCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipePageCourseController.swift; sourceTree = "<group>"; };
 		8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForDetailHeader.xib; sourceTree = "<group>"; };
@@ -469,6 +469,8 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
+				56FC0D841CEE10BF006F3AB1 /* Hotels */,
 				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
 				84F6B9501CEDCA6100B4491C /* RestaurantTableViewController */,
 				84F4C08A1CED32BA0056B903 /* ProsListTableViewController */,
@@ -476,9 +478,6 @@
 				84FBD0051CEC6FBB002FBF57 /* ProShopDetailViewController */,
 				84FF8C9C1CEBD4610007BC8E /* OffersViewController */,
 				564A5F871CEB9873009F7759 /* WebViewController */,
-				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
-				568951661CEB219500D7F5DF /* HotelsTableViewController */,
-				564A5F821CEB81B3009F7759 /* HotelDetailViewController */,
 				562ECB651CE9F97900985213 /* ProsViewController */,
 				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				84F6100E1CE90C5F00FF3A87 /* RateController */,
@@ -1292,7 +1291,7 @@
 			isa = PBXGroup;
 			children = (
 				564A5F7E1CEB81A9009F7759 /* HotelDetailViewController.swift */,
-				564A5F7F1CEB81A9009F7759 /* HotelDetailViewController.xib */,
+				56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */,
 			);
 			name = HotelDetailViewController;
 			sourceTree = "<group>";
@@ -1392,6 +1391,15 @@
 			children = (
 			);
 			name = HotelsSubviews;
+			sourceTree = "<group>";
+		};
+		56FC0D841CEE10BF006F3AB1 /* Hotels */ = {
+			isa = PBXGroup;
+			children = (
+				564A5F821CEB81B3009F7759 /* HotelDetailViewController */,
+				568951661CEB219500D7F5DF /* HotelsTableViewController */,
+			);
+			name = Hotels;
 			sourceTree = "<group>";
 		};
 		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
@@ -1738,12 +1746,12 @@
 				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
-				564A5F811CEB81A9009F7759 /* HotelDetailViewController.xib in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
 				568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */,
 				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
 				560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */,
 				560E3C9F1CE137A2006F8655 /* backroundImage.jpg in Resources */,
+				56FC0D8B1CEE13AC006F3AB1 /* HotelDetailViewController.xib in Resources */,
 				560E3C9E1CE137A2006F8655 /* Assets.xcassets in Resources */,
 				840940331CE4A0950005A97E /* TeeTimeView.xib in Resources */,
 				8407A5B41CE32DD600500E19 /* DetailInfoCell.xib in Resources */,

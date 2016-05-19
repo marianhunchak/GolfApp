@@ -19,7 +19,6 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
     var offertsArray = [Package]()
     var packageUrl: String?
     
-    
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var offersTableView: UITableView!
 
