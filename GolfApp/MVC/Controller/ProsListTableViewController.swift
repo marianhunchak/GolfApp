@@ -68,13 +68,7 @@ class ProsListTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! ProsViewController
-        //
-        //        if indexPath.row < coursesImages.count {
-        //            vc.arrayOfImages =  coursesImages[indexPath.row]
-        //        }
-        //        vc.course = coursesArray[indexPath.row]
-        //        vc.facilitiesArray = coursesArray[indexPath.row].facilities
-        //        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
+
         vc.package_url = prosArray[indexPath.row].package_url!
         vc.pros = prosArray[indexPath.row]
         
