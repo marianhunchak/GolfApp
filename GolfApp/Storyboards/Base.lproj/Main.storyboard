@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UOd-ph-AHI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UOd-ph-AHI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -104,6 +104,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4S-OV-r6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-435" y="1331"/>
+        </scene>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="Jxl-fQ-1ub">
+            <objects>
+                <viewController storyboardIdentifier="RestaurantDetailViewController" id="qTr-9k-bUq" customClass="RestaurantDetailViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m7g-P7-eOW"/>
+                        <viewControllerLayoutGuide type="bottom" id="aMb-h8-PFd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SIG-9J-ODk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ih-Ve-don">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Oz0-3x-eac"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QX4-e0-col">
+                                <rect key="frame" x="0.0" y="109" width="600" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qTr-9k-bUq" id="R7e-7T-fIA"/>
+                                    <outlet property="delegate" destination="qTr-9k-bUq" id="Gln-DN-ebE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aMb-h8-PFd" firstAttribute="top" secondItem="QX4-e0-col" secondAttribute="bottom" id="1YO-e4-riN"/>
+                            <constraint firstItem="4ih-Ve-don" firstAttribute="top" secondItem="m7g-P7-eOW" secondAttribute="bottom" id="2dv-qL-PRV"/>
+                            <constraint firstItem="4ih-Ve-don" firstAttribute="leading" secondItem="SIG-9J-ODk" secondAttribute="leading" id="ARk-h7-pVM"/>
+                            <constraint firstItem="QX4-e0-col" firstAttribute="top" secondItem="4ih-Ve-don" secondAttribute="bottom" id="BGt-py-s6z"/>
+                            <constraint firstAttribute="trailing" secondItem="QX4-e0-col" secondAttribute="trailing" id="MQR-lM-3zp"/>
+                            <constraint firstItem="QX4-e0-col" firstAttribute="leading" secondItem="SIG-9J-ODk" secondAttribute="leading" id="deZ-EY-Dra"/>
+                            <constraint firstAttribute="trailing" secondItem="4ih-Ve-don" secondAttribute="trailing" id="nte-4D-8me"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="headerView" destination="4ih-Ve-don" id="bwo-wc-RA1"/>
+                        <outlet property="tableView" destination="QX4-e0-col" id="dzb-nM-dbb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPI-bs-NSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="-1409"/>
+        </scene>
+        <!--Restaurant Table View Controller-->
+        <scene sceneID="oeT-Fg-6po">
+            <objects>
+                <tableViewController storyboardIdentifier="RestaurantTableViewController" id="CkB-Oa-VnU" customClass="RestaurantTableViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ckh-Lx-zoB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="JiY-Cy-dQy">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JiY-Cy-dQy" id="hBk-sn-onC">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CkB-Oa-VnU" id="qJ9-OL-bDa"/>
+                            <outlet property="delegate" destination="CkB-Oa-VnU" id="yMg-LV-7Gt"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bx3-LD-CZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="-762"/>
         </scene>
         <!--Main Collection Controller-->
         <scene sceneID="OEe-6g-f16">
@@ -256,7 +333,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l6Q-pQ-rvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="1331"/>
+            <point key="canvasLocation" x="887" y="1326"/>
         </scene>
         <!--Facilites Collection View Controller-->
         <scene sceneID="M22-wA-6gj">
@@ -319,7 +396,7 @@
         <!--Rate View Controller-->
         <scene sceneID="WuT-HP-jD4">
             <objects>
-                <viewController id="LwV-BP-yQI" customClass="RateViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RateViewController" id="LwV-BP-yQI" customClass="RateViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k0n-lN-h3b"/>
                         <viewControllerLayoutGuide type="bottom" id="fnU-mM-9xM"/>

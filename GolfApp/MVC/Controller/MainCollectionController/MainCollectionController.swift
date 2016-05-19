@@ -18,6 +18,7 @@ class MainCollectionController: UICollectionViewController  {
     
     var profile:Profile?
     var prosArray = [Pros]()
+    var restaurantArray = [Restaurant]()
     var lTopInset : CGFloat?
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
@@ -43,6 +44,11 @@ class MainCollectionController: UICollectionViewController  {
         
         NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
             self.profile = pProfile
+        }
+        
+        NetworkManager.sharedInstance.getRestaurant { rRestaurant in
+            self.restaurantArray = rRestaurant!
+            
         }
         
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNotification), name: "onMessageReceived", object: nil)
@@ -86,8 +92,9 @@ class MainCollectionController: UICollectionViewController  {
                 showTeeTimeSubView()
             case 1: break
 
-            case 2: break
-
+            case 2:
+                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
+                self.navigationController?.pushViewController(prosVC!, animated: true)
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
                 self.navigationController?.pushViewController(prosVC!, animated: true)
