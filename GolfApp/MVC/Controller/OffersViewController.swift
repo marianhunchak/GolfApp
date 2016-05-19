@@ -50,10 +50,20 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
         
-            viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
-            shareItem = indexPath.row
-
+        viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
+        shareItem = indexPath.row
+        
+        let selectedCell = tableView.cellForRowAtIndexPath(indexPath) as! DetailInfoCell
+        selectedCell.setCellSelected()
+    }
     
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+       
+        if let deselectedCell = tableView.cellForRowAtIndexPath(indexPath) as? DetailInfoCell {
+            deselectedCell.backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
+            deselectedCell.nameLabel.textColor = Global.navigationBarColor
+            deselectedCell.backgroundCourseFooter.layer.borderWidth = 0.0
+        }
     }
     
     // MARK: - Table view data source
@@ -70,19 +80,17 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
             cell.nameLabel.text = offertsArray[indexPath.row].name
             cell.detailLabel.text = offertsArray[indexPath.row].subtitle
             cell.descriptionLabel.text = offertsArray[indexPath.row].descr
-
+        if shareItem == indexPath.row {
+            cell.setCellSelected()
+        }
         
         return cell
     }
-    
-    //MARK: Size
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 
-            return UITableViewAutomaticDimension
-        
+        return UITableViewAutomaticDimension
     }
-
 
     //MARK: Private methods
     func setupHeaderView() {

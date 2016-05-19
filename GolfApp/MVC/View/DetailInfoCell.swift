@@ -20,6 +20,7 @@ class DetailInfoCell: UITableViewCell {
     @IBOutlet weak var backgroundCourseFooter: UIView!
 
     @IBOutlet weak var detailLabelHeight: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,29 +28,24 @@ class DetailInfoCell: UITableViewCell {
         backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+         backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
+         backgroundCourseFooter.layer.borderWidth = 0.0
+         nameLabel.textColor = Global.navigationBarColor
+        
     }
     
     //MARK: Private methods
-//    
-//    static func heightForDescrLabel(descrLabel:String, tableView: UITableView ) -> Float {
-//        let lableSize = CGSize(width: tableView.frame.size.width - 30, height: 99999)
-//        let size = (descrLabel as NSString).boundingRectWithSize(lableSize,
-//                                                                 options: .UsesLineFragmentOrigin,
-//                                                                 attributes: [NSFontAttributeName:],
-//                                                                 context: nil).size
-//        
-//    }
-//    
-//    + (CGFloat)heightForInfoUser:(NSString *)infoUserLabel inTable:(UITableView *)tableView {
-//    CGSize infoUserLabelSize = CGSizeMake(tableView.frame.size.width - 30.f, 99999);
-//    CGSize size = [infoUserLabel boundingRectWithSize:infoUserLabelSize
-//    options:NSStringDrawingUsesLineFragmentOrigin
-//    attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.f]}
-//    context:nil].size;
-//    return BASE_CELL_HEIGHT + size.height;
-//    }
+    
+    func setCellSelected() {
+        backgroundCourseFooter.backgroundColor = Global.navigationBarColor
+        nameLabel.textColor = UIColor.whiteColor()
+        backgroundCourseFooter.layer.borderWidth = 2
+        backgroundCourseFooter.layer.borderColor = Global.menuBarStokeColor.CGColor
+        backgroundCourseFooter.layer.masksToBounds = true
+
+    }
 
 }

@@ -99,10 +99,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     
     // [START disconnect_gcm_service]
     func applicationDidEnterBackground(application: UIApplication) {
-//        GCMService.sharedInstance().disconnect()
-//        // [START_EXCLUDE]
-//        self.connectedToGCM = false
-//        // [END_EXCLUDE]
+        GCMService.sharedInstance().disconnect()
+        // [START_EXCLUDE]
+        self.connectedToGCM = false
+        // [END_EXCLUDE]
     }
     // [END disconnect_gcm_service]
     
@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         GCMService.sharedInstance().appDidReceiveMessage(userInfo);
         // Handle the received message
         // [START_EXCLUDE]
-        UIApplication.sharedApplication().applicationIconBadgeNumber += 1
+//        UIApplication.sharedApplication().applicationIconBadgeNumber += 1
         NSNotificationCenter.defaultCenter().postNotificationName(messageKey, object: nil,
                                                                   userInfo: userInfo)
         // [END_EXCLUDE]
