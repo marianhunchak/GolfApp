@@ -264,6 +264,53 @@ class NetworkManager {
                 }
         }
     }
-
+    //MARK: Restaurant
+    
+    func getRestaurant(completion: ([Restaurant]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/restaurants?client=22&language=1", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let prosArray: NSArray = [self.jsonArray!["restaurants"]!]
+                    var responseArray = [Restaurant]()
+                    
+                    for courseDict in prosArray.firstObject as! NSArray {
+                        responseArray.append(Restaurant.restaurantWhithDictionary(courseDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
+    //MARK: Menu
+    
+    func getMenu(urlToRate URL: String ,completion: ([Rate]?) -> Void) {
+        Alamofire.request(.GET, URL, parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let coursesArray: NSArray = [self.jsonArray!["menus"]!]
+                    var responseArray = [Rate]()
+                    
+                    for rateDict in coursesArray.firstObject as! NSArray {
+                        responseArray.append(Rate.rateWhithDictionary(rateDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
     
 }
