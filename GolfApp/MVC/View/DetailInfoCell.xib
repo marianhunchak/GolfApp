@@ -41,17 +41,17 @@
                                 <color key="textColor" red="0.4823529411764706" green="0.65490196078431373" blue="0.043137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18-hole-Par 70 - 5666 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="czc-vN-3nT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="czc-vN-3nT">
                                 <rect key="frame" x="8" y="28" width="308" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="uO5-su-0hB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="uO5-su-0hB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-bF-eZX">
-                                <rect key="frame" x="8" y="49" width="308" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Some text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPs-bF-eZX">
+                                <rect key="frame" x="8" y="45" width="308" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="10" id="qze-O8-qD1"/>
                                 </constraints>
@@ -69,8 +69,8 @@
                             <constraint firstItem="iJq-ys-2Ji" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" constant="6" id="S1S-Am-vSZ"/>
                             <constraint firstItem="yPs-bF-eZX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="42m-2e-mfd" secondAttribute="top" constant="5" id="Vgi-FV-zJ5"/>
                             <constraint firstAttribute="trailing" secondItem="iJq-ys-2Ji" secondAttribute="trailing" constant="8" id="arD-Z0-sTM"/>
-                            <constraint firstAttribute="bottom" secondItem="yPs-bF-eZX" secondAttribute="bottom" constant="4" id="c66-Q2-KI3"/>
-                            <constraint firstItem="yPs-bF-eZX" firstAttribute="top" secondItem="czc-vN-3nT" secondAttribute="bottom" constant="4" id="g7g-kN-WtN"/>
+                            <constraint firstAttribute="bottom" secondItem="yPs-bF-eZX" secondAttribute="bottom" constant="8" id="c66-Q2-KI3"/>
+                            <constraint firstItem="yPs-bF-eZX" firstAttribute="top" secondItem="czc-vN-3nT" secondAttribute="bottom" id="g7g-kN-WtN"/>
                             <constraint firstItem="iJq-ys-2Ji" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="htu-gO-Z8x"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="kB7-XH-4Qn"/>
                             <constraint firstItem="czc-vN-3nT" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="oqV-mL-GEb"/>
