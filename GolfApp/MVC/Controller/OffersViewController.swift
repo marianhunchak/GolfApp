@@ -17,6 +17,8 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
     var seleted = false
     var shareItem = -1
     var offertsArray = [Package]()
+    var packageUrl: String?
+    
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var offersTableView: UITableView!
@@ -33,6 +35,11 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.offersTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+        
+        NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+            self.offertsArray = array!
+            self.offersTableView.reloadData()
+        }
         
     }
 
@@ -69,7 +76,6 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
     // MARK: - Table view data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        
         return offertsArray.count
     }
     

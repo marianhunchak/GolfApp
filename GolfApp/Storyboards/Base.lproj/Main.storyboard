@@ -189,16 +189,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xFA-UH-vIc">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFA-UH-vIc" id="EEg-wY-Ris">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="RKy-Bm-c1l" id="HKh-cB-pmF"/>
                             <outlet property="delegate" destination="RKy-Bm-c1l" id="ZX7-ED-Uk2"/>
@@ -212,7 +202,7 @@
         <!--Offers View Controller-->
         <scene sceneID="8LP-jP-FTd">
             <objects>
-                <viewController storyboardIdentifier="OffersViewController" id="coa-pZ-dlE" customClass="OffersViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OffersViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="coa-pZ-dlE" customClass="OffersViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qn4-6D-6eQ"/>
                         <viewControllerLayoutGuide type="bottom" id="O0F-5c-qmJ"/>
@@ -337,17 +327,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RateCell" id="9Bd-Hu-lBK">
-                                        <rect key="frame" x="0.0" y="50" width="576" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Bd-Hu-lBK" id="93v-pN-7qm">
-                                            <rect key="frame" x="0.0" y="0.0" width="576" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="LwV-BP-yQI" id="QyO-nV-Vgn"/>
                                     <outlet property="delegate" destination="LwV-BP-yQI" id="kbj-bW-yuL"/>

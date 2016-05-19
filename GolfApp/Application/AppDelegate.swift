@@ -134,9 +134,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             registrationKey, object: nil, userInfo: userInfo)
     }
     
+    
     // [START ack_message_reception]
     func application( application: UIApplication,
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+//        let localNotification = UILocalNotification()
+//        localNotification.fireDate = NSDate(timeIntervalSinceNow: 0)
+//        localNotification.alertBody = "new Blog Posted at iOScreator.com"
+//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//        localNotification.soundName = "default"
+//        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+        
+//        application.scheduleLocalNotification(localNotification)
         
         print("Notification received: \(userInfo)")
                     // This works only if the app started the GCM service
@@ -152,6 +161,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     func application( application: UIApplication,
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
                                                    fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
+//        let localNotification = UILocalNotification()
+//        localNotification.fireDate = NSDate(timeIntervalSinceNow: 0)
+//        localNotification.alertBody = "new Blog Posted at iOScreator.com"
+//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+//        localNotification.soundName = "default"
+//        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+//        
+//        application.scheduleLocalNotification(localNotification)
+        
         print("Notification received: \(userInfo)")
         // This works only if the app started the GCM service
         GCMService.sharedInstance().appDidReceiveMessage(userInfo);
@@ -166,17 +184,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     }
     // [END ack_message_reception]
     
+//    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+//        application.applicationIconBadgeNumber = 0
+//    }
+    
     func registrationHandler(registrationToken: String!, error: NSError!) {
         if (registrationToken != nil) {
             self.registrationToken = registrationToken
             print("Registration Token: \(registrationToken)")
             self.subscribeToTopic()
             
-            NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
-            })
-//            NetworkManager.sharedInstance.getNotifications({ (array, error) in
-//                
+//            NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
 //            })
+            NetworkManager.sharedInstance.getNotifications({ (array, error) in
+                
+            })
 //                        NetworkManager.sharedInstance.unregisterDevice()
         } else {
             print("Registration to GCM failed with error: \(error.localizedDescription)")

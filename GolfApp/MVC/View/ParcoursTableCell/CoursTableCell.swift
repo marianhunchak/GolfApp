@@ -18,6 +18,8 @@ class CoursTableCell: UITableViewCell {
     @IBOutlet weak var cellItemLabel: UILabel!
     @IBOutlet weak var cellInfoLabel: UILabel!
     
+    var request: Request?
+    
     //MARK: Constraints
     
     @IBOutlet weak var cellInfoLabelHeight: NSLayoutConstraint!
@@ -25,13 +27,13 @@ class CoursTableCell: UITableViewCell {
     var imageForCell: Image? {
         didSet {
             if let lImage = imageForCell {
-                NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
+                if request != nil {
+                    request!.cancel()
+                }
+                request = NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
                     (image) in
-                    
-                        if lImage.name == self.imageForCell?.name {
+ 
                         self.cellImage.image = image
-                        self.setNeedsLayout()
-                        }
                 })
             }
         }
@@ -46,7 +48,10 @@ class CoursTableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.cellImage.image = UIImage(named: "a_place_holder_list_view")
+        self.cellImage.image = UIImage(named:"a_place_holder_list_view")
+        if request != nil {
+            request!.cancel()
+        }
     }
     
     

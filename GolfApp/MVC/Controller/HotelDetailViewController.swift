@@ -34,13 +34,15 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         
         self.setupHeaderView()
     }
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    //MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -69,7 +71,6 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         cell.imagesArray = self.hotel.images
         return cell
     }
-
     
     //MARK: Private methods
     func setupHeaderView() {
@@ -83,7 +84,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         
         viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
         viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: true)
-        viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: false)
+        viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: hotel.package_count > 0 ? true : false)
         viewForHeader.delegate = self
     }
     
@@ -99,17 +100,17 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     
     func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
             
-            let contact = ContactView.loadViewFromNib()
-            contact.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
-            self.view.addSubview(contact)
-            contact.phoneString = hotel.phone
-            contact.emailString = hotel.email
-            contact.longitude = hotel.longitude
-            contact.latitude = hotel.latitude
-            contact.alpha = 0
-            UIView.animateWithDuration(0.25) { () -> Void in
-                contact.alpha = 1
-            }
+        let contact = ContactView.loadViewFromNib()
+        contact.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
+        self.view.addSubview(contact)
+        contact.phoneString = hotel.phone
+        contact.emailString = hotel.email
+        contact.longitude = hotel.longitude
+        contact.latitude = hotel.latitude
+        contact.alpha = 0
+        UIView.animateWithDuration(0.25) { () -> Void in
+            contact.alpha = 1
+        }
     }
     
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
@@ -119,18 +120,13 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         self.navigationController?.pushViewController(webVC, animated: true)
 
     }
+    
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
+        
+        let vc = OffersViewController(nibName: "OffersViewController", bundle: nil)
+//        vc.offertsArray = proArray
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

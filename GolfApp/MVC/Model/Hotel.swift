@@ -41,7 +41,7 @@ class Hotel {
         lHotel.country = pDictionary["country"] as? String ?? ""
         lHotel.longitude = pDictionary["longitude"] as? String ?? ""
         lHotel.latitude = pDictionary["latitude"] as? String ?? ""
-        lHotel.package_count = pDictionary["package_count"] as? Int
+        lHotel.package_count = pDictionary["package_count"] as! Int
         lHotel.package_url = pDictionary["package_url"] as? String ?? ""
         
         for imageDict in pDictionary["images"] as! NSArray {

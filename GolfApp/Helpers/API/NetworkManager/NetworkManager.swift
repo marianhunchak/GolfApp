@@ -162,7 +162,6 @@ class NetworkManager {
                     
                     for packageDict in packageArray.firstObject as! NSArray {
                         responseArray.append(Package.itemWhithDictionary(packageDict as! NSDictionary))
-
                     }
                     
                     completion(responseArray)
@@ -176,12 +175,13 @@ class NetworkManager {
     //MARK: Images
     
     // method for loading images whith URL ant your image name
-    func getImageWhihURL(imageURL: NSURL, imageName: String, completion: (UIImage?) -> Void) {
+    func getImageWhihURL(imageURL: NSURL, imageName: String, completion: (UIImage?) -> Void) -> Request? {
         
         if let image = HCCache.sharedCache.imageWithIdentifier(imageName) {
             completion(image)
+            return nil
         } else {
-            Alamofire.request(.GET, imageURL)
+            return Alamofire.request(.GET, imageURL)
                 .responseImage { response in
                     
                     if let image = response.result.value {

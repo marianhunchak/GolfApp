@@ -45,21 +45,8 @@ class MainCollectionController: UICollectionViewController  {
             self.profile = pProfile
         }
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNotification), name: "onMessageReceived", object: nil)
-        
     }
-    
-//    func pushNotification(sender:NSNotification) {
-//        
-//        let notificationBody = sender.userInfo
-//        
-//        let notificationTitle = notificationBody!["message"]! as! String
-//        
-//        let sendMailErrorAlert = UIAlertView(title: "Recieved Notification", message: notificationTitle, delegate: self, cancelButtonTitle: "OK")
-//        sendMailErrorAlert.show()
-//        
-//
-//    }
+
     
     //MARK: UICollectionViewDataSource
     
