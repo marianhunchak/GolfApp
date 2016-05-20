@@ -36,9 +36,6 @@ class RestaurantDetailViewController: BaseViewController , CourseHeaderDelegate,
 
         self.setupHeaderView()
 
-        NetworkManager.sharedInstance.getMenu(urlToRate: restaurant.menu_url) { array in
-            self.rateArray = array!
-          }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,11 +103,16 @@ class RestaurantDetailViewController: BaseViewController , CourseHeaderDelegate,
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
         
         let menuVC = self.storyboard?.instantiateViewControllerWithIdentifier("RateViewController") as! RateViewController
-        menuVC.rateArray = rateArray
+        
+        menuVC.navigationTitle = "re_menu_nav_bar"
+        menuVC.rateUrl = restaurant.menu_url
         self.navigationController?.pushViewController(menuVC, animated: true)
         
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
+        
+        let vc = OffersViewController(nibName: "OffersViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

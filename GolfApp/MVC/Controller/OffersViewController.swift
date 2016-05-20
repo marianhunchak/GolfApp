@@ -28,7 +28,6 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
         setupHeaderView()
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         offersTableView.backgroundColor = Global.viewsBackgroundColor
-        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar")
         
         self.offersTableView.estimatedRowHeight = 80;
         
