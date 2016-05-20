@@ -54,6 +54,13 @@
 		5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */; };
 		568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */; };
 		56FC0D8B1CEE13AC006F3AB1 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */; };
+		840001131CEF0E030051B38A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001121CEF0E030051B38A /* News.swift */; };
+		840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001151CEF14F60051B38A /* NewsTableViewController.swift */; };
+		840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001181CEF17F00051B38A /* NewsTableCell.xib */; };
+		8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400011A1CEF26850051B38A /* NewsTableCell.swift */; };
+		8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */; };
+		840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001201CEF55C40051B38A /* NewsDetailCell.xib */; };
+		840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001221CEF575B0051B38A /* NewsDetailCell.swift */; };
 		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
 		84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D491CE3E2D400164917 /* SwipePageCourseController.swift */; };
 		8407A5B11CE3296100500E19 /* ViewForDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */; };
@@ -352,6 +359,13 @@
 		5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTableViewController.swift; sourceTree = "<group>"; };
 		5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTableViewController.xib; sourceTree = "<group>"; };
 		56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
+		840001121CEF0E030051B38A /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		840001151CEF14F60051B38A /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		840001181CEF17F00051B38A /* NewsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableCell.xib; sourceTree = "<group>"; };
+		8400011A1CEF26850051B38A /* NewsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
+		8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		840001201CEF55C40051B38A /* NewsDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailCell.xib; sourceTree = "<group>"; };
+		840001221CEF575B0051B38A /* NewsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
 		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		84051D491CE3E2D400164917 /* SwipePageCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipePageCourseController.swift; sourceTree = "<group>"; };
 		8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForDetailHeader.xib; sourceTree = "<group>"; };
@@ -469,6 +483,8 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8400011C1CEF3E4D0051B38A /* NewsDetailViewController */,
+				840001141CEF14B80051B38A /* NewsTableViewController */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				56FC0D841CEE10BF006F3AB1 /* Hotels */,
 				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
@@ -519,6 +535,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				840001111CEF0D850051B38A /* News */,
 				84F6B95B1CEE00A500B4491C /* Menu */,
 				84F4C08D1CED38C80056B903 /* Restaurant */,
 				84FBD0131CEC7C9E002FBF57 /* ProsShop */,
@@ -554,6 +571,8 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8400011F1CEF558C0051B38A /* NewsDetailCell */,
+				840001171CEF16F30051B38A /* NewsTableCell */,
 				84FF8C9D1CEBD99B0007BC8E /* ViewForOffersHeader */,
 				844A942A1CEB6C0000BCC86F /* ViewForProHeader */,
 				568951671CEB260700D7F5DF /* HotelsSubviews */,
@@ -1402,6 +1421,48 @@
 			name = Hotels;
 			sourceTree = "<group>";
 		};
+		840001111CEF0D850051B38A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				840001121CEF0E030051B38A /* News.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		840001141CEF14B80051B38A /* NewsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840001151CEF14F60051B38A /* NewsTableViewController.swift */,
+			);
+			name = NewsTableViewController;
+			sourceTree = "<group>";
+		};
+		840001171CEF16F30051B38A /* NewsTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				840001181CEF17F00051B38A /* NewsTableCell.xib */,
+				8400011A1CEF26850051B38A /* NewsTableCell.swift */,
+			);
+			name = NewsTableCell;
+			sourceTree = "<group>";
+		};
+		8400011C1CEF3E4D0051B38A /* NewsDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */,
+			);
+			name = NewsDetailViewController;
+			sourceTree = "<group>";
+		};
+		8400011F1CEF558C0051B38A /* NewsDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				840001201CEF55C40051B38A /* NewsDetailCell.xib */,
+				840001221CEF575B0051B38A /* NewsDetailCell.swift */,
+			);
+			name = NewsDetailCell;
+			sourceTree = "<group>";
+		};
 		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1743,6 +1804,7 @@
 				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
 				564A5F861CEB948E009F7759 /* WebViewController.xib in Resources */,
 				844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */,
+				840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */,
 				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
@@ -1759,6 +1821,7 @@
 				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
 				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
+				840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */,
 				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
@@ -1852,6 +1915,7 @@
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				844A94291CEB641F00BCC86F /* Pro.swift in Sources */,
+				840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */,
 				84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
@@ -1859,9 +1923,11 @@
 				84FBD0151CEC7CBB002FBF57 /* ProsShop.swift in Sources */,
 				564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */,
 				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
+				8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */,
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
+				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				84FE09161CEA75570074373B /* Pros.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
@@ -1869,12 +1935,14 @@
 				564A5F771CEB7475009F7759 /* Hotel.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
 				844A942E1CEB6DD900BCC86F /* ViewForProHeader.swift in Sources */,
+				840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
 				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
 				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,
 				84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
+				840001131CEF0E030051B38A /* News.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

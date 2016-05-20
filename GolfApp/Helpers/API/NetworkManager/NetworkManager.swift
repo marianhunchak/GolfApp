@@ -313,4 +313,29 @@ class NetworkManager {
         }
     }
     
+    //MARK: News
+    
+    func getNews(completion: ([News]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/news?client=22&language=1", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let newsArray: NSArray = [self.jsonArray!["news"]!]
+                    var responseArray = [News]()
+                    
+                    for newsDict in newsArray.firstObject as! NSArray {
+                        responseArray.append(News.newsWhithDictionary(newsDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
 }

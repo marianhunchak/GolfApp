@@ -97,9 +97,10 @@ class ProShopDetailViewController: BaseViewController, ProHeaderDelegate ,UITabl
     }
     func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
-        vc.offertsArray = proArray
-        self.navigationController?.pushViewController(vc, animated: true)
+        let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
+        packageVC.packageUrl = prosShop.package_url
+        packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar")
+        self.navigationController?.pushViewController(packageVC, animated: true)
         
     }
     
