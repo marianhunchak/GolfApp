@@ -46,9 +46,7 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         self.tableView.estimatedRowHeight = 80;
 //        self.tableView.rowHeight = UITableViewAutomaticDimension;
 
-        NetworkManager.sharedInstance.getRate(urlToRate: urlToRate) { array in
-            self.rateArray = array!
-        }
+
     }
     
     // MARK: - Table view data source
@@ -128,7 +126,8 @@ class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableVi
         }
         if segue.identifier == "showRates" {
             let destinationController = segue.destinationViewController as! RateViewController
-            destinationController.rateArray = rateArray
+            destinationController.navigationTitle = "crs_rate_details_nav_bar"
+            destinationController.rateUrl = urlToRate
         }
     }
 }

@@ -13,6 +13,8 @@ private let cellIdetifier = "RateCell"
 class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDataSource {
     
     var rateArray = [Rate]()
+    var navigationTitle = "crs_rate_details_nav_bar"
+    var rateUrl = ""
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var rateTableView: UITableView!
@@ -31,10 +33,12 @@ class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDa
         self.rateTableView.estimatedSectionHeaderHeight = 30
         self.rateTableView.estimatedRowHeight = 20
         
-        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_rate_details_nav_bar")
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName(navigationTitle)
         
         let nib = UINib(nibName: "RateCell", bundle: nil)
         rateTableView.registerNib(nib, forCellReuseIdentifier: cellIdetifier)
+        
+        getData()
     }
     
     //MARK: UITableViewDataSource
@@ -85,5 +89,22 @@ class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDa
         return rates
     }
     
+    func getData() {
+    
+        if navigationTitle == "re_menu_nav_bar" {
+            NetworkManager.sharedInstance.getMenu(urlToRate: rateUrl) { array in
+                self.rateArray = array!
+                self.rateTableView.reloadData()
+            }
+        } else if navigationTitle == "crs_rate_details_nav_bar" {
+            
+            NetworkManager.sharedInstance.getRate(urlToRate: rateUrl) { array in
+                self.rateArray = array!
+                self.rateTableView.reloadData()
+            }
+            
+        }
+
+    }
 
 }
