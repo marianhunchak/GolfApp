@@ -17,7 +17,7 @@ class ViewForOffersHeader: UIView {
 
     var delegate : OffersHeaderDelegate?
     var textToShare = String()
-    var urlToShare : String?
+    var urlToShare = String()
     
     
     @IBOutlet weak var backgroundView: UIView!
@@ -39,33 +39,8 @@ class ViewForOffersHeader: UIView {
     
     @IBAction func button1Action(sender: AnyObject) {
         
-//        self.delegate?.pressedButton1(self, button1Pressed: sender)
-        //let textToShare = "Swift is awesome!  Check out this website about it!"
-        
-        if let myWebsite = NSURL(string: urlToShare!) {
-            let objectsToShare = [textToShare, myWebsite]
-            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            
-//            activityVC.popoverPresentationController?.sourceView = sender
-            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentViewController(activityVC, animated: true, completion: nil)
-        }
-        
-
-        
+        self.delegate?.pressedButton1(self, button1Pressed: sender)
     }
-    
-    func shareThisItem(titleToShare :String, myWebsite : String) {
-    
-        if let myWebsite = NSURL(string: titleToShare) {
-            let objectsToShare = [titleToShare, myWebsite]
-            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            
-            //            activityVC.popoverPresentationController?.sourceView = sender
-            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentViewController(activityVC, animated: true, completion: nil)
-        }
-    
-    }
-
     
     //MARK - Private methods
     static func loadViewFromNib() -> ViewForOffersHeader

@@ -39,8 +39,6 @@ class RestaurantDetailViewController: BaseViewController , CourseHeaderDelegate,
         NetworkManager.sharedInstance.getMenu(urlToRate: restaurant.menu_url) { array in
             self.rateArray = array!
           }
-        
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,15 +47,7 @@ class RestaurantDetailViewController: BaseViewController , CourseHeaderDelegate,
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let lCell = tableView.dequeueReusableCellWithIdentifier(cellImagereuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-            lCell.imagesArray = self.restaurant.images
-            
-            return lCell
-        }
-            
-        else if indexPath.row == 1{
+        if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.detailLabelHeight.constant = 0
             cell2.nameLabel.text = restaurant.name

@@ -148,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
 //        application.scheduleLocalNotification(localNotification)
         
         print("Notification received: \(userInfo)")
-                    // This works only if the app started the GCM service
+        // This works only if the app started the GCM service
         GCMService.sharedInstance().appDidReceiveMessage(userInfo);
         // Handle the received message
         // [START_EXCLUDE]

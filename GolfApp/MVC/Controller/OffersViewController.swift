@@ -103,14 +103,20 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
         backgroundView.addSubview(viewForHead)
         
         viewForHead.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_share_btn"), forState: .Normal)
-
         viewForHead.delegate = self
-       // viewForHead.textToShare = offertsArray[shareItem].name!
+       
     }
     
     func pressedButton1(tableProHeader: ViewForOffersHeader, button1Pressed button1: AnyObject) {
-
         
+        let lPackege = offertsArray[shareItem]
+        let textToShare = lPackege.name + "\n" + lPackege.subtitle + "\n" + lPackege.descr
+        let urlToShare = "http://golfapp.ch"
+        
+        if let myWebsite = NSURL(string: urlToShare) {
+            let activityVC = UIActivityViewController(activityItems: [myWebsite, textToShare], applicationActivities: [])
+            self.navigationController!.presentViewController(activityVC, animated: true, completion: nil)
+        }
     }
 
 }

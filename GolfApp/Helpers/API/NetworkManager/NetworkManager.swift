@@ -23,7 +23,7 @@ class NetworkManager {
         
         let parameters = [
             "device_token": tokenString,
-            "device_id": UIDevice.currentDevice().identifierForVendor!,
+            "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             "device_os": "ios",
             "client": Global.clientId,
             "language": Global.languageID
@@ -64,7 +64,7 @@ class NetworkManager {
     func getNotifications(completion: (NSArray?, NSError?) -> Void)  {
         
         let parameters = [
-            "regid": "650",
+            "regid": "873",
             "selector": "news"
         ]
         
