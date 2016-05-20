@@ -16,7 +16,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     var hotel = Hotel()
 
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +34,6 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         
         self.setupHeaderView()
     }
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     //MARK: UITableViewDataSource
     
@@ -57,19 +50,17 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
             
             return lCell
         }
-            
-        else if indexPath.row == 1{
-            let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-            cell2.detailLabelHeight.constant = 0
-            cell2.nameLabel.text = hotel.name
-            cell2.descriptionLabel.text = hotel.descr
+        
+        let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
+        cell2.detailLabelHeight.constant = 0
+        cell2.nameLabel.text = hotel.name
+        cell2.descriptionLabel.text = hotel.descr
             
             return cell2
-        }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellImagereuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = self.hotel.images
-        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.showOfflineModeLabel()
     }
     
     //MARK: Private methods
@@ -91,9 +82,9 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return self.view.frame.height / 3.0
-        } else {
-            return UITableViewAutomaticDimension
         }
+        
+        return UITableViewAutomaticDimension
     }
     
     //MARK: CourseHeaderDelegate
@@ -122,8 +113,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     }
     
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
-        
-        
+
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = hotel.package_url
         packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_package_list_nav_bar")

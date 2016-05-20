@@ -27,6 +27,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.0)
   - GoogleUtilities (1.2.0):
     - GoogleSymbolUtilities (~> 1.0)
+  - ReachabilitySwift (2.3.3)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.0)
   - AlamofireImage (~> 2.0)
   - Google/CloudMessaging
+  - ReachabilitySwift
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -57,8 +59,9 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: ec1e9911aca811eb18b7144394fee6168b607785
   GoogleSymbolUtilities: eb3965ea12710569c7b80db198a39e39b18613f7
   GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 9edca8d85e17b2b8267f3e51b53773a6a1c24bc2
+PODFILE CHECKSUM: acdbc888129025f346e4e712f1cead98d6ee7657
 
 COCOAPODS: 1.0.0.rc.2

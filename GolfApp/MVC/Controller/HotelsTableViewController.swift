@@ -65,21 +65,7 @@ class HotelsTableViewController: BaseTableViewController {
         let hotelVC = HotelDetailViewController(nibName: "HotelDetailViewController", bundle: nil)
 
         hotelVC.hotel = hotelsArray[indexPath.row]
-//        hotelVC.facilitiesArray = coursesArray[indexPath.row].facilities
-//        hotelVC.urlToRate = coursesArray[indexPath.row].rate_url as String
-
         self.navigationController?.pushViewController(hotelVC, animated: true)
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }

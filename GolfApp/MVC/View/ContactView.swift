@@ -62,7 +62,7 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
                 "comgooglemaps://?saddr=&daddr=\(latitude ?? ""),\(longitude ?? "")&directionsmode=driving")!)
             
         } else {
-            NSLog("Can't use comgooglemaps://");
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/in/app/google-maps-real-time-navigation/id585027354?mt=8")!)
         }
     }
 

@@ -64,7 +64,7 @@ class NetworkManager {
     func getNotifications(completion: (NSArray?, NSError?) -> Void)  {
         
         let parameters = [
-            "regid": "873",
+            "regid": "874",
             "selector": "news"
         ]
         

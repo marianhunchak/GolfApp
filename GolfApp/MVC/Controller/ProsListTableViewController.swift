@@ -40,7 +40,6 @@ class ProsListTableViewController: BaseTableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = false;
     }
     
     // MARK: - Table view data source

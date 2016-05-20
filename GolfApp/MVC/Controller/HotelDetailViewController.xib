@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HotelDetailViewController" customModule="GolfApp" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="f9b-uq-aTV" id="AdQ-5p-CwY"/>
-                <outlet property="tableView" destination="hnt-rO-KZf" id="sNm-UZ-MLR"/>
+                <outlet property="tableView" destination="hnt-rO-KZf" id="F36-HG-1DD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,7 +24,7 @@
                         <constraint firstAttribute="height" constant="45" id="THJ-xy-tMM"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hnt-rO-KZf">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hnt-rO-KZf">
                     <rect key="frame" x="0.0" y="109" width="600" height="491"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>

@@ -15,7 +15,7 @@ private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
 
-class DetailViewController: BaseViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
+class DetailViewController: UIViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
   
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!

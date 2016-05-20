@@ -10,45 +10,37 @@ import UIKit
 
 class BaseTableViewController: UITableViewController {
 
+    let dataSource = [AnyObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.hidden = false;
-        self.navigationController?.navigationBar.barTintColor = Global.navigationBarColor
+        self.configureNavBar()
         
-        let homeButton = UIBarButtonItem.init(image: UIImage(named: "a_home_icon"),
-                                              style: .Plain,
-                                              target: self,
-                                              action: #selector(showMainController))
-        homeButton.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        self.navigationItem.rightBarButtonItem = homeButton
+        self.tableView.backgroundColor = Global.viewsBackgroundColor
         
-        let backButton = UIBarButtonItem.init(image: UIImage(named: "a_back_btn"),
-                                              style: .Plain,
-                                              target: self,
-                                              action: #selector(showPreviousController))
-        backButton.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: self, action: nil)
-        negativeSpacer.width = -10
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+//        tableView.addSubview(refreshControl!)
+        refreshControl!.beginRefreshing()
+        self.performSelector(#selector(refresh(_:)), withObject: nil, afterDelay: 5)
         
-        self.navigationItem.leftBarButtonItems = [negativeSpacer, backButton]
-   
-        
-        self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "StoneInformal LT Semibold", size: 18)!,
-                                                                         NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    //MARK: Actions
     
-    func showMainController() {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+    func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+        
+        self.tableView.reloadData()
+        self.performSelector(#selector(endRefresh), withObject: nil, afterDelay: 1)
+        
     }
     
-    func showPreviousController() {
-        self.navigationController?.popViewControllerAnimated(true)
+    func endRefresh() {
+        refreshControl!.endRefreshing()
     }
-
 }

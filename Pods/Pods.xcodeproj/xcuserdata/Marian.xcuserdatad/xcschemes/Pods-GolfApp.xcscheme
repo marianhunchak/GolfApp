@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "156D833F900FB81F48334F29899BFEBE"
+               BlueprintIdentifier = "B478D8F76639344D4B75704C3717F21A"
                BuildableName = "Pods_GolfApp.framework"
                BlueprintName = "Pods-GolfApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "156D833F900FB81F48334F29899BFEBE"
+            BlueprintIdentifier = "B478D8F76639344D4B75704C3717F21A"
             BuildableName = "Pods_GolfApp.framework"
             BlueprintName = "Pods-GolfApp"
             ReferencedContainer = "container:Pods.xcodeproj">

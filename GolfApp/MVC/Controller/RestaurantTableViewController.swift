@@ -97,7 +97,7 @@ class RestaurantTableViewController: BaseTableViewController {
         if self.restaurantArray.count == 1 {
             let restaurantVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantDetailViewController") as! RestaurantDetailViewController
             restaurantVC.restaurant = restaurantArray[0]
-            self.navigationController?.pushViewController(restaurantVC, animated: true)
+            self.navigationController?.pushViewController(restaurantVC, animated: false)
         } else {
         
             tableView.reloadData()

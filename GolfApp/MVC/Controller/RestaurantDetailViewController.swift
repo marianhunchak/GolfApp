@@ -11,7 +11,7 @@ import UIKit
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 
-class RestaurantDetailViewController: BaseViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
+class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
     
     var restaurant = Restaurant()
     var restaurantsCount = 1

@@ -7,4 +7,5 @@ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'AlamofireImage', '~> 2.0'
 pod 'Google/CloudMessaging'
 pod 'AEXML'
+pod 'ReachabilitySwift'
 end

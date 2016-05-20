@@ -80,7 +80,9 @@ class MainCollectionController: UICollectionViewController  {
             case 1:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
                 self.navigationController?.pushViewController(prosVC!, animated: true)
-            case 2: break
+            case 2:
+                let eventsVC = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
+                self.navigationController?.pushViewController(eventsVC, animated: true)
             
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")

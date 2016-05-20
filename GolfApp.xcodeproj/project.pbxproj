@@ -48,6 +48,8 @@
 		5651AEED1CE4C0A700040520 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651AEEC1CE4C0A700040520 /* Global.swift */; };
 		5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */; };
 		565BE0121CE8AE230018251E /* UIView+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BE0111CE8AE230018251E /* UIView+Size.swift */; };
+		566290B41CEF25500051392B /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566290B21CEF25500051392B /* EventsTableViewController.swift */; };
+		566290B51CEF25500051392B /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566290B31CEF25500051392B /* EventsTableViewController.xib */; };
 		5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */; };
 		5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */; };
 		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
@@ -346,6 +348,8 @@
 		5651AEEC1CE4C0A700040520 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		565BE0111CE8AE230018251E /* UIView+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Size.swift"; path = "GolfApp/Helpers/Extensions/UIView+Size.swift"; sourceTree = SOURCE_ROOT; };
+		566290B21CEF25500051392B /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		566290B31CEF25500051392B /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
 		5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMAL LT.ttf"; sourceTree = "<group>"; };
 		5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMEL LT SEMI-BOLD.ttf"; sourceTree = "<group>"; };
 		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
@@ -469,7 +473,9 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
+				566290B11CEF250F0051392B /* Events */,
 				56FC0D841CEE10BF006F3AB1 /* Hotels */,
 				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
 				84F6B9501CEDCA6100B4491C /* RestaurantTableViewController */,
@@ -479,7 +485,6 @@
 				84FF8C9C1CEBD4610007BC8E /* OffersViewController */,
 				564A5F871CEB9873009F7759 /* WebViewController */,
 				562ECB651CE9F97900985213 /* ProsViewController */,
-				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				84F6100E1CE90C5F00FF3A87 /* RateController */,
 				840940361CE4B60D0005A97E /* FacilitiesController */,
 				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
@@ -1359,6 +1364,15 @@
 			name = Headers;
 			sourceTree = "<group>";
 		};
+		566290B11CEF250F0051392B /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				566290B21CEF25500051392B /* EventsTableViewController.swift */,
+				566290B31CEF25500051392B /* EventsTableViewController.xib */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		5663B5C11CE5B93F0039D1FC /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1746,6 +1760,7 @@
 				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
+				566290B51CEF25500051392B /* EventsTableViewController.xib in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
 				568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */,
 				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
@@ -1839,6 +1854,7 @@
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
+				566290B41CEF25500051392B /* EventsTableViewController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
