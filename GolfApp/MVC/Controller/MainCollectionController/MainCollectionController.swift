@@ -16,6 +16,7 @@ private var identifierOfProsListViewController = "ProsListViewController"
 
 class MainCollectionController: UICollectionViewController  {
     
+
     var profile:Profile?
     var prosArray = [Pros]()
     var restaurantArray = [Restaurant]()
@@ -47,7 +48,6 @@ class MainCollectionController: UICollectionViewController  {
         NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
             self.profile = pProfile
         }
-        
 
         
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNotification), name: "onMessageReceived", object: nil)
@@ -82,8 +82,9 @@ class MainCollectionController: UICollectionViewController  {
             case 1:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
                 self.navigationController?.pushViewController(prosVC!, animated: true)
-            case 2: break
-            
+            case 2:
+                let eventsVC = EventsListViewController(nibName: "EventsListViewController", bundle: nil)
+                self.navigationController?.pushViewController(eventsVC, animated: true)
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
                 self.navigationController?.pushViewController(prosVC!, animated: true)

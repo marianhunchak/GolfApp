@@ -38,6 +38,8 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
         
     }
     
+    // MARK: - Table view data source
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
@@ -50,8 +52,6 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
             cell2.subtitleLabel.text = news.subtitle
             cell2.dateLabel.text = news.pubdate
             cell2.descriptionNews.text = news.descr
-            
-            
             return cell2
         }
         

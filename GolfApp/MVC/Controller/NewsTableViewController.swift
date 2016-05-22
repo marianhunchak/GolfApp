@@ -70,9 +70,7 @@ class NewsTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
-        
-            vc.news = newsArray[indexPath.row]
-        
+        vc.news = newsArray[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

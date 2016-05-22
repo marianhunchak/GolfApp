@@ -42,8 +42,7 @@ class ProsViewController: BaseViewController, ProHeaderDelegate,UITableViewDeleg
         
         self.prosTableView.estimatedRowHeight = 80;
         prosTableView.backgroundColor = Global.viewsBackgroundColor
-        
-        //setupHeaderView()
+
     }
 
     // MARK: - Table view data source

@@ -338,4 +338,54 @@ class NetworkManager {
         }
     }
     
+    //MARK: Events_past
+    
+    func getEventsPast(completion: ([Events]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/events?client=22&language=1&category=past", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let eventArray: NSArray = [self.jsonArray!["events"]!]
+                    var responseArray = [Events]()
+                    
+                    for eventDict in eventArray.firstObject as! NSArray {
+                        responseArray.append(Events.eventWhithDictionary(eventDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
+    //MARK: Events_future
+    
+    func getEventsFuture(completion: ([Events]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/events?client=22&language=1&category=future", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let eventArray: NSArray = [self.jsonArray!["events"]!]
+                    var responseArray = [Events]()
+                    
+                    for eventDict in eventArray.firstObject as! NSArray {
+                        responseArray.append(Events.eventWhithDictionary(eventDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
 }

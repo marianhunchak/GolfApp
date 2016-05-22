@@ -78,6 +78,9 @@
 		844A94291CEB641F00BCC86F /* Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A94281CEB641F00BCC86F /* Pro.swift */; };
 		844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */; };
 		844A942E1CEB6DD900BCC86F /* ViewForProHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A942D1CEB6DD900BCC86F /* ViewForProHeader.swift */; };
+		84B2B6941CF20EB300345D13 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2B6931CF20EB300345D13 /* Events.swift */; };
+		84B2B6991CF229F100345D13 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B2B6971CF229F100345D13 /* EventsListViewController.swift */; };
+		84B2B69A1CF229F100345D13 /* EventsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B2B6981CF229F100345D13 /* EventsListViewController.xib */; };
 		84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F190FE1CE89A5300B1DDDC /* Rate.swift */; };
 		84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */; };
 		84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0881CED21320056B903 /* ProShopTableView.swift */; };
@@ -383,6 +386,9 @@
 		844A94281CEB641F00BCC86F /* Pro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pro.swift; sourceTree = "<group>"; };
 		844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForProHeader.xib; sourceTree = "<group>"; };
 		844A942D1CEB6DD900BCC86F /* ViewForProHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForProHeader.swift; sourceTree = "<group>"; };
+		84B2B6931CF20EB300345D13 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		84B2B6971CF229F100345D13 /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		84B2B6981CF229F100345D13 /* EventsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsListViewController.xib; sourceTree = "<group>"; };
 		84F190FE1CE89A5300B1DDDC /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopDetailViewController.swift; sourceTree = "<group>"; };
 		84F4C0881CED21320056B903 /* ProShopTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopTableView.swift; sourceTree = "<group>"; };
@@ -483,24 +489,18 @@
 		560E3C691CE137A2006F8655 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8400011C1CEF3E4D0051B38A /* NewsDetailViewController */,
-				840001141CEF14B80051B38A /* NewsTableViewController */,
+				84B2B6951CF2273100345D13 /* Events */,
+				84B2B6911CF20B9700345D13 /* Courses */,
+				84B2B6901CF20ACC00345D13 /* ProShop */,
+				84B2B68F1CF20A7200345D13 /* Pros */,
+				84B2B68E1CF20A4700345D13 /* News */,
+				84B2B6881CF20A2000345D13 /* Restaurant */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
 				56FC0D841CEE10BF006F3AB1 /* Hotels */,
-				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
-				84F6B9501CEDCA6100B4491C /* RestaurantTableViewController */,
-				84F4C08A1CED32BA0056B903 /* ProsListTableViewController */,
-				84FBD0121CEC7B82002FBF57 /* ProsShopTableView */,
-				84FBD0051CEC6FBB002FBF57 /* ProShopDetailViewController */,
 				84FF8C9C1CEBD4610007BC8E /* OffersViewController */,
 				564A5F871CEB9873009F7759 /* WebViewController */,
 				562ECB651CE9F97900985213 /* ProsViewController */,
 				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
-				84F6100E1CE90C5F00FF3A87 /* RateController */,
-				840940361CE4B60D0005A97E /* FacilitiesController */,
-				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
-				560E3C6E1CE137A2006F8655 /* ListTableController */,
-				560E3C6A1CE137A2006F8655 /* DetailViewController */,
 			);
 			name = Controllers;
 			path = Controller;
@@ -535,6 +535,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84B2B6921CF20E6900345D13 /* Events */,
 				840001111CEF0D850051B38A /* News */,
 				84F6B95B1CEE00A500B4491C /* Menu */,
 				84F4C08D1CED38C80056B903 /* Restaurant */,
@@ -1551,6 +1552,78 @@
 			name = ViewForProHeader;
 			sourceTree = "<group>";
 		};
+		84B2B6881CF20A2000345D13 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				84F6B9501CEDCA6100B4491C /* RestaurantTableViewController */,
+				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
+			);
+			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		84B2B68E1CF20A4700345D13 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				840001141CEF14B80051B38A /* NewsTableViewController */,
+				8400011C1CEF3E4D0051B38A /* NewsDetailViewController */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		84B2B68F1CF20A7200345D13 /* Pros */ = {
+			isa = PBXGroup;
+			children = (
+				84FBD0121CEC7B82002FBF57 /* ProsShopTableView */,
+				84F4C08A1CED32BA0056B903 /* ProsListTableViewController */,
+			);
+			name = Pros;
+			sourceTree = "<group>";
+		};
+		84B2B6901CF20ACC00345D13 /* ProShop */ = {
+			isa = PBXGroup;
+			children = (
+				84FBD0051CEC6FBB002FBF57 /* ProShopDetailViewController */,
+			);
+			name = ProShop;
+			sourceTree = "<group>";
+		};
+		84B2B6911CF20B9700345D13 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				840940361CE4B60D0005A97E /* FacilitiesController */,
+				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
+				560E3C6E1CE137A2006F8655 /* ListTableController */,
+				560E3C6A1CE137A2006F8655 /* DetailViewController */,
+				84F6100E1CE90C5F00FF3A87 /* RateController */,
+			);
+			name = Courses;
+			sourceTree = "<group>";
+		};
+		84B2B6921CF20E6900345D13 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				84B2B6931CF20EB300345D13 /* Events.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		84B2B6951CF2273100345D13 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				84B2B6961CF2275900345D13 /* EventsListViewController */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		84B2B6961CF2275900345D13 /* EventsListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84B2B6971CF229F100345D13 /* EventsListViewController.swift */,
+				84B2B6981CF229F100345D13 /* EventsListViewController.xib */,
+			);
+			name = EventsListViewController;
+			sourceTree = "<group>";
+		};
 		84F190FD1CE899F800B1DDDC /* Rate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1830,6 +1903,7 @@
 				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
 				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
 				8436176F1CE2389900F96599 /* ContactView.xib in Resources */,
+				84B2B69A1CF229F100345D13 /* EventsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1888,10 +1962,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B2B6941CF20EB300345D13 /* Events.swift in Sources */,
 				562F4ABF1CE73A6C00A6581B /* UIView+RounCorners.swift in Sources */,
 				560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */,
 				84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */,
 				8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */,
+				84B2B6991CF229F100345D13 /* EventsListViewController.swift in Sources */,
 				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
 				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
 				565BE0121CE8AE230018251E /* UIView+Size.swift in Sources */,
