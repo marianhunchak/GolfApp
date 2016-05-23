@@ -11,7 +11,7 @@ import UIKit
     private let identifierOfPageController = "PageController"
 
 
-class SwipePageCourseController: BaseViewController , UIPageViewControllerDataSource {
+class SwipePageCourseController: UIViewController , UIPageViewControllerDataSource {
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?

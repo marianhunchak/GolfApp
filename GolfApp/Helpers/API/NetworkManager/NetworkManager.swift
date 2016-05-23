@@ -42,7 +42,7 @@ class NetworkManager {
     func unregisterDevice() {
         
         let parameters = [
-            "regid": "641",
+            "regid": "876",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
         Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
@@ -82,14 +82,15 @@ class NetworkManager {
     //MARK: Profile & Advertising
     
     func getProfileAndAvertising(completion :Profile -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=1", parameters:nil )
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=\(Global.languageID)", parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
 //                    print("JSON: \(JSON)")
                     let profileDictionary = JSON["profile"]! as! NSDictionary
+                    let buttonsArray = JSON["buttons"]! as! [String]
 
-                    let lProfile = Profile.profileWhithDictionary(profileDictionary)
+                    let lProfile = Profile.profileWhithDictionary(profileDictionary, andArray: buttonsArray)
                     
                     completion(lProfile)
 
@@ -100,7 +101,7 @@ class NetworkManager {
     //MARK: Courses
     
     func getCours(completion: ([Course]?) -> Void) {
-        Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses?client=22&language=1", parameters: nil)
+        Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses?client=22&language=\(Global.languageID)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -195,7 +196,7 @@ class NetworkManager {
     //MARK: Pros
     
     func getPros(completion: ([Pros]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/pros?client=22&language=1", parameters: nil)
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/pros?client=22&language=\(Global.languageID)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -220,7 +221,7 @@ class NetworkManager {
     //MARK: Hotels 
     
     func getHotels(completion: ([Hotel]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/hotels?client=22&language=1", parameters: nil)
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/hotels?client=22&language=\(Global.languageID)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -244,7 +245,7 @@ class NetworkManager {
     //MARK: ProsShop
     
     func getProsShop(completion: ([ProsShop]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/proshops?client=22&language=1", parameters: nil)
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/proshops?client=22&language=\(Global.languageID)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -267,7 +268,7 @@ class NetworkManager {
     //MARK: Restaurant
     
     func getRestaurant(completion: ([Restaurant]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/restaurants?client=22&language=1", parameters: nil)
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/restaurants?client=22&language=\(Global.languageID)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -312,5 +313,55 @@ class NetworkManager {
                 }
         }
     }
+    
+    //MARK: News
+    
+    func getNews(completion: ([News]?) -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/news?client=22&language=\(Global.languageID)", parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let newsArray: NSArray = [self.jsonArray!["news"]!]
+                    var responseArray = [News]()
+                    
+                    for newsDict in newsArray.firstObject as! NSArray {
+                        responseArray.append(News.newsWhithDictionary(newsDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
+    
+    //MARK: Events
+    
+    func getEventsWithCategory(pCategory : String, completion: ([Event]?) -> Void) {
+        
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/events?client=22&language=\(Global.languageID)&category=\(pCategory)", parameters: nil)
+            .responseJSON { response in
+              
+                if let JSON = response.result.value as? NSDictionary{
+                    
+                    let eventsArray = JSON["events"] as! [AnyObject]
+
+                    var responseArray = [Event]()
+                    
+                    for newsDict in eventsArray {
+                        responseArray.append(Event.eventWithDict(newsDict as! [String : AnyObject]))
+                    }
+                    
+                    completion(responseArray)
+                }
+                
+        }
+
+    }
+    
     
 }

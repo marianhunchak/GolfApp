@@ -6,6 +6,83 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--News Detail View Controller-->
+        <scene sceneID="Xw6-QY-xaB">
+            <objects>
+                <viewController storyboardIdentifier="NewsDetailViewController" id="Ee9-c6-WqH" customClass="NewsDetailViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HgD-fs-xMt"/>
+                        <viewControllerLayoutGuide type="bottom" id="cMv-GH-QSg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UXD-vG-G7S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDh-4t-gH3">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="eab-gZ-5z7"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hu5-Wv-JmS">
+                                <rect key="frame" x="0.0" y="109" width="600" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ee9-c6-WqH" id="9Ig-D8-gIc"/>
+                                    <outlet property="delegate" destination="Ee9-c6-WqH" id="k1q-u8-OSj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hu5-Wv-JmS" firstAttribute="leading" secondItem="UXD-vG-G7S" secondAttribute="leading" id="7vj-Rs-VmZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Hu5-Wv-JmS" secondAttribute="trailing" id="8J9-Sw-VCz"/>
+                            <constraint firstAttribute="trailing" secondItem="oDh-4t-gH3" secondAttribute="trailing" id="EHr-b2-6Y4"/>
+                            <constraint firstItem="oDh-4t-gH3" firstAttribute="leading" secondItem="UXD-vG-G7S" secondAttribute="leading" id="Hnn-Yx-TAD"/>
+                            <constraint firstItem="cMv-GH-QSg" firstAttribute="top" secondItem="Hu5-Wv-JmS" secondAttribute="bottom" id="RMQ-uT-Vg1"/>
+                            <constraint firstItem="oDh-4t-gH3" firstAttribute="top" secondItem="HgD-fs-xMt" secondAttribute="bottom" id="SOb-dG-F1e"/>
+                            <constraint firstItem="Hu5-Wv-JmS" firstAttribute="top" secondItem="oDh-4t-gH3" secondAttribute="bottom" id="foP-fm-fK0"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="headerView" destination="oDh-4t-gH3" id="WkZ-N0-zNq"/>
+                        <outlet property="tableView" destination="Hu5-Wv-JmS" id="PmI-gW-Sha"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFI-Dk-CPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-440" y="-1419"/>
+        </scene>
+        <!--News Table View Controller-->
+        <scene sceneID="EmX-Pb-RYB">
+            <objects>
+                <tableViewController storyboardIdentifier="NewsTableViewController" id="LjF-M1-bCj" customClass="NewsTableViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YMT-G8-2h6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewController" id="y2m-6m-UjI">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y2m-6m-UjI" id="au9-Ki-Zua">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LjF-M1-bCj" id="byL-hw-dbJ"/>
+                            <outlet property="delegate" destination="LjF-M1-bCj" id="DZo-IO-yJe"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SuL-jf-AjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-440" y="-762"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hEe-ss-2IS">
             <objects>

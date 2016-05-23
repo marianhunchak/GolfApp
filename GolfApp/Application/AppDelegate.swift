@@ -111,6 +111,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
         deviceToken: NSData ) {
         // [END receive_apns_token]
         // [START get_gcm_reg_token]
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        print(tokenString)
+//        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//                        })
+//           NetworkManager.sharedInstance.unregisterDevice()
         // Create a config and set a delegate that implements the GGLInstaceIDDelegate protocol.
         let instanceIDConfig = GGLInstanceIDConfig.defaultConfig()
         instanceIDConfig.delegate = self
@@ -143,7 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
 //        localNotification.alertBody = "new Blog Posted at iOScreator.com"
 //        localNotification.timeZone = NSTimeZone.defaultTimeZone()
 //        localNotification.soundName = "default"
-//        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+        application.applicationIconBadgeNumber = 0
         
 //        application.scheduleLocalNotification(localNotification)
         
@@ -194,11 +204,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
             print("Registration Token: \(registrationToken)")
             self.subscribeToTopic()
             
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(registrationToken, completion: { (array, error) in
+//
+//            NetworkManager.sharedInstance.getNotifications({ (array, error) in
+//                
 //            })
-            NetworkManager.sharedInstance.getNotifications({ (array, error) in
-                
-            })
 //                        NetworkManager.sharedInstance.unregisterDevice()
         } else {
             print("Registration to GCM failed with error: \(error.localizedDescription)")

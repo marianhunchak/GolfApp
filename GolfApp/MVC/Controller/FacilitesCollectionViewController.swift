@@ -11,7 +11,7 @@ import UIKit
 private var nibNameFacilitesCollectionCell = "FacilitesCollectionCell"
 private var facilitesCollectionCellIdentifier = "FacilitesCollectionCell"
 
-class FacilitesCollectionViewController: BaseViewController , UICollectionViewDelegate ,UICollectionViewDataSource
+class FacilitesCollectionViewController: UIViewController , UICollectionViewDelegate ,UICollectionViewDataSource
  {
     
     var facilitesItemsImgOnArray = ["facilites_club_house_", "facilites_practice_",   "facilites_pitching_",
@@ -47,6 +47,7 @@ class FacilitesCollectionViewController: BaseViewController , UICollectionViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configureNavBar()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_facilities_details_nav_bar")
         backgroundCollectionView.layer.cornerRadius = 5
         

@@ -13,13 +13,14 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
     
-    override func viewDidLoad() {
+    override func viewDidLoad()  {
         super.viewDidLoad()
         self.configureNavBar()
+        
+        tableView.backgroundColor = Global.viewsBackgroundColor
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:#selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
-        
     }
     
     func refresh(sender:AnyObject) {
@@ -32,6 +33,7 @@ class BaseViewController: UIViewController {
     func endRefresh() {
         refreshControl!.endRefreshing()
     }
+
 }
 
 
@@ -91,7 +93,7 @@ extension UIViewController {
         foregroundView.font = UIFont(name: "StoneInformal LT Semibold", size: 18)!
         
         UIView.animateWithDuration(0.5) {
-            self.view.addSubview(foregroundView)
+            self.navigationController!.view.addSubview(foregroundView)
             foregroundView.alpha = 0.9
         }
         

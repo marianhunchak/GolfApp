@@ -16,7 +16,6 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     var hotel = Hotel()
 
     @IBOutlet weak var headerView: UIView!
-//    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

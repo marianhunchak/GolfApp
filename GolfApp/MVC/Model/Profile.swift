@@ -17,8 +17,9 @@ class Profile {
     var iosUrl: String!
     var defaultLanguage: Int!
     var languages: NSDictionary!
+    var buttonsArray = [String]()
     
-    static func profileWhithDictionary(pDictionary:NSDictionary) -> Profile {
+    static func profileWhithDictionary(pDictionary:NSDictionary,andArray pArray: [String]) -> Profile {
         
         let lProfile = Profile()
         lProfile.phone = pDictionary["phone"] as! String
@@ -28,7 +29,7 @@ class Profile {
         lProfile.iosUrl = pDictionary["ios_url"] as! String
         lProfile.defaultLanguage = pDictionary["default_language"] as! Int
         lProfile.languages = pDictionary["languages"] as! NSDictionary
-        
+        lProfile.buttonsArray = pArray
         return lProfile
     }
 }

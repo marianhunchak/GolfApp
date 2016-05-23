@@ -10,7 +10,7 @@ import UIKit
 
 private let cellIdetifier = "RateCell"
 
-class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDataSource {
+class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
     
     var rateArray = [Rate]()
     var navigationTitle = "crs_rate_details_nav_bar"
@@ -20,7 +20,7 @@ class RateViewController: BaseViewController ,UITableViewDelegate ,UITableViewDa
     @IBOutlet weak var rateTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        self.configureNavBar()
         
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         rateTableView.layer.cornerRadius = 5

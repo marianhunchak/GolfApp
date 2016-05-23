@@ -66,6 +66,7 @@ class HotelsTableViewController: BaseTableViewController {
 
         hotelVC.hotel = hotelsArray[indexPath.row]
         self.navigationController?.pushViewController(hotelVC, animated: true)
+        showOfflineModeLabel()
     }
     
 }

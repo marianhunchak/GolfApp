@@ -15,7 +15,7 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
     
     var restaurant = Restaurant()
     var restaurantsCount = 1
-    var rateArray = [Rate]()
+    //var rateArray = [Rate]()
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -111,8 +111,10 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
-        let vc = OffersViewController(nibName: "OffersViewController", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+        let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
+        packageVC.packageUrl = restaurant.package_url
+        packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("re_suggestion_nav_bar")
+        self.navigationController?.pushViewController(packageVC, animated: true)
         
     }
     

@@ -29,23 +29,17 @@ class ViewForProHeader: UIView {
         
         button1.layer.cornerRadius = 5
         button2.layer.cornerRadius = 5
-
-        
         menuBarBackgrView.layer.cornerRadius = 5
         menuBarBackgrView.layer.borderWidth = 2
         menuBarBackgrView.layer.masksToBounds = true
     }
     
     @IBAction func button1Action(sender: AnyObject) {
-        
         self.delegate?.pressedButton1(self, button1Pressed: sender)
-        
     }
     
     @IBAction func button2Action(sender: AnyObject) {
-        
         self.delegate?.pressedButton2(self, button2Pressed: sender)
-        
     }
     
     //MARK - Private methods

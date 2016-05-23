@@ -11,7 +11,7 @@ import UIKit
 private let courseFooterIndetifire = "courseFooterIndetifire"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 
-class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableViewDelegate, UITableViewDataSource  {
+class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewDelegate, UITableViewDataSource  {
     
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
     var seleted = false
@@ -24,7 +24,7 @@ class OffersViewController: BaseViewController , OffersHeaderDelegate,UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.configureNavBar()
         setupHeaderView()
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         offersTableView.backgroundColor = Global.viewsBackgroundColor

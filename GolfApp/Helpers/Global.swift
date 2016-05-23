@@ -24,6 +24,8 @@ class Global {
     static let descrTextBoxColor = UIColor.init(colorCode: "404040")
     static let viewsBackgroundColor = UIColor.init(colorCode: "C8DC95")
     
+    static let displayWidth = (UIApplication.sharedApplication().keyWindow?.frame.size.width)!
+    
     static func getLanguage() {
         
         let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String

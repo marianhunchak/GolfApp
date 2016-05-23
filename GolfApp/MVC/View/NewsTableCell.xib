@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+            <string>StoneInformalLT</string>
+        </mutableArray>
+        <mutableArray key="STONE INFORMEL LT SEMI-BOLD.ttf">
+            <string>StoneInformalLT-Semibold</string>
+            <string>StoneInformalLT-Semibold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsTableCell" rowHeight="125" id="y9R-8F-5si" customClass="NewsTableCell" customModule="GolfApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="125"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y9R-8F-5si" id="doQ-KU-mBx">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-a3-cfL">
+                        <rect key="frame" x="0.0" y="0.0" width="394" height="124"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IEe-90-pbO">
+                        <rect key="frame" x="12" y="12" width="370" height="112"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0S5-OE-EhI">
+                                <rect key="frame" x="8" y="8" width="322" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Hf6-0t-eGH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="16"/>
+                                <color key="textColor" red="0.4823529412" green="0.65490196079999996" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Flr-3s-WvW">
+                                <rect key="frame" x="8" y="28" width="322" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="tHB-l9-I3H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="pubdate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlW-zn-XZo">
+                                <rect key="frame" x="8" y="52" width="322" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="mrf-lI-LOA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMh-nb-g2l">
+                                <rect key="frame" x="8" y="72" width="322" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="xfF-YS-WAg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_forward_btn" translatesAutoresizingMaskIntoConstraints="NO" id="4jC-bZ-4Dr">
+                                <rect key="frame" x="338" y="38" width="32" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="Cz7-w7-LnS"/>
+                                    <constraint firstAttribute="height" constant="35" id="fs9-rP-Hd7"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="zlW-zn-XZo" firstAttribute="leading" secondItem="IEe-90-pbO" secondAttribute="leading" constant="8" id="4bn-o5-M6l"/>
+                            <constraint firstItem="4jC-bZ-4Dr" firstAttribute="centerY" secondItem="IEe-90-pbO" secondAttribute="centerY" id="7QJ-jz-X07"/>
+                            <constraint firstItem="FMh-nb-g2l" firstAttribute="top" secondItem="zlW-zn-XZo" secondAttribute="bottom" id="9V0-kv-d2I"/>
+                            <constraint firstItem="Flr-3s-WvW" firstAttribute="leading" secondItem="IEe-90-pbO" secondAttribute="leading" constant="8" id="BRq-4u-k7u"/>
+                            <constraint firstItem="FMh-nb-g2l" firstAttribute="top" secondItem="zlW-zn-XZo" secondAttribute="bottom" id="Cz1-35-ICS"/>
+                            <constraint firstItem="0S5-OE-EhI" firstAttribute="top" secondItem="IEe-90-pbO" secondAttribute="top" constant="8" id="Ean-xm-ZVy"/>
+                            <constraint firstAttribute="trailing" secondItem="Flr-3s-WvW" secondAttribute="trailing" constant="40" id="EoJ-fG-e3F"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0S5-OE-EhI" secondAttribute="bottom" constant="84" id="Hr6-lU-SNf"/>
+                            <constraint firstItem="zlW-zn-XZo" firstAttribute="top" secondItem="Flr-3s-WvW" secondAttribute="bottom" id="PUM-uG-MFc"/>
+                            <constraint firstAttribute="trailing" secondItem="0S5-OE-EhI" secondAttribute="trailing" constant="40" id="QO9-NA-yE3"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="dY3-9l-fxR"/>
+                            <constraint firstAttribute="trailing" secondItem="zlW-zn-XZo" secondAttribute="trailing" constant="40" id="eDL-LC-mrL"/>
+                            <constraint firstItem="zlW-zn-XZo" firstAttribute="top" secondItem="Flr-3s-WvW" secondAttribute="bottom" constant="8" id="f4P-oy-akb"/>
+                            <constraint firstAttribute="trailing" secondItem="4jC-bZ-4Dr" secondAttribute="trailing" id="fbf-hE-4ug"/>
+                            <constraint firstAttribute="trailing" secondItem="FMh-nb-g2l" secondAttribute="trailing" constant="40" id="flV-x0-NWm"/>
+                            <constraint firstItem="Flr-3s-WvW" firstAttribute="top" secondItem="0S5-OE-EhI" secondAttribute="bottom" id="jV8-al-w6x"/>
+                            <constraint firstItem="0S5-OE-EhI" firstAttribute="leading" secondItem="IEe-90-pbO" secondAttribute="leading" constant="8" id="ndm-iM-7rT"/>
+                            <constraint firstItem="FMh-nb-g2l" firstAttribute="leading" secondItem="IEe-90-pbO" secondAttribute="leading" constant="8" id="p7H-f3-MF8"/>
+                            <constraint firstItem="FMh-nb-g2l" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IEe-90-pbO" secondAttribute="top" constant="72" id="qwt-j8-iTK"/>
+                            <constraint firstAttribute="bottom" secondItem="FMh-nb-g2l" secondAttribute="bottom" constant="10" id="rXP-LD-hf0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="f4P-oy-akb"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="XsP-a3-cfL" secondAttribute="trailing" id="0ku-cY-Wgv"/>
+                    <constraint firstItem="XsP-a3-cfL" firstAttribute="top" secondItem="doQ-KU-mBx" secondAttribute="top" id="6kv-Ky-IiS"/>
+                    <constraint firstAttribute="bottom" secondItem="XsP-a3-cfL" secondAttribute="bottom" id="9Eg-qA-UbT"/>
+                    <constraint firstItem="IEe-90-pbO" firstAttribute="leading" secondItem="doQ-KU-mBx" secondAttribute="leading" constant="12" id="Aqm-LA-gjC"/>
+                    <constraint firstAttribute="trailing" secondItem="IEe-90-pbO" secondAttribute="trailing" constant="12" id="RGK-eV-zne"/>
+                    <constraint firstItem="IEe-90-pbO" firstAttribute="top" secondItem="doQ-KU-mBx" secondAttribute="top" constant="12" id="Tkr-z6-ugb"/>
+                    <constraint firstAttribute="bottom" secondItem="IEe-90-pbO" secondAttribute="bottom" id="Wms-Ey-zRN"/>
+                    <constraint firstItem="XsP-a3-cfL" firstAttribute="leading" secondItem="doQ-KU-mBx" secondAttribute="leading" id="gxA-1J-Prm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="backgroundCellView" destination="IEe-90-pbO" id="OLs-st-88e"/>
+                <outlet property="dateLabel" destination="zlW-zn-XZo" id="Nlj-Ay-Q9p"/>
+                <outlet property="descriptionLabel" destination="FMh-nb-g2l" id="s30-QD-pYn"/>
+                <outlet property="nameLabel" destination="0S5-OE-EhI" id="sYT-sw-OFM"/>
+                <outlet property="subtitleLabel" destination="Flr-3s-WvW" id="fmO-Gl-9wR"/>
+            </connections>
+            <point key="canvasLocation" x="406" y="223.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="a_forward_btn" width="60" height="60"/>
+    </resources>
+</document>

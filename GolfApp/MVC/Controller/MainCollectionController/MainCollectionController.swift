@@ -26,6 +26,8 @@ class MainCollectionController: UICollectionViewController  {
     
     var menuItemsImgArray = ["a_tee_time", "a_restaurant", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
     
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.hidden = true
@@ -81,8 +83,8 @@ class MainCollectionController: UICollectionViewController  {
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
                 self.navigationController?.pushViewController(prosVC!, animated: true)
             case 2:
-                let eventsVC = EventsTableViewController(nibName: "EventsTableViewController", bundle: nil)
-                self.navigationController?.pushViewController(eventsVC, animated: true)
+                let events =  EventsListViewController(nibName: "EventsListViewController", bundle: nil)
+                self.navigationController?.pushViewController(events, animated: true)
             
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
@@ -96,8 +98,9 @@ class MainCollectionController: UICollectionViewController  {
                 self.navigationController?.pushViewController(prosVC!, animated: true)
             case 6:
                 showContactSubView()
-            case 7: break
-            
+            case 7:
+                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController")
+                self.navigationController?.pushViewController(prosVC!, animated: true)
             case 8:
                 let hotelsVC = HotelsTableViewController(nibName: "HotelsTableViewController", bundle: nil)
                 self.navigationController?.pushViewController(hotelsVC, animated: true)

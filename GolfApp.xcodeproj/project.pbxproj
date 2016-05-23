@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0BA22DB2C155759958B57A8C /* Pods_GolfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */; };
+		560E30541CF33E3C00EF119F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E30531CF33E3C00EF119F /* Event.swift */; };
+		560E30591CF39D8300EF119F /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E30571CF39D8300EF119F /* EventsListViewController.swift */; };
+		560E305A1CF39D8300EF119F /* EventsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560E30581CF39D8300EF119F /* EventsListViewController.xib */; };
 		560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C601CE137A2006F8655 /* AppDelegate.swift */; };
 		560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C651CE137A2006F8655 /* NetworkManager.swift */; };
 		560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6B1CE137A2006F8655 /* DetailViewController.swift */; };
@@ -48,14 +51,19 @@
 		5651AEED1CE4C0A700040520 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5651AEEC1CE4C0A700040520 /* Global.swift */; };
 		5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */; };
 		565BE0121CE8AE230018251E /* UIView+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565BE0111CE8AE230018251E /* UIView+Size.swift */; };
-		566290B41CEF25500051392B /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566290B21CEF25500051392B /* EventsTableViewController.swift */; };
-		566290B51CEF25500051392B /* EventsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 566290B31CEF25500051392B /* EventsTableViewController.xib */; };
 		5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */; };
 		5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */; };
 		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
 		5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */; };
 		568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */; };
 		56FC0D8B1CEE13AC006F3AB1 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */; };
+		840001131CEF0E030051B38A /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001121CEF0E030051B38A /* News.swift */; };
+		840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001151CEF14F60051B38A /* NewsTableViewController.swift */; };
+		840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001181CEF17F00051B38A /* NewsTableCell.xib */; };
+		8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400011A1CEF26850051B38A /* NewsTableCell.swift */; };
+		8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */; };
+		840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001201CEF55C40051B38A /* NewsDetailCell.xib */; };
+		840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001221CEF575B0051B38A /* NewsDetailCell.swift */; };
 		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
 		84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D491CE3E2D400164917 /* SwipePageCourseController.swift */; };
 		8407A5B11CE3296100500E19 /* ViewForDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */; };
@@ -95,6 +103,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		560E303F1CF32A5B00EF119F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6568AF863B86B1B7D3A660F806CF175F;
+			remoteInfo = ReachabilitySwift;
+		};
 		562F4AAF1CE6055F00A6581B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
@@ -135,6 +150,9 @@
 /* Begin PBXFileReference section */
 		1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GolfApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.release.xcconfig"; sourceTree = "<group>"; };
+		560E30531CF33E3C00EF119F /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		560E30571CF39D8300EF119F /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		560E30581CF39D8300EF119F /* EventsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsListViewController.xib; sourceTree = "<group>"; };
 		560E3C601CE137A2006F8655 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		560E3C651CE137A2006F8655 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		560E3C6B1CE137A2006F8655 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -348,14 +366,19 @@
 		5651AEEC1CE4C0A700040520 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		5651AEEE1CE4C21900040520 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		565BE0111CE8AE230018251E /* UIView+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Size.swift"; path = "GolfApp/Helpers/Extensions/UIView+Size.swift"; sourceTree = SOURCE_ROOT; };
-		566290B21CEF25500051392B /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
-		566290B31CEF25500051392B /* EventsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewController.xib; sourceTree = "<group>"; };
 		5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMAL LT.ttf"; sourceTree = "<group>"; };
 		5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMEL LT SEMI-BOLD.ttf"; sourceTree = "<group>"; };
 		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
 		5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTableViewController.swift; sourceTree = "<group>"; };
 		5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTableViewController.xib; sourceTree = "<group>"; };
 		56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
+		840001121CEF0E030051B38A /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		840001151CEF14F60051B38A /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		840001181CEF17F00051B38A /* NewsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableCell.xib; sourceTree = "<group>"; };
+		8400011A1CEF26850051B38A /* NewsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
+		8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
+		840001201CEF55C40051B38A /* NewsDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailCell.xib; sourceTree = "<group>"; };
+		840001221CEF575B0051B38A /* NewsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
 		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		84051D491CE3E2D400164917 /* SwipePageCourseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipePageCourseController.swift; sourceTree = "<group>"; };
 		8407A5B01CE3296100500E19 /* ViewForDetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForDetailHeader.xib; sourceTree = "<group>"; };
@@ -416,6 +439,73 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		560E30381CF32A5B00EF119F /* News */ = {
+			isa = PBXGroup;
+			children = (
+				8400011C1CEF3E4D0051B38A /* NewsDetailViewController */,
+				840001141CEF14B80051B38A /* NewsTableViewController */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		560E30411CF32A7800EF119F /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
+				84F6B9501CEDCA6100B4491C /* RestaurantTableViewController */,
+			);
+			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		560E30421CF32AB400EF119F /* Proshop */ = {
+			isa = PBXGroup;
+			children = (
+				84FBD0051CEC6FBB002FBF57 /* ProShopDetailViewController */,
+				84FBD0121CEC7B82002FBF57 /* ProShopTableViewController */,
+			);
+			name = Proshop;
+			sourceTree = "<group>";
+		};
+		560E30431CF32AD500EF119F /* Pros */ = {
+			isa = PBXGroup;
+			children = (
+				562ECB651CE9F97900985213 /* ProsDetailViewController */,
+				84F4C08A1CED32BA0056B903 /* ProsListTableViewController */,
+			);
+			name = Pros;
+			sourceTree = "<group>";
+		};
+		560E30441CF32B1700EF119F /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				560E3C6E1CE137A2006F8655 /* ListTableController */,
+				560E3C6A1CE137A2006F8655 /* DetailViewController */,
+				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
+				840940361CE4B60D0005A97E /* FacilitiesController */,
+			);
+			name = Courses;
+			sourceTree = "<group>";
+		};
+		560E30451CF32B3E00EF119F /* ReusableControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84FF8C9C1CEBD4610007BC8E /* OffersViewController */,
+				564A5F871CEB9873009F7759 /* WebViewController */,
+				84F6100E1CE90C5F00FF3A87 /* RateController */,
+			);
+			name = ReusableControllers;
+			sourceTree = "<group>";
+		};
+		560E30521CF33D8000EF119F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */,
+				562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */,
+				565BE0111CE8AE230018251E /* UIView+Size.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		560E3C5F1CE137A2006F8655 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,9 +520,7 @@
 				5651AEEB1CE4C08E00040520 /* Headers */,
 				560E3C631CE137A2006F8655 /* API */,
 				560E3C671CE137A2006F8655 /* Parser */,
-				562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */,
-				562F4ABE1CE73A6C00A6581B /* UIView+RounCorners.swift */,
-				565BE0111CE8AE230018251E /* UIView+Size.swift */,
+				560E30521CF33D8000EF119F /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -475,21 +563,14 @@
 			children = (
 				562F4AB91CE60C4700A6581B /* BaseViewControllers */,
 				560E3C6C1CE137A2006F8655 /* MainCollectionController */,
+				560E30411CF32A7800EF119F /* Restaurant */,
 				566290B11CEF250F0051392B /* Events */,
+				560E30421CF32AB400EF119F /* Proshop */,
+				560E30441CF32B1700EF119F /* Courses */,
+				560E30431CF32AD500EF119F /* Pros */,
+				560E30381CF32A5B00EF119F /* News */,
 				56FC0D841CEE10BF006F3AB1 /* Hotels */,
-				84F6B9581CEDE18E00B4491C /* RestaurantDetailViewController */,
-				84F6B9501CEDCA6100B4491C /* RestaurantTableViewController */,
-				84F4C08A1CED32BA0056B903 /* ProsListTableViewController */,
-				84FBD0121CEC7B82002FBF57 /* ProsShopTableView */,
-				84FBD0051CEC6FBB002FBF57 /* ProShopDetailViewController */,
-				84FF8C9C1CEBD4610007BC8E /* OffersViewController */,
-				564A5F871CEB9873009F7759 /* WebViewController */,
-				562ECB651CE9F97900985213 /* ProsViewController */,
-				84F6100E1CE90C5F00FF3A87 /* RateController */,
-				840940361CE4B60D0005A97E /* FacilitiesController */,
-				84051D2E1CE3C32B00164917 /* SwipeCourseController */,
-				560E3C6E1CE137A2006F8655 /* ListTableController */,
-				560E3C6A1CE137A2006F8655 /* DetailViewController */,
+				560E30451CF32B3E00EF119F /* ReusableControllers */,
 			);
 			name = Controllers;
 			path = Controller;
@@ -524,6 +605,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				840001111CEF0D850051B38A /* News */,
 				84F6B95B1CEE00A500B4491C /* Menu */,
 				84F4C08D1CED38C80056B903 /* Restaurant */,
 				84FBD0131CEC7C9E002FBF57 /* ProsShop */,
@@ -532,9 +614,10 @@
 				84FE09141CEA75420074373B /* Pros */,
 				84F190FD1CE899F800B1DDDC /* Rate */,
 				5663B5C11CE5B93F0039D1FC /* Profile */,
-				5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */,
 				560E3C711CE137A2006F8655 /* Course */,
+				5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */,
 				560E3C731CE137A2006F8655 /* DB */,
+				560E30531CF33E3C00EF119F /* Event.swift */,
 			);
 			name = Models;
 			path = Model;
@@ -559,6 +642,8 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8400011F1CEF558C0051B38A /* NewsDetailCell */,
+				840001171CEF16F30051B38A /* NewsTableCell */,
 				84FF8C9D1CEBD99B0007BC8E /* ViewForOffersHeader */,
 				844A942A1CEB6C0000BCC86F /* ViewForProHeader */,
 				568951671CEB260700D7F5DF /* HotelsSubviews */,
@@ -661,12 +746,12 @@
 			name = LocalisationDocument;
 			sourceTree = "<group>";
 		};
-		562ECB651CE9F97900985213 /* ProsViewController */ = {
+		562ECB651CE9F97900985213 /* ProsDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
 				562ECB6B1CE9FA5100985213 /* ProsViewController.swift */,
 			);
-			name = ProsViewController;
+			name = ProsDetailViewController;
 			sourceTree = "<group>";
 		};
 		562F49C81CE6055F00A6581B /* Pods */ = {
@@ -1171,6 +1256,7 @@
 				562F4AB21CE6055F00A6581B /* Alamofire.framework */,
 				562F4AB41CE6055F00A6581B /* AlamofireImage.framework */,
 				562F4AB61CE6055F00A6581B /* Pods_GolfApp.framework */,
+				560E30401CF32A5B00EF119F /* ReachabilitySwift.framework */,
 				562F4AB81CE6055F00A6581B /* SwiftyJSON.framework */,
 			);
 			name = Products;
@@ -1367,8 +1453,8 @@
 		566290B11CEF250F0051392B /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				566290B21CEF25500051392B /* EventsTableViewController.swift */,
-				566290B31CEF25500051392B /* EventsTableViewController.xib */,
+				560E30571CF39D8300EF119F /* EventsListViewController.swift */,
+				560E30581CF39D8300EF119F /* EventsListViewController.xib */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -1410,10 +1496,52 @@
 		56FC0D841CEE10BF006F3AB1 /* Hotels */ = {
 			isa = PBXGroup;
 			children = (
-				564A5F821CEB81B3009F7759 /* HotelDetailViewController */,
 				568951661CEB219500D7F5DF /* HotelsTableViewController */,
+				564A5F821CEB81B3009F7759 /* HotelDetailViewController */,
 			);
 			name = Hotels;
+			sourceTree = "<group>";
+		};
+		840001111CEF0D850051B38A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				840001121CEF0E030051B38A /* News.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		840001141CEF14B80051B38A /* NewsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840001151CEF14F60051B38A /* NewsTableViewController.swift */,
+			);
+			name = NewsTableViewController;
+			sourceTree = "<group>";
+		};
+		840001171CEF16F30051B38A /* NewsTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				840001181CEF17F00051B38A /* NewsTableCell.xib */,
+				8400011A1CEF26850051B38A /* NewsTableCell.swift */,
+			);
+			name = NewsTableCell;
+			sourceTree = "<group>";
+		};
+		8400011C1CEF3E4D0051B38A /* NewsDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */,
+			);
+			name = NewsDetailViewController;
+			sourceTree = "<group>";
+		};
+		8400011F1CEF558C0051B38A /* NewsDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				840001201CEF55C40051B38A /* NewsDetailCell.xib */,
+				840001221CEF575B0051B38A /* NewsDetailCell.swift */,
+			);
+			name = NewsDetailCell;
 			sourceTree = "<group>";
 		};
 		84051D2E1CE3C32B00164917 /* SwipeCourseController */ = {
@@ -1568,12 +1696,12 @@
 			name = ProShopDetailViewController;
 			sourceTree = "<group>";
 		};
-		84FBD0121CEC7B82002FBF57 /* ProsShopTableView */ = {
+		84FBD0121CEC7B82002FBF57 /* ProShopTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				84F4C0881CED21320056B903 /* ProShopTableView.swift */,
 			);
-			name = ProsShopTableView;
+			name = ProShopTableViewController;
 			sourceTree = "<group>";
 		};
 		84FBD0131CEC7C9E002FBF57 /* ProsShop */ = {
@@ -1708,6 +1836,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		560E30401CF32A5B00EF119F /* ReachabilitySwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReachabilitySwift.framework;
+			remoteRef = 560E303F1CF32A5B00EF119F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		562F4AB01CE6055F00A6581B /* AEXML.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1757,10 +1892,10 @@
 				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
 				564A5F861CEB948E009F7759 /* WebViewController.xib in Resources */,
 				844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */,
+				840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */,
 				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
-				566290B51CEF25500051392B /* EventsTableViewController.xib in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
 				568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */,
 				5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */,
@@ -1774,6 +1909,7 @@
 				5651AEE81CE4BE7E00040520 /* string_german.xml in Resources */,
 				560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */,
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
+				840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */,
 				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
@@ -1782,6 +1918,7 @@
 				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
 				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
 				8436176F1CE2389900F96599 /* ContactView.xib in Resources */,
+				560E305A1CF39D8300EF119F /* EventsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1845,6 +1982,7 @@
 				84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */,
 				8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */,
 				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
+				560E30591CF39D8300EF119F /* EventsListViewController.swift in Sources */,
 				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
 				565BE0121CE8AE230018251E /* UIView+Size.swift in Sources */,
 				560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */,
@@ -1854,7 +1992,6 @@
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
-				566290B41CEF25500051392B /* EventsTableViewController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
@@ -1868,6 +2005,7 @@
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				844A94291CEB641F00BCC86F /* Pro.swift in Sources */,
+				840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */,
 				84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
@@ -1875,9 +2013,11 @@
 				84FBD0151CEC7CBB002FBF57 /* ProsShop.swift in Sources */,
 				564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */,
 				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
+				8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */,
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
+				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				84FE09161CEA75570074373B /* Pros.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
@@ -1885,12 +2025,15 @@
 				564A5F771CEB7475009F7759 /* Hotel.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
 				844A942E1CEB6DD900BCC86F /* ViewForProHeader.swift in Sources */,
+				560E30541CF33E3C00EF119F /* Event.swift in Sources */,
+				840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
 				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
 				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,
 				84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
+				840001131CEF0E030051B38A /* News.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
