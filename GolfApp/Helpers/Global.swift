@@ -16,6 +16,7 @@ class Global {
     static var languageID : String!
     static var languageName : String!
     
+    //MARK: Colors
     static let navigationBarColor = UIColor.init(colorCode: "97BF0D")
     static let buttonOnColor = UIColor.init(colorCode: "97BF0D")
     static let buttonOffColor = UIColor.init(colorCode: "5E7B2A")
@@ -24,7 +25,11 @@ class Global {
     static let descrTextBoxColor = UIColor.init(colorCode: "404040")
     static let viewsBackgroundColor = UIColor.init(colorCode: "C8DC95")
     
+    
+    //MARK: Sizes and Coordinates
     static let displayWidth = (UIApplication.sharedApplication().keyWindow?.frame.size.width)!
+    static let headerHeight: CGFloat = 45
+    static let pading: CGFloat = 12
     
     static func getLanguage() {
         

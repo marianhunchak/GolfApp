@@ -75,7 +75,7 @@ class RestaurantTableViewController: BaseTableViewController {
         vc.restaurant = restaurantArray[indexPath.row]
         vc.restaurantsCount = restaurantsCount
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
         
     }
     

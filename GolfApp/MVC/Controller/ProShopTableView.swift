@@ -70,7 +70,7 @@ class ProShopTableView: BaseTableViewController {
                 vc.package_url = prosShopArray[indexPath.row].package_url!
                 vc.prosShop = prosShopArray[indexPath.row]
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
         
     }
     

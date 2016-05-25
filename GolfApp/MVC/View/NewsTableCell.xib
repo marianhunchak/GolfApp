@@ -68,10 +68,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_forward_btn" translatesAutoresizingMaskIntoConstraints="NO" id="4jC-bZ-4Dr">
-                                <rect key="frame" x="338" y="38" width="32" height="35"/>
+                                <rect key="frame" x="338" y="44" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="Cz7-w7-LnS"/>
-                                    <constraint firstAttribute="height" constant="35" id="fs9-rP-Hd7"/>
+                                    <constraint firstAttribute="width" constant="25" id="Cz7-w7-LnS"/>
+                                    <constraint firstAttribute="height" constant="25" id="fs9-rP-Hd7"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -90,7 +90,7 @@
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="dY3-9l-fxR"/>
                             <constraint firstAttribute="trailing" secondItem="zlW-zn-XZo" secondAttribute="trailing" constant="40" id="eDL-LC-mrL"/>
                             <constraint firstItem="zlW-zn-XZo" firstAttribute="top" secondItem="Flr-3s-WvW" secondAttribute="bottom" constant="8" id="f4P-oy-akb"/>
-                            <constraint firstAttribute="trailing" secondItem="4jC-bZ-4Dr" secondAttribute="trailing" id="fbf-hE-4ug"/>
+                            <constraint firstAttribute="trailing" secondItem="4jC-bZ-4Dr" secondAttribute="trailing" constant="7" id="fbf-hE-4ug"/>
                             <constraint firstAttribute="trailing" secondItem="FMh-nb-g2l" secondAttribute="trailing" constant="40" id="flV-x0-NWm"/>
                             <constraint firstItem="Flr-3s-WvW" firstAttribute="top" secondItem="0S5-OE-EhI" secondAttribute="bottom" id="jV8-al-w6x"/>
                             <constraint firstItem="0S5-OE-EhI" firstAttribute="leading" secondItem="IEe-90-pbO" secondAttribute="leading" constant="8" id="ndm-iM-7rT"/>

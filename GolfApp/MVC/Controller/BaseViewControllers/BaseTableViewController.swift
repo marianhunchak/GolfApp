@@ -20,15 +20,13 @@ class BaseTableViewController: UITableViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-//        tableView.addSubview(refreshControl!)
         refreshControl!.beginRefreshing()
         self.performSelector(#selector(refresh(_:)), withObject: nil, afterDelay: 5)
         
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     func refresh(sender:AnyObject)

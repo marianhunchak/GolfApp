@@ -100,7 +100,7 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = prosShop.package_url
         packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar")
-        self.navigationController?.pushViewController(packageVC, animated: true)
+        self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
     

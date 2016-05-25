@@ -90,7 +90,7 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
     func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SwipePageCourseController") as! SwipePageCourseController
         vc.courseImage = arrayOfImages
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
         self.performSegueWithIdentifier("showFacilities", sender: self)

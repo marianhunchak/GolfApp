@@ -8,13 +8,15 @@
 
 import UIKit
 
-class WebViewController: BaseViewController {
+class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     var url : NSURL?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavBar()
         if let lUrl = url {
             let req = NSURLRequest(URL: lUrl)
             self.webView.loadRequest(req)

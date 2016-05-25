@@ -116,7 +116,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = hotel.package_url
         packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_package_list_nav_bar")
-        self.navigationController?.pushViewController(packageVC, animated: true)
+        self.navigationController?.pushViewController(packageVC, animated: false)
     }
 
 }

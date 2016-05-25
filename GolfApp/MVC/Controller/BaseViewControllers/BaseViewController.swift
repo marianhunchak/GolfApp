@@ -72,11 +72,11 @@ extension UIViewController {
     //MARK: Actions
     
     func showMainController() {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popToRootViewControllerAnimated(false)
     }
     
     func showPreviousController() {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(false)
     }
     //MARK: LABEL
     func showOfflineModeLabel() {

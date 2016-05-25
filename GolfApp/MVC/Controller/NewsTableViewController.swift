@@ -73,7 +73,7 @@ class NewsTableViewController: BaseTableViewController {
         
             vc.news = newsArray[indexPath.row]
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
         
     }
     
@@ -94,7 +94,7 @@ class NewsTableViewController: BaseTableViewController {
         if self.newsArray.count == 1 {
             let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
             newsVC.news = newsArray[0]
-            self.navigationController?.pushViewController(newsVC, animated: true)
+            self.navigationController?.pushViewController(newsVC, animated: false)
         } else {
             
             tableView.reloadData()

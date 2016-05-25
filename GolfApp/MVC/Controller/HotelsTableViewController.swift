@@ -65,7 +65,7 @@ class HotelsTableViewController: BaseTableViewController {
         let hotelVC = HotelDetailViewController(nibName: "HotelDetailViewController", bundle: nil)
 
         hotelVC.hotel = hotelsArray[indexPath.row]
-        self.navigationController?.pushViewController(hotelVC, animated: true)
+        self.navigationController?.pushViewController(hotelVC, animated: false)
         showOfflineModeLabel()
     }
     

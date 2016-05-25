@@ -10,7 +10,6 @@
 		0BA22DB2C155759958B57A8C /* Pods_GolfApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A712DBC608EA32A2471FD98 /* Pods_GolfApp.framework */; };
 		560E30541CF33E3C00EF119F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E30531CF33E3C00EF119F /* Event.swift */; };
 		560E30591CF39D8300EF119F /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E30571CF39D8300EF119F /* EventsListViewController.swift */; };
-		560E305A1CF39D8300EF119F /* EventsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560E30581CF39D8300EF119F /* EventsListViewController.xib */; };
 		560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C601CE137A2006F8655 /* AppDelegate.swift */; };
 		560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C651CE137A2006F8655 /* NetworkManager.swift */; };
 		560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6B1CE137A2006F8655 /* DetailViewController.swift */; };
@@ -32,6 +31,13 @@
 		560E3CA11CE137A2006F8655 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560E3C891CE137A2006F8655 /* Main.storyboard */; };
 		560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C8D1CE137A2006F8655 /* HCCache.swift */; };
 		560E3CA41CE138CE006F8655 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 560E3CA31CE138CE006F8655 /* Default-568h@2x.png */; };
+		560F48011CF443A200E23411 /* EventsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F47FF1CF443A200E23411 /* EventsTableCell.swift */; };
+		560F48021CF443A200E23411 /* EventsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560F48001CF443A200E23411 /* EventsTableCell.xib */; };
+		560F480B1CF487DD00E23411 /* EventsListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560F480A1CF487DD00E23411 /* EventsListController.xib */; };
+		560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F480D1CF493AE00E23411 /* EventDetailController.swift */; };
+		560F48101CF493AE00E23411 /* EventDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560F480E1CF493AE00E23411 /* EventDetailController.xib */; };
+		560F48131CF4954300E23411 /* EventDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F48111CF4954300E23411 /* EventDetailCell.swift */; };
+		560F48141CF4954300E23411 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560F48121CF4954300E23411 /* EventDetailCell.xib */; };
 		5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */; };
 		5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B81CE4E699001B6E2F /* Profile.swift */; };
 		562ECB6C1CE9FA5100985213 /* ProsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECB6B1CE9FA5100985213 /* ProsViewController.swift */; };
@@ -152,7 +158,6 @@
 		32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.release.xcconfig"; sourceTree = "<group>"; };
 		560E30531CF33E3C00EF119F /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		560E30571CF39D8300EF119F /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
-		560E30581CF39D8300EF119F /* EventsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsListViewController.xib; sourceTree = "<group>"; };
 		560E3C601CE137A2006F8655 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		560E3C651CE137A2006F8655 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		560E3C6B1CE137A2006F8655 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +180,13 @@
 		560E3C8D1CE137A2006F8655 /* HCCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCCache.swift; sourceTree = "<group>"; };
 		560E3CA31CE138CE006F8655 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		560E3CA51CE13921006F8655 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		560F47FF1CF443A200E23411 /* EventsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableCell.swift; sourceTree = "<group>"; };
+		560F48001CF443A200E23411 /* EventsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableCell.xib; sourceTree = "<group>"; };
+		560F480A1CF487DD00E23411 /* EventsListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsListController.xib; sourceTree = "<group>"; };
+		560F480D1CF493AE00E23411 /* EventDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailController.swift; sourceTree = "<group>"; };
+		560F480E1CF493AE00E23411 /* EventDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailController.xib; sourceTree = "<group>"; };
+		560F48111CF4954300E23411 /* EventDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailCell.swift; sourceTree = "<group>"; };
+		560F48121CF4954300E23411 /* EventDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCell.xib; sourceTree = "<group>"; };
 		5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisDocument.swift; sourceTree = "<group>"; };
 		5624E2B81CE4E699001B6E2F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		562ECB6B1CE9FA5100985213 /* ProsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsViewController.swift; sourceTree = "<group>"; };
@@ -642,6 +654,8 @@
 		560E3C761CE137A2006F8655 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				560F48151CF4954B00E23411 /* EventDetailCell */,
+				560F48091CF443A800E23411 /* EventsTableCell */,
 				8400011F1CEF558C0051B38A /* NewsDetailCell */,
 				840001171CEF16F30051B38A /* NewsTableCell */,
 				84FF8C9D1CEBD99B0007BC8E /* ViewForOffersHeader */,
@@ -736,6 +750,42 @@
 				560E3C8D1CE137A2006F8655 /* HCCache.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		560F48091CF443A800E23411 /* EventsTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				560F47FF1CF443A200E23411 /* EventsTableCell.swift */,
+				560F48001CF443A200E23411 /* EventsTableCell.xib */,
+			);
+			name = EventsTableCell;
+			sourceTree = "<group>";
+		};
+		560F480C1CF4937900E23411 /* EventsListController */ = {
+			isa = PBXGroup;
+			children = (
+				560E30571CF39D8300EF119F /* EventsListViewController.swift */,
+				560F480A1CF487DD00E23411 /* EventsListController.xib */,
+			);
+			name = EventsListController;
+			sourceTree = "<group>";
+		};
+		560F48151CF4954B00E23411 /* EventDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				560F48111CF4954300E23411 /* EventDetailCell.swift */,
+				560F48121CF4954300E23411 /* EventDetailCell.xib */,
+			);
+			name = EventDetailCell;
+			sourceTree = "<group>";
+		};
+		560F48161CF4A9DC00E23411 /* EventDetailController */ = {
+			isa = PBXGroup;
+			children = (
+				560F480D1CF493AE00E23411 /* EventDetailController.swift */,
+				560F480E1CF493AE00E23411 /* EventDetailController.xib */,
+			);
+			name = EventDetailController;
 			sourceTree = "<group>";
 		};
 		5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */ = {
@@ -1453,8 +1503,8 @@
 		566290B11CEF250F0051392B /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				560E30571CF39D8300EF119F /* EventsListViewController.swift */,
-				560E30581CF39D8300EF119F /* EventsListViewController.xib */,
+				560F480C1CF4937900E23411 /* EventsListController */,
+				560F48161CF4A9DC00E23411 /* EventDetailController */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -1894,7 +1944,9 @@
 				844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */,
 				840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */,
 				84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */,
+				560F48141CF4954300E23411 /* EventDetailCell.xib in Resources */,
 				84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */,
+				560F480B1CF487DD00E23411 /* EventsListController.xib in Resources */,
 				5651AEE61CE4BE7E00040520 /* string_english.xml in Resources */,
 				560E3C991CE137A2006F8655 /* ImageCollectionCell.xib in Resources */,
 				568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */,
@@ -1911,14 +1963,15 @@
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
 				840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */,
 				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
+				560F48101CF493AE00E23411 /* EventDetailController.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
+				560F48021CF443A200E23411 /* EventsTableCell.xib in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
 				844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */,
 				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
 				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
 				8436176F1CE2389900F96599 /* ContactView.xib in Resources */,
-				560E305A1CF39D8300EF119F /* EventsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1992,6 +2045,7 @@
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
+				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
@@ -2004,6 +2058,7 @@
 				844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */,
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
+				560F48131CF4954300E23411 /* EventDetailCell.swift in Sources */,
 				844A94291CEB641F00BCC86F /* Pro.swift in Sources */,
 				840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */,
 				84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */,
@@ -2028,6 +2083,7 @@
 				560E30541CF33E3C00EF119F /* Event.swift in Sources */,
 				840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
+				560F48011CF443A200E23411 /* EventsTableCell.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
 				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
 				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,

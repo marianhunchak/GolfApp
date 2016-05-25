@@ -9,9 +9,9 @@
 import UIKit
 
 protocol ProHeaderDelegate {
-
-    func pressedButton2(tableProHeader : ViewForProHeader ,button2Pressed button2 : AnyObject )
+    
     func pressedButton1(tableProHeader : ViewForProHeader ,button1Pressed button1 : AnyObject )
+    func pressedButton2(tableProHeader : ViewForProHeader ,button2Pressed button2 : AnyObject )
 }
 
 class ViewForProHeader: UIView {
@@ -32,13 +32,17 @@ class ViewForProHeader: UIView {
         menuBarBackgrView.layer.cornerRadius = 5
         menuBarBackgrView.layer.borderWidth = 2
         menuBarBackgrView.layer.masksToBounds = true
+        
+        toggleButtons(button1, btn2: button2)
     }
     
     @IBAction func button1Action(sender: AnyObject) {
+    
         self.delegate?.pressedButton1(self, button1Pressed: sender)
     }
     
     @IBAction func button2Action(sender: AnyObject) {
+        
         self.delegate?.pressedButton2(self, button2Pressed: sender)
     }
     
@@ -51,6 +55,7 @@ class ViewForProHeader: UIView {
         return header
     }
     
+    
     func setButtonEnabled(button: UIButton, enabled: Bool) {
         
         if enabled {
@@ -62,5 +67,22 @@ class ViewForProHeader: UIView {
         }
     }
     
+    func toggleButtons(btn1: UIButton, btn2: UIButton) {
+        btn1.setHeaderButtonSelected()
+        btn2.setHeaderButtonUnselected()
+    }
+    
+    
+}
+
+extension UIButton {
+    
+    func setHeaderButtonSelected() {
+        self.backgroundColor = Global.buttonOnColor
+    }
+    
+    func setHeaderButtonUnselected() {
+        self.backgroundColor = Global.buttonOffColor
+    }
     
 }

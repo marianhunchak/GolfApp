@@ -71,7 +71,7 @@ class ProsListTableViewController: BaseTableViewController {
         vc.package_url = prosArray[indexPath.row].package_url!
         vc.pros = prosArray[indexPath.row]
         
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
         
     }
     

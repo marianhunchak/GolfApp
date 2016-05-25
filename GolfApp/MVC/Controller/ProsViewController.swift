@@ -103,7 +103,7 @@ class ProsViewController: UIViewController, ProHeaderDelegate, UITableViewDelega
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = pros.package_url
         packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_rate_offer_nav_bar")
-        self.navigationController?.pushViewController(packageVC, animated: true)
+        self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
     

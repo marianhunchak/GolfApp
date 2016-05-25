@@ -77,6 +77,7 @@ class ListTableController: BaseTableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.view.frame.height / 3.0
     }
+    
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
@@ -90,7 +91,7 @@ class ListTableController: BaseTableViewController {
         vc.urlToRate = coursesArray[indexPath.row].rate_url as String
 
 
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     // MARK: - Private methods

@@ -19,6 +19,7 @@ class Event {
     var file_detail : String!
     var file_teetime : String!
     var file_default : String!
+    var file_result : String!
     var pubdate: String!
     
     class func eventWithDict(pDict : [String: AnyObject]) -> Event {
@@ -32,6 +33,7 @@ class Event {
         lEvent.file_detail = pDict["file_detail"] as? String ?? ""
         lEvent.file_teetime = pDict["file_teetime"] as? String ?? ""
         lEvent.file_default = pDict["file_default"] as? String ?? ""
+        lEvent.file_result = pDict["file_result"] as? String ?? ""
         lEvent.pubdate = pDict["pubdate"] as? String ?? ""
         
         return lEvent

@@ -9,70 +9,131 @@
 import UIKit
 
 private let cellImagereuseIdentifier = "detailImageTableCell"
-private let NewsTableCellIndetifire = "NewsDetailCell"
+private let eventCellReuseIdentifier = "eventsCell"
 
-class EventsListViewController: BaseViewController , UITableViewDelegate, UITableViewDataSource {
+class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDocumentInteractionControllerDelegate {
     
-    @IBOutlet weak var viewForHeader: UIView!
+//    @IBOutlet weak var viewForHeader: UIView!
     
+    enum EventType: String {
+        case Past = "past"
+        case Future = "future"
+    }
+    
+    var eventType = EventType.Future.rawValue
     var eventsArray = [Event]()
+    var documentInteractionController : UIDocumentInteractionController?
+    var headerView = ViewForProHeader.loadViewFromNib()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupHeaderView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupHeaderView()
         
+        tableView.contentInset = UIEdgeInsets(top: 109, left: 0, bottom: 12, right: 0)
+        self.tableView.estimatedRowHeight = 100
+
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("evt_list_view_nav_bar")
+        self.view.backgroundColor = Global.viewsBackgroundColor
         
-        let nibFood = UINib.init(nibName: NewsTableCellIndetifire, bundle: nil)
-        self.tableView.registerNib(nibFood, forCellReuseIdentifier: NewsTableCellIndetifire)
+        let nibFood = UINib.init(nibName: "EventsTableCell", bundle: nil)
+        self.tableView.registerNib(nibFood, forCellReuseIdentifier: eventCellReuseIdentifier)
         
-        self.tableView.estimatedRowHeight = 80
-        
-        
-        NetworkManager.sharedInstance.getEventsWithCategory("past") { (array) in
-            
-            if  array != nil {
-                self.eventsArray = array!
-                self.tableView.reloadData()
-            }
-        }
+        loadData()
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.headerView.removeFromSuperview()
+    }
+    
     //MARK: UITableViewDataSource
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewsDetailCell", forIndexPath: indexPath) as! NewsDetailCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(eventCellReuseIdentifier, forIndexPath: indexPath) as! EventsTableCell
         
         let event = eventsArray[indexPath.row]
-        cell.nameLabel.text = event.name
-        cell.subtitleLabel.text = event.format
-       
-        cell.descriptionNews.text = event.remark1 + "\n" + event.remark2
-
-        cell.dateLabel.text = getDayOfWeek(event.event_date) + " " + event.event_date
+        cell.dataLabel.text = getDayOfWeek(event.event_date) + " " + event.event_date
+        cell.eventNameLabel.text = event.name
+        cell.eventDescrLabel.text = event.format
+        
+        if eventType == EventType.Past.rawValue {
+            if event.file_result.isEmpty {
+                cell.hideImage()
+            } else {
+                cell.cellImageView?.image = UIImage(named: "a_winner_icon")
+                cell.imageHeight.constant = 40.0
+                cell.showImage()
+            }
+        } else {
+            cell.cellImageView?.image = UIImage(named: "a_forward_btn")
+            cell.imageHeight.constant = 25.0
+            cell.showImage()
+        }
+        
+        
+        
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
         return UITableViewAutomaticDimension
+    }
+    
+    //MARK: UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let event = eventsArray[indexPath.row]
+//        if eventType == EventType.Past.rawValue && !event.file_result.isEmpty {
+//            self.documentInteractionController = UIDocumentInteractionController.init(URL: NSURL(string: event.file_result)!)
+//            self.documentInteractionController?.delegate = self
+//            self.documentInteractionController?.presentPreviewAnimated(true)
+//        }
+        if eventType == EventType.Future.rawValue {
+            let eventDV = EventDetailController(nibName: "EventDetailController", bundle: nil)
+            eventDV.event = eventsArray[indexPath.row]
+            self.navigationController?.pushViewController(eventDV, animated: false)
+        }
+        
     }
     
     //MARK: Private methods
     
+    func loadData() {
+        
+        self.refreshControl!.beginRefreshing()
+        NetworkManager.sharedInstance.getEventsWithCategory(self.eventType) { (array) in
+            
+            self.eventsArray = array!
+            dispatch_async(dispatch_get_main_queue(), {
+                    self.tableView.reloadData()
+                    self.refreshControl!.endRefreshing()
+                })
+        }
+    }
+    
     func setupHeaderView() {
-        let lHeader = ViewForProHeader.loadViewFromNib()
-        lHeader.frame = CGRectMake(0.0, 0.0, Global.displayWidth, viewForHeader.frame.size.height)
-        self.viewForHeader.addSubview(lHeader)
+
+        headerView.frame = CGRectMake(0.0,
+                                     (self.navigationController?.navigationBar.frame.maxY)!,
+                                     Global.displayWidth,
+                                     Global.headerHeight)
         
-        lHeader.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_upcoming_event_btn"), forState: .Normal)
-        lHeader.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_pastevent_btn"), forState: .Normal)
+        self.navigationController?.view.addSubview(headerView)
+        self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
         
-        lHeader.setButtonEnabled(lHeader.button1, enabled: true)
-        lHeader.setButtonEnabled(lHeader.button2, enabled: false)
-        
-        //        lHeader.delegate = self
+        headerView.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_upcoming_event_btn"), forState: .Normal)
+        headerView.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_pastevent_btn"), forState: .Normal)
+        headerView.delegate = self
     }
     
     func getDayOfWeek(today:String)->String {
@@ -106,6 +167,35 @@ class EventsListViewController: BaseViewController , UITableViewDelegate, UITabl
         } else {
             return ""
         }
+    }
+    
+    
+    //MARK: ProHeaderDelegate
+    
+    func pressedButton1(tableProHeader : ViewForProHeader ,button1Pressed button1 : AnyObject ) {
+        
+        tableProHeader.toggleButtons(tableProHeader.button1, btn2: tableProHeader.button2)
+        self.refreshControl!.beginRefreshing()
+        eventType = EventType.Future.rawValue
+        eventsArray = []
+        tableView.reloadData()
+        loadData()
+    }
+    
+    func pressedButton2(tableProHeader : ViewForProHeader ,button2Pressed button2 : AnyObject ) {
+        
+        tableProHeader.toggleButtons(tableProHeader.button2, btn2: tableProHeader.button1)
+        self.refreshControl!.beginRefreshing()
+        eventType = EventType.Past.rawValue
+        eventsArray = []
+        tableView.reloadData()
+        loadData()
+    }
+    
+    //MARK: UIDocumentInteractionControllerDelegate
+    
+    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
+        return self
     }
     
 }

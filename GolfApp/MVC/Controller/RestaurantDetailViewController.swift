@@ -106,7 +106,7 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
         
         menuVC.navigationTitle = "re_menu_nav_bar"
         menuVC.rateUrl = restaurant.menu_url
-        self.navigationController?.pushViewController(menuVC, animated: true)
+        self.navigationController?.pushViewController(menuVC, animated: false)
         
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
@@ -114,7 +114,7 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = restaurant.package_url
         packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("re_suggestion_nav_bar")
-        self.navigationController?.pushViewController(packageVC, animated: true)
+        self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
     

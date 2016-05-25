@@ -81,29 +81,29 @@ class MainCollectionController: UICollectionViewController  {
                 showTeeTimeSubView()
             case 1:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
-                self.navigationController?.pushViewController(prosVC!, animated: true)
+                self.navigationController?.pushViewController(prosVC!, animated: false)
             case 2:
-                let events =  EventsListViewController(nibName: "EventsListViewController", bundle: nil)
-                self.navigationController?.pushViewController(events, animated: true)
+                let events =  EventsListViewController(nibName: "EventsListController", bundle: nil)
+                self.navigationController?.pushViewController(events, animated: false)
             
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
-                self.navigationController?.pushViewController(prosVC!, animated: true)
+                self.navigationController?.pushViewController(prosVC!, animated: false)
 
             case 4:
                 let coursesVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)
-                self.navigationController?.pushViewController(coursesVC!, animated: true)
+                self.navigationController?.pushViewController(coursesVC!, animated: false)
             case 5:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProsListTableViewController")
-                self.navigationController?.pushViewController(prosVC!, animated: true)
+                self.navigationController?.pushViewController(prosVC!, animated: false)
             case 6:
                 showContactSubView()
             case 7:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController")
-                self.navigationController?.pushViewController(prosVC!, animated: true)
+                self.navigationController?.pushViewController(prosVC!, animated: false)
             case 8:
                 let hotelsVC = HotelsTableViewController(nibName: "HotelsTableViewController", bundle: nil)
-                self.navigationController?.pushViewController(hotelsVC, animated: true)
+                self.navigationController?.pushViewController(hotelsVC, animated: false)
             
             
             default: break
