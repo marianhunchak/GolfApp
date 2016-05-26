@@ -31,10 +31,8 @@ class BaseTableViewController: UITableViewController {
     
     func refresh(sender:AnyObject)
     {
-        // Updating your data here...
-        
         self.tableView.reloadData()
-        self.performSelector(#selector(endRefresh), withObject: nil, afterDelay: 1)
+        self.performSelector(#selector(endRefresh), withObject: nil, afterDelay: 0.5)
         
     }
     

@@ -31,6 +31,10 @@ class Global {
     static let headerHeight: CGFloat = 45
     static let pading: CGFloat = 12
     
+    //MARK: Documents direcrory url
+    
+    static let docUrl = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).last
+    
     static func getLanguage() {
         
         let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String

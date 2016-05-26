@@ -48,6 +48,9 @@
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="eventProgramPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WPi-ij-Y1l"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_program_icon" translatesAutoresizingMaskIntoConstraints="NO" id="kjt-JF-Agj">
                         <rect key="frame" x="23" y="18" width="40" height="40"/>
@@ -92,7 +95,7 @@
                             <constraint firstAttribute="height" constant="30" id="p0B-7X-MdB"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="22"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCP-pv-gSw">

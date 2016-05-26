@@ -8,4 +8,5 @@ pod 'AlamofireImage', '~> 2.0'
 pod 'Google/CloudMessaging'
 pod 'AEXML'
 pod 'ReachabilitySwift'
+pod "PKHUD"
 end

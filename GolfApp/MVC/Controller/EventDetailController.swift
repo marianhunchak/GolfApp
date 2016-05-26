@@ -13,13 +13,14 @@ private let cellImagereuseIdentifier = "detailImageTableCell"
 private let newsCellIndetifire = "NewsDetailCell"
 private let detailCellHeight: CGFloat = 465
 
-class EventDetailController: BaseTableViewController {
+class EventDetailController: BaseTableViewController, EventDetailCellDelegate, UIDocumentInteractionControllerDelegate {
     
     var event : Event!
+    var documentInteractionController : UIDocumentInteractionController?
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        refreshControl?.endRefreshing()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("evt_detail_page_nav_bar")
         
         let nib = UINib(nibName: "EventDetailCell", bundle: nil)
@@ -28,6 +29,7 @@ class EventDetailController: BaseTableViewController {
         let nibFood = UINib.init(nibName: "NewsDetailCell", bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: newsCellIndetifire)
         self.tableView.estimatedRowHeight = 1000
+        refreshControl?.endRefreshing()
 
         
     }
@@ -35,7 +37,6 @@ class EventDetailController: BaseTableViewController {
     // MARK: - Table view data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 2
     }
     
@@ -56,6 +57,7 @@ class EventDetailController: BaseTableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(eventDetailCellIdentifier) as! EventDetailCell
         cell.event = event
+        cell.delegate = self
         return cell
     }
     
@@ -67,5 +69,28 @@ class EventDetailController: BaseTableViewController {
         
         return detailCellHeight
     }
+    
+    //MARK: EventDetailCellDelegate 
+    
+    func eventDetailCell(eventDetailCell: EventDetailCell, eventProgramPressed programBtn: UIButton) {
+        
+        let url = NSURL(string: event.file_detail)
+        
+        Downloader.load(url!) { (filePath) in
+            if  let path = filePath {
+                self.documentInteractionController = UIDocumentInteractionController.init(URL:path)
+                self.documentInteractionController?.delegate = self
+                self.documentInteractionController?.presentPreviewAnimated(true)
+            }
+        }
+    }
+    
+    //MARK: UIDocumentInteractionControllerDelegate
+    
+    func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    
+    
     
 }

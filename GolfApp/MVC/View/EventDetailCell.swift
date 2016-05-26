@@ -8,10 +8,23 @@
 
 import UIKit
 import EventKit
+import PKHUD
+
+protocol EventDetailCellDelegate {
+
+    func eventDetailCell(eventDetailCell : EventDetailCell ,eventProgramPressed programBtn : UIButton)
+}
 
 class EventDetailCell: UITableViewCell {
+    
+    var delegate : EventDetailCellDelegate?
 
-    var event : Event!
+    var event : Event! {
+        didSet {
+            eventProgramBtn.setButtonEnabled(event.file_detail.isEmpty ? false : true)
+            teeTimesBtn.setButtonEnabled(event.file_teetime.isEmpty ? false : true)
+        }
+    }
     
     @IBOutlet weak var eventProgramBtn: UIButton!
     @IBOutlet weak var teeTimesBtn: UIButton!
@@ -27,10 +40,26 @@ class EventDetailCell: UITableViewCell {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let startDate = dateFormatter.dateFromString(event.event_date)
         
-       addEventToCalendar(title: event.name, description: event.format, startDate: startDate!, endDate: startDate!)
+        addEventToCalendar(title: event.name, description: event.format, startDate: startDate!, endDate: startDate!) { (success, error) in
+            dispatch_async(dispatch_get_main_queue(), { 
+                if success {
+                    HUD.flash(.Success, delay: 1.0)
+                } else {
+                    HUD.flash(.Error, delay: 1.0)
+                }
+            })
+        }
+    }
+    
+    @IBAction func eventProgramPressed(sender: UIButton) {
+        
+        self.delegate?.eventDetailCell(self, eventProgramPressed: sender)
+        
+        
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         eventProgramBtn.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("events_program_btn"), forState: .Normal)
         teeTimesBtn.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("events_tee_times_btn"), forState: .Normal)
         addToCalendarBtn.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_addtodiary_btn"), forState: .Normal)
@@ -40,13 +69,15 @@ class EventDetailCell: UITableViewCell {
         bookAndShareLabel.text = LocalisationDocument.sharedInstance.getStringWhinName("evt_book_share_title")
         
         contentView.backgroundColor = Global.viewsBackgroundColor
-        
         addToCalendarBtn.backgroundColor = Global.buttonOnColor
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+//MARK: Private methods
     
     func addEventToCalendar(title title: String, description: String?, startDate: NSDate, endDate: NSDate, completion: ((success: Bool, error: NSError?) -> Void)? = nil) {
         let eventStore = EKEventStore()
@@ -72,4 +103,17 @@ class EventDetailCell: UITableViewCell {
         })
     }
     
+}
+
+extension UIButton {
+    func setButtonEnabled(enabled: Bool) {
+        
+        if enabled {
+            self.backgroundColor = Global.buttonOnColor
+            self.userInteractionEnabled = true
+        } else {
+            self.backgroundColor = Global.buttonOffColor
+            self.userInteractionEnabled = false
+        }
+    }
 }

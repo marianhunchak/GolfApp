@@ -58,10 +58,6 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
             return cell2
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.showOfflineModeLabel()
-    }
-    
     //MARK: Private methods
     func setupHeaderView() {
         let viewForHeader = ViewForDetailHeader.loadViewFromNib()

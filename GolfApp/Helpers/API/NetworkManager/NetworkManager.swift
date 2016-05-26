@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+// numbers of items on one page
+private let draw = 10
+
+private let baseURL = "https://golfapp.ch/app_fe_dev/api/"
+private let clientAndLanguage = "?client=\(Global.clientId)&language=\(Global.languageID)"
 
 class NetworkManager {
     
@@ -34,6 +39,7 @@ class NetworkManager {
                 
                 if let JSON = response.result.value as? NSDictionary{
                     NSUserDefaults.standardUserDefaults().setObject(JSON["regid"], forKey: "regid")
+                    NSUserDefaults.standardUserDefaults().synchronize()
                     print("JSON: \(JSON)")
                 }
         }
@@ -343,7 +349,11 @@ class NetworkManager {
     
     func getEventsWithCategory(pCategory : String, completion: ([Event]?) -> Void) {
         
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/events?client=22&language=\(Global.languageID)&category=\(pCategory)", parameters: nil)
+        let url =  baseURL + "events" + clientAndLanguage + "&category=\(pCategory)"
+        
+        var page = 1
+        
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(page)", parameters: nil)
             .responseJSON { response in
               
                 if let JSON = response.result.value as? NSDictionary{

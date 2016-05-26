@@ -7,13 +7,12 @@
 //
 
 import UIKit
+import PKHUD
 
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let eventCellReuseIdentifier = "eventsCell"
 
 class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDocumentInteractionControllerDelegate {
-    
-//    @IBOutlet weak var viewForHeader: UIView!
     
     enum EventType: String {
         case Past = "past"
@@ -34,8 +33,12 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInset = UIEdgeInsets(top: 109, left: 0, bottom: 12, right: 0)
-        self.tableView.estimatedRowHeight = 100
+        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top + Global.headerHeight,
+                                              left: 0,
+                                              bottom: Global.pading,
+                                              right: 0)
+        
+//        self.tableView.estimatedRowHeight = 100
 
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("evt_list_view_nav_bar")
         self.view.backgroundColor = Global.viewsBackgroundColor
@@ -86,19 +89,33 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return UITableViewAutomaticDimension
+//        return UITableViewAutomaticDimension
+        return 200
     }
     
     //MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let event = eventsArray[indexPath.row]
-//        if eventType == EventType.Past.rawValue && !event.file_result.isEmpty {
-//            self.documentInteractionController = UIDocumentInteractionController.init(URL: NSURL(string: event.file_result)!)
-//            self.documentInteractionController?.delegate = self
-//            self.documentInteractionController?.presentPreviewAnimated(true)
-//        }
-        if eventType == EventType.Future.rawValue {
+        
+        let event = eventsArray[indexPath.row]
+        
+        if eventType == EventType.Past.rawValue && !event.file_result.isEmpty {
+            let url = NSURL(string: event.file_result)
+            
+            HUD.show(.LabeledProgress(title: "Downloading...", subtitle: nil))
+            
+            Downloader.load(url!) { (filePath) in
+                if  let path = filePath {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        HUD.hide(animated: false)
+                    })
+                    self.documentInteractionController = UIDocumentInteractionController.init(URL:path)
+                    self.documentInteractionController?.delegate = self
+                    self.documentInteractionController?.presentPreviewAnimated(true)
+                }
+            }
+        } else if eventType == EventType.Future.rawValue {
+            
             let eventDV = EventDetailController(nibName: "EventDetailController", bundle: nil)
             eventDV.event = eventsArray[indexPath.row]
             self.navigationController?.pushViewController(eventDV, animated: false)

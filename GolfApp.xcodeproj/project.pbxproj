@@ -60,6 +60,7 @@
 		5663B5C61CE5DD980039D1FC /* STONE INFORMAL LT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */; };
 		5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */; };
 		5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */; };
+		567010C91CF5B4D200E0EC04 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567010C81CF5B4D200E0EC04 /* Downloader.swift */; };
 		5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */; };
 		568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */; };
 		56FC0D8B1CEE13AC006F3AB1 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */; };
@@ -150,6 +151,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = CCD2E185BF77D2B332B042A50013E2C2;
 			remoteInfo = SwiftyJSON;
+		};
+		567010C61CF5B4B700E0EC04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562F4A7A1CE6055F00A6581B /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5906E21E33E13FB32B95F6001C178A4D;
+			remoteInfo = PKHUD;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -381,6 +389,7 @@
 		5663B5C31CE5DD980039D1FC /* STONE INFORMAL LT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMAL LT.ttf"; sourceTree = "<group>"; };
 		5663B5C41CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFORMEL LT SEMI-BOLD.ttf"; sourceTree = "<group>"; };
 		5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "STONE INFROMAL LT ITALIC_0.ttf"; sourceTree = "<group>"; };
+		567010C81CF5B4D200E0EC04 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTableViewController.swift; sourceTree = "<group>"; };
 		5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTableViewController.xib; sourceTree = "<group>"; };
 		56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
@@ -529,6 +538,7 @@
 		560E3C621CE137A2006F8655 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				567010BE1CF5B4B700E0EC04 /* Utils */,
 				5651AEEB1CE4C08E00040520 /* Headers */,
 				560E3C631CE137A2006F8655 /* API */,
 				560E3C671CE137A2006F8655 /* Parser */,
@@ -1305,6 +1315,7 @@
 				562F4AB01CE6055F00A6581B /* AEXML.framework */,
 				562F4AB21CE6055F00A6581B /* Alamofire.framework */,
 				562F4AB41CE6055F00A6581B /* AlamofireImage.framework */,
+				567010C71CF5B4B700E0EC04 /* PKHUD.framework */,
 				562F4AB61CE6055F00A6581B /* Pods_GolfApp.framework */,
 				560E30401CF32A5B00EF119F /* ReachabilitySwift.framework */,
 				562F4AB81CE6055F00A6581B /* SwiftyJSON.framework */,
@@ -1525,6 +1536,14 @@
 				5663B5C51CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		567010BE1CF5B4B700E0EC04 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				567010C81CF5B4D200E0EC04 /* Downloader.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		568951661CEB219500D7F5DF /* HotelsTableViewController */ = {
@@ -1928,6 +1947,13 @@
 			remoteRef = 562F4AB71CE6055F00A6581B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		567010C71CF5B4B700E0EC04 /* PKHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PKHUD.framework;
+			remoteRef = 567010C61CF5B4B700E0EC04 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -2068,6 +2094,7 @@
 				84FBD0151CEC7CBB002FBF57 /* ProsShop.swift in Sources */,
 				564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */,
 				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
+				567010C91CF5B4D200E0EC04 /* Downloader.swift in Sources */,
 				8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */,
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
