@@ -9,4 +9,5 @@ pod 'Google/CloudMessaging'
 pod 'AEXML'
 pod 'ReachabilitySwift'
 pod "PKHUD"
+pod 'UIScrollView-InfiniteScroll'
 end

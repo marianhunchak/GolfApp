@@ -30,8 +30,9 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: newsCellIndetifire)
         self.tableView.estimatedRowHeight = 1000
         refreshControl?.endRefreshing()
-
-        
+    }
+    
+    override func refresh(sender: AnyObject) {
     }
 
     // MARK: - Table view data source

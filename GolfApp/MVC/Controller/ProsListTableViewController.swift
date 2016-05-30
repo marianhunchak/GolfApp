@@ -26,11 +26,6 @@ class ProsListTableViewController: BaseTableViewController {
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
-        NetworkManager.sharedInstance.getPros { array in
-            self.prosArray = array!
-            self.tableView.reloadData()
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,16 +40,16 @@ class ProsListTableViewController: BaseTableViewController {
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.prosArray.count
+        return dataSource.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProsTableCell
         
-        cell.prosLabel.text = prosArray[indexPath.row].name
-        
-        cell.imageForCell = prosArray[indexPath.row].images.first
+        cell.prosLabel.text = (dataSource[indexPath.row] as! Pros).name
+        cell.imageForCell = (dataSource[indexPath.row] as! Pros).images.first
         
         
         return cell
@@ -68,8 +63,8 @@ class ProsListTableViewController: BaseTableViewController {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailProsControllerIdentfier) as! ProsViewController
 
-        vc.package_url = prosArray[indexPath.row].package_url!
-        vc.pros = prosArray[indexPath.row]
+        vc.package_url = (dataSource[indexPath.row] as! Pros).package_url!
+        vc.pros = (dataSource[indexPath.row] as! Pros)
         
         self.navigationController?.pushViewController(vc, animated: false)
         
@@ -77,17 +72,34 @@ class ProsListTableViewController: BaseTableViewController {
     
     // MARK: - Private methods
     
-    func reloadAllData(sender:AnyObject) {
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
-        NetworkManager.sharedInstance.getPros { array in
-            self.prosArray = array!
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-                //self.refreshControl?.endRefreshing()
-            })
-            
+        if isRefreshing {
+            prosArray = []
+            isRefreshing = false
         }
+        
+        NetworkManager.sharedInstance.getProsWithPage(pPage, completion: {
+            (array, error) in
+            
+            if let lArray = array {
+                
+                self.dataSource += lArray
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                } else {
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+            }
+            
+            completion()
+        })
     }
-    
     
 }

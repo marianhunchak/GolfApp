@@ -65,6 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dispatch_async(dispatch_get_main_queue()) { 
             if !reachability.isReachable() {
                 HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 2.0, completion: nil)
+            } else {
+                NSNotificationCenter.defaultCenter().postNotificationName("connected", object: nil)
             }
         }
         
@@ -90,10 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
         
-        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
+//        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
             NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
             })
-        }
+//        }
         
 //           NetworkManager.sharedInstance.unregisterDevice()
     }

@@ -13,6 +13,7 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
     
+    
     override func viewDidLoad()  {
         super.viewDidLoad()
         self.configureNavBar()
@@ -78,38 +79,6 @@ extension UIViewController {
     func showPreviousController() {
         self.navigationController?.popViewControllerAnimated(false)
     }
-    //MARK: LABEL
-//    func showOfflineModeLabel() {
-//        
-//        let foregroundView = UILabel(frame: CGRectMake(0, view.frame.maxY - 50, 200, 40))
-//        foregroundView.center.x = (UIApplication.sharedApplication().keyWindow?.center.x)!
-//        foregroundView.alpha = 0.0
-//        foregroundView.layer.cornerRadius = 20
-//        foregroundView.layer.masksToBounds = true
-//        foregroundView.text = LocalisationDocument.sharedInstance.getStringWhinName("no_inet")
-//        foregroundView.textAlignment = .Center
-//        foregroundView.backgroundColor = Global.navigationBarColor
-//        foregroundView.textColor = UIColor.whiteColor()
-//        foregroundView.font = UIFont(name: "StoneInformal LT Semibold", size: 18)!
-//        
-//        UIView.animateWithDuration(0.5) {
-//            self.navigationController!.view.addSubview(foregroundView)
-//            foregroundView.alpha = 0.9
-//        }
-//        
-//        self.performSelector(#selector(hideOfflineModeLabel(_:)), withObject:foregroundView, afterDelay:2)
-//    }
-//    
-//    func hideOfflineModeLabel(label : UILabel) {
-//        
-//        UIView.animateWithDuration(0.5, animations: {
-//            label.alpha = 0.0  })
-//        { (finished) in
-//            if finished {
-//                label.removeFromSuperview()
-//            }
-//        }
-//    }
     
    
 }

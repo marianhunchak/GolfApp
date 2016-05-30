@@ -38,15 +38,15 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
                                               bottom: Global.pading,
                                               right: 0)
         
-//        self.tableView.estimatedRowHeight = 100
-
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("evt_list_view_nav_bar")
         self.view.backgroundColor = Global.viewsBackgroundColor
         
         let nibFood = UINib.init(nibName: "EventsTableCell", bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: eventCellReuseIdentifier)
         
-        loadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -57,13 +57,13 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     //MARK: UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventsArray.count
+        return dataSource.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(eventCellReuseIdentifier, forIndexPath: indexPath) as! EventsTableCell
         
-        let event = eventsArray[indexPath.row]
+        let event = dataSource[indexPath.row] as! Event
         cell.dataLabel.text = getDayOfWeek(event.event_date) + " " + event.event_date
         cell.eventNameLabel.text = event.name
         cell.eventDescrLabel.text = event.format
@@ -89,15 +89,15 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-//        return UITableViewAutomaticDimension
-        return 200
+        return UITableViewAutomaticDimension
+
     }
     
     //MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let event = eventsArray[indexPath.row]
+        let event = dataSource[indexPath.row] as! Event
         
         if eventType == EventType.Past.rawValue && !event.file_result.isEmpty {
             let url = NSURL(string: event.file_result)
@@ -117,7 +117,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         } else if eventType == EventType.Future.rawValue {
             
             let eventDV = EventDetailController(nibName: "EventDetailController", bundle: nil)
-            eventDV.event = eventsArray[indexPath.row]
+            eventDV.event = event
             self.navigationController?.pushViewController(eventDV, animated: false)
         }
         
@@ -125,16 +125,28 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     
     //MARK: Private methods
     
-    func loadData() {
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
-        self.refreshControl!.beginRefreshing()
-        NetworkManager.sharedInstance.getEventsWithCategory(self.eventType) { (array) in
+        NetworkManager.sharedInstance.getEventsWithCategory(self.eventType, andPage: pPage) {
+            (array, error) in
             
-            self.eventsArray = array!
-            dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                    self.refreshControl!.endRefreshing()
-                })
+            if let lArray = array {
+            
+                self.dataSource += lArray
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                } else {
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+                completion()
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+                completion()
+            }
         }
     }
     
@@ -153,7 +165,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         headerView.delegate = self
     }
     
-    func getDayOfWeek(today:String)->String {
+    func getDayOfWeek(today:String) -> String {
         
         let formatter  = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -194,9 +206,9 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         tableProHeader.toggleButtons(tableProHeader.button1, btn2: tableProHeader.button2)
         self.refreshControl!.beginRefreshing()
         eventType = EventType.Future.rawValue
-        eventsArray = []
+        dataSource = []
         tableView.reloadData()
-        loadData()
+        refresh(self.refreshControl!)
     }
     
     func pressedButton2(tableProHeader : ViewForProHeader ,button2Pressed button2 : AnyObject ) {
@@ -204,9 +216,9 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         tableProHeader.toggleButtons(tableProHeader.button2, btn2: tableProHeader.button1)
         self.refreshControl!.beginRefreshing()
         eventType = EventType.Past.rawValue
-        eventsArray = []
+        dataSource = []
         tableView.reloadData()
-        loadData()
+        refresh(self.refreshControl!)
     }
     
     //MARK: UIDocumentInteractionControllerDelegate

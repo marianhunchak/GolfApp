@@ -201,8 +201,11 @@ class NetworkManager {
     
     //MARK: Pros
     
-    func getPros(completion: ([Pros]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/pros?client=22&language=\(Global.languageID)", parameters: nil)
+    func getProsWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
+        
+        let url =  baseURL + "pros" + clientAndLanguage
+        
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -216,10 +219,10 @@ class NetworkManager {
                         responseArray.append(Pros.prosWhithDictionary(courseDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }
@@ -347,13 +350,11 @@ class NetworkManager {
     
     //MARK: Events
     
-    func getEventsWithCategory(pCategory : String, completion: ([Event]?) -> Void) {
+    func getEventsWithCategory(pCategory : String, andPage pPage : Int, completion: ([AnyObject]?, NSError?) -> Void) {
         
         let url =  baseURL + "events" + clientAndLanguage + "&category=\(pCategory)"
         
-        var page = 1
-        
-        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(page)", parameters: nil)
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
               
                 if let JSON = response.result.value as? NSDictionary{
@@ -366,9 +367,12 @@ class NetworkManager {
                         responseArray.append(Event.eventWithDict(newsDict as! [String : AnyObject]))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
+                } else {
+                    
+                completion(nil, response.result.error)
+                    
                 }
-                
         }
 
     }
