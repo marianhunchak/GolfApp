@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MagicalRecord.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PKHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00762F2BC33FE92FDB834E917960275A</key>
+		<key>05094CC4A047119F7ADC14EE74C4881C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>05094CC4A047119F7ADC14EE74C4881C</key>
+		<key>1734E07EC4322768FBD1F0056138DCAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43B65A7F8094675F33AA7AFD665DCD43</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,17 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9DE3E0921B7F3EA6544C9B0B2EB0D48B</key>
+		<key>82DE5FF4392C240A01CC4D2E8F3A8624</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C46D74F8B14B876569F1AD22C1AEC57B</key>
+		<key>B9E6D31F3D66127B78CEF5D912275EE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA36F2A07828EDCDFEC0B70272A5B670</key>
+		<key>CEB4E370F760D6127BBAE5EF7AB3445D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

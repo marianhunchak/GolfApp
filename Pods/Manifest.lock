@@ -27,6 +27,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.0)
   - GoogleUtilities (1.2.0):
     - GoogleSymbolUtilities (~> 1.0)
+  - MagicalRecord/Shorthand (2.2)
   - PKHUD (3.1.0)
   - ReachabilitySwift (2.3.3)
   - SwiftyJSON (2.3.2)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - Alamofire (~> 3.0)
   - AlamofireImage (~> 2.0)
   - Google/CloudMessaging
+  - MagicalRecord/Shorthand
   - PKHUD
   - ReachabilitySwift
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -63,11 +65,12 @@ SPEC CHECKSUMS:
   GoogleNetworkingUtilities: ec1e9911aca811eb18b7144394fee6168b607785
   GoogleSymbolUtilities: eb3965ea12710569c7b80db198a39e39b18613f7
   GoogleUtilities: 85f8ad6b251544286a97163133d042ec95f889c5
+  MagicalRecord: 2dc87179ae7c1f2a274442624ec65a07d4357a6f
   PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
 
-PODFILE CHECKSUM: 41322bc3a047615df5ced18a85901de65197eb46
+PODFILE CHECKSUM: 5d16bb9248398f59f50b59e3aa707aece9777145
 
 COCOAPODS: 1.0.0.rc.2

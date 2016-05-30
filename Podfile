@@ -10,4 +10,5 @@ pod 'AEXML'
 pod 'ReachabilitySwift'
 pod "PKHUD"
 pod 'UIScrollView-InfiniteScroll'
+pod 'MagicalRecord/Shorthand'
 end

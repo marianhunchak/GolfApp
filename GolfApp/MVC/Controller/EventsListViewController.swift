@@ -8,6 +8,7 @@
 
 import UIKit
 import PKHUD
+import MagicalRecord
 
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let eventCellReuseIdentifier = "eventsCell"
@@ -125,13 +126,28 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     
     //MARK: Private methods
     
-    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
+    override func loadDataFromDB() {
         
+        loadedFromDB = true
+        dataSource = Event.MR_findByAttribute("category", withValue: self.eventType)
+        print("DataSource count = \(dataSource.count)")
+        print(Event.MR_findAll().count)
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
+
         NetworkManager.sharedInstance.getEventsWithCategory(self.eventType, andPage: pPage) {
             (array, error) in
             
-            if let lArray = array {
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
             
+            if let lArray = array {
+                
                 self.dataSource += lArray
                 if lArray.count >= 10 {
                     self.allowLoadMore = true

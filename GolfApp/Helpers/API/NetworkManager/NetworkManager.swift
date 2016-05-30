@@ -361,10 +361,10 @@ class NetworkManager {
                     
                     let eventsArray = JSON["events"] as! [AnyObject]
 
-                    var responseArray = [Event]()
+                    var responseArray = [AnyObject]()
                     
                     for newsDict in eventsArray {
-                        responseArray.append(Event.eventWithDict(newsDict as! [String : AnyObject]))
+                        responseArray.append(Event.eventWithDict(newsDict as! [String : AnyObject], andEventType: pCategory))
                     }
                     
                     completion(responseArray, nil)

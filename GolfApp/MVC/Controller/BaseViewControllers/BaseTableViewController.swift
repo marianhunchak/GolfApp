@@ -8,6 +8,7 @@
 
 import UIKit
 import PKHUD
+import MagicalRecord
 
 class BaseTableViewController: UITableViewController {
 
@@ -15,6 +16,7 @@ class BaseTableViewController: UITableViewController {
     var allowLoadMore = false
     var isRefreshing = false
     var allowIncrementPage = false
+    var loadedFromDB = true
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad() {
@@ -43,6 +45,8 @@ class BaseTableViewController: UITableViewController {
     
     func refresh(sender: AnyObject) {
         
+        loadDataFromDB()
+        
         if let reachability  = appDelegate.reachability {
             if !reachability.isReachable() {
                 HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 2.0, completion: nil)
@@ -55,14 +59,18 @@ class BaseTableViewController: UITableViewController {
         allowLoadMore = false
         dataSource = []
         
+        
         self.refreshControl!.beginRefreshing()
-        
-        
+
         loadDataWithPage(getPage()) {
             self.isRefreshing = false
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()
         }
+        
+    }
+    
+    func loadDataFromDB() {
         
     }
     

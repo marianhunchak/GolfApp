@@ -2,28 +2,24 @@
 //  Event.swift
 //  GolfApp
 //
-//  Created by Marian Hunchak on 5/23/16.
+//  Created by Marian Hunchak on 5/30/16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-class Event {
-    
-    var id : Int!
-    var event_date : String!
-    var name : String!
-    var format : String!
-    var remark1 : String!
-    var remark2 : String!
-    var file_detail : String!
-    var file_teetime : String!
-    var file_default : String!
-    var file_result : String!
-    var pubdate: String!
-    
-    class func eventWithDict(pDict : [String: AnyObject]) -> Event {
-        let lEvent = Event()
+@objc(Event)
+class Event: NSManagedObject {
+
+    class func eventWithDict(pDict : [String: AnyObject], andEventType eventType: String) -> Event {
+        
+        
+        if let oldEvent = Event.MR_findByAttribute("id", withValue: NSNumber.init(long:pDict["id"] as! Int)).first as? Event {
+            return oldEvent
+        }
+        
+        let lEvent = Event.MR_createEntity() as! Event
         lEvent.id = pDict["id"] as! Int
         lEvent.event_date = pDict["event_date"] as? String ?? ""
         lEvent.name = pDict["name"] as? String ?? ""
@@ -35,8 +31,12 @@ class Event {
         lEvent.file_default = pDict["file_default"] as? String ?? ""
         lEvent.file_result = pDict["file_result"] as? String ?? ""
         lEvent.pubdate = pDict["pubdate"] as? String ?? ""
-        
+        lEvent.category = eventType
+
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+
+
         return lEvent
     }
-    
+
 }
