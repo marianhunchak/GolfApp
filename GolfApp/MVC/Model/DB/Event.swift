@@ -35,7 +35,6 @@ class Event: NSManagedObject {
 
         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
 
-
         return lEvent
     }
 
