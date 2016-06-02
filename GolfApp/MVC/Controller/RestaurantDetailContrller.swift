@@ -1,8 +1,8 @@
 //
-//  RestaurantDetailViewController.swift
+//  RestaurantDetailContrller.swift
 //  GolfApp
 //
-//  Created by Admin on 19.05.16.
+//  Created by Admin on 02.06.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -11,21 +11,29 @@ import UIKit
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 
-class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
+class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
+        
     
     var restaurant = Restaurant()
     var restaurantsCount = 1
-    //var rateArray = [Rate]()
+    let viewForHeader = ViewForDetailHeader.loadViewFromNib()
     
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var tableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.estimatedRowHeight = 100
+        tableView.backgroundColor = Global.viewsBackgroundColor
+        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top + Global.headerHeight,
+                                              left: 0,
+                                              bottom: Global.pading,
+                                              right: 0)
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("re_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
-        self.headerView.backgroundColor = Global.viewsBackgroundColor
+        
         
         let nib = UINib.init(nibName: "DetailmageTableCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellImagereuseIdentifier)
@@ -33,17 +41,26 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
         let nibFood = UINib.init(nibName: "DetailInfoCell", bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         self.tableView.estimatedRowHeight = 1000
-
-        self.setupHeaderView()
-
+        
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupHeaderView()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.viewForHeader.removeFromSuperview()
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.detailLabelHeight.constant = 0
@@ -61,21 +78,29 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
     
     //MARK: Private methods
     func setupHeaderView() {
-        let viewForHeader = ViewForDetailHeader.loadViewFromNib()
-        viewForHeader.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
-        headerView.addSubview(viewForHeader)
+        viewForHeader.delegate = self
+
+        viewForHeader.frame = CGRectMake(0.0,
+                                      (self.navigationController?.navigationBar.frame.maxY)!,
+                                      Global.displayWidth,
+                                      Global.headerHeight)
+        
+        self.navigationController?.view.addSubview(viewForHeader)
+        self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
         
         viewForHeader.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("re_contact_btn"), forState: .Normal)
         viewForHeader.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("re_menu_btn"), forState: .Normal)
         viewForHeader.button3.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("re_suggestion_btn"), forState: .Normal)
         
-        viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
-        viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: true)
-        viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: false)
-        viewForHeader.delegate = self
+        
+        self.viewForHeader.setButtonEnabled(self.viewForHeader.button1, enabled: true)
+        self.viewForHeader.setButtonEnabled(self.viewForHeader.button2, enabled: true)
+        self.viewForHeader.setButtonEnabled(self.viewForHeader.button3, enabled: true)
+        
+        
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return self.view.frame.height / 3.0
         } else {
@@ -101,10 +126,10 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
     }
     
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        
-        let menuVC = self.storyboard?.instantiateViewControllerWithIdentifier("RateViewController") as! RateViewController
-        menuVC.navigationTitle = "re_menu_nav_bar"
+        let menuVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("RateViewController") as! RateViewController
+
         menuVC.rateUrl = restaurant.menu_url
+        menuVC.navigationTitle = "re_menu_nav_bar"
         self.navigationController?.pushViewController(menuVC, animated: false)
         
     }
@@ -112,7 +137,7 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
         
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = restaurant.package_url
-        packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("re_suggestion_nav_bar")
+        packageVC.titleOfferts = "re_suggestion_nav_bar"
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
@@ -121,12 +146,10 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
         
         if restaurantsCount > 1 {
             self.navigationController?.popViewControllerAnimated(true)
-           
+            
         }else {
-             self.navigationController?.popToRootViewControllerAnimated(true)
+            self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
-    
-
     
 }

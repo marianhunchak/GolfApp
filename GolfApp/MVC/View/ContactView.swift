@@ -32,37 +32,49 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
     
     @IBAction func emailButton(sender: AnyObject) {
         
-        if MFMailComposeViewController.canSendMail() {
+        if let email = emailString {
             
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients([emailString!])
-            
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
-        } else {
-    
-            let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problen with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "ok")
-            sendMailErrorAlert.show()
+            if MFMailComposeViewController.canSendMail() {
+                
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients([email])
+                
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
+            } else {
+                
+                let sendMailErrorAlert = UIAlertView(title: "No Mail Accounts", message: "Please set up Mail account in order to send email.", delegate: self, cancelButtonTitle: "Ok")
+                sendMailErrorAlert.show()
+            }
         }
     }
     @IBAction func telephoneButton(sender: AnyObject) {
-
-        UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phoneString!)!)
-//        let installed = UIApplication.sharedApplication().canOpenURL(NSURL(string: "skype:")!)
-//        if installed {
-//            UIApplication.sharedApplication().openURL(NSURL(string: "skype:echo123?call")!)
-//        } else {
-//            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/in/app/skype/id304878510?mt=8")!)
-//        }
+        
+        if let phone = phoneString {
+                UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phone)!)
+        } else {
+        
+            let callErrorAlert = UIAlertView(title: "GolfApp can not make a call!", message: "GolfApp can not call because there is no phone number!", delegate: self, cancelButtonTitle: "Ok")
+            callErrorAlert.show()
+        }
     }
     
     @IBAction func navigationButton(sender: AnyObject) {
-        if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
-            UIApplication.sharedApplication().openURL(NSURL(string:
-                "comgooglemaps://?saddr=&daddr=\(latitude ?? ""),\(longitude ?? "")&directionsmode=driving")!)
-            
-        } else {
-            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/in/app/google-maps-real-time-navigation/id585027354?mt=8")!)
+        
+        if longitude != "" && latitude != "" {
+        
+            if (UIApplication.sharedApplication().canOpenURL(NSURL(string:"comgooglemaps://")!)) {
+                UIApplication.sharedApplication().openURL(NSURL(string:
+                    "comgooglemaps://?saddr=&daddr=\(latitude ?? ""),\(longitude ?? "")&directionsmode=driving")!)
+                
+            } else {
+                UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/in/app/google-maps-real-time-navigation/id585027354?mt=8")!)
+            }
+        }else {
+        
+            let callErrorAlert = UIAlertView(title: "GolfApp can not display the map!", message: "GolfApp can not display the map because no coordinates!", delegate: self, cancelButtonTitle: "Ok")
+            callErrorAlert.show()
+        
         }
     }
 
@@ -96,6 +108,8 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
         
         contactBackgroundView.layer.borderWidth = 2
         contactBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        contactBackgroundView.backgroundColor = Global.menuBarBackgroundColor
 
     }
     

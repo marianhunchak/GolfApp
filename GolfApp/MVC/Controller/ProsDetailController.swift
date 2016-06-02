@@ -41,6 +41,17 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.setupHeaderView()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.headerView.removeFromSuperview()
+    }
+    
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -101,7 +112,7 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = pros.package_url
-        packageVC.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_rate_offer_nav_bar")
+        packageVC.titleOfferts = "pro_rate_offer_nav_bar"
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }

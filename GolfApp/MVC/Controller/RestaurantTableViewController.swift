@@ -70,13 +70,13 @@ class RestaurantTableViewController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantDetailViewController") as! RestaurantDetailViewController
+       let vc =  RestaurantDetailContrller(nibName: "EventsListController", bundle: nil)
         
         vc.restaurant = restaurantArray[indexPath.row]
         vc.restaurantsCount = restaurantsCount
         
         self.navigationController?.pushViewController(vc, animated: false)
-        
+
     }
     
     // MARK: - Private methods
@@ -95,9 +95,13 @@ class RestaurantTableViewController: BaseTableViewController {
     func showRestaurantDetailView() {
     
         if self.restaurantArray.count == 1 {
-            let restaurantVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantDetailViewController") as! RestaurantDetailViewController
-            restaurantVC.restaurant = restaurantArray[0]
-            self.navigationController?.pushViewController(restaurantVC, animated: false)
+            let vc =  RestaurantDetailContrller(nibName: "EventsListController", bundle: nil)
+            
+            vc.restaurant = restaurantArray[0]
+            vc.restaurantsCount = restaurantsCount
+            
+            
+            self.navigationController?.pushViewController(vc, animated: false)
         } else {
         
             tableView.reloadData()

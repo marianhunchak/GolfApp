@@ -18,12 +18,14 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     var shareItem = -1
     var offertsArray = [Package]()
     var packageUrl: String?
+    var titleOfferts = "re_suggestion_nav_bar"
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var offersTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName(titleOfferts)
         self.configureNavBar()
         setupHeaderView()
         backgroundView.backgroundColor = Global.viewsBackgroundColor
@@ -34,9 +36,30 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.offersTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
-        NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
-            self.offertsArray = array!
-            self.offersTableView.reloadData()
+        if titleOfferts == "re_suggestion_nav_bar" {
+            NetworkManager.sharedInstance.getSuggestions(urlToPackage: packageUrl ?? "") { (array) in
+                self.offertsArray = array!
+                self.offersTableView.reloadData()
+            }
+        
+        } else if titleOfferts == "ps_special_offer_nav_bar"{
+            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+                self.offertsArray = array!
+                self.offersTableView.reloadData()
+            }
+        
+        } else if titleOfferts == "pro_rate_offer_nav_bar" {
+            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+                self.offertsArray = array!
+                self.offersTableView.reloadData()
+            }
+        
+        } else if titleOfferts == "htl_package_list_nav_bar" {
+            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+                self.offertsArray = array!
+                self.offersTableView.reloadData()
+            }
+        
         }
         
     }

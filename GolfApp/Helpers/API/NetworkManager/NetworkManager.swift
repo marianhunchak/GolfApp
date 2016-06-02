@@ -376,6 +376,30 @@ class NetworkManager {
         }
 
     }
+    //MARK: Suggestions
+    
+    func getSuggestions (urlToPackage URL: String ,completion: ([Package]?) -> Void) {
+        Alamofire.request(.GET, URL, parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let packageArray: NSArray = [self.jsonArray!["suggestions"]!]
+                    var responseArray = [Package]()
+                    
+                    for packageDict in packageArray.firstObject as! NSArray {
+                        responseArray.append(Package.itemWhithDictionary(packageDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
     
     
 }
