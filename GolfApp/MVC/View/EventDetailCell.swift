@@ -12,7 +12,8 @@ import PKHUD
 
 protocol EventDetailCellDelegate {
 
-    func eventDetailCell(eventDetailCell : EventDetailCell ,eventProgramPressed programBtn : UIButton)
+    func eventDetailCell(eventDetailCell : EventDetailCell, eventProgramPressed programBtn : UIButton)
+    func eventDetailCell(eventDetailCell : EventDetailCell, eventTeeTimePressed teeTimeBtn : UIButton)
 }
 
 class EventDetailCell: UITableViewCell {
@@ -23,6 +24,7 @@ class EventDetailCell: UITableViewCell {
         didSet {
             eventProgramBtn.setButtonEnabled(event.file_detail.isEmpty ? false : true)
             teeTimesBtn.setButtonEnabled(event.file_teetime.isEmpty ? false : true)
+            shareBtn.setButtonEnabled(true)
         }
     }
     
@@ -52,10 +54,22 @@ class EventDetailCell: UITableViewCell {
     }
     
     @IBAction func eventProgramPressed(sender: UIButton) {
-        
         self.delegate?.eventDetailCell(self, eventProgramPressed: sender)
+    }
+    
+    @IBAction func teeTimesBtnPressed(sender: UIButton) {
+        self.delegate?.eventDetailCell(self, eventTeeTimePressed: sender)
+    }
+    
+    @IBAction func shareBtnPressed(sender: UIButton) {
+
+        let textToShare = event.event_date + "\n" + event.name + "\n" + event.format
+        let urlToShare = "http://golfapp.ch"
         
-        
+        if let myWebsite = NSURL(string: urlToShare) {
+            let activityVC = UIActivityViewController(activityItems: [myWebsite, textToShare], applicationActivities: [])
+            UIApplication.sharedApplication().keyWindow?.rootViewController!.presentViewController(activityVC, animated: true, completion: nil)
+        }
     }
     override func awakeFromNib() {
         super.awakeFromNib()

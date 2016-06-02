@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dispatch_async(dispatch_get_main_queue()) { 
             if !reachability.isReachable() {
-                HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 2.0, completion: nil)
+                HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
             } else {
                 NSNotificationCenter.defaultCenter().postNotificationName("connected", object: nil)
             }

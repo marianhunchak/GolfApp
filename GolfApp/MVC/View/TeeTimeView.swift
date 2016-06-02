@@ -38,7 +38,7 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
             UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
         } else {
             
-            let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problen with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "ok")
+            let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problem with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "OK")
             sendMailErrorAlert.show()
         }
         

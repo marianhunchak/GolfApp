@@ -49,7 +49,7 @@ class BaseTableViewController: UITableViewController {
         
         if let reachability  = appDelegate.reachability {
             if !reachability.isReachable() {
-                HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 2.0, completion: nil)
+                HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
                 self.refreshControl!.endRefreshing()
                 return
             }
@@ -59,9 +59,10 @@ class BaseTableViewController: UITableViewController {
         allowLoadMore = false
 //        dataSource = []
         
+        if dataSource.isEmpty {
+            self.refreshControl!.beginRefreshing()
+        }
         
-        self.refreshControl!.beginRefreshing()
-
         loadDataWithPage(getPage()) {
             self.isRefreshing = false
             self.tableView.reloadData()

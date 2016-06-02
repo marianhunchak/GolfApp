@@ -38,7 +38,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
                                               left: 0,
                                               bottom: Global.pading,
                                               right: 0)
-        
+
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -101,20 +101,9 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         let event = dataSource[indexPath.row] as! Event
         
         if eventType == EventType.Past.rawValue && !event.file_result.isEmpty {
-            let url = NSURL(string: event.file_result)
             
-            HUD.show(.LabeledProgress(title: "Downloading...", subtitle: nil))
+            self.handleSelectionPastEvent(event)
             
-            Downloader.load(url!) { (filePath) in
-                if  let path = filePath {
-                    dispatch_async(dispatch_get_main_queue(), {
-                        HUD.hide(animated: false)
-                    })
-                    self.documentInteractionController = UIDocumentInteractionController.init(URL:path)
-                    self.documentInteractionController?.delegate = self
-                    self.documentInteractionController?.presentPreviewAnimated(true)
-                }
-            }
         } else if eventType == EventType.Future.rawValue {
             
             let eventDV = EventDetailController(nibName: "EventDetailController", bundle: nil)
@@ -131,9 +120,8 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         loadedFromDB = true
         dataSource = Event.MR_findByAttribute("category", withValue: self.eventType)
         print("DataSource count = \(dataSource.count)")
-        print(Event.MR_findAll().count)
+        print("All entities count =  \(Event.MR_findAll().count)")
         tableView.reloadData()
-        refreshControl?.endRefreshing()
     }
     
     override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
@@ -157,12 +145,12 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
                 }
-                completion()
             } else if error != nil {
                 self.allowIncrementPage = false
                 self.handleError(error!)
-                completion()
             }
+            
+            completion()
         }
     }
     
@@ -179,6 +167,48 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         headerView.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_upcoming_event_btn"), forState: .Normal)
         headerView.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("evt_pastevent_btn"), forState: .Normal)
         headerView.delegate = self
+    }
+    
+    func handleSelectionPastEvent(event : Event) {
+        
+        let url = NSURL(string: event.file_result)
+        
+        if event.file_result.hasPrefix("http") {
+            
+            HUD.show(.LabeledProgress(title: "Downloading...", subtitle: nil))
+            
+            Downloader.load(url!, andFileName: event.name) { (filePath) in
+                
+                if  let path = filePath {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        HUD.hide(animated: false)
+                    })
+                    
+                    self.showDocumentControllerWithURL(path)
+                    event.file_result = path.URLString
+                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                    
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        HUD.hide(animated: false)
+                        HUD.flash(.Error)
+                    })
+                }
+            }
+            
+        } else {
+            self.showDocumentControllerWithURL(NSURL(string: event.file_result)!)
+        }
+        
+    }
+    
+    func showDocumentControllerWithURL(path: NSURL) {
+        
+        self.documentInteractionController = UIDocumentInteractionController.init(URL:path)
+        self.documentInteractionController?.delegate = self
+        self.documentInteractionController?.presentPreviewAnimated(true)
+
     }
     
     func getDayOfWeek(today:String) -> String {

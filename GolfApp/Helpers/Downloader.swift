@@ -9,7 +9,8 @@
 import Foundation
 
 class Downloader {
-    class func load(URL: NSURL, completion: ( NSURL?) -> Void ) {
+    
+    class func load(URL: NSURL, andFileName name: String, completion: ( NSURL?) -> Void ) {
         let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
         let request = NSMutableURLRequest(URL: URL)
@@ -22,7 +23,7 @@ class Downloader {
                 
                 var docURL = Global.docUrl
                 
-                docURL = docURL!.URLByAppendingPathComponent( "myFileName.pdf")
+                docURL = docURL!.URLByAppendingPathComponent(name + ".pdf")
                 
                 //Lastly, write your file to the disk.
                 data?.writeToURL(docURL!, atomically: true)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 private let eventDetailCellIdentifier = "eventDetailCell"
 private let cellImagereuseIdentifier = "detailImageTableCell"
@@ -29,13 +30,10 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         let nibFood = UINib.init(nibName: "NewsDetailCell", bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: newsCellIndetifire)
         self.tableView.estimatedRowHeight = 1000
-        refreshControl?.endRefreshing()
-    }
-    
-    override func refresh(sender: AnyObject) {
+        self.refreshControl?.removeFromSuperview()
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
@@ -71,27 +69,66 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         return detailCellHeight
     }
     
-    //MARK: EventDetailCellDelegate 
+    //MARK: EventDetailCellDelegate
     
     func eventDetailCell(eventDetailCell: EventDetailCell, eventProgramPressed programBtn: UIButton) {
         
-        let url = NSURL(string: event.file_detail)
-        
-        Downloader.load(url!) { (filePath) in
-            if  let path = filePath {
-                self.documentInteractionController = UIDocumentInteractionController.init(URL:path)
-                self.documentInteractionController?.delegate = self
-                self.documentInteractionController?.presentPreviewAnimated(true)
-            }
-        }
+        openPDFWithURLString(event.file_detail, andFileName: event.name + "Program")
     }
     
+    func eventDetailCell(eventDetailCell: EventDetailCell, eventTeeTimePressed programBtn: UIButton) {
+        
+        openPDFWithURLString(event.file_teetime, andFileName: event.name + "TeeTimes")
+    }
+
     //MARK: UIDocumentInteractionControllerDelegate
     
     func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
         return self
     }
     
+    //MARK: Private methods
+    
+    func openPDFWithURLString(urlString : String, andFileName fileName: String) {
+        
+        let url = NSURL(string: urlString)
+        
+        if urlString.hasPrefix("http") {
+            
+            HUD.show(.LabeledProgress(title: "Downloading...", subtitle: nil))
+            
+            Downloader.load(url!, andFileName: fileName) { (filePath) in
+                
+                if  let path = filePath {
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        HUD.hide(animated: false)
+                    })
+                    
+                    self.showDocumentControllerWithURL(path)
+                    self.event.file_result = path.URLString
+                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                    
+                } else {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        HUD.hide(animated: false)
+                        HUD.flash(.Error)
+                    })
+                }
+            }
+            
+        } else {
+            self.showDocumentControllerWithURL(NSURL(string: event.file_result)!)
+        }
+    }
+    
+    func showDocumentControllerWithURL(path: NSURL) {
+        
+        self.documentInteractionController = UIDocumentInteractionController.init(URL:path)
+        self.documentInteractionController?.delegate = self
+        self.documentInteractionController?.presentPreviewAnimated(true)
+        
+    }
     
     
 }
