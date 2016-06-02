@@ -39,7 +39,6 @@
 		560F48141CF4954300E23411 /* EventDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 560F48121CF4954300E23411 /* EventDetailCell.xib */; };
 		5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */; };
 		5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624E2B81CE4E699001B6E2F /* Profile.swift */; };
-		562ECB6C1CE9FA5100985213 /* ProsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562ECB6B1CE9FA5100985213 /* ProsViewController.swift */; };
 		562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */; };
 		562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABA1CE60C4700A6581B /* BaseTableViewController.swift */; };
 		562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F4ABC1CE6107C00A6581B /* BaseViewController.swift */; };
@@ -95,6 +94,8 @@
 		84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0881CED21320056B903 /* ProShopTableView.swift */; };
 		84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */; };
 		84F4C08F1CED3A280056B903 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C08E1CED3A280056B903 /* Restaurant.swift */; };
+		84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4CD001D007F9400EDD75A /* ProsDetailController.swift */; };
+		84F4CD031D007F9400EDD75A /* ProsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F4CD011D007F9400EDD75A /* ProsDetailController.xib */; };
 		84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */; };
 		84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6100F1CE90CC000FF3A87 /* RateViewController.swift */; };
 		84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B9561CEDCAB500B4491C /* RestaurantTableViewController.swift */; };
@@ -212,7 +213,6 @@
 		560F48121CF4954300E23411 /* EventDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventDetailCell.xib; sourceTree = "<group>"; };
 		5624E2B61CE4CFF2001B6E2F /* LocalisDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalisDocument.swift; sourceTree = "<group>"; };
 		5624E2B81CE4E699001B6E2F /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		562ECB6B1CE9FA5100985213 /* ProsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsViewController.swift; sourceTree = "<group>"; };
 		562F49C21CE5E8C600A6581B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+CustomColor.swift"; path = "Extensions/UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		562F49CA1CE6055F00A6581B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		562F49CB1CE6055F00A6581B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -441,6 +441,8 @@
 		84F4C0881CED21320056B903 /* ProShopTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopTableView.swift; sourceTree = "<group>"; };
 		84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsListTableViewController.swift; sourceTree = "<group>"; };
 		84F4C08E1CED3A280056B903 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		84F4CD001D007F9400EDD75A /* ProsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsDetailController.swift; sourceTree = "<group>"; };
+		84F4CD011D007F9400EDD75A /* ProsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsDetailController.xib; sourceTree = "<group>"; };
 		84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionCell.swift; sourceTree = "<group>"; };
 		84F6100F1CE90CC000FF3A87 /* RateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateViewController.swift; sourceTree = "<group>"; };
 		84F6B9561CEDCAB500B4491C /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
@@ -509,8 +511,8 @@
 		560E30431CF32AD500EF119F /* Pros */ = {
 			isa = PBXGroup;
 			children = (
-				562ECB651CE9F97900985213 /* ProsDetailViewController */,
 				84F4C08A1CED32BA0056B903 /* ProsListTableViewController */,
+				562ECB651CE9F97900985213 /* ProsDetailViewController */,
 			);
 			name = Pros;
 			sourceTree = "<group>";
@@ -830,7 +832,8 @@
 		562ECB651CE9F97900985213 /* ProsDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				562ECB6B1CE9FA5100985213 /* ProsViewController.swift */,
+				84F4CD001D007F9400EDD75A /* ProsDetailController.swift */,
+				84F4CD011D007F9400EDD75A /* ProsDetailController.xib */,
 			);
 			name = ProsDetailViewController;
 			sourceTree = "<group>";
@@ -2029,6 +2032,7 @@
 				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
 				560F48101CF493AE00E23411 /* EventDetailController.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
+				84F4CD031D007F9400EDD75A /* ProsDetailController.xib in Resources */,
 				560F48021CF443A200E23411 /* EventsTableCell.xib in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
@@ -2106,11 +2110,11 @@
 				5651AEED1CE4C0A700040520 /* Global.swift in Sources */,
 				567010D71CF72E9200E0EC04 /* CustomInfiniteIndicator.swift in Sources */,
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
-				562ECB6C1CE9FA5100985213 /* ProsViewController.swift in Sources */,
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
 				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
+				84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
