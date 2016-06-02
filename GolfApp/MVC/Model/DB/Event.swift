@@ -14,12 +14,14 @@ class Event: NSManagedObject {
 
     class func eventWithDict(pDict : [String: AnyObject], andEventType eventType: String) -> Event {
         
+        var lEvent : Event!
         
         if let oldEvent = Event.MR_findByAttribute("id", withValue: NSNumber.init(long:pDict["id"] as! Int)).first as? Event {
-            return oldEvent
+            lEvent = oldEvent
+        } else {
+            lEvent = Event.MR_createEntity() as! Event
         }
-        
-        let lEvent = Event.MR_createEntity() as! Event
+
         lEvent.id = pDict["id"] as! Int
         lEvent.event_date = pDict["event_date"] as? String ?? ""
         lEvent.name = pDict["name"] as? String ?? ""

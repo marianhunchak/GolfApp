@@ -57,7 +57,7 @@ class BaseTableViewController: UITableViewController {
         
         isRefreshing = true
         allowLoadMore = false
-        dataSource = []
+//        dataSource = []
         
         
         self.refreshControl!.beginRefreshing()

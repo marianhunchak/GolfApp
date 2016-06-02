@@ -79,10 +79,12 @@ extension UIButton {
     
     func setHeaderButtonSelected() {
         self.backgroundColor = Global.buttonOnColor
+        self.userInteractionEnabled = false
     }
     
     func setHeaderButtonUnselected() {
         self.backgroundColor = Global.buttonOffColor
+        self.userInteractionEnabled = true
     }
     
 }
