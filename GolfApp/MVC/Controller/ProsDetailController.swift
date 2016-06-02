@@ -54,19 +54,14 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
 
             return lCell
         }
-            
-        else if indexPath.row == 1{
-            let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-            cell2.nameLabel.text = pros.name
-            cell2.detailLabelHeight.constant = 0
-            cell2.descriptionLabel.text = pros.descr
 
-            return cell2
-        }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = pros.images
-        return cell
+        let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
+        cell2.nameLabel.text = pros.name
+        cell2.detailLabelHeight.constant = 0
+        cell2.descriptionLabel.text = pros.descr
+
+        return cell2
+
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -78,36 +73,6 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
     }
     
     //MARK: Private methods
-    
-    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
-        
-        NetworkManager.sharedInstance.getProsWithPage(pPage, completion: {
-            (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
-            
-            if let lArray = array {
-                
-                self.dataSource += lArray
-                if lArray.count >= 10 {
-                    self.allowLoadMore = true
-                    self.allowIncrementPage = true
-                    self.addInfiniteScroll()
-                } else {
-                    self.allowLoadMore = false
-                    self.tableView.removeInfiniteScroll()
-                }
-            } else if error != nil {
-                self.allowIncrementPage = false
-                self.handleError(error!)
-            }
-            
-            completion()
-        }
-    }
     
     func setupHeaderView() {
         
@@ -148,7 +113,7 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         teeTime.emailString = pros.email
         teeTime.phoneString = pros.phone
         teeTime.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
-        self.view.addSubview(teeTime)
+        self.navigationController?.view.addSubview(teeTime)
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             teeTime.alpha = 1
