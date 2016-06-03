@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
+@objc(Packages)
 class Packages: NSManagedObject {
 
     class func itemWhithDictionary(pDictionary:NSDictionary) -> Packages {
@@ -27,6 +27,8 @@ class Packages: NSManagedObject {
         lPackage.id = pDictionary["id"] as! Int
         lPackage.descr = pDictionary["descr"] as? String ?? ""
         lPackage.pubdate = pDictionary["pubdate"] as? String ?? ""
+        
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         return lPackage
     }

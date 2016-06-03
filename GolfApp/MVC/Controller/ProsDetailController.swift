@@ -29,6 +29,7 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         super.viewDidLoad()
         
         navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
+        refreshControl?.removeFromSuperview()
         tableView.estimatedRowHeight = 80;
         tableView.backgroundColor = Global.viewsBackgroundColor
         tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top + Global.headerHeight,

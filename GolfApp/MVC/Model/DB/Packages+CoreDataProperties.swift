@@ -14,10 +14,11 @@ import CoreData
 
 extension Packages {
 
-    @NSManaged var id: NSNumber!
+    @NSManaged var id: NSNumber?
     @NSManaged var name: String?
     @NSManaged var subtitle: String?
     @NSManaged var descr: String?
     @NSManaged var pubdate: String?
+    @NSManaged var pros: Pros?
 
 }

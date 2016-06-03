@@ -86,11 +86,11 @@
 		8441945F1CE61B4C0056742E /* FacilitesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */; };
 		844387341D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387321D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift */; };
 		844387351D017F0D00F6D5E6 /* IMAGE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387331D017F0D00F6D5E6 /* IMAGE.swift */; };
-		844387421D0185D700F6D5E6 /* Pros+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387401D0185D700F6D5E6 /* Pros+CoreDataProperties.swift */; };
-		844387431D0185D700F6D5E6 /* Pros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387411D0185D700F6D5E6 /* Pros.swift */; };
 		844387461D018DE600F6D5E6 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387451D018DE600F6D5E6 /* Image.swift */; };
-		844387491D01A83C00F6D5E6 /* Packages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387471D01A83C00F6D5E6 /* Packages+CoreDataProperties.swift */; };
-		8443874A1D01A83C00F6D5E6 /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387481D01A83C00F6D5E6 /* Packages.swift */; };
+		844387511D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443874F1D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift */; };
+		844387521D01D2B500F6D5E6 /* Pros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387501D01D2B500F6D5E6 /* Pros.swift */; };
+		844387551D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387531D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift */; };
+		844387561D01D2F900F6D5E6 /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387541D01D2F900F6D5E6 /* Packages.swift */; };
 		844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A94181CEB138000BCC86F /* ProsTableCell.xib */; };
 		844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A941A1CEB13F600BCC86F /* ProsTableCell.swift */; };
 		844A94291CEB641F00BCC86F /* Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A94281CEB641F00BCC86F /* Pro.swift */; };
@@ -441,11 +441,11 @@
 		8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacilitesCollectionCell.xib; sourceTree = "<group>"; };
 		844387321D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMAGE+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		844387331D017F0D00F6D5E6 /* IMAGE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMAGE.swift; sourceTree = "<group>"; };
-		844387401D0185D700F6D5E6 /* Pros+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pros+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		844387411D0185D700F6D5E6 /* Pros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pros.swift; sourceTree = "<group>"; };
 		844387451D018DE600F6D5E6 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
-		844387471D01A83C00F6D5E6 /* Packages+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Packages+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		844387481D01A83C00F6D5E6 /* Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
+		8443874F1D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pros+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		844387501D01D2B500F6D5E6 /* Pros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pros.swift; sourceTree = "<group>"; };
+		844387531D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Packages+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		844387541D01D2F900F6D5E6 /* Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
 		844A94181CEB138000BCC86F /* ProsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsTableCell.xib; sourceTree = "<group>"; };
 		844A941A1CEB13F600BCC86F /* ProsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsTableCell.swift; sourceTree = "<group>"; };
 		844A94281CEB641F00BCC86F /* Pro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pro.swift; sourceTree = "<group>"; };
@@ -697,8 +697,8 @@
 				844387371D017FD300F6D5E6 /* Event */,
 				844387361D017FC900F6D5E6 /* Image */,
 				560E3C741CE137A2006F8655 /* GolfApp.xcdatamodeld */,
-				844387471D01A83C00F6D5E6 /* Packages+CoreDataProperties.swift */,
-				844387481D01A83C00F6D5E6 /* Packages.swift */,
+				844387531D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift */,
+				844387541D01D2F900F6D5E6 /* Packages.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1743,8 +1743,8 @@
 		844387441D01863A00F6D5E6 /* Pros */ = {
 			isa = PBXGroup;
 			children = (
-				844387401D0185D700F6D5E6 /* Pros+CoreDataProperties.swift */,
-				844387411D0185D700F6D5E6 /* Pros.swift */,
+				8443874F1D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift */,
+				844387501D01D2B500F6D5E6 /* Pros.swift */,
 			);
 			name = Pros;
 			sourceTree = "<group>";
@@ -2152,7 +2152,6 @@
 				84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */,
 				8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */,
 				560E3C941CE137A2006F8655 /* Course.swift in Sources */,
-				844387431D0185D700F6D5E6 /* Pros.swift in Sources */,
 				560E30591CF39D8300EF119F /* EventsListViewController.swift in Sources */,
 				560E3CA21CE137A2006F8655 /* HCCache.swift in Sources */,
 				844387341D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift in Sources */,
@@ -2171,8 +2170,8 @@
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
 				84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
-				8443874A1D01A83C00F6D5E6 /* Packages.swift in Sources */,
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
+				844387561D01D2F900F6D5E6 /* Packages.swift in Sources */,
 				844387461D018DE600F6D5E6 /* Image.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
 				84F4C08F1CED3A280056B903 /* Restaurant.swift in Sources */,
@@ -2185,6 +2184,8 @@
 				840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */,
 				84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */,
 				5624E2B71CE4CFF2001B6E2F /* LocalisDocument.swift in Sources */,
+				844387521D01D2B500F6D5E6 /* Pros.swift in Sources */,
+				844387511D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
 				84F6B95D1CEE00CC00B4491C /* Menu.swift in Sources */,
 				84FBD0151CEC7CBB002FBF57 /* ProsShop.swift in Sources */,
@@ -2195,8 +2196,8 @@
 				8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */,
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
+				844387551D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
-				844387491D01A83C00F6D5E6 /* Packages+CoreDataProperties.swift in Sources */,
 				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
 				56F6E6421CFC9726007240D1 /* Event+CoreDataProperties.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
@@ -2213,7 +2214,6 @@
 				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
 				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,
 				84D9DDC81D0086DB002B9433 /* RestaurantDetailContrller.swift in Sources */,
-				844387421D0185D700F6D5E6 /* Pros+CoreDataProperties.swift in Sources */,
 				84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				840001131CEF0E030051B38A /* News.swift in Sources */,

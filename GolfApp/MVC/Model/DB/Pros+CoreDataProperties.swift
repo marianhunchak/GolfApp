@@ -28,5 +28,6 @@ extension Pros {
     @NSManaged var package_count: NSNumber?
     @NSManaged var package_url: String?
     @NSManaged var images: [Image]!
+    @NSManaged var packagesList: [Packages]?
 
 }
