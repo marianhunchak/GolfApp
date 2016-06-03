@@ -113,7 +113,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         
     }
     
-    //MARK: Private methods
+    //MARK: Overrided methods
     
     override func loadDataFromDB() {
         
@@ -153,6 +153,8 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
             completion()
         }
     }
+    
+    //MARK: Private methods
     
     func setupHeaderView() {
 

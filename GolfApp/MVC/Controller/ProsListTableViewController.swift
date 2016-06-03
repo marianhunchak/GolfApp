@@ -14,9 +14,6 @@ private let detailProsControllerIdentfier = "detailProsControllerIdentfier"
 
 class ProsListTableViewController: BaseTableViewController {
 
-    var prosArray = [Pros]()
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,9 +45,9 @@ class ProsListTableViewController: BaseTableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProsTableCell
         
-        cell.prosLabel.text = (dataSource[indexPath.row] as! Pros).name
-        cell.imageForCell = (dataSource[indexPath.row] as! Pros).images.first
-        
+        let lPros = dataSource[indexPath.row] as! Pros
+        cell.prosLabel.text = lPros.name
+        cell.imageForCell = lPros.images.first
         
         return cell
     }
@@ -71,15 +68,23 @@ class ProsListTableViewController: BaseTableViewController {
     
     // MARK: - Private methods
     
-    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
+    override func loadDataFromDB() {
         
-        if isRefreshing {
-            prosArray = []
-            isRefreshing = false
-        }
+        loadedFromDB = true
+        dataSource = Pros.MR_findAll()
+        print("DataSource count = \(dataSource.count)")
+        tableView.reloadData()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
         NetworkManager.sharedInstance.getProsWithPage(pPage, completion: {
             (array, error) in
+            
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
             
             if let lArray = array {
                 

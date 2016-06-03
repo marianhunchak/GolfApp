@@ -16,7 +16,7 @@ private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
 class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
     
-    var pros = Pros()
+    var pros: Pros!
     var package_url = String()
     let headerView = ViewForProHeader.loadViewFromNib()
     
@@ -96,7 +96,7 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         headerView.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("pro_rate_offer_btn"), forState: .Normal)
         
         headerView.button1.setButtonEnabled(true)
-        headerView.button2.setButtonEnabled(pros.package_count > 0 ? true : false)
+        headerView.button2.setButtonEnabled(pros.package_count?.intValue > 0 ? true : false)
         
         headerView.delegate = self
     }

@@ -2,7 +2,7 @@
 //  Pros+CoreDataProperties.swift
 //  GolfApp
 //
-//  Created by Admin on 6/2/16.
+//  Created by Admin on 6/3/16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,7 +14,7 @@ import CoreData
 
 extension Pros {
 
-    @NSManaged var id: NSNumber!
+    @NSManaged var id: NSNumber?
     @NSManaged var name: String?
     @NSManaged var descr: String?
     @NSManaged var phone: String?
@@ -27,6 +27,6 @@ extension Pros {
     @NSManaged var latitude: String?
     @NSManaged var package_count: NSNumber?
     @NSManaged var package_url: String?
-    @NSManaged var images: [String]?
+    @NSManaged var images: [Image]!
 
 }

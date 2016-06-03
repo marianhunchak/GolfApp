@@ -24,6 +24,10 @@ class BaseTableViewController: UITableViewController {
         self.configureNavBar()
         
         self.tableView.backgroundColor = Global.viewsBackgroundColor
+        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top,
+                                              left: 0,
+                                              bottom: Global.pading,
+                                              right: 0)
         
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)

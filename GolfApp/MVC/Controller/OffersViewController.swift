@@ -26,6 +26,7 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName(titleOfferts)
+        
         self.configureNavBar()
         setupHeaderView()
         backgroundView.backgroundColor = Global.viewsBackgroundColor

@@ -48,7 +48,7 @@ class CoursTableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        self.cellImage.image = nil
+        self.cellImage.image = UIImage(named: "a_place_holder_list_view")
         if request != nil {
             request!.cancel()
         }

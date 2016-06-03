@@ -2,7 +2,7 @@
 //  Pros.swift
 //  GolfApp
 //
-//  Created by Admin on 6/2/16.
+//  Created by Admin on 6/3/16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import CoreData
 
 @objc(Pros)
 class Pros: NSManagedObject {
-    
+
     class func prosWhithDictionary(pDictionary:NSDictionary) -> Pros {
         
         var lPros : Pros!
@@ -22,8 +22,8 @@ class Pros: NSManagedObject {
             lPros = Pros.MR_createEntity() as! Pros
         }
         
-        lPros.id = pDictionary["id"] as? Int
         lPros.name = pDictionary["name"] as? String
+        lPros.id = pDictionary["id"] as? Int
         lPros.descr = pDictionary["descr"] as? String
         lPros.phone = pDictionary["phone"] as? String
         lPros.email = pDictionary["email"] as? String
@@ -38,11 +38,12 @@ class Pros: NSManagedObject {
         lPros.images = []
         
         for imageDict in pDictionary["images"] as! NSArray {
-            if let imageUrl = (imageDict as! NSDictionary).objectForKey("url") as? String {
-                lPros.images?.append(imageUrl)
-            }
+            lPros.images?.append(Image.imageWhithDictionary(imageDict as! NSDictionary))
         }
+        
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         return lPros
     }
+
 }

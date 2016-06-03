@@ -41,5 +41,5 @@ class Course {
         
         return lCourse
     }
-    
 }
+
