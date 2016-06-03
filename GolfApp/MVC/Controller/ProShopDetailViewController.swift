@@ -28,6 +28,7 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         super.viewDidLoad()
         
         self.setupHeaderView()
+        self.configureNavBar()
         
         NetworkManager.sharedInstance.getPackages(urlToPackage: package_url) { array in
             self.proArray = array!

@@ -31,6 +31,7 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.configureNavBar()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_detail_nav_bar")
         
         let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
@@ -39,13 +40,10 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
 
-        
         self.setupHeaderView()
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.view.backgroundColor = Global.viewsBackgroundColor
         self.tableView.estimatedRowHeight = 80;
-//        self.tableView.rowHeight = UITableViewAutomaticDimension;
-
 
     }
     

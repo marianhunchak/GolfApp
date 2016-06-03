@@ -19,6 +19,11 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
     var pros = Pros()
     var package_url = String()
     let headerView = ViewForProHeader.loadViewFromNib()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupHeaderView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +36,18 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
                                               bottom: Global.pading,
                                               right: 0)
         
-        self.setupHeaderView()
-
         let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        headerView.removeFromSuperview()
     }
     
     // MARK: - Table view data source
@@ -84,8 +93,8 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         self.navigationController?.view.addSubview(headerView)
         self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
         
-        headerView.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_contact_btn"), forState: .Normal)
-        headerView.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar"), forState: .Normal)
+        headerView.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("pro_contact_btn"), forState: .Normal)
+        headerView.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("pro_rate_offer_btn"), forState: .Normal)
         
         headerView.button1.setButtonEnabled(true)
         headerView.button2.setButtonEnabled(pros.package_count > 0 ? true : false)

@@ -23,6 +23,7 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configureNavBar()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("nws_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.headerView.backgroundColor = Global.viewsBackgroundColor
