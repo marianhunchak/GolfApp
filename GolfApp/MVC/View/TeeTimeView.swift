@@ -27,25 +27,31 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
     // MARK: - Connections action elements
     
     @IBAction func emailButton(sender: AnyObject) {
-        print(emailString)
-        if MFMailComposeViewController.canSendMail() {
+        if let email = emailString {
             
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients([emailString!])
-
-            
-            UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
-        } else {
-            
-            let sendMailErrorAlert = UIAlertView(title: "GolfApp not send Email", message: "Problem with sending Email.Please check e-mail configuration and try again", delegate: self, cancelButtonTitle: "OK")
-            sendMailErrorAlert.show()
+            if MFMailComposeViewController.canSendMail() {
+                
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients([email])
+                
+                UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(mail, animated: true, completion: nil)
+            } else {
+                
+                let sendMailErrorAlert = UIAlertView(title: "No Mail Accounts", message: "Please set up Mail account in order to send email.", delegate: self, cancelButtonTitle: "ok")
+                sendMailErrorAlert.show()
+            }
         }
         
     }
     @IBAction func telephoneButton(sender: AnyObject) {
-             print(phoneString)
-             UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phoneString!)!)
+        if let phone = phoneString {
+            UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phone)!)
+        } else {
+            
+            let sendMailErrorAlert = UIAlertView(title: "GolfApp can not make a call!", message: "GolfApp can not call because there is no phone number!", delegate: self, cancelButtonTitle: "ok")
+            sendMailErrorAlert.show()
+        }
     }
     @IBAction func cancelButton(sender: AnyObject) {
         self.removeFromSuperview()
@@ -71,6 +77,7 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
         teeTimeBackgroundView.layer.borderWidth = 2
         teeTimeBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
         
+        teeTimeBackgroundView.backgroundColor = Global.menuBarBackgroundColor
     }
     
     //MARK: Private methods

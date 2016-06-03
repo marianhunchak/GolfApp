@@ -136,6 +136,8 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         self.view.addSubview(contact)
         contact.emailString = profile?.email
         contact.phoneString = profile?.phone
+        contact.latitude = profile?.latitude
+        contact.longitude = profile?.longitude
         contact.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             contact.alpha = 1
@@ -146,6 +148,8 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
     
         let teeTime = TeeTimeView.loadViewFromNib()
         teeTime.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
+        teeTime.emailString = profile?.email
+        teeTime.phoneString = profile?.phone
         self.view.addSubview(teeTime)
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in

@@ -31,11 +31,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Hf-we-vCV">
-                        <rect key="frame" x="283" y="0.0" width="127" height="23"/>
+                        <rect key="frame" x="283" y="8" width="127" height="24"/>
                         <color key="backgroundColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="127" id="Kv7-8n-6it"/>
-                            <constraint firstAttribute="height" constant="23" id="V46-BE-Md7"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="23" id="V46-BE-Md7"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="16"/>
                         <color key="textColor" red="0.52549019610000003" green="0.71372549019999998" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -53,10 +53,11 @@
                 <constraints>
                     <constraint firstItem="IRB-CP-ZAy" firstAttribute="leading" secondItem="Zng-Ai-uhY" secondAttribute="leading" constant="8" id="2gw-ak-4HY"/>
                     <constraint firstItem="IRB-CP-ZAy" firstAttribute="top" secondItem="Zng-Ai-uhY" secondAttribute="top" constant="8" id="59y-WZ-gEl"/>
-                    <constraint firstItem="3Hf-we-vCV" firstAttribute="top" secondItem="Zng-Ai-uhY" secondAttribute="top" id="KCT-KJ-vx2"/>
+                    <constraint firstItem="3Hf-we-vCV" firstAttribute="top" secondItem="Zng-Ai-uhY" secondAttribute="top" constant="8" id="KCT-KJ-vx2"/>
                     <constraint firstAttribute="trailing" secondItem="3Hf-we-vCV" secondAttribute="trailing" constant="8" id="XCy-GY-MqF"/>
                     <constraint firstItem="3Hf-we-vCV" firstAttribute="leading" secondItem="IRB-CP-ZAy" secondAttribute="trailing" id="bgR-kb-DYz"/>
                     <constraint firstAttribute="bottom" secondItem="b5Q-8S-P4m" secondAttribute="bottom" id="dd8-em-WV9"/>
+                    <constraint firstItem="b5Q-8S-P4m" firstAttribute="top" secondItem="3Hf-we-vCV" secondAttribute="bottom" constant="8" id="gTY-hx-G9q"/>
                     <constraint firstAttribute="trailing" secondItem="b5Q-8S-P4m" secondAttribute="trailing" id="i9s-lc-OOJ"/>
                     <constraint firstAttribute="bottom" secondItem="IRB-CP-ZAy" secondAttribute="bottom" constant="8" id="rPx-GL-9xm"/>
                     <constraint firstItem="b5Q-8S-P4m" firstAttribute="leading" secondItem="Zng-Ai-uhY" secondAttribute="leading" id="v0f-nO-syQ"/>
