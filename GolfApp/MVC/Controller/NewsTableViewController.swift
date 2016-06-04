@@ -11,8 +11,6 @@ import UIKit
 private var newsTableCellIdentifier = "NewsTableCell"
 
 class NewsTableViewController: BaseTableViewController {
-
-    var newsArray = [News]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +22,6 @@ class NewsTableViewController: BaseTableViewController {
         self.tableView.registerNib(nib, forCellReuseIdentifier: newsTableCellIdentifier)
         
         self.tableView.estimatedRowHeight = 1000
-
-        NetworkManager.sharedInstance.getNews { (nNews) in
-            self.newsArray = nNews!
-            self.showRestaurantDetailView()
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,16 +39,17 @@ class NewsTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return newsArray.count
+        return dataSource.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsTableCell", forIndexPath: indexPath) as! NewsTableCell
         
-        cell.nameLabel.text = newsArray[indexPath.row].title
-        cell.subtitleLabel.text = newsArray[indexPath.row].subtitle
-        cell.dateLabel.text = newsArray[indexPath.row].pubdate
-        cell.descriptionLabel.text = newsArray[indexPath.row].descr
+        let lNew = dataSource[indexPath.row] as! New
+        cell.nameLabel.text = lNew.title
+        cell.subtitleLabel.text = lNew.subtitle
+        cell.dateLabel.text = lNew.pubdate
+        cell.descriptionLabel.text = lNew.descr
         cell.descriptionLabel.numberOfLines = 1
         
         return cell
@@ -71,7 +65,7 @@ class NewsTableViewController: BaseTableViewController {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
         
-            vc.news = newsArray[indexPath.row]
+            vc.news = dataSource[indexPath.row] as! New
         
         self.navigationController?.pushViewController(vc, animated: false)
         
@@ -79,27 +73,56 @@ class NewsTableViewController: BaseTableViewController {
     
     // MARK: - Private methods
     
-    func reloadAllData(sender:AnyObject) {
+    func showNewDetailVC() {
         
-        NetworkManager.sharedInstance.getNews { array in
-            self.newsArray = array!
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-        }
+        let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
+        newsVC.news = dataSource.first! as! New
+        self.navigationController?.pushViewController(newsVC, animated: false)
     }
     
-    func showRestaurantDetailView() {
+    // MARK: Overrided methods
+    
+    override func loadDataFromDB() {
+        refreshControl?.endRefreshing()
+        loadedFromDB = true
+        dataSource = New.MR_findAll()
+        print("DataSource count = \(dataSource.count)")
+        tableView.reloadData()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
-        if self.newsArray.count == 1 {
-            let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
-            newsVC.news = newsArray[0]
-            self.navigationController?.pushViewController(newsVC, animated: false)
-        } else {
+        NetworkManager.sharedInstance.getNewsWithPage(pPage, completion: {
+            (array, error) in
             
-            tableView.reloadData()
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
             
-        }
-        
+            if let lArray = array {
+                self.dataSource += lArray
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                    
+                } else if lArray.count == 1 {
+                    
+                    self.showNewDetailVC()
+                    
+                } else {
+                    
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+                
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+            }
+            
+            completion()
+        })
     }
 }

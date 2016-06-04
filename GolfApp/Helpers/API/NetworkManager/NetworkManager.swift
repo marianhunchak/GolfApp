@@ -178,31 +178,7 @@ class NetworkManager {
                 }
         }
     }
-    
-    func getProsPackages(urlToPackage URL: String ,completion: ([AnyObject]?) -> Void) {
-        Alamofire.request(.GET, URL, parameters: nil)
-            .responseJSON { response in
-                
-                if let JSON = response.result.value {
-                    //   print("JSON: \(JSON)")
-                    self.jsonArray = JSON as? NSDictionary
-                    
-                    let packageArray: NSArray = [self.jsonArray!["packages"]!]
-                    var responseArray = [AnyObject]()
-                    
-                    for packageDict in packageArray.firstObject as! NSArray {
-                        responseArray.append(Packages.itemWhithDictionary(packageDict as! NSDictionary))
-                    }
-                    
-                    completion(responseArray)
-                    
-                } else {
-                    print("Status cod = \(response.response?.statusCode)")
-                }
-        }
-    }
 
-    
     //MARK: Images
     
     // method for loading images whith URL ant your image name
@@ -349,8 +325,11 @@ class NetworkManager {
     
     //MARK: News
     
-    func getNews(completion: ([News]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/news?client=22&language=\(Global.languageID)", parameters: nil)
+    func getNewsWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
+        
+        let url = baseURL + "news" + clientAndLanguage
+        
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)" , parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -358,16 +337,16 @@ class NetworkManager {
                     self.jsonArray = JSON as? NSDictionary
                     
                     let newsArray: NSArray = [self.jsonArray!["news"]!]
-                    var responseArray = [News]()
+                    var responseArray = [AnyObject]()
                     
                     for newsDict in newsArray.firstObject as! NSArray {
-                        responseArray.append(News.newsWhithDictionary(newsDict as! NSDictionary))
+                        responseArray.append(New.newsWhithDictionary(newsDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }

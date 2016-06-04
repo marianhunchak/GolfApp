@@ -82,6 +82,8 @@
 		840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840940341CE4A5350005A97E /* TeeTimeView.swift */; };
 		8436176F1CE2389900F96599 /* ContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8436176E1CE2389900F96599 /* ContactView.xib */; };
 		843617711CE2389E00F96599 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843617701CE2389E00F96599 /* ContactView.swift */; };
+		844083101D02FDF20056C720 /* New+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440830E1D02FDF20056C720 /* New+CoreDataProperties.swift */; };
+		844083111D02FDF20056C720 /* New.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440830F1D02FDF20056C720 /* New.swift */; };
 		8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */; };
 		8441945F1CE61B4C0056742E /* FacilitesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */; };
 		844387341D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387321D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift */; };
@@ -89,8 +91,6 @@
 		844387461D018DE600F6D5E6 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387451D018DE600F6D5E6 /* Image.swift */; };
 		844387511D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8443874F1D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift */; };
 		844387521D01D2B500F6D5E6 /* Pros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387501D01D2B500F6D5E6 /* Pros.swift */; };
-		844387551D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387531D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift */; };
-		844387561D01D2F900F6D5E6 /* Packages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844387541D01D2F900F6D5E6 /* Packages.swift */; };
 		844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A94181CEB138000BCC86F /* ProsTableCell.xib */; };
 		844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A941A1CEB13F600BCC86F /* ProsTableCell.swift */; };
 		844A94291CEB641F00BCC86F /* Pro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A94281CEB641F00BCC86F /* Pro.swift */; };
@@ -437,6 +437,8 @@
 		840940341CE4A5350005A97E /* TeeTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeeTimeView.swift; sourceTree = "<group>"; };
 		8436176E1CE2389900F96599 /* ContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactView.xib; sourceTree = "<group>"; };
 		843617701CE2389E00F96599 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		8440830E1D02FDF20056C720 /* New+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "New+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8440830F1D02FDF20056C720 /* New.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = New.swift; sourceTree = "<group>"; };
 		8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionViewController.swift; sourceTree = "<group>"; };
 		8441945E1CE61B4C0056742E /* FacilitesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacilitesCollectionCell.xib; sourceTree = "<group>"; };
 		844387321D017F0D00F6D5E6 /* IMAGE+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IMAGE+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -444,8 +446,6 @@
 		844387451D018DE600F6D5E6 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8443874F1D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pros+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		844387501D01D2B500F6D5E6 /* Pros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pros.swift; sourceTree = "<group>"; };
-		844387531D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Packages+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		844387541D01D2F900F6D5E6 /* Packages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packages.swift; sourceTree = "<group>"; };
 		844A94181CEB138000BCC86F /* ProsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsTableCell.xib; sourceTree = "<group>"; };
 		844A941A1CEB13F600BCC86F /* ProsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsTableCell.swift; sourceTree = "<group>"; };
 		844A94281CEB641F00BCC86F /* Pro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pro.swift; sourceTree = "<group>"; };
@@ -693,12 +693,11 @@
 		560E3C731CE137A2006F8655 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				8440830D1D02FDE50056C720 /* New */,
 				844387441D01863A00F6D5E6 /* Pros */,
 				844387371D017FD300F6D5E6 /* Event */,
 				844387361D017FC900F6D5E6 /* Image */,
 				560E3C741CE137A2006F8655 /* GolfApp.xcdatamodeld */,
-				844387531D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift */,
-				844387541D01D2F900F6D5E6 /* Packages.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -1713,6 +1712,15 @@
 			name = ContactView;
 			sourceTree = "<group>";
 		};
+		8440830D1D02FDE50056C720 /* New */ = {
+			isa = PBXGroup;
+			children = (
+				8440830E1D02FDF20056C720 /* New+CoreDataProperties.swift */,
+				8440830F1D02FDF20056C720 /* New.swift */,
+			);
+			name = New;
+			sourceTree = "<group>";
+		};
 		8441945D1CE61A450056742E /* FacilitesCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2161,6 +2169,7 @@
 				567010D71CF72E9200E0EC04 /* CustomInfiniteIndicator.swift in Sources */,
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
+				844083111D02FDF20056C720 /* New.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
 				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
@@ -2171,7 +2180,7 @@
 				84F610101CE90CC000FF3A87 /* RateViewController.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
-				844387561D01D2F900F6D5E6 /* Packages.swift in Sources */,
+				844083101D02FDF20056C720 /* New+CoreDataProperties.swift in Sources */,
 				844387461D018DE600F6D5E6 /* Image.swift in Sources */,
 				5624E2B91CE4E699001B6E2F /* Profile.swift in Sources */,
 				84F4C08F1CED3A280056B903 /* Restaurant.swift in Sources */,
@@ -2196,7 +2205,6 @@
 				8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */,
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
-				844387551D01D2F900F6D5E6 /* Packages+CoreDataProperties.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
 				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
 				56F6E6421CFC9726007240D1 /* Event+CoreDataProperties.swift in Sources */,

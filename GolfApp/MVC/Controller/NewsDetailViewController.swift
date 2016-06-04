@@ -13,7 +13,7 @@ private let NewsTableCellIndetifire = "NewsDetailCell"
 
 class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
     
-    var news = News()
+    var news : New!
     var newsCount = 1
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
     
@@ -57,7 +57,7 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellImagereuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = news.images
+        cell.imagesArray = news.images!
         return cell
     }
     
