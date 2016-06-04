@@ -35,8 +35,6 @@ class Event: NSManagedObject {
         lEvent.pubdate = pDict["pubdate"] as? String ?? ""
         lEvent.category = eventType
 
-        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-
         return lEvent
     }
 

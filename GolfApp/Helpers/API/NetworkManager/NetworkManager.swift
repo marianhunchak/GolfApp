@@ -353,11 +353,11 @@ class NetworkManager {
     
     //MARK: Events
     
-    func getEventsWithCategory(pCategory : String, andPage pPage : Int, completion: ([AnyObject]?, NSError?) -> Void) {
+    func getEventsWithCategory(pCategory : String, andPage pPage : Int, completion: ([AnyObject]?, NSError?) -> Void) -> Request {
         
         let url =  baseURL + "events" + clientAndLanguage + "&category=\(pCategory)"
         
-        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
+        return Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
               
                 if let JSON = response.result.value as? NSDictionary{
@@ -371,6 +371,7 @@ class NetworkManager {
                     }
                     
                     completion(responseArray, nil)
+                    
                 } else {
                     
                 completion(nil, response.result.error)

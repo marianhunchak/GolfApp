@@ -65,6 +65,8 @@ class BaseTableViewController: UITableViewController {
         
         if dataSource.isEmpty {
             self.refreshControl!.beginRefreshing()
+        } else {
+            self.refreshControl?.endRefreshing()
         }
         
         loadDataWithPage(getPage()) {
@@ -124,9 +126,8 @@ class BaseTableViewController: UITableViewController {
         
         let response = error.userInfo["com.alamofire.serialization.response.error.response"]
         
-        if response?.statusCode == nil {
-            HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 2.0, completion: nil)
-        } else {
+        if response?.statusCode != nil {
+            
             HUD.flash(.LabeledError(title: LocalisationDocument.sharedInstance.getStringWhinName("no_api"), subtitle: nil), delay: 2.0)
         }
     }

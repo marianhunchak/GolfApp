@@ -9,6 +9,7 @@
 import UIKit
 import PKHUD
 import MagicalRecord
+import Alamofire
 
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let eventCellReuseIdentifier = "eventsCell"
@@ -20,8 +21,8 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         case Future = "future"
     }
     
+    var request: Request?
     var eventType = EventType.Future.rawValue
-    var eventsArray = [Event]()
     var documentInteractionController : UIDocumentInteractionController?
     var headerView = ViewForProHeader.loadViewFromNib()
     
@@ -82,9 +83,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
             cell.imageHeight.constant = 25.0
             cell.showImage()
         }
-        
-        
-        
+
         return cell
     }
     
@@ -118,7 +117,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     override func loadDataFromDB() {
         
         loadedFromDB = true
-        dataSource = Event.MR_findByAttribute("category", withValue: self.eventType)
+        dataSource = Event.MR_findByAttribute("category", withValue: self.eventType).sort({ $0.event_date > $1.event_date })
         print("DataSource count = \(dataSource.count)")
         print("All entities count =  \(Event.MR_findAll().count)")
         tableView.reloadData()
@@ -126,17 +125,18 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     
     override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
 
-        NetworkManager.sharedInstance.getEventsWithCategory(self.eventType, andPage: pPage) {
+        request = NetworkManager.sharedInstance.getEventsWithCategory(self.eventType, andPage: pPage) {
             (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
             
             if let lArray = array {
                 
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
+
                 self.dataSource += lArray
+                
                 if lArray.count >= 10 {
                     self.allowLoadMore = true
                     self.allowIncrementPage = true
@@ -145,6 +145,9 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
                 }
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
             } else if error != nil {
                 self.allowIncrementPage = false
                 self.handleError(error!)
@@ -250,7 +253,9 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     //MARK: ProHeaderDelegate
     
     func pressedButton1(tableProHeader : ViewForProHeader ,button1Pressed button1 : AnyObject ) {
-        
+
+        request?.suspend()
+
         tableProHeader.toggleButtons(tableProHeader.button1, btn2: tableProHeader.button2)
         self.refreshControl!.beginRefreshing()
         eventType = EventType.Future.rawValue
@@ -260,7 +265,9 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     }
     
     func pressedButton2(tableProHeader : ViewForProHeader ,button2Pressed button2 : AnyObject ) {
-        
+
+        request?.suspend()
+
         tableProHeader.toggleButtons(tableProHeader.button2, btn2: tableProHeader.button1)
         self.refreshControl!.beginRefreshing()
         eventType = EventType.Past.rawValue

@@ -38,7 +38,6 @@ class NewsTableViewController: BaseTableViewController {
 
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return dataSource.count
     }
 
@@ -57,15 +56,14 @@ class NewsTableViewController: BaseTableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
      
-            return UITableViewAutomaticDimension
+        return UITableViewAutomaticDimension
 
     }
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
-        
-            vc.news = dataSource[indexPath.row] as! New
+        vc.news = dataSource[indexPath.row] as! New
         
         self.navigationController?.pushViewController(vc, animated: false)
         
@@ -85,7 +83,7 @@ class NewsTableViewController: BaseTableViewController {
     override func loadDataFromDB() {
         refreshControl?.endRefreshing()
         loadedFromDB = true
-        dataSource = New.MR_findAll()
+        dataSource = New.MR_findAllSortedBy("updated_", ascending: false)
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
     }
@@ -107,7 +105,7 @@ class NewsTableViewController: BaseTableViewController {
                     self.allowIncrementPage = true
                     self.addInfiniteScroll()
                     
-                } else if lArray.count == 1 {
+                } else if self.dataSource.count == 1 {
                     
                     self.showNewDetailVC()
                     
@@ -116,6 +114,8 @@ class NewsTableViewController: BaseTableViewController {
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
                 }
+                
+             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                 
             } else if error != nil {
                 self.allowIncrementPage = false
