@@ -16,7 +16,8 @@ class DetailInfoCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    //@IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var backgroundCourseFooter: UIView!
 
     @IBOutlet weak var detailLabelHeight: NSLayoutConstraint!

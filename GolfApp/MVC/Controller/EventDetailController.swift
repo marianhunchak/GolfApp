@@ -44,8 +44,8 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(newsCellIndetifire, forIndexPath: indexPath) as! NewsDetailCell
             cell.nameLabel.text = event.name
-            cell.subtitleLabel.text = event.format
-            cell.dateLabel.text = event.event_date
+            cell.subtitleLabel.text = event.event_date
+            cell.dateLabel.text = event.format
             cell.descriptionNews.text = event.remark1
             if !event.remark2.isEmpty {
                 cell.descriptionNews.text.appendContentsOf("\n\(event.remark2)")

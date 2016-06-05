@@ -400,6 +400,25 @@ class NetworkManager {
                 }
         }
     }
+
+    //MARK: Advertisemet
     
+    func getAdvertisemet(completion :Advertisemet -> Void) {
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=\(Global.languageID)", parameters:nil )
+            .responseJSON { response in
+                
+                if let JSON = response.result.value as? NSDictionary{
+
+                    let advertisemetDictionary = JSON["advertisemet"]! as! NSDictionary
+                    
+                    let lAdvertisemet = Advertisemet.advertisemetWhithDictionary(advertisemetDictionary)
+                    
+                    completion(lAdvertisemet)
+                    
+                } else {
+                    print("Status cod = \(response.response?.statusCode)")
+                }
+        }
+    }
     
 }

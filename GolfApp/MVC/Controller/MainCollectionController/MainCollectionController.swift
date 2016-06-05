@@ -16,10 +16,12 @@ private var identifierOfProsListViewController = "ProsListViewController"
 
 class MainCollectionController: UICollectionViewController  {
     
+    let defults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var profile:Profile?
     var prosArray = [Pros]()
     var restaurantArray = [Restaurant]()
     var lTopInset : CGFloat?
+    var advertisemet: Advertisemet?
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
                               "hm_contact_btn",  "hm_news_btn",    "hm_htls_btn"]
@@ -48,10 +50,14 @@ class MainCollectionController: UICollectionViewController  {
             self.profile = pProfile
         }
         
+        NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+            self.advertisemet = aAdvertisemet
 
+            
+            self.checkDate()
+        }
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(pushNotification), name: "onMessageReceived", object: nil)
-        
+       NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainCollectionController.saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
 
     }
 
@@ -154,6 +160,67 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             teeTime.alpha = 1
+        }
+    }
+    
+    func showPopUpView() {
+
+        let popUpView = PopUpView.loadViewFromNib()
+
+        popUpView.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
+        
+        var lImage  = Image()
+        lImage.name = advertisemet?.name!
+        lImage.url = advertisemet?.image!
+        popUpView.websiteUrl = advertisemet?.url
+
+        popUpView.poupImage = lImage
+        
+        self.view.addSubview(popUpView)
+        popUpView.alpha = 0
+        UIView.animateWithDuration(1) { () -> Void in
+            popUpView.alpha = 1
+        }
+
+    }
+    
+    func saveExitDate(notification : NSNotification) {
+        let calendar = NSCalendar.currentCalendar()
+        let dateComponent = NSDateComponents()
+        dateComponent.minute = 1
+        let todaysDate : NSDate = NSDate()
+        let dateformater : NSDateFormatter = NSDateFormatter()
+        dateformater.dateFormat = "MM-dd-yyyy HH:mm"
+        
+        let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
+        let dateInFormat = dateformater.stringFromDate(date!)
+        
+        defults.setObject(dateInFormat, forKey: "lastLoadDate")
+        defults.synchronize()
+
+    }
+    
+    func checkDate() {
+        if let lastLoaded = defults.objectForKey("lastLoadDate") as? String {
+            
+            let todaysDate : NSDate = NSDate()
+            let dateFormater = NSDateFormatter()
+            dateFormater.dateFormat = "MM-dd-yyyy HH:mm"
+            let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
+            
+            let showPopUp = lastLoadedDate!.compare(todaysDate)
+            
+            if showPopUp == .OrderedAscending {
+                
+                print("Time to show Pop Up View!")
+                showPopUpView()
+                
+            } else {
+                print("This is not time to show Pop Up View!")
+            }
+            
+        } else {
+            print("Date is emty")
         }
     }
 }
