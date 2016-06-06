@@ -21,6 +21,7 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     var packageUrl: String?
     var titleOfferts = "re_suggestion_nav_bar"
     var hotel : Hotel!
+    var pros : Pros!
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var offersTableView: UITableView!
@@ -55,6 +56,8 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
+                self.pros.packagesList = array!
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             }
         
         } else if titleOfferts == "htl_package_list_nav_bar" {
@@ -102,7 +105,7 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     // MARK: - Table view data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return offertsArray.count
+        return offertsArray == nil ? 0 : offertsArray.count
     }
     
     

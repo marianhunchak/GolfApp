@@ -111,6 +111,8 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = pros.package_url
         packageVC.titleOfferts = "pro_rate_offer_nav_bar"
+        packageVC.offertsArray = pros.packagesList
+        packageVC.pros = pros
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }

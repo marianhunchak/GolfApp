@@ -35,6 +35,10 @@ class Pros: NSManagedObject {
         lPros.latitude = pDictionary["latitude"] as? String
         lPros.package_count = pDictionary["package_count"] as? Int
         lPros.package_url = pDictionary["package_url"] as? String
+    
+        if lPros.packagesList != nil {
+            lPros.packagesList = []
+        }
         lPros.images = []
         
         for imageDict in pDictionary["images"] as! NSArray {
