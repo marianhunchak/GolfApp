@@ -11,9 +11,14 @@ import UIKit
 class PopUpView: UIView {
 
     
+
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var popUpImage: UIImageView!
+
+    @IBOutlet weak var imageViewContainerHeight: NSLayoutConstraint!
+
     var websiteUrl : String!
     
     var poupImage : Image! {
@@ -24,8 +29,12 @@ class PopUpView: UIView {
                 (image) in
                 
                 if let lImage = image {
-                    self.popUpImage.image = lImage
-                }
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.popUpImage.image = lImage
+//                        self.popUpImage.image = UIImage(named: "a_splash")
+                        self.imageViewContainerHeight.constant = self.popUpImage.frame.size.width / self.popUpImage.image!.size.width * self.popUpImage.image!.size.height
+                    })
+               }
             })
             
         }
@@ -33,8 +42,10 @@ class PopUpView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        popUpImage.contentMode = UIViewContentMode.ScaleAspectFill
+        popUpImage.contentMode = UIViewContentMode.ScaleAspectFit
         popUpImage.clipsToBounds = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTapGesture(_:)))
+        self.popUpImage.addGestureRecognizer(tapGesture)
 
     }
     
@@ -44,12 +55,11 @@ class PopUpView: UIView {
         self.removeFromSuperview()
         
     }
-    
-    @IBAction func showUrl(sender: AnyObject) {
-        
-     UIApplication.sharedApplication().openURL(NSURL(string: websiteUrl)!)
 
+    func handleTapGesture(sender: UITapGestureRecognizer) {
         
+      self.removeFromSuperview()
+      UIApplication.sharedApplication().openURL(NSURL(string: websiteUrl)!)
     }
     
     
