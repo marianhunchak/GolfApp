@@ -19,15 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var reachability: Reachability?
     var tokenString = ""
     
-    var connectedToGCM =  false
-    var subscribedToTopic = false
-    var gcmSenderID: String?
-    var registrationToken: String?
-    var registrationOptions = [String: AnyObject]()
-    
-    let registrationKey = "onRegistrationCompleted"
-    let messageKey = "onMessageReceived"
-    let subscriptionTopic = "/topics/global"
+
+    let defults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var advertisemet: Advertisemet?
     
     // [START register_for_remote_notifications]
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
@@ -57,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("could not start reachability notifier")
         }
 
-        
         return true
     }
     
@@ -78,6 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
+        NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+            self.advertisemet = aAdvertisemet
+            self.checkDate()
+        }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
     }
     
     func applicationDidEnterBackground(application: UIApplication) {
@@ -107,10 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application( application: UIApplication, didFailToRegisterForRemoteNotificationsWithError
         error: NSError ) {
         print("Registration for remote notification failed with error: \(error.localizedDescription)")
-        // [END receive_apns_token_error]
-        let userInfo = ["error": error.localizedDescription]
-        NSNotificationCenter.defaultCenter().postNotificationName(
-            registrationKey, object: nil, userInfo: userInfo)
     }
     
     func application( application: UIApplication,
@@ -137,5 +131,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handler(UIBackgroundFetchResult.NoData);
     }
     
+    func showPopUpView() {
+        
+        let popUpView = PopUpView.loadViewFromNib()
+        
+        popUpView.frame = CGRectMake(0, 0,
+                                     (UIApplication.sharedApplication().keyWindow?.rootViewController!.view.frame.width)! ,
+                                     (UIApplication.sharedApplication().keyWindow?.rootViewController!.view.frame.height)! )
+        
+        let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
+        
+        popUpView.websiteUrl = advertisemet?.url
+        
+        popUpView.poupImage = lImage
+        
+        UIApplication.sharedApplication().keyWindow?.rootViewController!.view.addSubview(popUpView)
+        popUpView.alpha = 0
+        UIView.animateWithDuration(1) { () -> Void in
+            popUpView.alpha = 1
+        }
+        
+    }
+    
+    func saveExitDate(notification : NSNotification) {
+        let calendar = NSCalendar.currentCalendar()
+        let dateComponent = NSDateComponents()
+        dateComponent.second = 10
+        let todaysDate : NSDate = NSDate()
+        let dateformater : NSDateFormatter = NSDateFormatter()
+        dateformater.dateFormat = "MM-dd-yyyy HH:mm"
+        
+        let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
+        let dateInFormat = dateformater.stringFromDate(date!)
+        
+        defults.setObject(dateInFormat, forKey: "lastLoadDate")
+        defults.synchronize()
+        
+    }
+    
+    func checkDate() {
+        if let lastLoaded = defults.objectForKey("lastLoadDate") as? String {
+            
+            let todaysDate : NSDate = NSDate()
+            let dateFormater = NSDateFormatter()
+            dateFormater.dateFormat = "MM-dd-yyyy HH:mm"
+            let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
+            
+            let showPopUp = lastLoadedDate!.compare(todaysDate)
+            
+            if showPopUp == .OrderedAscending {
+                
+                print("Time to show Pop Up View!")
+                showPopUpView()
+                
+            } else {
+                print("This is not time to show Pop Up View!")
+            }
+            
+        } else {
+            print("Date is emty")
+        }
+    }
+
+    
 }
+
 

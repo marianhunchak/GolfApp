@@ -23,6 +23,7 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.configureNavBar()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("re_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.headerView.backgroundColor = Global.viewsBackgroundColor

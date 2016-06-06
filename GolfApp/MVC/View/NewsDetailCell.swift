@@ -16,8 +16,9 @@ class NewsDetailCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var descriptionNews: UITextView!
-    @IBOutlet weak var dateLabel: UILabel!
+    //@IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var backgroundCellView: UIView!
+    @IBOutlet weak var dateLabel: UITextView!
     
     
     
