@@ -11,9 +11,7 @@ import UIKit
 private let cellIdentifier = "parcoursCell"
 
 class HotelsTableViewController: BaseTableViewController {
-    
-    var hotelsArray = [Hotel]()
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_list_nav_bar")
@@ -21,14 +19,6 @@ class HotelsTableViewController: BaseTableViewController {
         
         let nib = UINib(nibName: "CoursTableCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
-        
-        NetworkManager.sharedInstance.getHotels( { (pHotels) in
-            if  let lHotelsArray = pHotels {
-                self.hotelsArray = lHotelsArray
-                self.tableView.reloadData()
-            }
-        })
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,15 +31,17 @@ class HotelsTableViewController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return hotelsArray.count
+        return dataSource.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CoursTableCell
         cell.cellInfoLabelHeight.constant = 0
         
-        cell.cellItemLabel.text = hotelsArray[indexPath.row].name
-        cell.imageForCell = hotelsArray[indexPath.row].images.first
+        let lHotel = dataSource[indexPath.row] as! Hotel
+        
+        cell.cellItemLabel.text = lHotel.name
+        cell.imageForCell = lHotel.images.first
 
         return cell
     }
@@ -64,8 +56,52 @@ class HotelsTableViewController: BaseTableViewController {
         
         let hotelVC = HotelDetailViewController(nibName: "HotelDetailViewController", bundle: nil)
 
-        hotelVC.hotel = hotelsArray[indexPath.row]
+        hotelVC.hotel = dataSource[indexPath.row] as! Hotel
         self.navigationController?.pushViewController(hotelVC, animated: false)
     }
+    
+    // MARK: Overrided methods
+    
+    override func loadDataFromDB() {
+        
+        loadedFromDB = true
+        dataSource = Hotel.MR_findAllSortedBy("createdDate", ascending: true)
+        print("DataSource count = \(dataSource.count)")
+        tableView.reloadData()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
+        
+        NetworkManager.sharedInstance.getHotelsWithPage(pPage, completion: {
+            (array, error) in
+            
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
+            
+            if let lArray = array {
+                
+                self.dataSource += lArray
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                } else {
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+            }
+            
+            completion()
+        })
+    }
+
     
 }

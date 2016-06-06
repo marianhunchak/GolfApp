@@ -168,7 +168,7 @@ class NetworkManager {
                     var responseArray = [Package]()
                     
                     for packageDict in packageArray.firstObject as! NSArray {
-                        responseArray.append(Package.itemWhithDictionary(packageDict as! NSDictionary))
+                        responseArray.append(Package.packageWhithDictionary(packageDict as! NSDictionary))
                     }
                     
                     completion(responseArray)
@@ -229,8 +229,11 @@ class NetworkManager {
     
     //MARK: Hotels 
     
-    func getHotels(completion: ([Hotel]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/hotels?client=22&language=\(Global.languageID)", parameters: nil)
+    func getHotelsWithPage( pPage: Int,completion: ([AnyObject]?, NSError?) -> Void) {
+        
+        let url =  baseURL + "hotels" + clientAndLanguage
+        
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -243,10 +246,10 @@ class NetworkManager {
                         responseArray.append(Hotel.hotelsWhithDictionary(courseDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }
@@ -394,7 +397,7 @@ class NetworkManager {
                     var responseArray = [Package]()
                     
                     for packageDict in packageArray.firstObject as! NSArray {
-                        responseArray.append(Package.itemWhithDictionary(packageDict as! NSDictionary))
+                        responseArray.append(Package.packageWhithDictionary(packageDict as! NSDictionary))
                     }
                     
                     completion(responseArray)

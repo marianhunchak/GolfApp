@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MagicalRecord
 
 private let courseFooterIndetifire = "courseFooterIndetifire"
 private let detailDescriptionCellNibName = "DetailInfoCell"
@@ -16,9 +17,10 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
     var seleted = false
     var shareItem = -1
-    var offertsArray = [Package]()
+    var offertsArray : [Package]!
     var packageUrl: String?
     var titleOfferts = "re_suggestion_nav_bar"
+    var hotel : Hotel!
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var offersTableView: UITableView!
@@ -26,7 +28,7 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName(titleOfferts)
-        
+
         self.configureNavBar()
         setupHeaderView()
         backgroundView.backgroundColor = Global.viewsBackgroundColor
@@ -59,6 +61,8 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
+                self.hotel.packagesList = array!
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             }
         
         }
@@ -105,9 +109,10 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
 
-            cell.nameLabel.text = offertsArray[indexPath.row].name
-            cell.detailLabel.text = offertsArray[indexPath.row].subtitle
-            cell.descriptionLabel.text = offertsArray[indexPath.row].descr
+        let lPackage = offertsArray[indexPath.row]
+        cell.nameLabel.text = lPackage.name
+        cell.detailLabel.text = lPackage.subtitle
+        cell.descriptionLabel.text = lPackage.descr
         if shareItem == indexPath.row {
             cell.setCellSelected()
         }
@@ -121,6 +126,7 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     }
 
     //MARK: Private methods
+    
     func setupHeaderView() {
         viewForHead.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , backgroundView.frame.size.height)
         backgroundView.addSubview(viewForHead)

@@ -13,7 +13,7 @@ private let courseFooterIndetifire = "courseFooterIndetifire"
 
 class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    var hotel = Hotel()
+    var hotel: Hotel!
 
     @IBOutlet weak var headerView: UIView!
 
@@ -70,7 +70,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         
         viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
         viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: true)
-        viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: hotel.package_count > 0 ? true : false)
+        viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: hotel.package_count.intValue > 0 ? true : false)
         viewForHeader.delegate = self
     }
     
@@ -111,6 +111,8 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
 
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
         packageVC.packageUrl = hotel.package_url
+        packageVC.offertsArray = hotel.packagesList
+        packageVC.hotel = hotel
         packageVC.titleOfferts = "htl_package_list_nav_bar"
         self.navigationController?.pushViewController(packageVC, animated: false)
     }
