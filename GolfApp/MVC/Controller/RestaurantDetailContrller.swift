@@ -115,8 +115,10 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
     func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
         
         let contact = ContactView.loadViewFromNib()
-        contact.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
-        self.view.addSubview(contact)
+        contact.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!,
+                                             (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
+
+        self.navigationController!.view.addSubview(contact)
         contact.phoneString = restaurant.phone
         contact.emailString = restaurant.email
         contact.longitude = restaurant.longitude

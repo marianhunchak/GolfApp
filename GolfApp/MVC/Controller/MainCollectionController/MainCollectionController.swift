@@ -16,12 +16,10 @@ private var identifierOfProsListViewController = "ProsListViewController"
 
 class MainCollectionController: UICollectionViewController  {
     
-    let defults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var profile:Profile?
     var prosArray = [Pros]()
-    var restaurantArray = [Restaurant]()
     var lTopInset : CGFloat?
-    var advertisemet: Advertisemet?
+    
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
                               "hm_contact_btn",  "hm_news_btn",    "hm_htls_btn"]

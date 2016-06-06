@@ -12,11 +12,11 @@ import CoreData
 @objc(IMAGE)
 class IMAGE: NSManagedObject {
 
-    class func imageWhithDictionary(pDictionary:NSDictionary) -> IMAGE {
+    class func imageWhithName(pName: String, andPath pPath: NSURL) -> IMAGE {
         
         let lImage = IMAGE.MR_createEntity() as! IMAGE
-        lImage.name = pDictionary["name"] as? String
-        lImage.url = pDictionary["url"] as? String
+        lImage.name = pName
+        lImage.url = pPath
         
         return lImage
     }
