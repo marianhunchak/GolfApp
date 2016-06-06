@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import MagicalRecord
 
 class CoursTableCell: UITableViewCell {
     
@@ -25,16 +26,24 @@ class CoursTableCell: UITableViewCell {
     @IBOutlet weak var cellInfoLabelHeight: NSLayoutConstraint!
     
     var imageForCell: Image? {
+        
         didSet {
             if let lImage = imageForCell {
-                if request != nil {
-                    request!.cancel()
+                
+                if let storedImage = UIImage(contentsOfFile: ImageSaver.fileInDocumentsDirectory(lImage.name)) {
+                    self.cellImage.image = storedImage
+                    
+                } else {
+                    
+                    request?.cancel()
+                    request = NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
+                        (image) in
+                        if let lResponseImage = image {
+                            self.cellImage.image = lResponseImage
+                            ImageSaver.saveImage(lResponseImage, name: lImage.name)
+                        }
+                    })
                 }
-                request = NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
-                    (image) in
- 
-                        self.cellImage.image = image
-                })
             }
         }
     }
@@ -53,6 +62,5 @@ class CoursTableCell: UITableViewCell {
             request!.cancel()
         }
     }
-    
     
 }

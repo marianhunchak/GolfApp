@@ -57,9 +57,9 @@ class PopUpView: UIView {
     }
 
     func handleTapGesture(sender: UITapGestureRecognizer) {
-        
-      self.removeFromSuperview()
-      UIApplication.sharedApplication().openURL(NSURL(string: websiteUrl)!)
+              
+        UIApplication.sharedApplication().openURL(NSURL(string: websiteUrl)!)
+        self.removeFromSuperview()
     }
     
     

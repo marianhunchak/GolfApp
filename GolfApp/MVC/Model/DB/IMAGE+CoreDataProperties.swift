@@ -14,7 +14,7 @@ import CoreData
 
 extension IMAGE {
 
-    @NSManaged var name: String?
-    @NSManaged var url: NSURL?
+    @NSManaged var name: String
+    @NSManaged var path: String
 
 }

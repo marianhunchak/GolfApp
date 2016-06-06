@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tokenString = ""
     
 
-    let defults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var advertisemet: Advertisemet?
     
     // [START register_for_remote_notifications]
@@ -159,22 +159,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dateComponent.second = 10
         let todaysDate : NSDate = NSDate()
         let dateformater : NSDateFormatter = NSDateFormatter()
-        dateformater.dateFormat = "MM-dd-yyyy HH:mm"
+        dateformater.dateFormat = "MM-dd-yyyy HH:mm:ss"
         
         let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
         let dateInFormat = dateformater.stringFromDate(date!)
         
-        defults.setObject(dateInFormat, forKey: "lastLoadDate")
-        defults.synchronize()
+        defaults.setObject(dateInFormat, forKey: "lastLoadDate")
+        defaults.synchronize()
         
     }
     
     func checkDate() {
-        if let lastLoaded = defults.objectForKey("lastLoadDate") as? String {
+        if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
             
             let todaysDate : NSDate = NSDate()
             let dateFormater = NSDateFormatter()
-            dateFormater.dateFormat = "MM-dd-yyyy HH:mm"
+            dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
             let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
             
             let showPopUp = lastLoadedDate!.compare(todaysDate)
@@ -190,6 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             print("Date is emty")
+            showPopUpView()
         }
     }
 

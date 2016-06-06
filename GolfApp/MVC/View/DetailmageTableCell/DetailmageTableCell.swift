@@ -68,14 +68,19 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         if self.imagesArray.count > 0 {
             
         let lImage = imagesArray[indexPath.row]
-
-        NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)!, imageName: lImage.name!, completion: {
-            (image) in
-            
-            if let lImage = image {
-                cell.cellImageView.image = lImage
+                
+            if let storedImage = UIImage(contentsOfFile: ImageSaver.fileInDocumentsDirectory(lImage.name)) {
+                cell.cellImageView.image = storedImage
+                
+            } else {
+                NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
+                    (image) in
+                    if let lResponseImage = image {
+                        cell.cellImageView.image = lResponseImage
+                        ImageSaver.saveImage(lResponseImage, name: lImage.name)
+                    }
+                })
             }
-        })
         }
 
         return cell

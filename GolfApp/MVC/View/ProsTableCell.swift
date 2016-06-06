@@ -19,14 +19,21 @@ class ProsTableCell: UITableViewCell {
     var imageForCell: Image? {
         didSet {
             if let lImage = imageForCell {
-                if request != nil {
-                    request!.cancel()
-                }
-                request = NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
-                    (image) in
+                
+                if let storedImage = UIImage(contentsOfFile: ImageSaver.fileInDocumentsDirectory(lImage.name)) {
+                    self.prosImage.image = storedImage
                     
-                    self.prosImage.image = image
-                })
+                } else {
+                    
+                    request?.cancel()
+                    request = NetworkManager.sharedInstance.getImageWhihURL(NSURL(string: lImage.url!)! , imageName: lImage.name!, completion: {
+                        (image) in
+                        if let lResponseImage = image {
+                            self.prosImage.image = lResponseImage
+                            ImageSaver.saveImage(lResponseImage, name: lImage.name)
+                        }
+                    })
+                }
             }
         }
     }
