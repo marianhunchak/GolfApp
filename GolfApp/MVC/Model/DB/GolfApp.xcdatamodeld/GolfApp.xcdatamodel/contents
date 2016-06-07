@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Advertisemet" representedClassName="Advertisemet" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="event_date" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,6 +50,26 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updated_" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Profile" representedClassName="Profile" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="android_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="android_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buttons" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="default_language" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ios_status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ios_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postalcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="route" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetno" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Pros" representedClassName="Pros" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -64,10 +89,14 @@
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+
         <element name="Event" positionX="-848" positionY="-261" width="128" height="223"/>
         <element name="New" positionX="-702" positionY="-258" width="128" height="150"/>
         <element name="Pros" positionX="-515" positionY="-252" width="128" height="283"/>
         <element name="Image" positionX="-1008" positionY="-234" width="128" height="75"/>
         <element name="Hotel" positionX="-360" positionY="-252" width="128" height="283"/>
+        <element name="Profile" positionX="-477" positionY="90" width="128" height="315"/>
+        <element name="Advertisemet" positionX="-477" positionY="135" width="128" height="90"/>
+
     </elements>
 </model>

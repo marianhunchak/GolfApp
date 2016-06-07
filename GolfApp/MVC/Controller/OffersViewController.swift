@@ -32,6 +32,7 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
 
         self.configureNavBar()
         setupHeaderView()
+        
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         offersTableView.backgroundColor = Global.viewsBackgroundColor
         

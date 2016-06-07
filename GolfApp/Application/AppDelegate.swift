@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var advertisemet: Advertisemet?
-    
-    // [START register_for_remote_notifications]
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         [NSObject: AnyObject]?) -> Bool {
         
@@ -71,9 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
-        NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
-            self.advertisemet = aAdvertisemet
+        
+        if let lAdvertisemnt = Advertisemet.MR_findFirst() {
+            self.advertisemet = lAdvertisemnt as? Advertisemet
             self.checkDate()
+        } else {
+            NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+                self.advertisemet = aAdvertisemet
+                self.checkDate()
+            }
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
     }

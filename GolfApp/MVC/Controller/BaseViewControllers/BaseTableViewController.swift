@@ -22,7 +22,6 @@ class BaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureNavBar()
-        
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top,
                                               left: 0,

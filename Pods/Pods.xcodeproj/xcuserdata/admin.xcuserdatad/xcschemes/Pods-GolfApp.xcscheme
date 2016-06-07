@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "74E54F1E89A10AC6F4B2237FE123970D"
+               BlueprintIdentifier = "82DE5FF4392C240A01CC4D2E8F3A8624"
                BuildableName = "Pods_GolfApp.framework"
                BlueprintName = "Pods-GolfApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "74E54F1E89A10AC6F4B2237FE123970D"
+            BlueprintIdentifier = "82DE5FF4392C240A01CC4D2E8F3A8624"
             BuildableName = "Pods_GolfApp.framework"
             BlueprintName = "Pods-GolfApp"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "74E54F1E89A10AC6F4B2237FE123970D"
+            BlueprintIdentifier = "82DE5FF4392C240A01CC4D2E8F3A8624"
             BuildableName = "Pods_GolfApp.framework"
             BlueprintName = "Pods-GolfApp"
             ReferencedContainer = "container:Pods.xcodeproj">
