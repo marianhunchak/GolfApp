@@ -41,6 +41,9 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
                 let sendMailErrorAlert = UIAlertView(title: "No Mail Accounts", message: "Please set up Mail account in order to send email.", delegate: self, cancelButtonTitle: "ok")
                 sendMailErrorAlert.show()
             }
+        } else {
+            let sendMailErrorAlert = UIAlertView(title: "No Mail address!", message: "GolfApp can not send Mail because there is no address!", delegate: self, cancelButtonTitle: "ok")
+            sendMailErrorAlert.show()
         }
         
     }

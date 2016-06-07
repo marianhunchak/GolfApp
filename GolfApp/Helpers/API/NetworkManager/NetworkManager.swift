@@ -256,8 +256,11 @@ class NetworkManager {
     
     //MARK: ProsShop
     
-    func getProsShop(completion: ([ProsShop]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/proshops?client=22&language=\(Global.languageID)", parameters: nil)
+    func getProsShop(pPage: Int,completion: ([AnyObject]?, NSError?) -> Void) {
+        
+        let url =  baseURL + "proshops" + clientAndLanguage
+        
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -270,10 +273,10 @@ class NetworkManager {
                         responseArray.append(ProsShop.hotelsWhithDictionary(courseDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }

@@ -17,7 +17,7 @@ private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableViewDelegate{
     
     var proArray = [Package]()
-    var prosShop = ProsShop()
+    var prosShop : ProsShop?
     var package_url = String()
     let viewForHead = ViewForProHeader.loadViewFromNib()
     
@@ -56,22 +56,22 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         
         if indexPath.row == 0 {
             let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-            lCell.imagesArray = prosShop.images
+            lCell.imagesArray = prosShop!.images
 
             return lCell
         }
             
         else if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-            cell2.nameLabel.text = prosShop.name
+            cell2.nameLabel.text = prosShop!.name
             cell2.detailLabelHeight.constant = 0
-            cell2.descriptionLabel.text = prosShop.descr
+            cell2.descriptionLabel.text = prosShop!.descr
 
             return cell2
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = prosShop.images
+        cell.imagesArray = prosShop!.images
         return cell
     }
     
@@ -92,14 +92,14 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         viewForHead.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar"), forState: .Normal)
         
         viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
-        viewForHead.setButtonEnabled(viewForHead.button2, enabled: prosShop.package_count > 0 ? true : false)
+        viewForHead.setButtonEnabled(viewForHead.button2, enabled: prosShop!.package_count!.intValue > 0 ? true : false)
         
         viewForHead.delegate = self
     }
     func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
         
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
-        packageVC.packageUrl = prosShop.package_url
+        packageVC.packageUrl = prosShop!.package_url
         packageVC.titleOfferts = "ps_special_offer_nav_bar"
         self.navigationController?.pushViewController(packageVC, animated: false)
         
@@ -113,8 +113,8 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         
         let teeTime = TeeTimeView.loadViewFromNib()
         teeTime.title.text = LocalisationDocument.sharedInstance.getStringWhinName("pro_contact_pop_up_title")
-        teeTime.emailString = prosShop.email
-        teeTime.phoneString = prosShop.phone
+        teeTime.emailString = prosShop!.email
+        teeTime.phoneString = prosShop!.phone
         teeTime.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
         self.view.addSubview(teeTime)
         teeTime.alpha = 0
