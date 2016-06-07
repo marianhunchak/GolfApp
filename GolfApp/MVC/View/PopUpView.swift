@@ -17,7 +17,9 @@ class PopUpView: UIView {
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var popUpImage: UIImageView!
 
+    @IBOutlet weak var imageViewContainer: UIView!
     @IBOutlet weak var imageViewContainerHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageViewContainerWidth: NSLayoutConstraint!
 
     var websiteUrl : String!
     
@@ -29,11 +31,12 @@ class PopUpView: UIView {
                 (image) in
                 
                 if let lImage = image {
-                    dispatch_async(dispatch_get_main_queue(), { 
-                        self.popUpImage.image = lImage
-//                        self.popUpImage.image = UIImage(named: "a_splash")
-                        self.imageViewContainerHeight.constant = self.popUpImage.frame.size.width / self.popUpImage.image!.size.width * self.popUpImage.image!.size.height
-                    })
+                    
+                    self.popUpImage.image = lImage
+//                    self.popUpImage.image = UIImage(named: "a_place_holder_list_view")
+//                    print("image size = \(self.popUpImage.image?.size)")
+                    self.imageViewContainerWidth.constant = self.popUpImage.image!.size.width * 0.8
+                    self.imageViewContainerHeight.constant = self.imageViewContainer.frame.size.width / (self.popUpImage.image!.size.width * 0.8) * self.popUpImage.image!.size.height
                }
             })
             
@@ -42,7 +45,7 @@ class PopUpView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        popUpImage.contentMode = UIViewContentMode.ScaleAspectFit
+        popUpImage.contentMode = UIViewContentMode.ScaleAspectFill
         popUpImage.clipsToBounds = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTapGesture(_:)))
         self.popUpImage.addGestureRecognizer(tapGesture)

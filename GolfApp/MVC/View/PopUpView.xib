@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,14 +15,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="303" height="461"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-eB-4vw">
-                            <rect key="frame" x="10" y="167" width="283" height="128"/>
+                            <rect key="frame" x="27" y="167" width="250" height="128"/>
                             <subviews>
                                 <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d56-51-tPN">
-                                    <rect key="frame" x="0.0" y="0.0" width="283" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="128"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-wC-WVE">
-                                    <rect key="frame" x="248" y="5" width="30" height="30"/>
+                                    <rect key="frame" x="215" y="5" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="gw1-vK-uA5"/>
                                         <constraint firstAttribute="height" constant="30" id="jpS-Pu-eZd"/>
@@ -37,6 +37,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="width" constant="250" id="0iG-ui-fd2"/>
                                 <constraint firstAttribute="trailing" secondItem="d56-51-tPN" secondAttribute="trailing" id="2Zf-D2-1fT"/>
                                 <constraint firstAttribute="height" constant="128" id="I1Z-LI-GaI"/>
                                 <constraint firstItem="Mgb-wC-WVE" firstAttribute="top" secondItem="2Tj-eB-4vw" secondAttribute="top" constant="5" id="MuH-7r-hBU"/>
@@ -49,8 +50,10 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="2Tj-eB-4vw" secondAttribute="trailing" constant="10" id="Uoe-D9-CAX"/>
-                        <constraint firstItem="2Tj-eB-4vw" firstAttribute="leading" secondItem="GwR-80-LVT" secondAttribute="leading" constant="10" id="VIE-Ei-7y9"/>
+                        <constraint firstItem="2Tj-eB-4vw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GwR-80-LVT" secondAttribute="top" constant="15" id="TAg-CR-kzc"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Tj-eB-4vw" secondAttribute="trailing" constant="15" id="Uoe-D9-CAX"/>
+                        <constraint firstItem="2Tj-eB-4vw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GwR-80-LVT" secondAttribute="leading" constant="15" id="VIE-Ei-7y9"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Tj-eB-4vw" secondAttribute="bottom" constant="15" id="W7b-Ye-kXL"/>
                         <constraint firstItem="2Tj-eB-4vw" firstAttribute="centerY" secondItem="GwR-80-LVT" secondAttribute="centerY" id="Y34-y9-MqA"/>
                         <constraint firstItem="2Tj-eB-4vw" firstAttribute="centerX" secondItem="GwR-80-LVT" secondAttribute="centerX" id="rEr-n4-pp9"/>
                     </constraints>
@@ -66,7 +69,9 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="closeButton" destination="Mgb-wC-WVE" id="Hcf-wf-Ema"/>
+                <outlet property="imageViewContainer" destination="2Tj-eB-4vw" id="psj-2w-iWu"/>
                 <outlet property="imageViewContainerHeight" destination="I1Z-LI-GaI" id="hVq-xc-y31"/>
+                <outlet property="imageViewContainerWidth" destination="0iG-ui-fd2" id="dms-dM-5cU"/>
                 <outlet property="popUpImage" destination="d56-51-tPN" id="KRc-gh-cuU"/>
                 <outlet property="shadowView" destination="GwR-80-LVT" id="ClN-wj-1N7"/>
             </connections>

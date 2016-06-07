@@ -50,7 +50,7 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rateKey = rateArray[section]
+        let rateKey = rateArray[section] 
 
         return rateKey.items.count
     }

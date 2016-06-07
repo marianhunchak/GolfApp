@@ -106,7 +106,6 @@ class BaseTableViewController: UITableViewController {
             tableView.infiniteScrollIndicatorMargin = 30
         }
         
-        
         tableView.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
             let tableView = scrollView as! UITableView
             

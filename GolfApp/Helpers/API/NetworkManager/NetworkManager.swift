@@ -136,7 +136,7 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
-                                     //   print("JSON: \(JSON)")
+                 //   print("JSON: \(JSON)")
                     self.jsonArray = JSON as? NSDictionary
                     
                     let coursesArray: NSArray = [self.jsonArray!["rates"]!]

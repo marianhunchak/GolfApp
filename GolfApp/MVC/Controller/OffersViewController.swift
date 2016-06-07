@@ -41,36 +41,37 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.offersTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
-        if titleOfferts == "re_suggestion_nav_bar" {
+        switch titleOfferts {
+            
+        case "re_suggestion_nav_bar":
             NetworkManager.sharedInstance.getSuggestions(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
             }
-        
-        } else if titleOfferts == "ps_special_offer_nav_bar"{
+        case "ps_special_offer_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
             }
-        
-        } else if titleOfferts == "pro_rate_offer_nav_bar" {
+        case "pro_rate_offer_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
                 self.pros.packagesList = array!
                 NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             }
-        
-        } else if titleOfferts == "htl_package_list_nav_bar" {
+            
+        case "htl_package_list_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
                 self.hotel.packagesList = array!
                 NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             }
-        
+            
+        default:
+            break
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
