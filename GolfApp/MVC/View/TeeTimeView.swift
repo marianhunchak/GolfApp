@@ -46,7 +46,7 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
     }
     @IBAction func telephoneButton(sender: AnyObject) {
         if let phone = phoneString {
-            UIApplication.sharedApplication().openURL(NSURL(string:"tel://" + phone)!)
+            UIApplication.sharedApplication().openURL(NSURL(string:"telprompt://" + phone)!)
         } else {
             
             let sendMailErrorAlert = UIAlertView(title: "GolfApp can not make a call!", message: "GolfApp can not call because there is no phone number!", delegate: self, cancelButtonTitle: "ok")

@@ -58,6 +58,7 @@ extension UIViewController {
                                               style: .Plain,
                                               target: self,
                                               action: #selector(showPreviousController))
+
         backButton.imageInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         
         let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: self, action: nil)

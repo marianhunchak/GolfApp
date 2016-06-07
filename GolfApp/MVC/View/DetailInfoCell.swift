@@ -28,6 +28,10 @@ class DetailInfoCell: UITableViewCell {
         backgroundCourseFooter.layer.cornerRadius = 5
         backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
+
+        for gesture in descriptionLabel.gestureRecognizers! {
+            gesture.cancelsTouchesInView = false
+        }
     }
     
     override func prepareForReuse() {
