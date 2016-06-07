@@ -71,9 +71,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
-        NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
-            self.advertisemet = aAdvertisemet
+        
+        if let lAdvertisemnt = Advertisemet.MR_findFirst() {
+            self.advertisemet = lAdvertisemnt as? Advertisemet
             self.checkDate()
+        } else {
+            NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+                self.advertisemet = aAdvertisemet
+                self.checkDate()
+            }
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
     }

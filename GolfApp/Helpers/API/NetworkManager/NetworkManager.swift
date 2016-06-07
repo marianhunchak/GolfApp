@@ -88,11 +88,11 @@ class NetworkManager {
     //MARK: Profile & Advertising
     
     func getProfileAndAvertising(completion :Profile -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=\(Global.languageID)", parameters:nil )
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=1", parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
-//                    print("JSON: \(JSON)")
+                    print("JSON: \(JSON)")
                     let profileDictionary = JSON["profile"]! as! NSDictionary
                     let buttonsArray = JSON["buttons"]! as! [String]
 

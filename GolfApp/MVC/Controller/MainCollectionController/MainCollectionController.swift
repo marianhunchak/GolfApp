@@ -44,8 +44,13 @@ class MainCollectionController: UICollectionViewController  {
         let nib = UINib(nibName: nibNameMenuCollectionCell, bundle: nil)
         self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
-        NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
-            self.profile = pProfile
+        if let lProfile = Profile.MR_findFirst() {
+            self.profile = lProfile as? Profile
+        } else {
+            
+            NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
+                self.profile = pProfile
+            }
         }
 
     }
