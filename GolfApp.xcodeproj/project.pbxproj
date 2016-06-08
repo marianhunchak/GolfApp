@@ -85,6 +85,8 @@
 		843BFE761D05D635000AE7A7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BFE741D05D635000AE7A7 /* Profile.swift */; };
 		843BFE7A1D05E133000AE7A7 /* Advertisemet+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BFE781D05E133000AE7A7 /* Advertisemet+CoreDataProperties.swift */; };
 		843BFE7B1D05E133000AE7A7 /* Advertisemet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BFE791D05E133000AE7A7 /* Advertisemet.swift */; };
+		843DC68A1D0729660069CEFF /* ProsShop+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DC6881D0729660069CEFF /* ProsShop+CoreDataProperties.swift */; };
+		843DC68B1D0729660069CEFF /* ProsShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843DC6891D0729660069CEFF /* ProsShop.swift */; };
 		844083101D02FDF20056C720 /* New+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440830E1D02FDF20056C720 /* New+CoreDataProperties.swift */; };
 		844083111D02FDF20056C720 /* New.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440830F1D02FDF20056C720 /* New.swift */; };
 		8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */; };
@@ -102,6 +104,8 @@
 		844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A941A1CEB13F600BCC86F /* ProsTableCell.swift */; };
 		844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */; };
 		844A942E1CEB6DD900BCC86F /* ViewForProHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A942D1CEB6DD900BCC86F /* ViewForProHeader.swift */; };
+		84566CBB1D082156004029BD /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84566CB91D082156004029BD /* Restaurant+CoreDataProperties.swift */; };
+		84566CBC1D082156004029BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84566CBA1D082156004029BD /* Restaurant.swift */; };
 		845F254B1D05C0FD006C09A4 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F254A1D05C0FD006C09A4 /* ImageSaver.swift */; };
 		845F25581D05D284006C09A4 /* Hotel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25561D05D284006C09A4 /* Hotel+CoreDataProperties.swift */; };
 		845F25591D05D284006C09A4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25571D05D284006C09A4 /* Hotel.swift */; };
@@ -114,14 +118,12 @@
 		84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */; };
 		84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0881CED21320056B903 /* ProShopTableView.swift */; };
 		84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */; };
-		84F4C08F1CED3A280056B903 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C08E1CED3A280056B903 /* Restaurant.swift */; };
 		84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4CD001D007F9400EDD75A /* ProsDetailController.swift */; };
 		84F4CD031D007F9400EDD75A /* ProsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F4CD011D007F9400EDD75A /* ProsDetailController.xib */; };
 		84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */; };
 		84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B9561CEDCAB500B4491C /* RestaurantTableViewController.swift */; };
 		84F6B95A1CEDE1DB00B4491C /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B9591CEDE1DB00B4491C /* RestaurantDetailViewController.swift */; };
 		84F6B95D1CEE00CC00B4491C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B95C1CEE00CC00B4491C /* Menu.swift */; };
-		84FBD0151CEC7CBB002FBF57 /* ProsShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBD0141CEC7CBB002FBF57 /* ProsShop.swift */; };
 		84FEF1E51CE9C3A100D72858 /* ViewForRateHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FEF1E41CE9C3A100D72858 /* ViewForRateHeader.xib */; };
 		84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */; };
 		84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FEF1E91CE9D03100D72858 /* RateCell.xib */; };
@@ -451,6 +453,8 @@
 		843BFE741D05D635000AE7A7 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		843BFE781D05E133000AE7A7 /* Advertisemet+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Advertisemet+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		843BFE791D05E133000AE7A7 /* Advertisemet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Advertisemet.swift; sourceTree = "<group>"; };
+		843DC6881D0729660069CEFF /* ProsShop+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProsShop+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		843DC6891D0729660069CEFF /* ProsShop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsShop.swift; sourceTree = "<group>"; };
 		8440830E1D02FDF20056C720 /* New+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "New+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8440830F1D02FDF20056C720 /* New.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = New.swift; sourceTree = "<group>"; };
 		8441945B1CE615650056742E /* FacilitesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -468,6 +472,8 @@
 		844A941A1CEB13F600BCC86F /* ProsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsTableCell.swift; sourceTree = "<group>"; };
 		844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForProHeader.xib; sourceTree = "<group>"; };
 		844A942D1CEB6DD900BCC86F /* ViewForProHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForProHeader.swift; sourceTree = "<group>"; };
+		84566CB91D082156004029BD /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84566CBA1D082156004029BD /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		845F254A1D05C0FD006C09A4 /* ImageSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		845F25561D05D284006C09A4 /* Hotel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hotel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		845F25571D05D284006C09A4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
@@ -480,14 +486,12 @@
 		84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopDetailViewController.swift; sourceTree = "<group>"; };
 		84F4C0881CED21320056B903 /* ProShopTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopTableView.swift; sourceTree = "<group>"; };
 		84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsListTableViewController.swift; sourceTree = "<group>"; };
-		84F4C08E1CED3A280056B903 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		84F4CD001D007F9400EDD75A /* ProsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsDetailController.swift; sourceTree = "<group>"; };
 		84F4CD011D007F9400EDD75A /* ProsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsDetailController.xib; sourceTree = "<group>"; };
 		84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionCell.swift; sourceTree = "<group>"; };
 		84F6B9561CEDCAB500B4491C /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		84F6B9591CEDE1DB00B4491C /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		84F6B95C1CEE00CC00B4491C /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		84FBD0141CEC7CBB002FBF57 /* ProsShop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsShop.swift; sourceTree = "<group>"; };
 		84FEF1E41CE9C3A100D72858 /* ViewForRateHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForRateHeader.xib; sourceTree = "<group>"; };
 		84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForRateHeader.swift; sourceTree = "<group>"; };
 		84FEF1E91CE9D03100D72858 /* RateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
@@ -691,8 +695,6 @@
 				8432FED71D06D34D00C05862 /* Package */,
 				845F254C1D05C73D006C09A4 /* Image */,
 				84F6B95B1CEE00A500B4491C /* Menu */,
-				84F4C08D1CED38C80056B903 /* Restaurant */,
-				84FBD0131CEC7C9E002FBF57 /* ProsShop */,
 				84F190FD1CE899F800B1DDDC /* Rate */,
 				5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */,
 				560E3C731CE137A2006F8655 /* DB */,
@@ -704,8 +706,11 @@
 		560E3C731CE137A2006F8655 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+
 				8445B0E31D0858CF009D08CD /* CourseRate */,
 				8435F0681D082736007D6178 /* Course */,
+				84566CAF1D081922004029BD /* Restaurant */,
+				843DC6721D071C9A0069CEFF /* ProsShop */,
 				845F255A1D05D368006C09A4 /* Hotel */,
 				843BFE771D05E0F5000AE7A7 /* Advertisemet */,
 				843BFE611D05C9E1000AE7A7 /* Profile */,
@@ -1749,6 +1754,15 @@
 			name = Advertisemet;
 			sourceTree = "<group>";
 		};
+		843DC6721D071C9A0069CEFF /* ProsShop */ = {
+			isa = PBXGroup;
+			children = (
+				843DC6881D0729660069CEFF /* ProsShop+CoreDataProperties.swift */,
+				843DC6891D0729660069CEFF /* ProsShop.swift */,
+			);
+			name = ProsShop;
+			sourceTree = "<group>";
+		};
 		8440830D1D02FDE50056C720 /* New */ = {
 			isa = PBXGroup;
 			children = (
@@ -1821,6 +1835,15 @@
 			name = ViewForProHeader;
 			sourceTree = "<group>";
 		};
+		84566CAF1D081922004029BD /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+				84566CB91D082156004029BD /* Restaurant+CoreDataProperties.swift */,
+				84566CBA1D082156004029BD /* Restaurant.swift */,
+			);
+			name = Restaurant;
+			sourceTree = "<group>";
+		};
 		845F254C1D05C73D006C09A4 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -1872,14 +1895,6 @@
 			name = ProsListTableViewController;
 			sourceTree = "<group>";
 		};
-		84F4C08D1CED38C80056B903 /* Restaurant */ = {
-			isa = PBXGroup;
-			children = (
-				84F4C08E1CED3A280056B903 /* Restaurant.swift */,
-			);
-			name = Restaurant;
-			sourceTree = "<group>";
-		};
 		84F6100E1CE90C5F00FF3A87 /* RateController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1927,14 +1942,6 @@
 				84F4C0881CED21320056B903 /* ProShopTableView.swift */,
 			);
 			name = ProShopTableViewController;
-			sourceTree = "<group>";
-		};
-		84FBD0131CEC7C9E002FBF57 /* ProsShop */ = {
-			isa = PBXGroup;
-			children = (
-				84FBD0141CEC7CBB002FBF57 /* ProsShop.swift */,
-			);
-			name = ProsShop;
 			sourceTree = "<group>";
 		};
 		84FEF1E31CE9C32900D72858 /* ViewForRateHeader */ = {
@@ -2239,9 +2246,11 @@
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
 				843BFE7B1D05E133000AE7A7 /* Advertisemet.swift in Sources */,
 				8445B0E11D085742009D08CD /* CourseRate+CoreDataProperties.swift in Sources */,
+				843DC68A1D0729660069CEFF /* ProsShop+CoreDataProperties.swift in Sources */,
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
 				844083111D02FDF20056C720 /* New.swift in Sources */,
 				843617711CE2389E00F96599 /* ContactView.swift in Sources */,
+				843DC68B1D0729660069CEFF /* ProsShop.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
 				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
 				84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */,
@@ -2253,7 +2262,7 @@
 				560E3C9C1CE137A2006F8655 /* CoursTableCell.swift in Sources */,
 				844083101D02FDF20056C720 /* New+CoreDataProperties.swift in Sources */,
 				844387461D018DE600F6D5E6 /* Image.swift in Sources */,
-				84F4C08F1CED3A280056B903 /* Restaurant.swift in Sources */,
+				84566CBB1D082156004029BD /* Restaurant+CoreDataProperties.swift in Sources */,
 				84F6B95A1CEDE1DB00B4491C /* RestaurantDetailViewController.swift in Sources */,
 				844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */,
 				843BFE7A1D05E133000AE7A7 /* Advertisemet+CoreDataProperties.swift in Sources */,
@@ -2270,7 +2279,6 @@
 				844387511D01D2B500F6D5E6 /* Pros+CoreDataProperties.swift in Sources */,
 				840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */,
 				84F6B95D1CEE00CC00B4491C /* Menu.swift in Sources */,
-				84FBD0151CEC7CBB002FBF57 /* ProsShop.swift in Sources */,
 				564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */,
 				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
 				567010C91CF5B4D200E0EC04 /* Downloader.swift in Sources */,
@@ -2302,6 +2310,7 @@
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,
+				84566CBC1D082156004029BD /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2415,13 +2424,15 @@
 			baseConfigurationReference = D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Marian Hunchak (J3SRAWDC34)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.golfapp.gclacote141;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GolfApp/Helpers/GolfApp-Bridging-Header.h";
 			};
 			name = Debug;
@@ -2431,13 +2442,15 @@
 			baseConfigurationReference = 32EBA28C9420B0A1333706AB /* Pods-GolfApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Marian Hunchak (J3SRAWDC34)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.golfapp.gclacote141;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GolfApp/Helpers/GolfApp-Bridging-Header.h";
 			};
 			name = Release;

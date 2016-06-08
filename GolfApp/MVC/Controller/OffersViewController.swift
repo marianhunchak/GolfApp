@@ -22,6 +22,8 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     var titleOfferts = "re_suggestion_nav_bar"
     var hotel : Hotel!
     var pros : Pros!
+    var prosShop : ProsShop!
+    var restaurant : Restaurant?
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var offersTableView: UITableView!
@@ -47,11 +49,15 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
             NetworkManager.sharedInstance.getSuggestions(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
+                self.restaurant?.packagesList = array
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             }
         case "ps_special_offer_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 self.offertsArray = array!
                 self.offersTableView.reloadData()
+                self.prosShop.packagesList = array
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             }
         case "pro_rate_offer_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in

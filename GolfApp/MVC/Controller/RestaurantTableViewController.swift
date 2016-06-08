@@ -14,7 +14,7 @@ private let detailProsControllerIdentfier = "detailProsControllerIdentfier"
 
 class RestaurantTableViewController: BaseTableViewController {
     
-    var restaurantArray = [Restaurant]()
+    //var restaurantArray = [Restaurant]()
     var restaurantsCount = 1
     
     
@@ -26,13 +26,6 @@ class RestaurantTableViewController: BaseTableViewController {
         
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
-        
-        NetworkManager.sharedInstance.getRestaurant { array in
-            self.restaurantArray = array!
-            self.restaurantsCount = self.restaurantArray.count
-            self.showRestaurantDetailView()
-        }
-
         
     }
     
@@ -49,16 +42,18 @@ class RestaurantTableViewController: BaseTableViewController {
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.restaurantArray.count
+        return self.dataSource.count
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProsTableCell
         
-        cell.prosLabel.text = restaurantArray[indexPath.row].name
+        let lRestaurant = dataSource[indexPath.row] as! Restaurant
         
-        cell.imageForCell = restaurantArray[indexPath.row].images.first
+        cell.prosLabel.text = lRestaurant.name
+        
+        cell.imageForCell = lRestaurant.images.first
         
         
         return cell
@@ -67,38 +62,30 @@ class RestaurantTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.view.frame.height / 3.0
     }
+    
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
        let vc =  RestaurantDetailContrller(nibName: "EventsListController", bundle: nil)
         
-        vc.restaurant = restaurantArray[indexPath.row]
+        vc.restaurant = dataSource[indexPath.row] as? Restaurant
         vc.restaurantsCount = restaurantsCount
+        vc.package_url = dataSource[indexPath.row].package_url!
         
         self.navigationController?.pushViewController(vc, animated: false)
 
     }
     
     // MARK: - Private methods
-    
-    func reloadAllData(sender:AnyObject) {
-        
-        NetworkManager.sharedInstance.getRestaurant { array in
-            self.restaurantArray = array!
-            dispatch_async(dispatch_get_main_queue(), {
-                self.tableView.reloadData()
-            })
-            
-        }
-    }
-    
+
     func showRestaurantDetailView() {
     
-        if self.restaurantArray.count == 1 {
+        if self.dataSource.count == 1 {
             let vc =  RestaurantDetailContrller(nibName: "EventsListController", bundle: nil)
             
-            vc.restaurant = restaurantArray[0]
+            vc.restaurant = dataSource[0] as? Restaurant
             vc.restaurantsCount = restaurantsCount
+            vc.package_url = dataSource[0].package_url!
             
             
             self.navigationController?.pushViewController(vc, animated: false)
@@ -108,6 +95,51 @@ class RestaurantTableViewController: BaseTableViewController {
         
         }
 
+    }
+    // MARK: Overrided methods
+    
+    override func loadDataFromDB() {
+        
+        loadedFromDB = true
+        dataSource = Restaurant.MR_findAllSortedBy("createdDate", ascending: true)
+        restaurantsCount = dataSource.count
+        self.showRestaurantDetailView()
+        print("DataSource count = \(dataSource.count)")
+        tableView.reloadData()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
+        
+        NetworkManager.sharedInstance.getRestaurant(pPage, completion: {
+            (array, error) in
+            
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
+            
+            if let lArray = array {
+                
+                self.dataSource += lArray
+                self.restaurantsCount = lArray.count
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                } else {
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+            }
+            self.showRestaurantDetailView()
+            completion()
+        })
     }
     
     

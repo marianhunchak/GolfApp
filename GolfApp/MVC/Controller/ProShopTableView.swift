@@ -12,9 +12,7 @@ private let cellIdentifier = "parcoursCell"
 private let detailProShopControllerIdentfier = "ProShopDetailViewController"
 
 class ProShopTableView: BaseTableViewController {
-    
-    
-    var prosShopArray = [ProsShop]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +21,7 @@ class ProShopTableView: BaseTableViewController {
         
         let nib = UINib(nibName: "CoursTableCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
-        
-        NetworkManager.sharedInstance.getProsShop( { (pProsShop) in
-            if  let lProsShopArray = pProsShop {
-                self.prosShopArray = lProsShopArray
-                self.tableView.reloadData()
-            }
-        })
+
         
     }
     
@@ -43,15 +35,17 @@ class ProShopTableView: BaseTableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return prosShopArray.count
+        return dataSource.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CoursTableCell
         cell.cellInfoLabelHeight.constant = 0
         
-        cell.cellItemLabel.text = prosShopArray[indexPath.row].name
-        cell.imageForCell = prosShopArray[indexPath.row].images.first
+        let lProsShop = dataSource[indexPath.row] as! ProsShop
+        
+        cell.cellItemLabel.text = lProsShop.name
+        cell.imageForCell = lProsShop.images.first
         
         return cell
     }
@@ -66,13 +60,55 @@ class ProShopTableView: BaseTableViewController {
         
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopDetailViewController") as! ProShopDetailViewController
         
-                vc.package_url = prosShopArray[indexPath.row].package_url!
-                vc.prosShop = prosShopArray[indexPath.row]
+                vc.package_url = dataSource[indexPath.row].package_url!
+                vc.prosShop = dataSource[indexPath.row] as? ProsShop
         
         self.navigationController?.pushViewController(vc, animated: false)
         
     }
     
+    // MARK: Overrided methods
+    
+    override func loadDataFromDB() {
+        
+        loadedFromDB = true
+        dataSource = ProsShop.MR_findAllSortedBy("createdDate", ascending: true)
+        print("DataSource count = \(dataSource.count)")
+        tableView.reloadData()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
+        
+        NetworkManager.sharedInstance.getProsShop(pPage, completion: {
+            (array, error) in
+            
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
+            
+            if let lArray = array {
+                
+                self.dataSource += lArray
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                } else {
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+            }
+            
+            completion()
+        })
+    }
     
     
 }

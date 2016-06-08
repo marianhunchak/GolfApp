@@ -14,8 +14,9 @@ private let courseFooterIndetifire = "courseFooterIndetifire"
 class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         
     
-    var restaurant = Restaurant()
+    var restaurant : Restaurant?
     var restaurantsCount = 1
+    var package_url = String()
     let viewForHeader = ViewForDetailHeader.loadViewFromNib()
     
 
@@ -66,14 +67,14 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.detailLabelHeight.constant = 0
-            cell2.nameLabel.text = restaurant.name
-            cell2.descriptionLabel.text = restaurant.descr
+            cell2.nameLabel.text = restaurant!.name
+            cell2.descriptionLabel.text = restaurant!.descr
             
             return cell2
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellImagereuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = self.restaurant.images
+        cell.imagesArray = self.restaurant!.images
         return cell
     }
     
@@ -119,10 +120,10 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
                                              (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
 
         self.navigationController!.view.addSubview(contact)
-        contact.phoneString = restaurant.phone
-        contact.emailString = restaurant.email
-        contact.longitude = restaurant.longitude
-        contact.latitude = restaurant.latitude
+        contact.phoneString = restaurant!.phone
+        contact.emailString = restaurant!.email
+        contact.longitude = restaurant!.longitude
+        contact.latitude = restaurant!.latitude
         contact.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             contact.alpha = 1
@@ -132,16 +133,20 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
         
         let menuVC = RateViewController(nibName: "RateViewController", bundle: nil)
-        menuVC.rateUrl = restaurant.menu_url
+        menuVC.rateUrl = restaurant!.menu_url!
+
         menuVC.navigationTitle = "re_menu_nav_bar"
+        
         self.navigationController?.pushViewController(menuVC, animated: false)
         
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
         let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
-        packageVC.packageUrl = restaurant.package_url
+        packageVC.packageUrl = restaurant!.package_url
         packageVC.titleOfferts = "re_suggestion_nav_bar"
+        packageVC.offertsArray = restaurant?.packagesList
+        packageVC.restaurant = restaurant
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
