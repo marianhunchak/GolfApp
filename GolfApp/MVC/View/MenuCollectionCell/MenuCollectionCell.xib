@@ -14,24 +14,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="menuCollectionCell" id="kAf-xb-gJg" customClass="MenuCollectionCell" customModule="GolfApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="167"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="167"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2O-HJ-ehu">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="167"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backroundImage.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IMG-Cs-MGB">
-                        <rect key="frame" x="39" y="10" width="121" height="121"/>
+                        <rect key="frame" x="32" y="10" width="136" height="136"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="IMG-Cs-MGB" secondAttribute="height" multiplier="1:1" id="CRn-0b-oWJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restorants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SDP-0z-lb1">
-                        <rect key="frame" x="10" y="132" width="180" height="15"/>
+                        <rect key="frame" x="10" y="149" width="180" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="kfC-Bx-6zB"/>
                         </constraints>
@@ -45,7 +45,7 @@
             <constraints>
                 <constraint firstItem="B2O-HJ-ehu" firstAttribute="top" secondItem="kAf-xb-gJg" secondAttribute="top" id="2d7-80-ma0"/>
                 <constraint firstItem="SDP-0z-lb1" firstAttribute="leading" secondItem="kAf-xb-gJg" secondAttribute="leading" constant="10" id="6wE-3e-dxw"/>
-                <constraint firstItem="SDP-0z-lb1" firstAttribute="top" secondItem="IMG-Cs-MGB" secondAttribute="bottom" constant="1" id="9Lq-9m-ood"/>
+                <constraint firstItem="SDP-0z-lb1" firstAttribute="top" secondItem="IMG-Cs-MGB" secondAttribute="bottom" constant="3" id="9Lq-9m-ood"/>
                 <constraint firstAttribute="trailing" secondItem="SDP-0z-lb1" secondAttribute="trailing" constant="10" id="BYy-ol-Pbq"/>
                 <constraint firstItem="IMG-Cs-MGB" firstAttribute="centerX" secondItem="B2O-HJ-ehu" secondAttribute="centerX" id="Cwg-DP-KH9"/>
                 <constraint firstAttribute="trailing" secondItem="B2O-HJ-ehu" secondAttribute="trailing" id="LuQ-Ri-Eoq"/>
@@ -54,13 +54,13 @@
                 <constraint firstItem="B2O-HJ-ehu" firstAttribute="leading" secondItem="kAf-xb-gJg" secondAttribute="leading" id="fRg-op-jHH"/>
                 <constraint firstAttribute="bottom" secondItem="SDP-0z-lb1" secondAttribute="bottom" constant="3" id="y57-1h-Q2L"/>
             </constraints>
-            <size key="customSize" width="255" height="263"/>
+            <size key="customSize" width="255" height="280"/>
             <connections>
                 <outlet property="cellView" destination="B2O-HJ-ehu" id="VNY-eO-vRv"/>
                 <outlet property="menuImageView" destination="IMG-Cs-MGB" id="Aon-Tq-Rgg"/>
                 <outlet property="menuLabel" destination="SDP-0z-lb1" id="DSw-gd-zj2"/>
             </connections>
-            <point key="canvasLocation" x="361" y="348"/>
+            <point key="canvasLocation" x="361" y="356.5"/>
         </collectionViewCell>
     </objects>
     <resources>
