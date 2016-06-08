@@ -310,7 +310,7 @@ class NetworkManager {
     
     //MARK: Menu
     
-    func getMenu(urlToRate URL: String ,completion: ([Rate]?) -> Void) {
+    func getMenu(urlToRate URL: String ,completion: ([Rate]?, NSError?) -> Void) {
         Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
@@ -325,7 +325,7 @@ class NetworkManager {
                         responseArray.append(Rate.rateWhithDictionary(rateDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray , nil)
                     
                 } else {
                     print("Status cod = \(response.response?.statusCode)")
