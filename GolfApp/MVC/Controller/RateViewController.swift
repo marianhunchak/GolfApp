@@ -19,6 +19,7 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     var navigationTitle = "crs_rate_details_nav_bar"
     var rateUrl = ""
     var course : Course!
+    var restaurant : Restaurant?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +111,10 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func loadDataFromDB()  {
         if navigationTitle == "re_menu_nav_bar" {
 
-            
+            if let lRestaurantMenu = CourseRate.MR_findFirstByAttribute("courseId", withValue: restaurant!.id) as? CourseRate {
+                self.rateArray = lRestaurantMenu.ratesList
+                self.tableView.reloadData()
+            }
             
         } else if navigationTitle == "crs_rate_details_nav_bar" {
 
@@ -125,12 +129,18 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func loadDataFromServer() {
         
         if navigationTitle == "re_menu_nav_bar" {
-            NetworkManager.sharedInstance.getMenu(urlToRate: rateUrl) { array in
-                self.rateArray = array!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.refreshControl?.endRefreshing()
+            NetworkManager.sharedInstance.getMenu(urlToRate: rateUrl) { array , error in
+                
+                if let lArray = array {
+                    self.rateArray = lArray
                     self.tableView.reloadData()
-                })
+                    
+                    let lRestaurantMenu = CourseRate.MR_createEntity() as! CourseRate
+                    lRestaurantMenu.courseId = self.restaurant!.id
+                    lRestaurantMenu.ratesList = array
+                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                }
+                self.refreshControl?.endRefreshing()
             }
         } else if navigationTitle == "crs_rate_details_nav_bar" {
             
@@ -154,9 +164,7 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     
     func refresh(sender: AnyObject) {
-        
         loadDataFromDB()
-        
         if rateArray.isEmpty {
             refreshControl?.beginRefreshing()
         }

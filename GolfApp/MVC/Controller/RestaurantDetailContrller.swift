@@ -134,7 +134,7 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         
         let menuVC = RateViewController(nibName: "RateViewController", bundle: nil)
         menuVC.rateUrl = restaurant!.menu_url!
-
+        menuVC.restaurant = restaurant
         menuVC.navigationTitle = "re_menu_nav_bar"
         
         self.navigationController?.pushViewController(menuVC, animated: false)
