@@ -10,65 +10,81 @@ import UIKit
 
 private let cellIdetifier = "RateCell"
 
-class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewDataSource {
+class RateViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var refreshControl:UIRefreshControl!
     
     var rateArray = [Rate]()
     var navigationTitle = "crs_rate_details_nav_bar"
     var rateUrl = ""
+    var course : Course!
     
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var rateTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureNavBar()
+       
         
-        backgroundView.backgroundColor = Global.viewsBackgroundColor
-        rateTableView.layer.cornerRadius = 5
-        rateTableView.layer.masksToBounds = true
-        rateTableView.backgroundColor = Global.viewsBackgroundColor
-        
-        rateTableView.sectionHeaderHeight = 0.0
-        rateTableView.sectionFooterHeight = 0.0
+        tableView.contentInset = UIEdgeInsets(top: Global.pading,
+                                              left: 0,
+                                              bottom: Global.pading,
+                                              right: 0)
 
-        self.rateTableView.estimatedSectionHeaderHeight = 30
-        self.rateTableView.estimatedRowHeight = 20
+
+        view.backgroundColor = Global.viewsBackgroundColor
+        tableView.layer.cornerRadius = 5
+        tableView.layer.masksToBounds = true
+        tableView.backgroundColor = Global.viewsBackgroundColor
+        tableView.sectionHeaderHeight = 0.0
+        tableView.sectionFooterHeight = 0.0
+        
+        tableView.estimatedSectionHeaderHeight = 30
+        tableView.estimatedRowHeight = 20
         
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName(navigationTitle)
         
         let nib = UINib(nibName: "RateCell", bundle: nil)
-        rateTableView.registerNib(nib, forCellReuseIdentifier: cellIdetifier)
+        tableView.registerNib(nib, forCellReuseIdentifier: cellIdetifier)
         
-        getData()
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+        refresh(refreshControl!)
+        
+        tableView.contentMode = .ScaleToFill
+         self.configureNavBar()
+//        getData()
+
+        
     }
     
     //MARK: UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-  
+        
         return rateArray.count
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let rateKey = rateArray[section] 
-
+        let rateKey = rateArray[section]
+        
         return rateKey.items.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdetifier, forIndexPath: indexPath) as! RateCell
-        cell.frame = CGRect(origin: CGPointZero, size: CGSizeMake(tableView.frame.width, tableView.frame.height))
+//        cell.frame = CGRect(origin: CGPointZero, size: CGSizeMake(tableView.frame.width, tableView.frame.height))
         if rateArray.count > 0 {
             
             let lRate = rateArray[indexPath.section]
-
+            
             cell.toursLabel.text = lRate.items[indexPath.row].descr
             cell.priceLabel.text = lRate.items[indexPath.row].price
             cell.priceLabel.sizeToFit()
             
-            }
- 
+        }
+        
         return cell
     }
     
@@ -84,27 +100,68 @@ class RateViewController: UIViewController ,UITableViewDelegate ,UITableViewData
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let rates = ViewForRateHeader.loadViewFromNib()
-        rates.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
+//        rates.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
         rates.textLabeForRateHeader.text = rateArray[section].section
         return rates
     }
     
-    func getData() {
+    //  MARK: Private methods
     
+    func loadDataFromDB()  {
+        if navigationTitle == "re_menu_nav_bar" {
+
+            
+            
+        } else if navigationTitle == "crs_rate_details_nav_bar" {
+
+            if let lCourseRate = CourseRate.MR_findFirstByAttribute("courseId", withValue: course.id) as? CourseRate {
+                self.rateArray = lCourseRate.ratesList
+                self.tableView.reloadData()
+            }
+
+        }
+    }
+    
+    func loadDataFromServer() {
+        
         if navigationTitle == "re_menu_nav_bar" {
             NetworkManager.sharedInstance.getMenu(urlToRate: rateUrl) { array in
                 self.rateArray = array!
-                self.rateTableView.reloadData()
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.refreshControl?.endRefreshing()
+                    self.tableView.reloadData()
+                })
             }
         } else if navigationTitle == "crs_rate_details_nav_bar" {
             
-            NetworkManager.sharedInstance.getRate(urlToRate: rateUrl) { array in
-                self.rateArray = array!
-                self.rateTableView.reloadData()
+            NetworkManager.sharedInstance.getRate(urlToRate: course.rate_url) { array, error in
+                
+                if let lArray = array {
+                    self.rateArray = lArray
+                    self.tableView.reloadData()
+                    
+                    let lCourseRate = CourseRate.MR_createEntity() as! CourseRate
+                    lCourseRate.courseId = self.course.id
+                    lCourseRate.ratesList = array
+                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                }
+                
+                self.refreshControl?.endRefreshing()
             }
             
         }
-
+        
     }
-
+    
+    func refresh(sender: AnyObject) {
+        
+        loadDataFromDB()
+        
+        if rateArray.isEmpty {
+            refreshControl?.beginRefreshing()
+        }
+        
+        loadDataFromServer()
+    }
+    
 }

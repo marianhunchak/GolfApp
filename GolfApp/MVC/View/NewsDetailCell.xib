@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -12,7 +12,9 @@
         </mutableArray>
         <mutableArray key="STONE INFORMEL LT SEMI-BOLD.ttf">
             <string>StoneInformalLT-Semibold</string>
-            <string>StoneInformalLT-Semibold</string>
+        </mutableArray>
+        <mutableArray key="STONE INFROMAL LT ITALIC_0.ttf">
+            <string>StoneInformalLT-Italic</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -29,25 +31,25 @@
                         <rect key="frame" x="12" y="12" width="370" height="120"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFp-kV-ebu">
-                                <rect key="frame" x="8" y="8" width="354" height="20"/>
+                                <rect key="frame" x="8" y="8" width="354" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="3hg-yQ-pZL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="20"/>
                                 <color key="textColor" red="0.4823529412" green="0.65490196079999996" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="243" text="subtitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eYa-Lg-Hq3">
-                                <rect key="frame" x="8" y="28" width="354" height="28"/>
+                                <rect key="frame" x="8" y="32" width="354" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="ncn-Fe-Snf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="StoneInformalLT-Semibold" family="StoneInformal LT Semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT-Italic" family="StoneInformal LT Italic" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcw-e5-i1Q">
-                                <rect key="frame" x="8" y="61" width="354" height="15"/>
+                                <rect key="frame" x="8" y="59" width="354" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="4h4-Jx-Pg6"/>
                                 </constraints>
@@ -56,26 +58,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="description" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qju-Je-1jD">
-                                <rect key="frame" x="8" y="76" width="354" height="36"/>
+                                <rect key="frame" x="8" y="74" width="354" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.4823529412" green="0.65490196079999996" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="48j-AK-Ovn"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="pubdate" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LPo-Es-dz9">
-                                <rect key="frame" x="8" y="52" width="354" height="36"/>
+                                <rect key="frame" x="8" y="50" width="354" height="38"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5a1-yf-Hif"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>

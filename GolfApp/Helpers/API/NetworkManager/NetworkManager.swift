@@ -106,12 +106,13 @@ class NetworkManager {
     
     //MARK: Courses
     
-    func getCours(completion: ([Course]?) -> Void) {
+    func getCourseseWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
         Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses?client=22&language=\(Global.languageID)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
-                    //                    print("JSON: \(JSON)")
+                    
+                    Course.MR_truncateAll()
                     self.jsonArray = JSON as? NSDictionary
                     
                     let coursesArray: NSArray = [self.jsonArray!["courses"]!]
@@ -121,17 +122,17 @@ class NetworkManager {
                         responseArray.append(Course.courseWhithDictionary(courseDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }
     
     //MARK: Rate
     
-    func getRate(urlToRate URL: String ,completion: ([Rate]?) -> Void) {
+    func getRate(urlToRate URL: String ,completion: ([Rate]?, NSError?) -> Void) {
         Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
@@ -146,10 +147,10 @@ class NetworkManager {
                         responseArray.append(Rate.rateWhithDictionary(rateDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }

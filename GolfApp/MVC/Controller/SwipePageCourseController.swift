@@ -29,6 +29,7 @@ class SwipePageCourseController: UIViewController , UIPageViewControllerDataSour
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("crs_the_course_btn_detail_nav_bar")
         createPageViewController()
         setupPageControl()
+        configureNavBar()
     }
     
     private func createPageViewController() {

@@ -21,13 +21,9 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     let categories = ViewForDetailHeader.loadViewFromNib()
-    var course = Course()
+    var course : Course!
     var arrayOfImages = [String]()
-    var facilitiesArray = [String]()
-    var urlToRate = String()
-    var rateArray = [Rate]()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,20 +56,15 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
             
             return lCell
         }
+
+        let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
+        cell2.nameLabel.text = course.name
+        cell2.detailLabel.text = "\(course.holes) \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - " +
+                                 "\(course.par) pare - \(course.length) \(course.length_unit)"
+        cell2.descriptionLabel.text = course.descr
         
-        else if indexPath.row == 1{
-            let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-            cell2.nameLabel.text = course.name
-            cell2.detailLabel.text = "\(course.holes) \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - " +
-                                     "\(course.par) pare - \(course.length) \(course.length_unit)"
-            cell2.descriptionLabel.text = course.description_
-            
-            return cell2
-        }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-            cell.imagesArray = self.course.images
-        return cell
+        return cell2
+
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -94,7 +85,11 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
         self.performSegueWithIdentifier("showFacilities", sender: self)
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
-        self.performSegueWithIdentifier("showRates", sender: self)
+        
+        let vc = RateViewController(nibName: "RateViewController", bundle: nil)
+        vc.rateUrl = course.rate_url
+        vc.course = course
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 
     //MARK: Private methods
@@ -108,7 +103,7 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
         
         categories.setButtonEnabled(categories.button1, enabled: arrayOfImages.count > 0 ? true : false)
         categories.setButtonEnabled(categories.button2, enabled: true)
-        categories.setButtonEnabled(categories.button3, enabled: course.rate_count > 0 ? true : false)
+        categories.setButtonEnabled(categories.button3, enabled: course.rate_count.intValue > 0 ? true : false)
         categories.delegate = self
     }
 
@@ -121,11 +116,6 @@ class DetailViewController: UIViewController , CourseHeaderDelegate, UITableView
         if segue.identifier == "showFacilities" {
             let destinationController = segue.destinationViewController as! FacilitesCollectionViewController
             destinationController.facilites = course.facilities
-        }
-        if segue.identifier == "showRates" {
-            let destinationController = segue.destinationViewController as! RateViewController
-            destinationController.navigationTitle = "crs_rate_details_nav_bar"
-            destinationController.rateUrl = urlToRate
         }
     }
 }

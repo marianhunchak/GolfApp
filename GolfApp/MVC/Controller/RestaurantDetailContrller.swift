@@ -130,8 +130,8 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
     }
     
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        let menuVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("RateViewController") as! RateViewController
-
+        
+        let menuVC = RateViewController(nibName: "RateViewController", bundle: nil)
         menuVC.rateUrl = restaurant.menu_url
         menuVC.navigationTitle = "re_menu_nav_bar"
         self.navigationController?.pushViewController(menuVC, animated: false)

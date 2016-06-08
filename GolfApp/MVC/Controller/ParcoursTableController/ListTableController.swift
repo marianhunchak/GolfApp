@@ -28,8 +28,6 @@ private let coursesImages = [course_1_Images, course_2_Images]
 
 class ListTableController: BaseTableViewController {
 
-    var coursesArray = [Course]()
-    
     //MARK: Lifecycle
     
     override func viewWillAppear(animated: Bool) {
@@ -44,11 +42,6 @@ class ListTableController: BaseTableViewController {
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
-        NetworkManager.sharedInstance.getCours { array in
-            self.coursesArray = array!
-            self.tableView.reloadData()
-        }
-        self.refreshControl?.addTarget(self, action:#selector(ListTableController.reloadAllData(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,19 +50,19 @@ class ListTableController: BaseTableViewController {
 
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.coursesArray.count
+        return self.dataSource.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CoursTableCell
         
-        let lCourse = coursesArray[indexPath.row]
-        
+        let lCourse = dataSource[indexPath.row] as! Course
         cell.imageForCell = lCourse.images.first
         cell.cellItemLabel.text = lCourse.name
         cell.cellInfoLabel.text = lCourse.holes + " \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - Par " +
-            lCourse.par + " - " + lCourse.length + " " + lCourse.length_unit
+                                  lCourse.par + " - " + lCourse.length + " " + lCourse.length_unit
         
         return cell
     }
@@ -86,25 +79,51 @@ class ListTableController: BaseTableViewController {
         if indexPath.row < coursesImages.count {
             vc.arrayOfImages =  coursesImages[indexPath.row]
         }
-        vc.course = coursesArray[indexPath.row]
-        vc.facilitiesArray = coursesArray[indexPath.row].facilities
-        vc.urlToRate = coursesArray[indexPath.row].rate_url as String
-
-
+        vc.course = dataSource[indexPath.row] as! Course
+        
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
-    // MARK: - Private methods
+    // MARK: Overrided methods
     
-    func reloadAllData(sender:AnyObject) {
+    override func loadDataFromDB() {
         
-        NetworkManager.sharedInstance.getCours { array in
-            self.coursesArray = array!
-            dispatch_async(dispatch_get_main_queue(), { 
-                self.tableView.reloadData()
-                self.refreshControl?.endRefreshing()
-            })
+        loadedFromDB = true
+        dataSource = Course.MR_findAllSortedBy("createdDate", ascending: true)
+        print("DataSource count = \(dataSource.count)")
+        tableView.reloadData()
+    }
+    
+    override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
-        }
+        NetworkManager.sharedInstance.getCourseseWithPage(pPage, completion: {
+            (array, error) in
+            
+            if self.loadedFromDB {
+                self.dataSource = []
+                self.loadedFromDB = false
+            }
+            
+            if let lArray = array {
+                
+                self.dataSource += lArray
+                if lArray.count >= 10 {
+                    self.allowLoadMore = true
+                    self.allowIncrementPage = true
+                    self.addInfiniteScroll()
+                } else {
+                    self.allowLoadMore = false
+                    self.tableView.removeInfiniteScroll()
+                }
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
+            } else if error != nil {
+                self.allowIncrementPage = false
+                self.handleError(error!)
+            }
+            
+            completion()
+        })
     }
 }
