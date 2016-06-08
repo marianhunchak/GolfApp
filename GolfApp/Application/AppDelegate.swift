@@ -182,7 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
             let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
             
-            let showPopUp = lastLoadedDate!.compare(todaysDate)
+            let showPopUp = lastLoadedDate?.compare(todaysDate)
             
             if showPopUp == .OrderedAscending {
                 

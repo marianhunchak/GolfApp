@@ -59,8 +59,6 @@
 		567010D71CF72E9200E0EC04 /* CustomInfiniteIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567010D61CF72E9200E0EC04 /* CustomInfiniteIndicator.swift */; };
 		5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */; };
 		568951601CEB218D00D7F5DF /* HotelsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */; };
-		56F6E6421CFC9726007240D1 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6E6401CFC9726007240D1 /* Event+CoreDataProperties.swift */; };
-		56F6E6431CFC9726007240D1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F6E6411CFC9726007240D1 /* Event.swift */; };
 		56FC0D8B1CEE13AC006F3AB1 /* HotelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */; };
 		840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001151CEF14F60051B38A /* NewsTableViewController.swift */; };
 		840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001181CEF17F00051B38A /* NewsTableCell.xib */; };
@@ -100,6 +98,8 @@
 		8445B0DE1D084A29009D08CD /* RateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8445B0DD1D084A29009D08CD /* RateViewController.xib */; };
 		8445B0E11D085742009D08CD /* CourseRate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0DF1D085742009D08CD /* CourseRate+CoreDataProperties.swift */; };
 		8445B0E21D085742009D08CD /* CourseRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0E01D085742009D08CD /* CourseRate.swift */; };
+		8445B0FA1D08753E009D08CD /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0F81D08753E009D08CD /* Event+CoreDataProperties.swift */; };
+		8445B0FB1D08753E009D08CD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0F91D08753E009D08CD /* Event.swift */; };
 		844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A94181CEB138000BCC86F /* ProsTableCell.xib */; };
 		844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A941A1CEB13F600BCC86F /* ProsTableCell.swift */; };
 		844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */; };
@@ -427,8 +427,6 @@
 		567010D61CF72E9200E0EC04 /* CustomInfiniteIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfiniteIndicator.swift; sourceTree = "<group>"; };
 		5689515D1CEB218D00D7F5DF /* HotelsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelsTableViewController.swift; sourceTree = "<group>"; };
 		5689515E1CEB218D00D7F5DF /* HotelsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelsTableViewController.xib; sourceTree = "<group>"; };
-		56F6E6401CFC9726007240D1 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		56F6E6411CFC9726007240D1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		56FC0D8A1CEE13AC006F3AB1 /* HotelDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelDetailViewController.xib; sourceTree = "<group>"; };
 		840001151CEF14F60051B38A /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		840001181CEF17F00051B38A /* NewsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableCell.xib; sourceTree = "<group>"; };
@@ -468,6 +466,8 @@
 		8445B0DD1D084A29009D08CD /* RateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RateViewController.xib; sourceTree = "<group>"; };
 		8445B0DF1D085742009D08CD /* CourseRate+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CourseRate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8445B0E01D085742009D08CD /* CourseRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRate.swift; sourceTree = "<group>"; };
+		8445B0F81D08753E009D08CD /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8445B0F91D08753E009D08CD /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		844A94181CEB138000BCC86F /* ProsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsTableCell.xib; sourceTree = "<group>"; };
 		844A941A1CEB13F600BCC86F /* ProsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsTableCell.swift; sourceTree = "<group>"; };
 		844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForProHeader.xib; sourceTree = "<group>"; };
@@ -706,7 +706,6 @@
 		560E3C731CE137A2006F8655 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-
 				8445B0E31D0858CF009D08CD /* CourseRate */,
 				8435F0681D082736007D6178 /* Course */,
 				84566CAF1D081922004029BD /* Restaurant */,
@@ -1793,8 +1792,8 @@
 		844387371D017FD300F6D5E6 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				56F6E6401CFC9726007240D1 /* Event+CoreDataProperties.swift */,
-				56F6E6411CFC9726007240D1 /* Event.swift */,
+				8445B0F81D08753E009D08CD /* Event+CoreDataProperties.swift */,
+				8445B0F91D08753E009D08CD /* Event.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -2282,14 +2281,12 @@
 				564A5F851CEB948E009F7759 /* WebViewController.swift in Sources */,
 				5689515F1CEB218D00D7F5DF /* HotelsTableViewController.swift in Sources */,
 				567010C91CF5B4D200E0EC04 /* Downloader.swift in Sources */,
-				56F6E6431CFC9726007240D1 /* Event.swift in Sources */,
 				843BFE761D05D635000AE7A7 /* Profile.swift in Sources */,
 				8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */,
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
 				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
-				56F6E6421CFC9726007240D1 /* Event+CoreDataProperties.swift in Sources */,
 				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
@@ -2301,8 +2298,10 @@
 				840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
 				560F48011CF443A200E23411 /* EventsTableCell.swift in Sources */,
+				8445B0FB1D08753E009D08CD /* Event.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
 				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
+				8445B0FA1D08753E009D08CD /* Event+CoreDataProperties.swift in Sources */,
 				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
 				84D9DDC81D0086DB002B9433 /* RestaurantDetailContrller.swift in Sources */,

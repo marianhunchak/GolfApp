@@ -372,6 +372,10 @@ class NetworkManager {
               
                 if let JSON = response.result.value as? NSDictionary{
                     
+                    if pPage == 1 {
+                        Event.MR_deleteAllMatchingPredicate(NSPredicate(format: "category = %@", pCategory))
+                    }
+                    
                     let eventsArray = JSON["events"] as! [AnyObject]
 
                     var responseArray = [AnyObject]()

@@ -66,7 +66,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         let cell = tableView.dequeueReusableCellWithIdentifier(eventCellReuseIdentifier, forIndexPath: indexPath) as! EventsTableCell
         
         let event = dataSource[indexPath.row] as! Event
-        cell.dataLabel.text = getDayOfWeek(event.event_date) + " " + event.event_date
+        cell.dataLabel.text = getDayOfWeek(event.event_date ?? "") + " " + event.event_date ?? ""
         cell.eventNameLabel.text = event.name
         cell.eventDescrLabel.text = event.format
         
@@ -117,7 +117,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     override func loadDataFromDB() {
         
         loadedFromDB = true
-        dataSource = Event.MR_findByAttribute("category", withValue: self.eventType).sort({ $0.event_date > $1.event_date })
+        dataSource = Event.MR_findAllSortedBy("createdDate", ascending: true, withPredicate: NSPredicate(format: "category = %@", self.eventType))
         print("DataSource count = \(dataSource.count)")
         print("All entities count =  \(Event.MR_findAll().count)")
         tableView.reloadData()
@@ -129,7 +129,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
             (array, error) in
             
             if let lArray = array {
-                
+
                 if self.loadedFromDB {
                     self.dataSource = []
                     self.loadedFromDB = false
