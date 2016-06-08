@@ -62,7 +62,7 @@ class ProShopTableView: BaseTableViewController {
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopDetailViewController") as! ProShopDetailViewController
         
                 vc.package_url = dataSource[indexPath.row].package_url!
-                vc.prosShop = dataSource[indexPath.row] as! ProsShop
+                vc.prosShop = dataSource[indexPath.row] as? ProsShop
         
         self.navigationController?.pushViewController(vc, animated: false)
         

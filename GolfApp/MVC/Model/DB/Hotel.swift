@@ -44,6 +44,8 @@ class Hotel: NSManagedObject {
             lHotel.images?.append(Image.imageWhithDictionary(imageDict as! NSDictionary))
         }
         
+        
+        
         return lHotel
     }
 

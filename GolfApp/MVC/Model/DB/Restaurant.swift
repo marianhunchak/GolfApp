@@ -1,36 +1,28 @@
 //
 //  Restaurant.swift
-//  GolfApp
+//  
 //
-//  Created by Admin on 19.05.16.
-//  Copyright © 2016 Marian Hunchak. All rights reserved.
+//  Created by Admin on 08.06.16.
+//
 //
 
 import Foundation
-import CoreLocation
+import CoreData
 
-class Restaurant {
-    
-    var id : Int?
-    var name : String!
-    var descr : String!
-    var phone : String!
-    var email : String!
-    var website : String!
-    var address : String!
-    var city : String!
-    var country : String!
-    var longitude : String!
-    var latitude : String!
-    var package_count : Int!
-    var package_url : String!
-    var menu_url : String!
-    var images = [Image]()
-    var location: CLLocation?
-    
-    static func restaurantWhithDictionary(pDictionary:NSDictionary) -> Restaurant {
+@objc(Restaurant)
+class Restaurant: NSManagedObject {
+
+    class func restaurantWhithDictionary(pDictionary:NSDictionary) -> Restaurant {
         
-        let lRestaurant = Restaurant()
+        var lRestaurant : Restaurant!
+        
+        if let oldPackage = Restaurant.MR_findByAttribute("id", withValue: NSNumber.init(long:pDictionary["id"] as! Int)).first as? Restaurant {
+            lRestaurant = oldPackage
+        } else {
+            lRestaurant = Restaurant.MR_createEntity() as! Restaurant
+            lRestaurant.createdDate = NSDate()
+        }
+
         lRestaurant.name = pDictionary["name"] as? String ?? ""
         lRestaurant.id = pDictionary["id"] as? Int
         lRestaurant.descr = pDictionary["descr"] as? String ?? ""
@@ -46,12 +38,19 @@ class Restaurant {
         lRestaurant.package_url = pDictionary["package_url"] as? String ?? ""
         lRestaurant.menu_url = pDictionary["menu_url"] as? String ?? ""
         
-        for imageDict in pDictionary["images"] as! NSArray {
-            lRestaurant.images += [Image.imageWhithDictionary(imageDict as! NSDictionary)]
+        if lRestaurant.packagesList != nil {
+            lRestaurant.packagesList = []
         }
+
+        lRestaurant.images = []
+        
+        for imageDict in pDictionary["images"] as! NSArray {
+            lRestaurant.images?.append(Image.imageWhithDictionary(imageDict as! NSDictionary))
+        }
+        
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         return lRestaurant
     }
-    
-    
+
 }

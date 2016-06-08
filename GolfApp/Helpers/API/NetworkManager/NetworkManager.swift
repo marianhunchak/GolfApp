@@ -282,8 +282,11 @@ class NetworkManager {
     }
     //MARK: Restaurant
     
-    func getRestaurant(completion: ([Restaurant]?) -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/restaurants?client=22&language=\(Global.languageID)", parameters: nil)
+    func getRestaurant(pPage: Int,completion: ([AnyObject]?, NSError?) -> Void) {
+        
+        let url =  baseURL + "restaurants" + clientAndLanguage
+        
+        Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -296,10 +299,10 @@ class NetworkManager {
                         responseArray.append(Restaurant.restaurantWhithDictionary(courseDict as! NSDictionary))
                     }
                     
-                    completion(responseArray)
+                    completion(responseArray, nil)
                     
                 } else {
-                    print("Status cod = \(response.response?.statusCode)")
+                    completion(nil, response.result.error)
                 }
         }
     }

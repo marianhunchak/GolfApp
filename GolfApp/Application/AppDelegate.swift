@@ -147,7 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
         
         popUpView.websiteUrl = advertisemet?.url
-        
+        //_________________
         popUpView.poupImage = lImage
         
         UIApplication.sharedApplication().keyWindow?.rootViewController!.view.addSubview(popUpView)

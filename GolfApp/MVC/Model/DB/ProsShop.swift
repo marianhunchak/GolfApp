@@ -36,6 +36,7 @@ class ProsShop: NSManagedObject {
         lProsShop.latitude = pDictionary["latitude"] as? String ?? ""
         lProsShop.package_count = pDictionary["package_count"] as? Int
         lProsShop.package_url = pDictionary["package_url"] as? String ?? ""
+        
         if lProsShop.packagesList != nil {
             lProsShop.packagesList = []
         }
@@ -45,6 +46,8 @@ class ProsShop: NSManagedObject {
         for imageDict in pDictionary["images"] as! NSArray {
             lProsShop.images?.append(Image.imageWhithDictionary(imageDict as! NSDictionary))
         }
+        
+        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         return lProsShop
     }

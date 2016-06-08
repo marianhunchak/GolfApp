@@ -105,7 +105,7 @@ class RestaurantDetailViewController: UIViewController , CourseHeaderDelegate, U
         
         let menuVC = self.storyboard?.instantiateViewControllerWithIdentifier("RateViewController") as! RateViewController
         menuVC.navigationTitle = "re_menu_nav_bar"
-        menuVC.rateUrl = restaurant.menu_url
+        menuVC.rateUrl = restaurant.menu_url!
         self.navigationController?.pushViewController(menuVC, animated: false)
         
     }
