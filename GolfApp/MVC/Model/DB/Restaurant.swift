@@ -38,7 +38,7 @@ class Restaurant: NSManagedObject {
         lRestaurant.package_url = pDictionary["package_url"] as? String ?? ""
         lRestaurant.menu_url = pDictionary["menu_url"] as? String ?? ""
         
-        if lRestaurant.packagesList != nil {
+        if lRestaurant.packagesList == nil {
             lRestaurant.packagesList = []
         }
 

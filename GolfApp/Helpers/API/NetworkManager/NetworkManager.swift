@@ -155,6 +155,31 @@ class NetworkManager {
         }
     }
     
+    //MARK: Menu
+    
+    func getMenu(urlToRate URL: String ,completion: ([Rate]?, NSError?) -> Void) {
+        Alamofire.request(.GET, URL, parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let coursesArray: NSArray = [self.jsonArray!["menus"]!]
+                    var responseArray = [Rate]()
+                    
+                    for rateDict in coursesArray.firstObject as! NSArray {
+                        responseArray.append(Rate.rateWhithDictionary(rateDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray , nil)
+                    
+                } else {
+                    completion(nil, response.result.error)
+                }
+        }
+    }
+    
     //MARK: Packages
     
     func getPackages(urlToPackage URL: String ,completion: ([Package]?) -> Void) {
@@ -304,31 +329,6 @@ class NetworkManager {
                     
                 } else {
                     completion(nil, response.result.error)
-                }
-        }
-    }
-    
-    //MARK: Menu
-    
-    func getMenu(urlToRate URL: String ,completion: ([Rate]?, NSError?) -> Void) {
-        Alamofire.request(.GET, URL, parameters: nil)
-            .responseJSON { response in
-                
-                if let JSON = response.result.value {
-                    //   print("JSON: \(JSON)")
-                    self.jsonArray = JSON as? NSDictionary
-                    
-                    let coursesArray: NSArray = [self.jsonArray!["menus"]!]
-                    var responseArray = [Rate]()
-                    
-                    for rateDict in coursesArray.firstObject as! NSArray {
-                        responseArray.append(Rate.rateWhithDictionary(rateDict as! NSDictionary))
-                    }
-                    
-                    completion(responseArray , nil)
-                    
-                } else {
-                    print("Status cod = \(response.response?.statusCode)")
                 }
         }
     }

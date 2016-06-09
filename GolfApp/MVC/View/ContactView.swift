@@ -51,6 +51,7 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
             sendMailErrorAlert.show()
         }
     }
+    
     @IBAction func telephoneButton(sender: AnyObject) {
         
         if let phone = phoneString {
@@ -111,9 +112,10 @@ class ContactView: UIView , MFMailComposeViewControllerDelegate{
         
         contactBackgroundView.layer.borderWidth = 2
         contactBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
-        
         contactBackgroundView.backgroundColor = Global.menuBarBackgroundColor
-
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cancelButton(_:)))
+        self.addGestureRecognizer(tapGesture)
     }
     
     static func loadViewFromNib() -> ContactView

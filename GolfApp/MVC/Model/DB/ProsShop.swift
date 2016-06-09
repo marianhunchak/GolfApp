@@ -37,7 +37,7 @@ class ProsShop: NSManagedObject {
         lProsShop.package_count = pDictionary["package_count"] as? Int
         lProsShop.package_url = pDictionary["package_url"] as? String ?? ""
         
-        if lProsShop.packagesList != nil {
+        if lProsShop.packagesList == nil {
             lProsShop.packagesList = []
         }
         

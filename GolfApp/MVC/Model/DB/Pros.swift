@@ -36,7 +36,7 @@ class Pros: NSManagedObject {
         lPros.package_count = pDictionary["package_count"] as? Int
         lPros.package_url = pDictionary["package_url"] as? String
     
-        if lPros.packagesList != nil {
+        if lPros.packagesList == nil {
             lPros.packagesList = []
         }
         lPros.images = []

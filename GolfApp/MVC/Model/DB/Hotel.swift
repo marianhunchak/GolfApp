@@ -35,7 +35,7 @@ class Hotel: NSManagedObject {
         lHotel.latitude = pDictionary["latitude"] as? String ?? ""
         lHotel.package_count = pDictionary["package_count"] as! Int
         lHotel.package_url = pDictionary["package_url"] as? String ?? ""
-        if lHotel.packagesList != nil {
+        if lHotel.packagesList == nil {
             lHotel.packagesList = []
         }
         lHotel.images = []

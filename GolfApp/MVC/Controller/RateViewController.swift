@@ -75,7 +75,6 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdetifier, forIndexPath: indexPath) as! RateCell
-//        cell.frame = CGRect(origin: CGPointZero, size: CGSizeMake(tableView.frame.width, tableView.frame.height))
         if rateArray.count > 0 {
             
             let lRate = rateArray[indexPath.section]
@@ -100,8 +99,8 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
         let rates = ViewForRateHeader.loadViewFromNib()
-//        rates.frame = CGRectMake(0.0, 0.0, tableView.frame.width , tableView.frame.height )
         rates.textLabeForRateHeader.text = rateArray[section].section
         return rates
     }
@@ -164,7 +163,9 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     
     func refresh(sender: AnyObject) {
+        
         loadDataFromDB()
+        
         if rateArray.isEmpty {
             refreshControl?.beginRefreshing()
         }

@@ -56,6 +56,7 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
             sendMailErrorAlert.show()
         }
     }
+    
     @IBAction func cancelButton(sender: AnyObject) {
         self.removeFromSuperview()
     }
@@ -81,6 +82,9 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
         teeTimeBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
         
         teeTimeBackgroundView.backgroundColor = Global.menuBarBackgroundColor
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cancelButton(_:)))
+        self.addGestureRecognizer(tapGesture)
     }
     
     //MARK: Private methods
@@ -94,7 +98,7 @@ class TeeTimeView : UIView , MFMailComposeViewControllerDelegate{
         view.email.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("email_button_btn"), forState: .Normal)
         view.telephone.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("tt_phone_btn"), forState: .Normal)
         view.cancel.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("tt_cancel_btn"), forState: .Normal)
-        
+
         return view
     }
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {

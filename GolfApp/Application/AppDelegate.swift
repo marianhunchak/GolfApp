@@ -99,8 +99,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
         
 //        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
-            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-            })
+//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//            })
 //        }
         
 //           NetworkManager.sharedInstance.unregisterDevice()
@@ -136,12 +136,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handler(UIBackgroundFetchResult.NoData);
     }
     
+    
+    // MARK: Private methods
+    
     func showPopUpView() {
         
         let popUpView = PopUpView.loadViewFromNib()
         
         popUpView.frame = CGRectMake(0, 0,
-                                     (UIApplication.sharedApplication().keyWindow?.rootViewController!.view.frame.width)! ,
+                                     (UIApplication.sharedApplication().keyWindow?.rootViewController!.view.frame.width)!,
                                      (UIApplication.sharedApplication().keyWindow?.rootViewController!.view.frame.height)! )
         
         let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
