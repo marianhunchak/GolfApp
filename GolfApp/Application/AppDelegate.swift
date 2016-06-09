@@ -74,11 +74,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let lAdvertisemnt = Advertisemet.MR_findFirst() {
             self.advertisemet = lAdvertisemnt as? Advertisemet
             self.checkDate()
-        } else {
-            NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
-                self.advertisemet = aAdvertisemet
-                self.checkDate()
-            }
+        }
+        NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+            self.advertisemet = aAdvertisemet
+            self.checkDate()
+    
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
     }
@@ -150,14 +150,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
         
         popUpView.websiteUrl = advertisemet?.url
-        //_________________
         popUpView.poupImage = lImage
         
         UIApplication.sharedApplication().keyWindow?.rootViewController!.view.addSubview(popUpView)
         popUpView.alpha = 0
-        UIView.animateWithDuration(1) { () -> Void in
-            popUpView.alpha = 1
-        }
         
     }
     

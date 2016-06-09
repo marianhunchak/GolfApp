@@ -370,7 +370,7 @@ class NetworkManager {
         return Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
               
-                if let JSON = response.result.value as? NSDictionary{
+                if let JSON = response.result.value as? NSDictionary {
                     
                     if pPage == 1 {
                         Event.MR_deleteAllMatchingPredicate(NSPredicate(format: "category = %@", pCategory))

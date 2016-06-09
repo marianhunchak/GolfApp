@@ -37,6 +37,7 @@ class PopUpView: UIView {
 //                    print("image size = \(self.popUpImage.image?.size)")
                     self.imageViewContainerWidth.constant = self.popUpImage.image!.size.width * 0.8
                     self.imageViewContainerHeight.constant = self.imageViewContainer.frame.size.width / (self.popUpImage.image!.size.width * 0.8) * self.popUpImage.image!.size.height
+                    self.alpha = 1
                }
             })
             
