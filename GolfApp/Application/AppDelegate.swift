@@ -71,15 +71,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Global.getLanguage()
         
-        if let lAdvertisemnt = Advertisemet.MR_findFirst() {
-            self.advertisemet = lAdvertisemnt as? Advertisemet
-            self.checkDate()
+        if reachability!.isReachable() {
+            NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+                self.advertisemet = aAdvertisemet
+                self.checkDate()
+                
+            }
+        } else {
+            
+            if let lAdvertisemnt = Advertisemet.MR_findFirst() {
+                self.advertisemet = lAdvertisemnt as? Advertisemet
+                self.checkDate()
+            }
         }
-        NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
-            self.advertisemet = aAdvertisemet
-            self.checkDate()
-    
-        }
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
     }
     
@@ -153,7 +158,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         popUpView.poupImage = lImage
         
         UIApplication.sharedApplication().keyWindow?.rootViewController!.view.addSubview(popUpView)
-        popUpView.alpha = 0
         
     }
     

@@ -37,7 +37,11 @@ class PopUpView: UIView {
 //                    print("image size = \(self.popUpImage.image?.size)")
                     self.imageViewContainerWidth.constant = self.popUpImage.image!.size.width * 0.8
                     self.imageViewContainerHeight.constant = self.imageViewContainer.frame.size.width / (self.popUpImage.image!.size.width * 0.8) * self.popUpImage.image!.size.height
-                    self.alpha = 1
+                    
+                    UIView.animateWithDuration(0.25, animations: { 
+                        self.hidden = false
+                        self.popUpImage.hidden = false
+                    })
                }
             })
             
@@ -46,24 +50,29 @@ class PopUpView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.hidden = true
+        popUpImage.hidden = true
         popUpImage.contentMode = UIViewContentMode.ScaleAspectFill
         popUpImage.clipsToBounds = true
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTapGesture(_:)))
         self.popUpImage.addGestureRecognizer(tapGesture)
-
     }
     
 
     @IBAction func closePopupView(sender: AnyObject) {
-        
+
+        self.popUpImage.removeFromSuperview()
         self.removeFromSuperview()
         
     }
 
     func handleTapGesture(sender: UITapGestureRecognizer) {
-              
-        UIApplication.sharedApplication().openURL(NSURL(string: websiteUrl)!)
+        
+        self.popUpImage.removeFromSuperview()
         self.removeFromSuperview()
+        UIApplication.sharedApplication().openURL(NSURL(string: websiteUrl)!)
     }
     
     

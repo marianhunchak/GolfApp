@@ -19,7 +19,7 @@
                             <subviews>
                                 <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d56-51-tPN">
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="128"/>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgb-wC-WVE">
                                     <rect key="frame" x="215" y="5" width="30" height="30"/>
@@ -35,7 +35,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="250" id="0iG-ui-fd2"/>
                                 <constraint firstAttribute="trailing" secondItem="d56-51-tPN" secondAttribute="trailing" id="2Zf-D2-1fT"/>
@@ -48,7 +48,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="2Tj-eB-4vw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GwR-80-LVT" secondAttribute="top" constant="15" id="TAg-CR-kzc"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Tj-eB-4vw" secondAttribute="trailing" constant="15" id="Uoe-D9-CAX"/>
@@ -59,7 +59,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.45000000000000001" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="GwR-80-LVT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1w8-NX-Qre"/>
                 <constraint firstAttribute="bottom" secondItem="GwR-80-LVT" secondAttribute="bottom" id="p4F-mb-bdc"/>
