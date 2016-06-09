@@ -57,14 +57,20 @@ class ProShopTableView: BaseTableViewController {
     //MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopDetailViewController") as! ProShopDetailViewController
+//        
+//                vc.package_url = dataSource[indexPath.row].package_url!
+//                vc.prosShop = dataSource[indexPath.row] as? ProsShop
+//        
+//        self.navigationController?.pushViewController(vc, animated: false)
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopDetailViewController") as! ProShopDetailViewController
+        let vc = ProShopDetailController(nibName: "ProShopDetailController", bundle: nil)
         
-                vc.package_url = dataSource[indexPath.row].package_url!
-                vc.prosShop = dataSource[indexPath.row] as? ProsShop
-        
+                        vc.package_url = dataSource[indexPath.row].package_url!
+                        vc.prosShop = dataSource[indexPath.row] as? ProsShop
         self.navigationController?.pushViewController(vc, animated: false)
-        
+//        
     }
     
     // MARK: Overrided methods

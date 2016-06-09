@@ -35,12 +35,14 @@ class Restaurant: NSManagedObject {
         lRestaurant.longitude = pDictionary["longitude"] as? String ?? ""
         lRestaurant.latitude = pDictionary["latitude"] as? String ?? ""
         lRestaurant.package_count = pDictionary["package_count"] as? Int
+        lRestaurant.menu_count = pDictionary["menu_count"] as? Int
         lRestaurant.package_url = pDictionary["package_url"] as? String ?? ""
         lRestaurant.menu_url = pDictionary["menu_url"] as? String ?? ""
         
         if lRestaurant.packagesList == nil {
             lRestaurant.packagesList = []
         }
+        
 
         lRestaurant.images = []
         

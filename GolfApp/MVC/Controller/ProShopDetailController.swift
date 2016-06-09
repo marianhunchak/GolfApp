@@ -1,50 +1,50 @@
 //
-//  ProShopDetailViewController.swift
+//  ProShopDetailController.swift
 //  GolfApp
 //
-//  Created by Admin on 19.05.16.
+//  Created by Admin on 09.06.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
 import UIKit
-
 private let reuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 private let detailImageTableCellNibName = "DetailmageTableCell"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
-class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableViewDelegate{
-    
+class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableViewDelegate ,UITableViewDataSource{
+
     var proArray = [Package]()
     var prosShop : ProsShop?
     var package_url = String()
-    let viewForHead = ViewForProHeader.loadViewFromNib()
+    
+    
     
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var prosTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupHeaderView()
-        self.configureNavBar()
-        
-        NetworkManager.sharedInstance.getPackages(urlToPackage: package_url) { array in
-            self.proArray = array!
-        }
+        self.tableView.backgroundColor = Global.viewsBackgroundColor
+        self.headerView.backgroundColor = Global.viewsBackgroundColor
+
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("ps_detail_nav_bar")
         
         let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
-        prosTableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
-        prosTableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+        tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
-        self.prosTableView.estimatedRowHeight = 80;
-        prosTableView.backgroundColor = Global.viewsBackgroundColor
+        self.tableView.estimatedRowHeight = 80;
+        tableView.backgroundColor = Global.viewsBackgroundColor
         
-        //setupHeaderView()
+        self.setupHeaderView()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -57,7 +57,7 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         if indexPath.row == 0 {
             let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
             lCell.imagesArray = prosShop!.images
-
+            
             return lCell
         }
             
@@ -66,7 +66,7 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
             cell2.nameLabel.text = prosShop!.name
             cell2.detailLabelHeight.constant = 0
             cell2.descriptionLabel.text = prosShop!.descr
-
+            
             return cell2
         }
         
@@ -74,7 +74,7 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
         cell.imagesArray = prosShop!.images
         return cell
     }
-    
+
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return self.view.frame.height / 3.0
@@ -85,8 +85,9 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
     
     //MARK: Private methods
     func setupHeaderView() {
-        viewForHead.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
-        self.view.addSubview(viewForHead)
+        let viewForHead = ViewForProHeader.loadViewFromNib()
+        viewForHead.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
+        headerView.addSubview(viewForHead)
         
         viewForHead.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_contact_btn"), forState: .Normal)
         viewForHead.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("ps_special_offer_nav_bar"), forState: .Normal)
@@ -124,5 +125,4 @@ class ProShopDetailViewController: UIViewController, ProHeaderDelegate ,UITableV
             teeTime.alpha = 1
         }
     }
-    
 }

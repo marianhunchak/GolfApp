@@ -1,8 +1,8 @@
 //
-//  RestaurantDetailContrller.swift
+//  RestaurantDetailsViewContrller.swift
 //  GolfApp
 //
-//  Created by Admin on 02.06.16.
+//  Created by Admin on 10.06.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -11,29 +11,22 @@ import UIKit
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 
-class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
-        
+class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate , UITableViewDelegate, UITableViewDataSource {
+    
     
     var restaurant : Restaurant?
     var restaurantsCount = 1
     var package_url = String()
-    let viewForHeader = ViewForDetailHeader.loadViewFromNib()
     
-
+    
+    @IBOutlet weak var headerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.estimatedRowHeight = 100
-        tableView.backgroundColor = Global.viewsBackgroundColor
-        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top + Global.headerHeight,
-                                              left: 0,
-                                              bottom: Global.pading,
-                                              right: 0)
-        tableView.rowHeight = UITableViewAutomaticDimension
         
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("re_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
+        self.headerView.backgroundColor = Global.viewsBackgroundColor
         
         
         let nib = UINib.init(nibName: "DetailmageTableCell", bundle: nil)
@@ -43,27 +36,18 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         self.tableView.estimatedRowHeight = 1000
         
-        self.refreshControl?.removeFromSuperview()
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
         self.setupHeaderView()
+        
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.viewForHeader.removeFromSuperview()
-    }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
             cell2.detailLabelHeight.constant = 0
@@ -75,35 +59,30 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellImagereuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
         cell.imagesArray = self.restaurant!.images
+        print(refresh)
         return cell
     }
     
     
     //MARK: Private methods
     func setupHeaderView() {
-        viewForHeader.delegate = self
-
-        viewForHeader.frame = CGRectMake(0.0,
-                                      (self.navigationController?.navigationBar.frame.maxY)!,
-                                      Global.displayWidth,
-                                      Global.headerHeight)
-        
-        self.navigationController?.view.addSubview(viewForHeader)
-        self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
+        let viewForHeader = ViewForDetailHeader.loadViewFromNib()
+        viewForHeader.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
+        headerView.addSubview(viewForHeader)
         
         viewForHeader.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("re_contact_btn"), forState: .Normal)
         viewForHeader.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("re_menu_btn"), forState: .Normal)
         viewForHeader.button3.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("re_suggestion_btn"), forState: .Normal)
         
         
-        self.viewForHeader.setButtonEnabled(self.viewForHeader.button1, enabled: true)
-        self.viewForHeader.setButtonEnabled(self.viewForHeader.button2, enabled: restaurant!.menu_count!.intValue > 0 ? true : false)
-        self.viewForHeader.setButtonEnabled(self.viewForHeader.button3, enabled: restaurant!.package_count!.intValue > 0 ? true : false)
+        viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
+        viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: restaurant!.menu_count!.intValue > 0 ? true : false)
+        viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: restaurant!.package_count!.intValue > 0 ? true : false)
         
-        
+        viewForHeader.delegate = self
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return self.view.frame.height / 3.0
         } else {
@@ -117,8 +96,8 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         
         let contact = ContactView.loadViewFromNib()
         contact.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!,
-                                             (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
-
+                                   (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
+        
         self.navigationController!.view.addSubview(contact)
         contact.phoneString = restaurant!.phone
         contact.emailString = restaurant!.email
@@ -163,23 +142,4 @@ class RestaurantDetailContrller: BaseTableViewController ,CourseHeaderDelegate {
         }
     }
     
-//    override func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-//        let refresh = UIRefreshControl()
-//        refresh.beginRefreshing()
-//    }
-//    override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//        let refresh = UIRefreshControl()
-//        refresh.endRefreshing()
-//    }
-    
-//    override func scrollViewDidScroll(scrollView: UIScrollView) {
-//        let refresh = UIRefreshControl()
-//        refresh.beginRefreshing()
-//    }
-
-    override func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
-                let refresh = UIRefreshControl()
-                refresh.beginRefreshing()
-        return true
-    }
 }
