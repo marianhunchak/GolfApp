@@ -22,15 +22,17 @@ class DetailInfoCell: UITableViewCell {
 
     @IBOutlet weak var detailLabelHeight: NSLayoutConstraint!
     
+    var tableView : UITableView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         backgroundCourseFooter.layer.cornerRadius = 5
         backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
-        for gesture in descriptionLabel.gestureRecognizers! {
-            gesture.cancelsTouchesInView = false
-        }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        descriptionLabel.addGestureRecognizer(tapGesture)
     }
     
     override func prepareForReuse() {
@@ -50,6 +52,13 @@ class DetailInfoCell: UITableViewCell {
         backgroundCourseFooter.layer.borderColor = Global.menuBarStokeColor.CGColor
         backgroundCourseFooter.layer.masksToBounds = true
 
+    }
+    
+    func handleTapGesture() {
+        
+        let indexPath = NSIndexPath(forRow: self.tag, inSection: 0)
+//        self.tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+        self.tableView.delegate?.tableView!(tableView, didSelectRowAtIndexPath: indexPath)
     }
 
 }

@@ -93,6 +93,9 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
+        if shareItem != -1 {
+            tableView.delegate?.tableView!(tableView, didDeselectRowAtIndexPath: NSIndexPath(forRow: shareItem, inSection: 0))
+        }
         
         viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
         shareItem = indexPath.row
@@ -124,6 +127,8 @@ class OffersViewController: UIViewController , OffersHeaderDelegate,UITableViewD
         cell.nameLabel.text = lPackage.name
         cell.detailLabel.text = lPackage.subtitle
         cell.descriptionLabel.text = lPackage.descr
+        cell.tag = indexPath.row
+        cell.tableView = tableView
         if shareItem == indexPath.row {
             cell.setCellSelected()
         }
