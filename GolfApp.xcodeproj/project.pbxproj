@@ -62,7 +62,6 @@
 		840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001151CEF14F60051B38A /* NewsTableViewController.swift */; };
 		840001191CEF17F00051B38A /* NewsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001181CEF17F00051B38A /* NewsTableCell.xib */; };
 		8400011B1CEF26850051B38A /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400011A1CEF26850051B38A /* NewsTableCell.swift */; };
-		8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */; };
 		840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840001201CEF55C40051B38A /* NewsDetailCell.xib */; };
 		840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840001221CEF575B0051B38A /* NewsDetailCell.swift */; };
 		84051D481CE3E09000164917 /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84051D471CE3E09000164917 /* PageItemController.swift */; };
@@ -79,6 +78,8 @@
 		840B90F71D0A111F009FF77E /* RestaurantDetailsViewContrller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90F51D0A111F009FF77E /* RestaurantDetailsViewContrller.xib */; };
 		840B90FA1D0A1830009FF77E /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B90F81D0A1830009FF77E /* CourseDetailViewController.swift */; };
 		840B90FB1D0A1830009FF77E /* CourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */; };
+		840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B90FC1D0A2014009FF77E /* NewsDetailController.swift */; };
+		840B90FF1D0A2014009FF77E /* NewsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90FD1D0A2014009FF77E /* NewsDetailController.xib */; };
 		840E40901D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */; };
 		840E40911D098A6300C0D943 /* RestaurantMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408F1D098A6300C0D943 /* RestaurantMenu.swift */; };
 		8432FF1C1D07324C00C05862 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FF1B1D07324C00C05862 /* Item.swift */; };
@@ -433,7 +434,6 @@
 		840001151CEF14F60051B38A /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		840001181CEF17F00051B38A /* NewsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableCell.xib; sourceTree = "<group>"; };
 		8400011A1CEF26850051B38A /* NewsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
-		8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		840001201CEF55C40051B38A /* NewsDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailCell.xib; sourceTree = "<group>"; };
 		840001221CEF575B0051B38A /* NewsDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailCell.swift; sourceTree = "<group>"; };
 		84051D471CE3E09000164917 /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
@@ -450,6 +450,8 @@
 		840B90F51D0A111F009FF77E /* RestaurantDetailsViewContrller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailsViewContrller.xib; sourceTree = "<group>"; };
 		840B90F81D0A1830009FF77E /* CourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailViewController.xib; sourceTree = "<group>"; };
+		840B90FC1D0A2014009FF77E /* NewsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailController.swift; sourceTree = "<group>"; };
+		840B90FD1D0A2014009FF77E /* NewsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailController.xib; sourceTree = "<group>"; };
 		840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RestaurantMenu+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		840E408F1D098A6300C0D943 /* RestaurantMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenu.swift; sourceTree = "<group>"; };
 		8432FF1B1D07324C00C05862 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -1650,7 +1652,8 @@
 		8400011C1CEF3E4D0051B38A /* NewsDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8400011D1CEF3E8D0051B38A /* NewsDetailViewController.swift */,
+				840B90FC1D0A2014009FF77E /* NewsDetailController.swift */,
+				840B90FD1D0A2014009FF77E /* NewsDetailController.xib */,
 			);
 			name = NewsDetailViewController;
 			sourceTree = "<group>";
@@ -2179,6 +2182,7 @@
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
 				844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */,
 				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
+				840B90FF1D0A2014009FF77E /* NewsDetailController.xib in Resources */,
 				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
 				8436176F1CE2389900F96599 /* ContactView.xib in Resources */,
 			);
@@ -2299,7 +2303,6 @@
 				564A5F801CEB81A9009F7759 /* HotelDetailViewController.swift in Sources */,
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
-				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
@@ -2320,6 +2323,7 @@
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
+				840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,
 				84566CBC1D082156004029BD /* Restaurant.swift in Sources */,
 			);
