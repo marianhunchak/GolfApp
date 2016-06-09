@@ -23,6 +23,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.headerView.backgroundColor = Global.viewsBackgroundColor
+
         
         let nib = UINib.init(nibName: "DetailmageTableCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellImagereuseIdentifier)
