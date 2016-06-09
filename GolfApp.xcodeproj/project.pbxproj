@@ -80,6 +80,8 @@
 		840B90FB1D0A1830009FF77E /* CourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */; };
 		840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B90FC1D0A2014009FF77E /* NewsDetailController.swift */; };
 		840B90FF1D0A2014009FF77E /* NewsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90FD1D0A2014009FF77E /* NewsDetailController.xib */; };
+		840B91041D0A2674009FF77E /* ProsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B91021D0A2674009FF77E /* ProsDetailViewController.swift */; };
+		840B91051D0A2674009FF77E /* ProsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B91031D0A2674009FF77E /* ProsDetailViewController.xib */; };
 		840E40901D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */; };
 		840E40911D098A6300C0D943 /* RestaurantMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408F1D098A6300C0D943 /* RestaurantMenu.swift */; };
 		8432FF1C1D07324C00C05862 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FF1B1D07324C00C05862 /* Item.swift */; };
@@ -452,6 +454,8 @@
 		840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailViewController.xib; sourceTree = "<group>"; };
 		840B90FC1D0A2014009FF77E /* NewsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailController.swift; sourceTree = "<group>"; };
 		840B90FD1D0A2014009FF77E /* NewsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailController.xib; sourceTree = "<group>"; };
+		840B91021D0A2674009FF77E /* ProsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsDetailViewController.swift; sourceTree = "<group>"; };
+		840B91031D0A2674009FF77E /* ProsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsDetailViewController.xib; sourceTree = "<group>"; };
 		840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RestaurantMenu+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		840E408F1D098A6300C0D943 /* RestaurantMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenu.swift; sourceTree = "<group>"; };
 		8432FF1B1D07324C00C05862 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -883,6 +887,8 @@
 			children = (
 				84F4CD001D007F9400EDD75A /* ProsDetailController.swift */,
 				84F4CD011D007F9400EDD75A /* ProsDetailController.xib */,
+				840B91021D0A2674009FF77E /* ProsDetailViewController.swift */,
+				840B91031D0A2674009FF77E /* ProsDetailViewController.xib */,
 			);
 			name = ProsDetailViewController;
 			sourceTree = "<group>";
@@ -2182,6 +2188,7 @@
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
 				844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */,
 				5651AEEF1CE4C21900040520 /* GoogleService-Info.plist in Resources */,
+				840B91051D0A2674009FF77E /* ProsDetailViewController.xib in Resources */,
 				840B90FF1D0A2014009FF77E /* NewsDetailController.xib in Resources */,
 				560E3C971CE137A2006F8655 /* DetailmageTableCell.xib in Resources */,
 				8436176F1CE2389900F96599 /* ContactView.xib in Resources */,
@@ -2282,6 +2289,7 @@
 				844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */,
 				843BFE7A1D05E133000AE7A7 /* Advertisemet+CoreDataProperties.swift in Sources */,
 				843BFE751D05D635000AE7A7 /* Profile+CoreDataProperties.swift in Sources */,
+				840B91041D0A2674009FF77E /* ProsDetailViewController.swift in Sources */,
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
 				840E40911D098A6300C0D943 /* RestaurantMenu.swift in Sources */,

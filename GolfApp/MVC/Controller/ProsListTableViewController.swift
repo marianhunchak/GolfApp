@@ -59,10 +59,16 @@ class ProsListTableViewController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let vc = ProsDetailController(nibName: "ProsDetailController", bundle: nil)
+//        let vc = ProsDetailController(nibName: "ProsDetailController", bundle: nil)
+//        vc.package_url = (dataSource[indexPath.row] as! Pros).package_url!
+//        vc.pros = (dataSource[indexPath.row] as! Pros)
+//        
+//        self.navigationController?.pushViewController(vc, animated: false)
+        
+        let vc =  ProsDetailViewController(nibName: "ProsDetailViewController", bundle: nil)
+    
         vc.package_url = (dataSource[indexPath.row] as! Pros).package_url!
         vc.pros = (dataSource[indexPath.row] as! Pros)
-        
         self.navigationController?.pushViewController(vc, animated: false)
         
     }

@@ -62,11 +62,6 @@ class NewsTableViewController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
-//        vc.news = dataSource[indexPath.row] as! New
-//        
-//        self.navigationController?.pushViewController(vc, animated: false)
-        
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
         vc.news = dataSource[indexPath.row] as! New

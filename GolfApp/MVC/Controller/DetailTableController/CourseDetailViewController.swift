@@ -85,7 +85,9 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
         self.navigationController?.pushViewController(vc, animated: false)
     }
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        self.performSegueWithIdentifier("showFacilities", sender: self)
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("FacilitesCollectionViewController") as! FacilitesCollectionViewController
+        controller.facilites = course.facilities
+        self.presentViewController(controller, animated: false, completion: nil)
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
@@ -116,10 +118,7 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
             let destinationController = segue.destinationViewController as! SwipePageCourseController
             destinationController.courseImage = arrayOfImages
         }
-        if segue.identifier == "showFacilities" {
-            let destinationController = segue.destinationViewController as! FacilitesCollectionViewController
-            destinationController.facilites = course.facilities
-        }
+
     }
 
 }
