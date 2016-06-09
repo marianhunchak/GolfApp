@@ -11,7 +11,6 @@
 		560E30591CF39D8300EF119F /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E30571CF39D8300EF119F /* EventsListViewController.swift */; };
 		560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C601CE137A2006F8655 /* AppDelegate.swift */; };
 		560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C651CE137A2006F8655 /* NetworkManager.swift */; };
-		560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6B1CE137A2006F8655 /* DetailViewController.swift */; };
 		560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */; };
 		560E3C931CE137A2006F8655 /* ListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C6F1CE137A2006F8655 /* ListTableController.swift */; };
 		560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 560E3C741CE137A2006F8655 /* GolfApp.xcdatamodeld */; };
@@ -78,10 +77,10 @@
 		840B90EA1D0A035D009FF77E /* ProShopDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90E81D0A035D009FF77E /* ProShopDetailController.xib */; };
 		840B90F61D0A111F009FF77E /* RestaurantDetailsViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B90F41D0A111F009FF77E /* RestaurantDetailsViewContrller.swift */; };
 		840B90F71D0A111F009FF77E /* RestaurantDetailsViewContrller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90F51D0A111F009FF77E /* RestaurantDetailsViewContrller.xib */; };
+		840B90FA1D0A1830009FF77E /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840B90F81D0A1830009FF77E /* CourseDetailViewController.swift */; };
+		840B90FB1D0A1830009FF77E /* CourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */; };
 		840E40901D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */; };
 		840E40911D098A6300C0D943 /* RestaurantMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408F1D098A6300C0D943 /* RestaurantMenu.swift */; };
-		840E40941D09B87F00C0D943 /* RestaurantDetailViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E40921D09B87F00C0D943 /* RestaurantDetailViewContrller.swift */; };
-		840E40951D09B87F00C0D943 /* RestaurantDetailViewContrller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840E40931D09B87F00C0D943 /* RestaurantDetailViewContrller.xib */; };
 		8432FF1C1D07324C00C05862 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FF1B1D07324C00C05862 /* Item.swift */; };
 		8435F05D1D082732007D6178 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435F05B1D082731007D6178 /* Course+CoreDataProperties.swift */; };
 		8435F05E1D082732007D6178 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435F05C1D082731007D6178 /* Course.swift */; };
@@ -118,12 +117,9 @@
 		845F25581D05D284006C09A4 /* Hotel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25561D05D284006C09A4 /* Hotel+CoreDataProperties.swift */; };
 		845F25591D05D284006C09A4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25571D05D284006C09A4 /* Hotel.swift */; };
 		845F25611D05DE6E006C09A4 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25601D05DE6E006C09A4 /* Package.swift */; };
-		84D9DDC81D0086DB002B9433 /* RestaurantDetailContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DDC61D0086DB002B9433 /* RestaurantDetailContrller.swift */; };
-		84D9DDC91D0086DB002B9433 /* RestaurantDetailContrller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84D9DDC71D0086DB002B9433 /* RestaurantDetailContrller.xib */; };
 		84F0833F1D01A1560061AC0D /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F0833E1D01A1560061AC0D /* PopUpView.xib */; };
 		84F083411D01A85E0061AC0D /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F083401D01A85E0061AC0D /* PopUpView.swift */; };
 		84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F190FE1CE89A5300B1DDDC /* Rate.swift */; };
-		84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */; };
 		84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0881CED21320056B903 /* ProShopTableView.swift */; };
 		84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */; };
 		84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4CD001D007F9400EDD75A /* ProsDetailController.swift */; };
@@ -212,7 +208,6 @@
 		560E30571CF39D8300EF119F /* EventsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
 		560E3C601CE137A2006F8655 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		560E3C651CE137A2006F8655 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		560E3C6B1CE137A2006F8655 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		560E3C6D1CE137A2006F8655 /* MainCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionController.swift; sourceTree = "<group>"; };
 		560E3C6F1CE137A2006F8655 /* ListTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableController.swift; sourceTree = "<group>"; };
 		560E3C751CE137A2006F8655 /* GolfApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GolfApp.xcdatamodel; sourceTree = "<group>"; };
@@ -453,10 +448,10 @@
 		840B90E81D0A035D009FF77E /* ProShopDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProShopDetailController.xib; sourceTree = "<group>"; };
 		840B90F41D0A111F009FF77E /* RestaurantDetailsViewContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewContrller.swift; sourceTree = "<group>"; };
 		840B90F51D0A111F009FF77E /* RestaurantDetailsViewContrller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailsViewContrller.xib; sourceTree = "<group>"; };
+		840B90F81D0A1830009FF77E /* CourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
+		840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailViewController.xib; sourceTree = "<group>"; };
 		840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RestaurantMenu+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		840E408F1D098A6300C0D943 /* RestaurantMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenu.swift; sourceTree = "<group>"; };
-		840E40921D09B87F00C0D943 /* RestaurantDetailViewContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewContrller.swift; sourceTree = "<group>"; };
-		840E40931D09B87F00C0D943 /* RestaurantDetailViewContrller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailViewContrller.xib; sourceTree = "<group>"; };
 		8432FF1B1D07324C00C05862 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8435F05B1D082731007D6178 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8435F05C1D082731007D6178 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -493,12 +488,9 @@
 		845F25561D05D284006C09A4 /* Hotel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hotel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		845F25571D05D284006C09A4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		845F25601D05DE6E006C09A4 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		84D9DDC61D0086DB002B9433 /* RestaurantDetailContrller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailContrller.swift; sourceTree = "<group>"; };
-		84D9DDC71D0086DB002B9433 /* RestaurantDetailContrller.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantDetailContrller.xib; sourceTree = "<group>"; };
 		84F0833E1D01A1560061AC0D /* PopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
 		84F083401D01A85E0061AC0D /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		84F190FE1CE89A5300B1DDDC /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
-		84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopDetailViewController.swift; sourceTree = "<group>"; };
 		84F4C0881CED21320056B903 /* ProShopTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopTableView.swift; sourceTree = "<group>"; };
 		84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsListTableViewController.swift; sourceTree = "<group>"; };
 		84F4CD001D007F9400EDD75A /* ProsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsDetailController.swift; sourceTree = "<group>"; };
@@ -678,7 +670,8 @@
 		560E3C6A1CE137A2006F8655 /* DetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				560E3C6B1CE137A2006F8655 /* DetailViewController.swift */,
+				840B90F81D0A1830009FF77E /* CourseDetailViewController.swift */,
+				840B90F91D0A1830009FF77E /* CourseDetailViewController.xib */,
 			);
 			name = DetailViewController;
 			path = DetailTableController;
@@ -1886,10 +1879,6 @@
 		84D9DDBC1D00865C002B9433 /* RestaurantDetailController */ = {
 			isa = PBXGroup;
 			children = (
-				84D9DDC61D0086DB002B9433 /* RestaurantDetailContrller.swift */,
-				84D9DDC71D0086DB002B9433 /* RestaurantDetailContrller.xib */,
-				840E40921D09B87F00C0D943 /* RestaurantDetailViewContrller.swift */,
-				840E40931D09B87F00C0D943 /* RestaurantDetailViewContrller.xib */,
 				840B90F41D0A111F009FF77E /* RestaurantDetailsViewContrller.swift */,
 				840B90F51D0A111F009FF77E /* RestaurantDetailsViewContrller.xib */,
 			);
@@ -1949,7 +1938,6 @@
 		84FBD0051CEC6FBB002FBF57 /* ProShopDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84F4C0861CED11000056B903 /* ProShopDetailViewController.swift */,
 				840B90E71D0A035D009FF77E /* ProShopDetailController.swift */,
 				840B90E81D0A035D009FF77E /* ProShopDetailController.xib */,
 			);
@@ -2153,7 +2141,6 @@
 				5663B5C71CE5DD980039D1FC /* STONE INFORMEL LT SEMI-BOLD.ttf in Resources */,
 				8407A5B11CE3296100500E19 /* ViewForDetailHeader.xib in Resources */,
 				560E3C9D1CE137A2006F8655 /* CoursTableCell.xib in Resources */,
-				84D9DDC91D0086DB002B9433 /* RestaurantDetailContrller.xib in Resources */,
 				560E3C9B1CE137A2006F8655 /* MenuCollectionCell.xib in Resources */,
 				5651AEEA1CE4BE7E00040520 /* string_spanish.xml in Resources */,
 				564A5F861CEB948E009F7759 /* WebViewController.xib in Resources */,
@@ -2182,11 +2169,11 @@
 				840B90EA1D0A035D009FF77E /* ProShopDetailController.xib in Resources */,
 				5663B5C81CE5DD980039D1FC /* STONE INFROMAL LT ITALIC_0.ttf in Resources */,
 				840001211CEF55C40051B38A /* NewsDetailCell.xib in Resources */,
-				840E40951D09B87F00C0D943 /* RestaurantDetailViewContrller.xib in Resources */,
 				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
 				560F48101CF493AE00E23411 /* EventDetailController.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
 				84F4CD031D007F9400EDD75A /* ProsDetailController.xib in Resources */,
+				840B90FB1D0A1830009FF77E /* CourseDetailViewController.xib in Resources */,
 				560F48021CF443A200E23411 /* EventsTableCell.xib in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
 				5651AEE91CE4BE7E00040520 /* string_italian.xml in Resources */,
@@ -2313,7 +2300,6 @@
 				8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */,
 				560E3C8E1CE137A2006F8655 /* AppDelegate.swift in Sources */,
 				8400011E1CEF3E8D0051B38A /* NewsDetailViewController.swift in Sources */,
-				560E3C911CE137A2006F8655 /* DetailViewController.swift in Sources */,
 				84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */,
 				560E3C901CE137A2006F8655 /* NetworkManager.swift in Sources */,
 				560E3C921CE137A2006F8655 /* MainCollectionController.swift in Sources */,
@@ -2323,17 +2309,15 @@
 				844A942E1CEB6DD900BCC86F /* ViewForProHeader.swift in Sources */,
 				840001231CEF575B0051B38A /* NewsDetailCell.swift in Sources */,
 				562F49C31CE5E8C600A6581B /* UIColor+CustomColor.swift in Sources */,
-				840E40941D09B87F00C0D943 /* RestaurantDetailViewContrller.swift in Sources */,
 				840B90E91D0A035D009FF77E /* ProShopDetailController.swift in Sources */,
 				560F48011CF443A200E23411 /* EventsTableCell.swift in Sources */,
 				8445B0FB1D08753E009D08CD /* Event.swift in Sources */,
 				84051D4A1CE3E2D400164917 /* SwipePageCourseController.swift in Sources */,
 				84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */,
+				840B90FA1D0A1830009FF77E /* CourseDetailViewController.swift in Sources */,
 				8445B0FA1D08753E009D08CD /* Event+CoreDataProperties.swift in Sources */,
 				84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */,
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
-				84D9DDC81D0086DB002B9433 /* RestaurantDetailContrller.swift in Sources */,
-				84F4C0871CED11000056B903 /* ProShopDetailViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,

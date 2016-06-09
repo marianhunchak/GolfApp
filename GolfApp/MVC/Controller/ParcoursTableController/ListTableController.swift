@@ -74,13 +74,13 @@ class ListTableController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier(detailConreoolerIdentfier) as! DetailViewController
         
-        if indexPath.row < coursesImages.count {
-            vc.arrayOfImages =  coursesImages[indexPath.row]
-        }
+        let vc = CourseDetailViewController(nibName: "CourseDetailViewController", bundle: nil)
+        
         vc.course = dataSource[indexPath.row] as! Course
-        
+        if indexPath.row < coursesImages.count {
+        vc.arrayOfImages =  coursesImages[indexPath.row]
+        }
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

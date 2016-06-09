@@ -65,14 +65,7 @@ class RestaurantTableViewController: BaseTableViewController {
     
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-//       let vc =  RestaurantDetailContrller(nibName: "RestaurantDetailContrller", bundle: nil)
-//        
-//        vc.restaurant = dataSource[indexPath.row] as? Restaurant
-//        vc.restaurantsCount = restaurantsCount
-//        vc.package_url = dataSource[indexPath.row].package_url!
-//        
-//        self.navigationController?.pushViewController(vc, animated: false)
+
         
                let vc =  RestaurantDetailsViewContrller(nibName: "RestaurantDetailsViewContrller", bundle: nil)
         
