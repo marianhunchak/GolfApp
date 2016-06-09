@@ -110,8 +110,8 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func loadDataFromDB()  {
         if navigationTitle == "re_menu_nav_bar" {
 
-            if let lRestaurantMenu = CourseRate.MR_findFirstByAttribute("courseId", withValue: restaurant!.id) as? CourseRate {
-                self.rateArray = lRestaurantMenu.ratesList
+            if let lRestaurantMenu = RestaurantMenu.MR_findFirstByAttribute("menuId", withValue: restaurant!.id) as? RestaurantMenu {
+                self.rateArray = lRestaurantMenu.menuList
                 self.tableView.reloadData()
             }
             
@@ -134,9 +134,11 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
                     self.rateArray = lArray
                     self.tableView.reloadData()
                     
-                    let lRestaurantMenu = CourseRate.MR_createEntity() as! CourseRate
-                    lRestaurantMenu.courseId = self.restaurant!.id
-                    lRestaurantMenu.ratesList = array
+                    RestaurantMenu.MR_truncateAll()
+                    
+                    let lRestaurantMenu = RestaurantMenu.MR_createEntity() as! RestaurantMenu
+                    lRestaurantMenu.menuId = self.restaurant!.id
+                    lRestaurantMenu.menuList = array
                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                 }
                 self.refreshControl?.endRefreshing()
@@ -148,6 +150,8 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 if let lArray = array {
                     self.rateArray = lArray
                     self.tableView.reloadData()
+                    
+                    RestaurantMenu.MR_truncateAll()
                     
                     let lCourseRate = CourseRate.MR_createEntity() as! CourseRate
                     lCourseRate.courseId = self.course.id

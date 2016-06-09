@@ -70,7 +70,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         viewForHeader.button3.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("htl_package_btn"), forState: .Normal)
         
         viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
-        viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: true)
+        viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: hotel.website.isEmpty ? false : true)
         viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: hotel.package_count.intValue > 0 ? true : false)
         viewForHeader.delegate = self
     }

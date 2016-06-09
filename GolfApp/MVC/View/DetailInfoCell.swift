@@ -57,8 +57,9 @@ class DetailInfoCell: UITableViewCell {
     func handleTapGesture() {
         
         let indexPath = NSIndexPath(forRow: self.tag, inSection: 0)
-//        self.tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
-        self.tableView.delegate?.tableView!(tableView, didSelectRowAtIndexPath: indexPath)
+        if tableView != nil {
+            self.tableView.delegate?.tableView!(tableView, didSelectRowAtIndexPath: indexPath)
+        }
     }
 
 }

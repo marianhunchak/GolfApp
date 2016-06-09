@@ -74,6 +74,8 @@
 		8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B71CE32E8D00500E19 /* ViewForDetailHeader.swift */; };
 		840940331CE4A0950005A97E /* TeeTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840940321CE4A0950005A97E /* TeeTimeView.xib */; };
 		840940351CE4A5350005A97E /* TeeTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840940341CE4A5350005A97E /* TeeTimeView.swift */; };
+		840E40901D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */; };
+		840E40911D098A6300C0D943 /* RestaurantMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E408F1D098A6300C0D943 /* RestaurantMenu.swift */; };
 		8432FF1C1D07324C00C05862 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8432FF1B1D07324C00C05862 /* Item.swift */; };
 		8435F05D1D082732007D6178 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435F05B1D082731007D6178 /* Course+CoreDataProperties.swift */; };
 		8435F05E1D082732007D6178 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435F05C1D082731007D6178 /* Course.swift */; };
@@ -442,6 +444,8 @@
 		8407A5B71CE32E8D00500E19 /* ViewForDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForDetailHeader.swift; sourceTree = "<group>"; };
 		840940321CE4A0950005A97E /* TeeTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeeTimeView.xib; sourceTree = "<group>"; };
 		840940341CE4A5350005A97E /* TeeTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeeTimeView.swift; sourceTree = "<group>"; };
+		840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RestaurantMenu+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		840E408F1D098A6300C0D943 /* RestaurantMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantMenu.swift; sourceTree = "<group>"; };
 		8432FF1B1D07324C00C05862 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8435F05B1D082731007D6178 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8435F05C1D082731007D6178 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -706,6 +710,7 @@
 		560E3C731CE137A2006F8655 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				840E40841D098A2700C0D943 /* RestaurantMenu */,
 				8445B0E31D0858CF009D08CD /* CourseRate */,
 				8435F0681D082736007D6178 /* Course */,
 				84566CAF1D081922004029BD /* Restaurant */,
@@ -1701,6 +1706,15 @@
 			name = FacilitiesController;
 			sourceTree = "<group>";
 		};
+		840E40841D098A2700C0D943 /* RestaurantMenu */ = {
+			isa = PBXGroup;
+			children = (
+				840E408E1D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift */,
+				840E408F1D098A6300C0D943 /* RestaurantMenu.swift */,
+			);
+			name = RestaurantMenu;
+			sourceTree = "<group>";
+		};
 		8432FED71D06D34D00C05862 /* Package */ = {
 			isa = PBXGroup;
 			children = (
@@ -2230,6 +2244,7 @@
 			files = (
 				562F4ABF1CE73A6C00A6581B /* UIView+RounCorners.swift in Sources */,
 				560E3C981CE137A2006F8655 /* ImageCollectionCell.swift in Sources */,
+				840E40901D098A6300C0D943 /* RestaurantMenu+CoreDataProperties.swift in Sources */,
 				84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */,
 				8441945C1CE615650056742E /* FacilitesCollectionViewController.swift in Sources */,
 				560E30591CF39D8300EF119F /* EventsListViewController.swift in Sources */,
@@ -2268,6 +2283,7 @@
 				843BFE751D05D635000AE7A7 /* Profile+CoreDataProperties.swift in Sources */,
 				562F4ABB1CE60C4700A6581B /* BaseTableViewController.swift in Sources */,
 				84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */,
+				840E40911D098A6300C0D943 /* RestaurantMenu.swift in Sources */,
 				560F48131CF4954300E23411 /* EventDetailCell.swift in Sources */,
 				8432FF1C1D07324C00C05862 /* Item.swift in Sources */,
 				840001161CEF14F60051B38A /* NewsTableViewController.swift in Sources */,

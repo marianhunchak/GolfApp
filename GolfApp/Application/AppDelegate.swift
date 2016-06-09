@@ -102,10 +102,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
+         
         
 //        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//            })
+            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+            })
 //        }
         
 //           NetworkManager.sharedInstance.unregisterDevice()
@@ -158,6 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         popUpView.poupImage = lImage
         
         UIApplication.sharedApplication().keyWindow?.rootViewController!.view.addSubview(popUpView)
+        UIApplication.sharedApplication().keyWindow?.rootViewController!.view.bringSubviewToFront(popUpView)
         
     }
     
