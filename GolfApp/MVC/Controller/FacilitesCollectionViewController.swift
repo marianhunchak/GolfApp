@@ -22,7 +22,7 @@ class FacilitesCollectionViewController: UIViewController , UICollectionViewDele
  
     
     var facilitesItemNameArray = ["Club house" , "Practice",    "Pitching",
-                                  "Putting" ,    "Buggy",       "Club Hire" ,
+                                  "Putting" ,    "Buggy",       "Club Hire",
                                   "Proshop" ,    "Pros" ,       "Shower"  ,
                                   "Wi-fi",       "Restaurant",  "Hotel" ,
                                   "Pool",        "Tennis",      "Parking"]

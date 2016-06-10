@@ -19,6 +19,18 @@ class MainCollectionController: UICollectionViewController  {
     var profile:Profile?
     var prosArray = [Pros]()
     var lTopInset : CGFloat?
+    var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
+                                  "a_proshop" , "a_courses",      "a_pros",
+                                  "a_contact",  "a_news",         "a_hotel"]
+    
+    var buttonsItemsImgOfArray = ["a_tee_time_off", "a_restaurant_off",   "a_events_off",
+                                  "a_proshop_off" , "a_courses_off",      "a_pros_off",
+                                  "a_contact_off",  "a_news_off",         "a_hotel_off"]
+    
+    var buttonsItemsNamefArray = ["a_tee_time", "a_restaurant_off",   "a_events_off",
+                                  "a_proshop_off" , "a_courses_off",      "a_pros_off",
+                                  "a_contact_off",  "a_news_off",         "a_hotel_off"]
+    
     
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",

@@ -121,11 +121,12 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
-        let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
-        packageVC.packageUrl = restaurant!.package_url
-        packageVC.titleOfferts = "re_suggestion_nav_bar"
-        packageVC.offertsArray = restaurant?.packagesList
-        packageVC.restaurant = restaurant
+        let packageVC = OffersController(nibName: "OffersController", bundle: nil)
+                packageVC.packageUrl = restaurant!.package_url
+                packageVC.titleOfferts = "re_suggestion_nav_bar"
+                packageVC.offertsArray = restaurant?.packagesList
+                packageVC.restaurant = restaurant
+        
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }

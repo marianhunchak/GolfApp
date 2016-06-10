@@ -106,8 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         
 //        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
-            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-            })
+//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//            })
 //        }
         
 //           NetworkManager.sharedInstance.unregisterDevice()
