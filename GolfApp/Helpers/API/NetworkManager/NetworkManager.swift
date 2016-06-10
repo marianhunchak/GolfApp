@@ -72,8 +72,8 @@ class NetworkManager {
     func getNotifications()  {
         
         let parameters = [
-            "regid": "937",
-            "selector": "news"
+            "regid": "937"
+//            "selector": "news,hotel,pro"
         ]
         
         Alamofire.request(.POST, baseURL + "device/notifications", parameters:parameters )

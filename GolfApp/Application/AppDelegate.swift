@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                    fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
         
         NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: nil, userInfo: userInfo)
-        
+//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         print("Notification received: \(userInfo)")
         
         

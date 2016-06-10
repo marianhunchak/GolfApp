@@ -7,22 +7,21 @@
 //
 
 import Foundation
+import CoreData
 
+@objc(Notification)
+class Notification: NSManagedObject {
 
-class Notification {
-    
-//    var language_id : Int!
-    var post_id : Int!
-    var post_type : String!
-    var sid : Int!
-    var sname : String!
-    
-    
     class func notificationWithDictionary(pDict : [String : AnyObject]) -> Notification {
         
-        let lNotification = Notification()
+        let lNotification = Notification.MR_createEntity() as! Notification
         
-//        lNotification.language_id = pDict["language_id"] as! Int
+        if let languageId = pDict["language_id"] as? Int {
+            lNotification.language_id = languageId
+        } else {
+            lNotification.language_id = Int(Global.languageID)
+        }
+        
         lNotification.post_id = pDict["post_id"] as! Int
         lNotification.post_type = (pDict["post_type"] as! String).lowercaseString
         if lNotification.post_type == "pro" {
@@ -33,4 +32,5 @@ class Notification {
         
         return lNotification
     }
+
 }

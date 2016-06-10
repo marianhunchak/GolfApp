@@ -19,6 +19,7 @@ class NewsTableCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var backgroundCellView: UIView!
+    @IBOutlet weak var newNewsImageView: UIImageView!
     
 
     
@@ -28,6 +29,7 @@ class NewsTableCell: UITableViewCell {
         backgroundCellView.layer.cornerRadius = 5
         backgroundCellView.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
+        newNewsImageView.hidden = true
     }
     
     override func prepareForReuse() {

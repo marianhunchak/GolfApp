@@ -134,6 +134,7 @@
                 <outlet property="dateLabel" destination="zlW-zn-XZo" id="Nlj-Ay-Q9p"/>
                 <outlet property="descriptionLabel" destination="FMh-nb-g2l" id="s30-QD-pYn"/>
                 <outlet property="nameLabel" destination="0S5-OE-EhI" id="sYT-sw-OFM"/>
+                <outlet property="newNewsImageView" destination="9ln-5G-fKx" id="RYx-Q3-4YW"/>
                 <outlet property="subtitleLabel" destination="Flr-3s-WvW" id="fmO-Gl-9wR"/>
             </connections>
             <point key="canvasLocation" x="406" y="223.5"/>

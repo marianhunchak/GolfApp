@@ -62,6 +62,10 @@ class NewsTableViewController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewsTableCell
+        
+        cell.newNewsImageView.hidden = true
+        
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
         vc.news = dataSource[indexPath.row] as! New
@@ -125,5 +129,22 @@ class NewsTableViewController: BaseTableViewController {
             
             completion()
         })
+    }
+    
+    // MARK: Notifications
+    
+    override func handleNotification(notification: NSNotification) {
+        
+        if let notificationBody = notification.userInfo as? [String : AnyObject] {
+            
+            let lNotification = Notification.notificationWithDictionary(notificationBody)
+            
+            if  let i = (dataSource as! [New]).indexOf({$0.id == lNotification.post_id}) {
+            
+                let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! NewsTableCell
+                
+                cell.newNewsImageView.hidden = false
+            }
+        }
     }
 }

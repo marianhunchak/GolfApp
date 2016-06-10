@@ -36,12 +36,15 @@ class BaseTableViewController: UITableViewController {
         tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
         tableView.infiniteScrollIndicatorMargin = 30
         
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleInetNotification(_:)), name: "connected", object: nil)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleNotification(_:)),
+                                                         name: "notificationRecieved",
+                                                         object: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        tableView.removeInfiniteScroll()
     }
     
     //MARK: Private methods
@@ -131,9 +134,11 @@ class BaseTableViewController: UITableViewController {
     }
     //MARK: Notifications 
     
-    func handleInetNotification(sender : NSNotification) {
-        if dataSource.isEmpty {
-            refresh(refreshControl!)
-        }
+    // MARK: Notifications
+    
+    func handleNotification(notification : NSNotification) {
+        
+        print(notification.userInfo)
     }
+
 }
