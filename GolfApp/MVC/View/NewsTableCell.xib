@@ -76,6 +76,13 @@
                                     <constraint firstAttribute="height" constant="25" id="fs9-rP-Hd7"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_new_news" translatesAutoresizingMaskIntoConstraints="NO" id="9ln-5G-fKx">
+                                <rect key="frame" x="320" y="0.0" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="EZJ-jX-Drb"/>
+                                    <constraint firstAttribute="width" constant="50" id="GLf-Ya-Iuc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686269999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -86,9 +93,11 @@
                             <constraint firstItem="FMh-nb-g2l" firstAttribute="top" secondItem="zlW-zn-XZo" secondAttribute="bottom" id="Cz1-35-ICS"/>
                             <constraint firstItem="0S5-OE-EhI" firstAttribute="top" secondItem="IEe-90-pbO" secondAttribute="top" constant="8" id="Ean-xm-ZVy"/>
                             <constraint firstAttribute="trailing" secondItem="Flr-3s-WvW" secondAttribute="trailing" constant="40" id="EoJ-fG-e3F"/>
+                            <constraint firstAttribute="trailing" secondItem="9ln-5G-fKx" secondAttribute="trailing" id="Hol-0V-WUF"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0S5-OE-EhI" secondAttribute="bottom" constant="84" id="Hr6-lU-SNf"/>
                             <constraint firstItem="zlW-zn-XZo" firstAttribute="top" secondItem="Flr-3s-WvW" secondAttribute="bottom" id="PUM-uG-MFc"/>
                             <constraint firstAttribute="trailing" secondItem="0S5-OE-EhI" secondAttribute="trailing" constant="40" id="QO9-NA-yE3"/>
+                            <constraint firstItem="9ln-5G-fKx" firstAttribute="top" secondItem="IEe-90-pbO" secondAttribute="top" id="cGx-kJ-Vwm"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="dY3-9l-fxR"/>
                             <constraint firstAttribute="trailing" secondItem="zlW-zn-XZo" secondAttribute="trailing" constant="40" id="eDL-LC-mrL"/>
                             <constraint firstItem="zlW-zn-XZo" firstAttribute="top" secondItem="Flr-3s-WvW" secondAttribute="bottom" constant="8" id="f4P-oy-akb"/>
@@ -132,5 +141,6 @@
     </objects>
     <resources>
         <image name="a_forward_btn" width="60" height="60"/>
+        <image name="a_new_news" width="60" height="60"/>
     </resources>
 </document>
