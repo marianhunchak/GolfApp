@@ -80,14 +80,19 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
     //MARK: CourseHeaderDelegate
     
     func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("SwipePageCourseController") as! SwipePageCourseController
-        vc.courseImage = arrayOfImages
-        self.navigationController?.pushViewController(vc, animated: false)
+        
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let setViewController = mainStoryboard.instantiateViewControllerWithIdentifier("SwipePageCourseController") as! SwipePageCourseController
+        setViewController.courseImage = arrayOfImages
+        self.navigationController?.pushViewController(setViewController, animated: false)
+        
     }
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("FacilitesCollectionViewController") as! FacilitesCollectionViewController
-        controller.facilites = course.facilities
-        self.presentViewController(controller, animated: false, completion: nil)
+        
+        let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let setViewController = mainStoryboard.instantiateViewControllerWithIdentifier("FacilitesCollectionViewController") as! FacilitesCollectionViewController
+        setViewController.facilites = course.facilities
+        self.navigationController?.pushViewController(setViewController, animated: false)
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         

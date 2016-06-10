@@ -125,8 +125,6 @@
 		84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F190FE1CE89A5300B1DDDC /* Rate.swift */; };
 		84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C0881CED21320056B903 /* ProShopTableView.swift */; };
 		84F4C08C1CED32FE0056B903 /* ProsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */; };
-		84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F4CD001D007F9400EDD75A /* ProsDetailController.swift */; };
-		84F4CD031D007F9400EDD75A /* ProsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F4CD011D007F9400EDD75A /* ProsDetailController.xib */; };
 		84F5353F1CE7544A001CDA47 /* FacilitesCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */; };
 		84F6B9571CEDCAB500B4491C /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B9561CEDCAB500B4491C /* RestaurantTableViewController.swift */; };
 		84F6B95D1CEE00CC00B4491C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6B95C1CEE00CC00B4491C /* Menu.swift */; };
@@ -499,8 +497,6 @@
 		84F190FE1CE89A5300B1DDDC /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		84F4C0881CED21320056B903 /* ProShopTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProShopTableView.swift; sourceTree = "<group>"; };
 		84F4C08B1CED32FE0056B903 /* ProsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsListTableViewController.swift; sourceTree = "<group>"; };
-		84F4CD001D007F9400EDD75A /* ProsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsDetailController.swift; sourceTree = "<group>"; };
-		84F4CD011D007F9400EDD75A /* ProsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsDetailController.xib; sourceTree = "<group>"; };
 		84F5353E1CE7544A001CDA47 /* FacilitesCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacilitesCollectionCell.swift; sourceTree = "<group>"; };
 		84F6B9561CEDCAB500B4491C /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
 		84F6B95C1CEE00CC00B4491C /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -885,8 +881,6 @@
 		562ECB651CE9F97900985213 /* ProsDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84F4CD001D007F9400EDD75A /* ProsDetailController.swift */,
-				84F4CD011D007F9400EDD75A /* ProsDetailController.xib */,
 				840B91021D0A2674009FF77E /* ProsDetailViewController.swift */,
 				840B91031D0A2674009FF77E /* ProsDetailViewController.xib */,
 			);
@@ -2181,7 +2175,6 @@
 				84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */,
 				560F48101CF493AE00E23411 /* EventDetailController.xib in Resources */,
 				5651AEE71CE4BE7E00040520 /* string_french.xml in Resources */,
-				84F4CD031D007F9400EDD75A /* ProsDetailController.xib in Resources */,
 				840B90FB1D0A1830009FF77E /* CourseDetailViewController.xib in Resources */,
 				560F48021CF443A200E23411 /* EventsTableCell.xib in Resources */,
 				560E3CA01CE137A2006F8655 /* LaunchScreen.storyboard in Resources */,
@@ -2275,7 +2268,6 @@
 				843DC68B1D0729660069CEFF /* ProsShop.swift in Sources */,
 				84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */,
 				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
-				84F4CD021D007F9400EDD75A /* ProsDetailController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
 				845F254B1D05C0FD006C09A4 /* ImageSaver.swift in Sources */,
