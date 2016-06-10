@@ -327,7 +327,7 @@
         <!--Facilites Collection View Controller-->
         <scene sceneID="M22-wA-6gj">
             <objects>
-                <viewController id="MeF-WL-zuX" customClass="FacilitesCollectionViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FacilitesCollectionViewController" id="MeF-WL-zuX" customClass="FacilitesCollectionViewController" customModule="GolfApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rF4-BK-U8S"/>
                         <viewControllerLayoutGuide type="bottom" id="SuB-iZ-hLA"/>

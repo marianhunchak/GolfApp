@@ -1,8 +1,8 @@
 //
-//  NewsDetailViewController.swift
+//  NewsDetailController.swift
 //  GolfApp
 //
-//  Created by Admin on 20.05.16.
+//  Created by Admin on 10.06.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -11,18 +11,17 @@ import UIKit
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let NewsTableCellIndetifire = "NewsDetailCell"
 
-class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
+class NewsDetailController: BaseViewController , OffersHeaderDelegate {
     
     var news : New!
     var newsCount = 1
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
     
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var tableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.configureNavBar()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("nws_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
@@ -36,9 +35,14 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
         self.tableView.estimatedRowHeight = 1000
         
         self.setupHeaderView()
-        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
@@ -65,9 +69,9 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
     //MARK: Private methods
     func setupHeaderView() {
         
-        viewForHead.frame = CGRectMake(0.0, 0.0, self.view.frame.size.width , headerView.frame.size.height)
-        viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
+        viewForHead.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
         headerView.addSubview(viewForHead)
+        viewForHead.setButtonEnabled(viewForHead.button1, enabled: true)
         
         viewForHead.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("nws_share_btn"), forState: .Normal)
         viewForHead.delegate = self
@@ -84,7 +88,7 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
     //MARK: CourseHeaderDelegate
     
     func pressedButton1(tableProHeader: ViewForOffersHeader, button1Pressed button1: AnyObject) {
-
+        
         let textToShare = news.title + "\n" + news.subtitle + "\n" + news.pubdate + "\n" + news.descr
         let urlToShare = "http://golfapp.ch"
         
@@ -93,9 +97,7 @@ class NewsDetailViewController: UIViewController, OffersHeaderDelegate {
             self.navigationController!.presentViewController(activityVC, animated: true, completion: nil)
         }
         
-
+        
     }
-    
-
 
 }

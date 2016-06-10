@@ -17,6 +17,7 @@ private let defaultImageNameInCell = "a_place_holder_detail_page"
 
 
 class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+
     
     // MARK: - Connections outlet elements DetailmageTableCell
     
@@ -82,7 +83,7 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
                 })
             }
         }
-
+        
         return cell
     }
 
@@ -103,6 +104,11 @@ class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.size.width
         self.pageControl.currentPage = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1)
+    }
+    
+    func startRefresh() {
+        
+    
     }
     
 }

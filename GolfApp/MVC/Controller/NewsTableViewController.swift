@@ -62,9 +62,9 @@ class NewsTableViewController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
-        vc.news = dataSource[indexPath.row] as! New
+        let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
+        vc.news = dataSource[indexPath.row] as! New
         self.navigationController?.pushViewController(vc, animated: false)
         
     }
@@ -73,9 +73,10 @@ class NewsTableViewController: BaseTableViewController {
     
     func showNewDetailVC() {
         
-        let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsDetailViewController") as! NewsDetailViewController
-        newsVC.news = dataSource.first! as! New
-        self.navigationController?.pushViewController(newsVC, animated: false)
+        let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
+        
+        vc.news = dataSource.first! as! New
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     // MARK: Overrided methods

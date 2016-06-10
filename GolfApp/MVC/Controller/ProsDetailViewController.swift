@@ -1,8 +1,8 @@
 //
-//  ProsViewController.swift
+//  ProsDetailViewController.swift
 //  GolfApp
 //
-//  Created by Marian Hunchak on 5/16/16.
+//  Created by Admin on 10.06.16.
 //  Copyright © 2016 Marian Hunchak. All rights reserved.
 //
 
@@ -14,66 +14,60 @@ private let detailImageTableCellNibName = "DetailmageTableCell"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 private let segueIdetifireToSwipeCourseController = "showSwipeCourseController"
 
-class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
+
+class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITableViewDelegate, UITableViewDataSource {
     
     var pros: Pros!
     var package_url = String()
-    let headerView = ViewForProHeader.loadViewFromNib()
+    @IBOutlet weak var viewForHeader: UIView!
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setupHeaderView()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
-        refreshControl?.removeFromSuperview()
-        tableView.estimatedRowHeight = 80;
-        tableView.backgroundColor = Global.viewsBackgroundColor
-        tableView.contentInset = UIEdgeInsets(top: tableView.contentInset.top + Global.headerHeight,
-                                              left: 0,
-                                              bottom: Global.pading,
-                                              right: 0)
+        self.tableView.backgroundColor = Global.viewsBackgroundColor
+        self.viewForHeader.backgroundColor = Global.viewsBackgroundColor
         
+        navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("pro_detail_nav_bar")
         let nib = UINib.init(nibName: detailImageTableCellNibName, bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
+        self.tableView.estimatedRowHeight = 1000
         
+        setupHeaderView()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.headerView.removeFromSuperview()
-    }
-    
+
     // MARK: - Table view data source
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
             let lCell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
             lCell.imagesArray = pros.images
-
+            
             return lCell
         }
-
+        
         let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
         cell2.nameLabel.text = pros.name
         cell2.detailLabelHeight.constant = 0
         cell2.descriptionLabel.text = pros.descr
-
+        
         return cell2
-
+        
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return self.view.frame.height / 3.0
         } else {
@@ -84,14 +78,9 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
     //MARK: Private methods
     
     func setupHeaderView() {
-        
-        headerView.frame = CGRectMake(0.0,
-                                      (self.navigationController?.navigationBar.frame.maxY)!,
-                                      Global.displayWidth,
-                                      Global.headerHeight)
-        
-        self.navigationController?.view.addSubview(headerView)
-        self.navigationController?.view.bringSubviewToFront((self.navigationController?.navigationBar)!)
+        let headerView = ViewForProHeader.loadViewFromNib()
+        headerView.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, viewForHeader.frame.size.height)
+        viewForHeader.addSubview(headerView)
         
         headerView.button1.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("pro_contact_btn"), forState: .Normal)
         headerView.button2.setTitle(LocalisationDocument.sharedInstance.getStringWhinName("pro_rate_offer_btn"), forState: .Normal)
@@ -116,7 +105,7 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
-
+    
     func showContactSubView() {
         
         let teeTime = TeeTimeView.loadViewFromNib()
@@ -130,5 +119,5 @@ class ProsDetailController: BaseTableViewController, ProHeaderDelegate {
             teeTime.alpha = 1
         }
     }
-    
+
 }

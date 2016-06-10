@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantDetailsViewContrller" customModule="GolfApp" customModuleProvider="target">
+            <connections>
+                <outlet property="headerView" destination="sPl-5c-NTB" id="Ze1-7V-kep"/>
+                <outlet property="tableView" destination="qCM-K1-mWg" id="B2T-K5-ayr"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="RestaurantDetailsViewContrller" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-5c-NTB">
+                    <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Vc9-Av-4Eo"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-K1-mWg">
+                    <rect key="frame" x="0.0" y="109" width="600" height="491"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="SXR-ik-MiZ"/>
+                        <outlet property="delegate" destination="-1" id="auN-mC-OCN"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="sPl-5c-NTB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2au-oV-o4i"/>
+                <constraint firstAttribute="bottom" secondItem="qCM-K1-mWg" secondAttribute="bottom" id="7OQ-Od-9aa"/>
+                <constraint firstAttribute="trailing" secondItem="qCM-K1-mWg" secondAttribute="trailing" id="GrD-97-57L"/>
+                <constraint firstItem="qCM-K1-mWg" firstAttribute="top" secondItem="sPl-5c-NTB" secondAttribute="bottom" id="MUc-e6-xY6"/>
+                <constraint firstAttribute="trailing" secondItem="sPl-5c-NTB" secondAttribute="trailing" id="YJ9-u2-kjk"/>
+                <constraint firstItem="sPl-5c-NTB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="a1F-1S-90d"/>
+                <constraint firstItem="qCM-K1-mWg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eJh-u1-9Po"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

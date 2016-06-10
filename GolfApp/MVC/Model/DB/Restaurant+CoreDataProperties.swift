@@ -26,6 +26,7 @@ extension Restaurant {
     @NSManaged var longitude: String?
     @NSManaged var latitude: String?
     @NSManaged var package_count: NSNumber?
+    @NSManaged var menu_count: NSNumber?
     @NSManaged var package_url: String?
     @NSManaged var menu_url: String?
     @NSManaged var images: [Image]!

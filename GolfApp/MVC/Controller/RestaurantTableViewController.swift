@@ -65,14 +65,15 @@ class RestaurantTableViewController: BaseTableViewController {
     
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
         
-       let vc =  RestaurantDetailContrller(nibName: "EventsListController", bundle: nil)
+               let vc =  RestaurantDetailsViewContrller(nibName: "RestaurantDetailsViewContrller", bundle: nil)
         
-        vc.restaurant = dataSource[indexPath.row] as? Restaurant
-        vc.restaurantsCount = restaurantsCount
-        vc.package_url = dataSource[indexPath.row].package_url!
+                vc.restaurant = dataSource[indexPath.row] as? Restaurant
+                vc.restaurantsCount = restaurantsCount
+                vc.package_url = dataSource[indexPath.row].package_url!
         
-        self.navigationController?.pushViewController(vc, animated: false)
+                self.navigationController?.pushViewController(vc, animated: false)
 
     }
     
@@ -81,12 +82,11 @@ class RestaurantTableViewController: BaseTableViewController {
     func showRestaurantDetailView() {
     
         if self.dataSource.count == 1 {
-            let vc =  RestaurantDetailContrller(nibName: "EventsListController", bundle: nil)
+            let vc =  RestaurantDetailsViewContrller(nibName: "RestaurantDetailsViewContrller", bundle: nil)
             
             vc.restaurant = dataSource[0] as? Restaurant
             vc.restaurantsCount = restaurantsCount
             vc.package_url = dataSource[0].package_url!
-            
             
             self.navigationController?.pushViewController(vc, animated: false)
         } else {
