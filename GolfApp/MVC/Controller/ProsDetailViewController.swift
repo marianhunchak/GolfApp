@@ -96,12 +96,13 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
     }
     
     func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
-        
-        let packageVC = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("OffersViewController") as! OffersViewController
+
+        let packageVC = OffersController(nibName: "OffersController", bundle: nil)
         packageVC.packageUrl = pros.package_url
         packageVC.titleOfferts = "pro_rate_offer_nav_bar"
         packageVC.offertsArray = pros.packagesList
         packageVC.pros = pros
+        
         self.navigationController?.pushViewController(packageVC, animated: false)
         
     }
