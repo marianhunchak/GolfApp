@@ -6,6 +6,9 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+        </mutableArray>
         <mutableArray key="STONE INFORMEL LT SEMI-BOLD.ttf">
             <string>StoneInformalLT-Semibold</string>
         </mutableArray>
@@ -39,23 +42,47 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCN-gk-FdE" customClass="SwiftBadge" customModule="GolfApp" customModuleProvider="target">
+                        <rect key="frame" x="149" y="4" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="3aM-km-H2n"/>
+                            <constraint firstAttribute="height" constant="25" id="gIg-J6-nvI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstItem="B2O-HJ-ehu" firstAttribute="top" secondItem="kAf-xb-gJg" secondAttribute="top" id="2d7-80-ma0"/>
                 <constraint firstItem="SDP-0z-lb1" firstAttribute="leading" secondItem="kAf-xb-gJg" secondAttribute="leading" constant="10" id="6wE-3e-dxw"/>
+                <constraint firstItem="oCN-gk-FdE" firstAttribute="trailing" secondItem="IMG-Cs-MGB" secondAttribute="trailing" constant="6" id="8c3-Bo-Vi7"/>
                 <constraint firstItem="SDP-0z-lb1" firstAttribute="top" secondItem="IMG-Cs-MGB" secondAttribute="bottom" constant="3" id="9Lq-9m-ood"/>
                 <constraint firstAttribute="trailing" secondItem="SDP-0z-lb1" secondAttribute="trailing" constant="10" id="BYy-ol-Pbq"/>
                 <constraint firstItem="IMG-Cs-MGB" firstAttribute="centerX" secondItem="B2O-HJ-ehu" secondAttribute="centerX" id="Cwg-DP-KH9"/>
                 <constraint firstAttribute="trailing" secondItem="B2O-HJ-ehu" secondAttribute="trailing" id="LuQ-Ri-Eoq"/>
                 <constraint firstItem="IMG-Cs-MGB" firstAttribute="top" secondItem="kAf-xb-gJg" secondAttribute="top" constant="10" id="MKg-Pm-N6U"/>
+                <constraint firstItem="oCN-gk-FdE" firstAttribute="top" secondItem="IMG-Cs-MGB" secondAttribute="top" constant="-6" id="NdG-Ye-AJr"/>
                 <constraint firstAttribute="bottom" secondItem="B2O-HJ-ehu" secondAttribute="bottom" id="eHB-R5-gUf"/>
                 <constraint firstItem="B2O-HJ-ehu" firstAttribute="leading" secondItem="kAf-xb-gJg" secondAttribute="leading" id="fRg-op-jHH"/>
                 <constraint firstAttribute="bottom" secondItem="SDP-0z-lb1" secondAttribute="bottom" constant="3" id="y57-1h-Q2L"/>
             </constraints>
             <size key="customSize" width="255" height="280"/>
             <connections>
+                <outlet property="badgeLabel" destination="oCN-gk-FdE" id="pHA-ID-jYa"/>
                 <outlet property="cellView" destination="B2O-HJ-ehu" id="VNY-eO-vRv"/>
                 <outlet property="menuImageView" destination="IMG-Cs-MGB" id="Aon-Tq-Rgg"/>
                 <outlet property="menuLabel" destination="SDP-0z-lb1" id="DSw-gd-zj2"/>

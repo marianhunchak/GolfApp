@@ -48,7 +48,7 @@ class NetworkManager {
     func unregisterDevice() {
         
         let parameters = [
-            "regid": "876",
+            "regid": "937",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
         Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
@@ -67,18 +67,44 @@ class NetworkManager {
         }
     }
     
-    func getNotifications(completion: (NSArray?, NSError?) -> Void)  {
+    // MARK: Notifications
+    
+    func getNotifications()  {
         
         let parameters = [
-            "regid": "874",
+            "regid": "937",
             "selector": "news"
         ]
         
-        Alamofire.request(.POST, "http://golfapp.ch/app_fe_dev/api/device/notifications", parameters:parameters )
+        Alamofire.request(.POST, baseURL + "device/notifications", parameters:parameters )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
-                    NSUserDefaults.standardUserDefaults().setObject(JSON["regid"], forKey: "regid")
+
+                    print("JSON: \(JSON)")
+                }
+        }
+    }
+    
+    func removeNotificationsWhithPostID(pId : String) {
+        
+        var parameters : [String : AnyObject]?
+        
+        if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
+       
+            parameters = [
+                "regid" : regid.stringValue,
+                "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
+                "sid" : Global.clientId
+    //            "pid" : pId
+            ]
+        }
+        
+        Alamofire.request(.POST, baseURL + "device/notifications_remove", parameters:parameters )
+            .responseJSON { response in
+                
+                if let JSON = response.result.value as? NSDictionary{
+                    
                     print("JSON: \(JSON)")
                 }
         }

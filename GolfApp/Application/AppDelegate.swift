@@ -44,11 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(reachabilityChanged(_:)),name: ReachabilityChangedNotification,object: reachability)
+        
         do{
             try reachability?.startNotifier()
         } catch {
             print("could not start reachability notifier")
         }
+        
+        
+        NetworkManager.sharedInstance.getNotifications()
 
         return true
     }
@@ -94,7 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application( application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken
         deviceToken: NSData ) {
-        // [END receive_apns_token]
+        
+        // END receive_apns_token
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
         
@@ -104,10 +109,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(tokenString)
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
          
-        
+//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("")
 //        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
-            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-            })
+//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//            })
 //        }
         
 //           NetworkManager.sharedInstance.unregisterDevice()
@@ -122,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application( application: UIApplication,
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
 
-//        application.applicationIconBadgeNumber = 0
+        NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: nil, userInfo: userInfo)
         
         print("Notification received: \(userInfo)")
     }
@@ -130,16 +135,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application( application: UIApplication,
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
                                                    fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
-//        let localNotification = UILocalNotification()
-//        localNotification.fireDate = NSDate(timeIntervalSinceNow: 0)
-//        localNotification.alertBody = "new Blog Posted at iOScreator.com"
-//        localNotification.timeZone = NSTimeZone.defaultTimeZone()
-//        localNotification.soundName = "default"
-//        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-//        
-//        application.scheduleLocalNotification(localNotification)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: nil, userInfo: userInfo)
         
         print("Notification received: \(userInfo)")
+        
+        
         handler(UIBackgroundFetchResult.NoData);
     }
     
@@ -181,6 +182,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func checkDate() {
+        
         if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
             
             let todaysDate : NSDate = NSDate()

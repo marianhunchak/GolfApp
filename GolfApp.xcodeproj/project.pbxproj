@@ -120,6 +120,8 @@
 		845F25581D05D284006C09A4 /* Hotel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25561D05D284006C09A4 /* Hotel+CoreDataProperties.swift */; };
 		845F25591D05D284006C09A4 /* Hotel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25571D05D284006C09A4 /* Hotel.swift */; };
 		845F25611D05DE6E006C09A4 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F25601D05DE6E006C09A4 /* Package.swift */; };
+		849209451D0AD4D8001A213F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849209441D0AD4D8001A213F /* Notification.swift */; };
+		84E0C4101D0ADC7C0060A321 /* SwiftBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0C40F1D0ADC7C0060A321 /* SwiftBadge.swift */; };
 		84F0833F1D01A1560061AC0D /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F0833E1D01A1560061AC0D /* PopUpView.xib */; };
 		84F083411D01A85E0061AC0D /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F083401D01A85E0061AC0D /* PopUpView.swift */; };
 		84F190FF1CE89A5300B1DDDC /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F190FE1CE89A5300B1DDDC /* Rate.swift */; };
@@ -492,6 +494,8 @@
 		845F25561D05D284006C09A4 /* Hotel+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hotel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		845F25571D05D284006C09A4 /* Hotel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hotel.swift; sourceTree = "<group>"; };
 		845F25601D05DE6E006C09A4 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		849209441D0AD4D8001A213F /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		84E0C40F1D0ADC7C0060A321 /* SwiftBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBadge.swift; sourceTree = "<group>"; };
 		84F0833E1D01A1560061AC0D /* PopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
 		84F083401D01A85E0061AC0D /* PopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		84F190FE1CE89A5300B1DDDC /* Rate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
@@ -706,6 +710,7 @@
 				84F190FD1CE899F800B1DDDC /* Rate */,
 				5624E2B51CE4CFDF001B6E2F /* LocalisationDocument */,
 				560E3C731CE137A2006F8655 /* DB */,
+				849209441D0AD4D8001A213F /* Notification.swift */,
 			);
 			name = Models;
 			path = Model;
@@ -820,6 +825,7 @@
 		560E3C8B1CE137A2006F8655 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				84E0C40F1D0ADC7C0060A321 /* SwiftBadge.swift */,
 				567010D61CF72E9200E0EC04 /* CustomInfiniteIndicator.swift */,
 				560E3C8C1CE137A2006F8655 /* Cache */,
 			);
@@ -2260,6 +2266,7 @@
 				567010D71CF72E9200E0EC04 /* CustomInfiniteIndicator.swift in Sources */,
 				562F4ABD1CE6107C00A6581B /* BaseViewController.swift in Sources */,
 				843BFE7B1D05E133000AE7A7 /* Advertisemet.swift in Sources */,
+				84E0C4101D0ADC7C0060A321 /* SwiftBadge.swift in Sources */,
 				8445B0E11D085742009D08CD /* CourseRate+CoreDataProperties.swift in Sources */,
 				843DC68A1D0729660069CEFF /* ProsShop+CoreDataProperties.swift in Sources */,
 				84FF8C961CEBD4350007BC8E /* OffersViewController.swift in Sources */,
@@ -2323,6 +2330,7 @@
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
+				849209451D0AD4D8001A213F /* Notification.swift in Sources */,
 				840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,
 				84566CBC1D082156004029BD /* Restaurant.swift in Sources */,

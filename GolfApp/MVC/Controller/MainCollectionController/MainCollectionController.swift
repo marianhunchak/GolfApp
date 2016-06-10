@@ -26,7 +26,9 @@ class MainCollectionController: UICollectionViewController  {
     
     var menuItemsImgArray = ["a_tee_time", "a_restaurant", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
     
-    
+    var menuItemsNameArray = ["teetime",  "restaurant",  "events",
+                              "proshop" , "courses",     "pros",
+                              "contact",  "news",        "hotel"]
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +37,8 @@ class MainCollectionController: UICollectionViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         lTopInset = self.view.center.y
         let backroundImage = UIImageView.init(image: UIImage.init(named:nameForBackgroundImage))
@@ -52,9 +56,18 @@ class MainCollectionController: UICollectionViewController  {
                 self.profile = pProfile
             }
         }
-
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleNotification(_:)),
+                                                         name: "notificationRecieved",
+                                                         object: nil)
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     //MARK: UICollectionViewDataSource
     
@@ -154,6 +167,24 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             teeTime.alpha = 1
+        }
+    }
+    
+    // MARK: Notifications
+    
+    func handleNotification(notification : NSNotification) {
+        
+        print(notification.userInfo)
+        
+        if let notificationBody = notification.userInfo as? [String : AnyObject] {
+            
+            let lNotification = Notification.notificationWithDictionary(notificationBody)
+           
+            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
+        
+            cell.badgeLabel.hidden = false
+            
+            cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
         }
     }
     

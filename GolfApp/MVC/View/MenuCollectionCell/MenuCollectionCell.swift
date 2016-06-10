@@ -14,6 +14,7 @@ class MenuCollectionCell: UICollectionViewCell {
 
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var menuImageView: UIImageView!
+    @IBOutlet weak var badgeLabel: SwiftBadge!
     @IBOutlet weak var menuLabel: UILabel!
     
     override func awakeFromNib() {
@@ -24,6 +25,11 @@ class MenuCollectionCell: UICollectionViewCell {
         cellView.layer.masksToBounds = true
         menuImageView.layer.cornerRadius = 5.0
         menuImageView.layer.masksToBounds = true
+        
+        badgeLabel.insets =  CGSize(width: 2, height: 2)
+        badgeLabel.center = CGPoint(x: 20, y: 20)
+        self.bringSubviewToFront(badgeLabel)
+        badgeLabel.hidden = true
     }
     
 }
