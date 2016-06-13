@@ -51,8 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("could not start reachability notifier")
         }
         
+        self.window?.rootViewController?.view
         
-        NetworkManager.sharedInstance.getNotifications()
+        NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: Notification.MR_findAll(), userInfo: nil)
 
         return true
     }
@@ -74,6 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
+        
+       
+        
+        NetworkManager.sharedInstance.getNotifications()
         
         if reachability!.isReachable() {
             NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in

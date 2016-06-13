@@ -151,7 +151,7 @@ class RateViewController: UIViewController , UITableViewDelegate, UITableViewDat
                     self.rateArray = lArray
                     self.tableView.reloadData()
                     
-                    RestaurantMenu.MR_truncateAll()
+                    CourseRate.MR_truncateAll()
                     
                     let lCourseRate = CourseRate.MR_createEntity() as! CourseRate
                     lCourseRate.courseId = self.course.id

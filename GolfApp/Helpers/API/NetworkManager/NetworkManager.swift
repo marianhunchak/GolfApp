@@ -71,10 +71,14 @@ class NetworkManager {
     
     func getNotifications()  {
         
-        let parameters = [
-            "regid": "937"
-//            "selector": "news,hotel,pro"
-        ]
+        var parameters : [String : AnyObject]?
+        
+        if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
+            parameters = [
+                "regid": regid.stringValue
+    //            "selector": "news,hotel,pro"
+            ]
+        }
         
         Alamofire.request(.POST, baseURL + "device/notifications", parameters:parameters )
             .responseJSON { response in

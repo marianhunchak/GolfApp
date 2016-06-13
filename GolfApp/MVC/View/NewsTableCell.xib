@@ -76,7 +76,7 @@
                                     <constraint firstAttribute="height" constant="25" id="fs9-rP-Hd7"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_new_news" translatesAutoresizingMaskIntoConstraints="NO" id="9ln-5G-fKx">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_new_news" translatesAutoresizingMaskIntoConstraints="NO" id="9ln-5G-fKx">
                                 <rect key="frame" x="320" y="0.0" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EZJ-jX-Drb"/>

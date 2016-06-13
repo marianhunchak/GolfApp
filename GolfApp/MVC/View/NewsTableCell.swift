@@ -11,6 +11,13 @@ import UIKit
 let CELL_HEIGHT: Float = 50
 
 class NewsTableCell: UITableViewCell {
+    
+    
+    var displayNewNewsImage: Bool! {
+        didSet {
+            newNewsImageView.hidden = false
+        }
+    }
 
     // MARK: - Connections elements
     
@@ -29,7 +36,6 @@ class NewsTableCell: UITableViewCell {
         backgroundCellView.layer.cornerRadius = 5
         backgroundCellView.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
-        newNewsImageView.hidden = true
     }
     
     override func prepareForReuse() {
@@ -38,6 +44,9 @@ class NewsTableCell: UITableViewCell {
         backgroundCellView.layer.borderWidth = 0.0
         nameLabel.textColor = Global.navigationBarColor
         
+        if displayNewNewsImage != nil {
+            newNewsImageView.hidden = true
+        }
     }
     
     //MARK: Private methods

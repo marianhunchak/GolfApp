@@ -18,6 +18,7 @@ class BaseTableViewController: UITableViewController {
     var allowIncrementPage = false
     var loadedFromDB = true
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var notificationsArray = [Notification]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,7 @@ class BaseTableViewController: UITableViewController {
             self.isRefreshing = false
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()
+//            self.handleReceivedNotifications(self.notificationsArray)
         }
         
     }
@@ -109,11 +111,11 @@ class BaseTableViewController: UITableViewController {
             tableView.infiniteScrollIndicatorMargin = 30
         }
         
-        tableView.addInfiniteScrollWithHandler { [weak self] (scrollView) -> Void in
+        tableView.addInfiniteScrollWithHandler { (scrollView) -> Void in
             let tableView = scrollView as! UITableView
             
-            if self!.allowLoadMore {
-                self!.loadDataWithPage(self!.getPage()) {
+            if self.allowLoadMore {
+                self.loadDataWithPage(self.getPage()) {
                     tableView.reloadData()
                     tableView.finishInfiniteScroll()
                 }
@@ -132,7 +134,6 @@ class BaseTableViewController: UITableViewController {
             HUD.flash(.LabeledError(title: LocalisationDocument.sharedInstance.getStringWhinName("no_api"), subtitle: nil), delay: 2.0)
         }
     }
-    //MARK: Notifications 
     
     // MARK: Notifications
     
@@ -140,5 +141,10 @@ class BaseTableViewController: UITableViewController {
         
         print(notification.userInfo)
     }
+    
+    func handleReceivedNotifications(array : [Notification]) {
+
+    }
+
 
 }

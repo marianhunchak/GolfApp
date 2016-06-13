@@ -19,6 +19,7 @@ class MainCollectionController: UICollectionViewController  {
     var profile:Profile?
     var prosArray = [Pros]()
     var lTopInset : CGFloat?
+    var notificationArray : [Notification]!
     var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
                                   "a_proshop" , "a_courses",      "a_pros",
                                   "a_contact",  "a_news",         "a_hotel"]
@@ -124,8 +125,10 @@ class MainCollectionController: UICollectionViewController  {
             case 6:
                 showContactSubView()
             case 7:
-                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController")
-                self.navigationController?.pushViewController(prosVC!, animated: false)
+                let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController") as! NewsTableViewController
+                newsVC.notificationsArray = self.notificationArray != nil ? notificationArray : []
+                self.navigationController?.pushViewController(newsVC, animated: false)
+                    
             case 8:
                 let hotelsVC = HotelsTableViewController(nibName: "HotelsTableViewController", bundle: nil)
                 self.navigationController?.pushViewController(hotelsVC, animated: false)
@@ -191,13 +194,31 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         if let notificationBody = notification.userInfo as? [String : AnyObject] {
             
             let lNotification = Notification.notificationWithDictionary(notificationBody)
+            
+            self.notificationArray.append(lNotification)
+            
+            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
            
             let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
         
             cell.badgeLabel.hidden = false
             
             cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+            
+        } else if let notifications = notification.object as? [Notification] {
+            
+            for lNotification in notifications {
+                
+                self.notificationArray.append(lNotification)
+                
+                let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
+                
+                cell.badgeLabel.hidden = false
+                
+                cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+            }
         }
+        
     }
     
 }

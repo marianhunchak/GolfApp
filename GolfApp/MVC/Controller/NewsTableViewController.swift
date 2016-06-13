@@ -32,6 +32,8 @@ class NewsTableViewController: BaseTableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.hidden = false;
+        handleReceivedNotifications(notificationsArray)
+        
     }
 
     // MARK: - Table view data source
@@ -50,6 +52,15 @@ class NewsTableViewController: BaseTableViewController {
         cell.dateLabel.text = lNew.pubdate
         cell.descriptionLabel.text = lNew.descr
         cell.descriptionLabel.numberOfLines = 1
+        for notification in notificationsArray {
+            if  let i = (dataSource as! [New]).indexOf({$0.id == notification.post_id}) {
+                
+                if indexPath.row == i {
+                    
+                    cell.displayNewNewsImage = true
+                }
+            }
+        }
         
         return cell
     }
@@ -65,6 +76,17 @@ class NewsTableViewController: BaseTableViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewsTableCell
         
         cell.newNewsImageView.hidden = true
+        
+        if notificationsArray.count >= indexPath.row + 1 {
+        
+            let lNotification = notificationsArray[indexPath.row]
+            
+            Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "post_type = %@ AND post_id = %@", argumentArray: [lNotification.post_type, lNotification.post_id]))
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("notificationUnregisterd", object: nil)
+            
+            notificationsArray.removeAtIndex(indexPath.row)
+        }
         
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
@@ -131,6 +153,11 @@ class NewsTableViewController: BaseTableViewController {
         })
     }
     
+    override func handleReceivedNotifications(array : [Notification]) {
+        
+    }
+    
+    
     // MARK: Notifications
     
     override func handleNotification(notification: NSNotification) {
@@ -139,12 +166,7 @@ class NewsTableViewController: BaseTableViewController {
             
             let lNotification = Notification.notificationWithDictionary(notificationBody)
             
-            if  let i = (dataSource as! [New]).indexOf({$0.id == lNotification.post_id}) {
-            
-                let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0)) as! NewsTableCell
-                
-                cell.newNewsImageView.hidden = false
-            }
+            notificationsArray += [lNotification]
         }
     }
 }

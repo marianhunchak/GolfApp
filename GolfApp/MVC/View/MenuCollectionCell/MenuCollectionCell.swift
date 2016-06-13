@@ -30,6 +30,22 @@ class MenuCollectionCell: UICollectionViewCell {
         badgeLabel.center = CGPoint(x: 20, y: 20)
         self.bringSubviewToFront(badgeLabel)
         badgeLabel.hidden = true
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleNotification(_:)), name: "notificationUnregisterd", object: nil)
+    }
+    
+    
+    // MARK: Notification
+    
+    func handleNotification(notification : NSNotification) {
+        
+        let badgeCount = Int(self.badgeLabel.text!)! - 1
+        
+        if  badgeCount > 0 {
+            self.badgeLabel.text = "\(badgeCount)"
+        } else {
+            self.badgeLabel.hidden = true
+        }
     }
     
 }
