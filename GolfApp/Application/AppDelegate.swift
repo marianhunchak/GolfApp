@@ -51,7 +51,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("could not start reachability notifier")
         }
         
-        self.window?.rootViewController?.view
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window!.backgroundColor = UIColor.whiteColor()
+        // Create a nav/vc pair using the custom ViewController class
+        
+        let nav = UINavigationController()
+        nav.navigationBar.tintColor = UIColor.whiteColor()
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainCollectionController") as! MainCollectionController
+        
+        vc.notificationArray = Notification.MR_findAll() as! [Notification]
+        
+        // Push the vc onto the nav
+        nav.pushViewController(vc, animated: false)
+        
+        // Set the window’s root view controller
+        self.window!.rootViewController = nav
+        
+        // Present the window
+        self.window!.makeKeyAndVisible()
         
         NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: Notification.MR_findAll(), userInfo: nil)
 
@@ -141,7 +158,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
                                                    fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
         
-        NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: nil, userInfo: userInfo)
+        if let notificationBody = userInfo as? [String : AnyObject] {
+            
+            let lNotification = Notification.notificationWithDictionary(notificationBody)
+            
+            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: lNotification, userInfo: nil)
+        }
+        
+        
 //        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         print("Notification received: \(userInfo)")
         

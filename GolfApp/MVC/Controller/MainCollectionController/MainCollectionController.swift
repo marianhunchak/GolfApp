@@ -22,6 +22,7 @@ class MainCollectionController: UICollectionViewController  {
     var notificationArray : [Notification]!
     var img = [String]()
     var buttonEnabled = [Bool]()
+    
     var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
                                   "a_proshop" , "a_courses",      "a_pros",
                                   "a_contact",  "a_news",         "a_hotel"]
@@ -66,7 +67,6 @@ class MainCollectionController: UICollectionViewController  {
         if let lProfile = Profile.MR_findFirst() {
             self.profile = lProfile as? Profile
         } else {
-            
             NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
                 self.profile = pProfile
             }
@@ -76,6 +76,23 @@ class MainCollectionController: UICollectionViewController  {
                                                          selector: #selector(handleNotification(_:)),
                                                          name: "notificationRecieved",
                                                          object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
+        
+        self.collectionView!.reloadData()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            for lNotification in self.notificationArray {
+                
+                let cell = self.collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: self.menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
+    
+                cell.badgeLabel.hidden = false
+    
+                cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+            }
+        })
     }
 
     override func viewWillDisappear(animated: Bool) {
@@ -99,8 +116,7 @@ class MainCollectionController: UICollectionViewController  {
         var imageName = buttonsItemsImgOnArray[indexPath.row]
         
         if ((self.profile?.buttons!.contains(buttonsItemsNamefArray[indexPath.row])) != nil) {
-        
-            imageName = imageName + ""
+            
             buttonEnabled.append(true)
         } else {
         
@@ -142,7 +158,7 @@ class MainCollectionController: UICollectionViewController  {
                 showContactSubView()
             case 7:
                 let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController") as! NewsTableViewController
-                newsVC.notificationsArray = self.notificationArray != nil ? notificationArray : []
+//                newsVC.notificationsArray = self.notificationArray != nil ? notificationArray : []
                 self.navigationController?.pushViewController(newsVC, animated: false)
                     
             case 8:
@@ -207,34 +223,37 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         
         print(notification.userInfo)
         
-        if let notificationBody = notification.userInfo as? [String : AnyObject] {
-            
-            let lNotification = Notification.notificationWithDictionary(notificationBody)
+        if let lNotification = notification.object as? Notification {
             
             self.notificationArray.append(lNotification)
-            
-            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-           
+ 
             let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
         
             cell.badgeLabel.hidden = false
             
             cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
             
-        } else if let notifications = notification.object as? [Notification] {
+        } //else if let notifications = notification.object as? [Notification] {
             
-            for lNotification in notifications {
-                
-                self.notificationArray.append(lNotification)
-                
-                let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
-                
-                cell.badgeLabel.hidden = false
-                
-                cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+           
+//        }
+        
+    }
+    
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+        if let postType = notification.object as? String {
+        
+            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(postType)!, inSection: 0)) as! MenuCollectionCell
+            
+            let badgeCount = Int(cell.badgeLabel.text!)! - 1
+            
+            if  badgeCount > 0 {
+                cell.badgeLabel.text = "\(badgeCount)"
+            } else {
+                cell.badgeLabel.hidden = true
             }
         }
-        
     }
     
 }

@@ -24,6 +24,8 @@ class NewsTableViewController: BaseTableViewController {
         self.tableView.registerNib(nib, forCellReuseIdentifier: newsTableCellIdentifier)
         
         self.tableView.estimatedRowHeight = 1000
+        
+        notificationsArray = Notification.MR_findAll() as! [Notification]
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,15 +81,25 @@ class NewsTableViewController: BaseTableViewController {
         
         cell.newNewsImageView.hidden = true
         
-        if notificationsArray.count >= indexPath.row + 1 {
+        if dataSource.count >= indexPath.row + 1 {
         
-            let lNotification = notificationsArray[indexPath.row]
+            let lNew = dataSource[indexPath.row] as! New
             
-            Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "post_type = %@ AND post_id = %@", argumentArray: [lNotification.post_type, lNotification.post_id]))
+            let lPredicate = NSPredicate(format: "post_type = %@ AND post_id = %@", argumentArray: ["news", lNew.id])
             
-            NSNotificationCenter.defaultCenter().postNotificationName("notificationUnregisterd", object: nil)
-            
-            notificationsArray.removeAtIndex(indexPath.row)
+            if let lNotificationToDelete = Notification.MR_findFirstWithPredicate(lPredicate) as? Notification {
+                
+                lNotificationToDelete.MR_deleteEntity()
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("notificationUnregisterd", object: "news")
+                
+                notificationsArray = Notification.MR_findAll() as! [Notification]
+                
+                tableView.reloadData()
+            }
+
         }
         
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)

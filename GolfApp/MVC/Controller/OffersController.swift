@@ -42,42 +42,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
-        
-//        switch titleOfferts {
-//            
-//        case "re_suggestion_nav_bar":
-//            NetworkManager.sharedInstance.getSuggestions(urlToPackage: packageUrl ?? "") { (array) in
-//                self.offertsArray = array!
-//                self.tableView.reloadData()
-//                self.restaurant?.packagesList = array
-//                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-//            }
-//        case "ps_special_offer_nav_bar":
-//            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
-//                self.offertsArray = array!
-//                self.tableView.reloadData()
-//                self.prosShop.packagesList = array
-//                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-//            }
-//        case "pro_rate_offer_nav_bar":
-//            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
-//                self.offertsArray = array!
-//                self.tableView.reloadData()
-//                self.pros.packagesList = array!
-//                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-//            }
-//            
-//        case "htl_package_list_nav_bar":
-//            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
-//                self.offertsArray = array!
-//                self.tableView.reloadData()
-//                self.hotel.packagesList = array!
-//                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-//            }
-//            
-//        default:
-//            break
-//        }
+
     }
 
     override func didReceiveMemoryWarning() {

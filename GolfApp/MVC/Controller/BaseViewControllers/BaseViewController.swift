@@ -23,6 +23,7 @@ class BaseViewController: UIViewController {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:#selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
+        refresh(refreshControl)
     }
     
     func refresh(sender:AnyObject) {
