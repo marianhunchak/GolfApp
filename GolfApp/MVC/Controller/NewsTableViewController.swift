@@ -12,6 +12,8 @@ private var newsTableCellIdentifier = "NewsTableCell"
 
 class NewsTableViewController: BaseTableViewController {
     
+    var newsCount = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +67,8 @@ class NewsTableViewController: BaseTableViewController {
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
         vc.news = dataSource[indexPath.row] as! New
+        vc.newsCount = newsCount
+        
         self.navigationController?.pushViewController(vc, animated: false)
         
     }
@@ -79,12 +83,33 @@ class NewsTableViewController: BaseTableViewController {
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
+    // MARK: - Private methods
+    
+    func showNewsDetailView() {
+        
+        if self.dataSource.count == 1 {
+            let vc =  NewsDetailController(nibName: "NewsDetailController", bundle: nil)
+            
+            vc.news = dataSource[0] as? New
+            vc.newsCount = newsCount
+            
+            self.navigationController?.pushViewController(vc, animated: false)
+        } else {
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
     // MARK: Overrided methods
     
     override func loadDataFromDB() {
         refreshControl?.endRefreshing()
         loadedFromDB = true
         dataSource = New.MR_findAllSortedBy("updated_", ascending: false)
+        newsCount = dataSource.count
+        self.showNewsDetailView()
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
     }
@@ -93,13 +118,14 @@ class NewsTableViewController: BaseTableViewController {
         
         NetworkManager.sharedInstance.getNewsWithPage(pPage, completion: {
             (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
-            
+
             if let lArray = array {
+                
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
+                
                 self.dataSource += lArray
                 if lArray.count >= 10 {
                     self.allowLoadMore = true
@@ -122,7 +148,7 @@ class NewsTableViewController: BaseTableViewController {
                 self.allowIncrementPage = false
                 self.handleError(error!)
             }
-            
+            self.showNewsDetailView()
             completion()
         })
     }

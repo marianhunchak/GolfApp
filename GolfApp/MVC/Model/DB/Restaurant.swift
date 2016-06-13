@@ -43,6 +43,10 @@ class Restaurant: NSManagedObject {
             lRestaurant.packagesList = []
         }
         
+        if lRestaurant.menuList == nil {
+            lRestaurant.menuList = []
+        }
+        
 
         lRestaurant.images = []
         

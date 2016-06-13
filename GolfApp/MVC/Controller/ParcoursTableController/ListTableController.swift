@@ -27,6 +27,8 @@ private let coursesImages = [course_1_Images, course_2_Images]
 
 
 class ListTableController: BaseTableViewController {
+    
+    var courseCount = 1
 
     //MARK: Lifecycle
     
@@ -84,12 +86,34 @@ class ListTableController: BaseTableViewController {
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
+    // MARK: - Private methods
+    
+    func showCourseDetailView() {
+        
+        if self.dataSource.count == 1 {
+            let vc =  CourseDetailViewController(nibName: "CourseDetailViewController", bundle: nil)
+            
+            vc.course = dataSource[0] as! Course
+            vc.arrayOfImages =  coursesImages[0]
+            vc.courseCount = courseCount
+            
+            self.navigationController?.pushViewController(vc, animated: false)
+        } else {
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
     // MARK: Overrided methods
     
     override func loadDataFromDB() {
         
         loadedFromDB = true
         dataSource = Course.MR_findAllSortedBy("createdDate", ascending: true)
+        courseCount = dataSource.count
+        self.showCourseDetailView()
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
     }
@@ -98,13 +122,14 @@ class ListTableController: BaseTableViewController {
         
         NetworkManager.sharedInstance.getCourseseWithPage(pPage, completion: {
             (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
+  
             
             if let lArray = array {
+                
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
                 
                 self.dataSource += lArray
                 if lArray.count >= 10 {
@@ -122,7 +147,7 @@ class ListTableController: BaseTableViewController {
                 self.allowIncrementPage = false
                 self.handleError(error!)
             }
-            
+            self.showCourseDetailView()
             completion()
         })
     }

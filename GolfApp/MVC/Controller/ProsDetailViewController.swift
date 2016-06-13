@@ -19,6 +19,8 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
     
     var pros: Pros!
     var package_url = String()
+    var prosCount = 1
+    
     @IBOutlet weak var viewForHeader: UIView!
     
     override func viewDidLoad() {
@@ -118,6 +120,18 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             teeTime.alpha = 1
+        }
+    }
+    
+    //MARK: Overrided methods
+    
+    override func showPreviousController() {
+        
+        if prosCount > 1 {
+            self.navigationController?.popViewControllerAnimated(false)
+            
+        }else {
+            self.navigationController?.popToRootViewControllerAnimated(false)
         }
     }
 

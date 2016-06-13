@@ -30,6 +30,7 @@ class DetailInfoCell: UITableViewCell {
         backgroundCourseFooter.layer.cornerRadius = 5
         backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
+
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         descriptionLabel.addGestureRecognizer(tapGesture)

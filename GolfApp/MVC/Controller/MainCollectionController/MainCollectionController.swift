@@ -20,6 +20,7 @@ class MainCollectionController: UICollectionViewController  {
     var prosArray = [Pros]()
     var lTopInset : CGFloat?
     var img = [String]()
+    var buttonEnabled = [Bool]()
     var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
                                   "a_proshop" , "a_courses",      "a_pros",
                                   "a_contact",  "a_news",         "a_hotel"]
@@ -59,12 +60,10 @@ class MainCollectionController: UICollectionViewController  {
         
         if let lProfile = Profile.MR_findFirst() {
             self.profile = lProfile as? Profile
-            print("<<<<<<<<<\(self.profile?.buttons)>>>>>>>>>")
         } else {
             
             NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
                 self.profile = pProfile
-                print("<<<<<<<<<\(self.profile?.buttons)>>>>>>>>>")
             }
         }
 
@@ -88,14 +87,15 @@ class MainCollectionController: UICollectionViewController  {
         if ((self.profile?.buttons!.contains(buttonsItemsNamefArray[indexPath.row])) != nil) {
         
             imageName = imageName + ""
-        
+            buttonEnabled.append(true)
         } else {
         
             imageName = imageName + "_off"
-        
+            buttonEnabled.append(false)
         }
         
         cell.menuImageView.image = UIImage(named: imageName)
+        cell.userInteractionEnabled = buttonEnabled[indexPath.row]
         
         
         return cell
@@ -114,7 +114,6 @@ class MainCollectionController: UICollectionViewController  {
             case 2:
                 let events =  EventsListViewController(nibName: "EventsListController", bundle: nil)
                 self.navigationController?.pushViewController(events, animated: false)
-            
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
                 self.navigationController?.pushViewController(prosVC!, animated: false)
