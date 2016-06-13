@@ -13,6 +13,8 @@ private let parcouseTableCellNibname = "ProsTableCell"
 private let detailProsControllerIdentfier = "detailProsControllerIdentfier"
 
 class ProsListTableViewController: BaseTableViewController {
+    
+    var prosCount = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,22 +59,45 @@ class ProsListTableViewController: BaseTableViewController {
     }
     
     // MARK: - UITableViewDelegate
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let vc =  ProsDetailViewController(nibName: "ProsDetailViewController", bundle: nil)
     
         vc.package_url = (dataSource[indexPath.row] as! Pros).package_url!
         vc.pros = (dataSource[indexPath.row] as! Pros)
+        vc.prosCount = prosCount
         self.navigationController?.pushViewController(vc, animated: false)
         
     }
     
     // MARK: - Private methods
     
+    func showProsDetailView() {
+        
+        if self.dataSource.count == 1 {
+            let vc =  ProsDetailViewController(nibName: "ProsDetailViewController", bundle: nil)
+            
+            vc.pros = dataSource[0] as? Pros
+            vc.prosCount = prosCount
+            vc.package_url = dataSource[0].package_url!
+            
+            self.navigationController?.pushViewController(vc, animated: false)
+        } else {
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
+    // MARK: Overrided methods
+    
     override func loadDataFromDB() {
         
         loadedFromDB = true
         dataSource = Pros.MR_findAll()
+        prosCount = dataSource.count
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
     }
@@ -81,13 +106,13 @@ class ProsListTableViewController: BaseTableViewController {
         
         NetworkManager.sharedInstance.getProsWithPage(pPage, completion: {
             (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
-            
+
             if let lArray = array {
+                
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
                 
                 self.dataSource += lArray
                 if lArray.count >= 10 {
@@ -102,7 +127,7 @@ class ProsListTableViewController: BaseTableViewController {
                 self.allowIncrementPage = false
                 self.handleError(error!)
             }
-            
+            self.showProsDetailView()
             completion()
         })
     }

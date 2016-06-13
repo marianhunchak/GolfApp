@@ -18,6 +18,7 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
     var proArray = [Package]()
     var prosShop : ProsShop?
     var package_url = String()
+    var prosShopCount = 1
     
     
     
@@ -125,6 +126,18 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
         teeTime.alpha = 0
         UIView.animateWithDuration(0.25) { () -> Void in
             teeTime.alpha = 1
+        }
+    }
+    
+        //MARK: Overrided methods
+    
+    override func showPreviousController() {
+        
+        if prosShopCount > 1 {
+            self.navigationController?.popViewControllerAnimated(false)
+            
+        }else {
+            self.navigationController?.popToRootViewControllerAnimated(false)
         }
     }
 }

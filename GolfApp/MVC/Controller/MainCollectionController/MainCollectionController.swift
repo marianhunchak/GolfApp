@@ -20,6 +20,8 @@ class MainCollectionController: UICollectionViewController  {
     var prosArray = [Pros]()
     var lTopInset : CGFloat?
     var notificationArray : [Notification]!
+    var img = [String]()
+    var buttonEnabled = [Bool]()
     var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
                                   "a_proshop" , "a_courses",      "a_pros",
                                   "a_contact",  "a_news",         "a_hotel"]
@@ -28,9 +30,9 @@ class MainCollectionController: UICollectionViewController  {
                                   "a_proshop_off" , "a_courses_off",      "a_pros_off",
                                   "a_contact_off",  "a_news_off",         "a_hotel_off"]
     
-    var buttonsItemsNamefArray = ["a_tee_time", "a_restaurant_off",   "a_events_off",
-                                  "a_proshop_off" , "a_courses_off",      "a_pros_off",
-                                  "a_contact_off",  "a_news_off",         "a_hotel_off"]
+    var buttonsItemsNamefArray = ["teetime", "restaurant", "events",
+                                  "proshop" ,"courses",    "courses",
+                                  "contact", "news",       "hotel"]
     
     
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
@@ -93,7 +95,22 @@ class MainCollectionController: UICollectionViewController  {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MenuCollectionCell
         cell.menuLabel.text =  LocalisationDocument.sharedInstance.getStringWhinName(menuFilesNameArray[indexPath.row])
-        cell.menuImageView.image = UIImage(named: menuItemsImgArray[indexPath.row])
+        
+        var imageName = buttonsItemsImgOnArray[indexPath.row]
+        
+        if ((self.profile?.buttons!.contains(buttonsItemsNamefArray[indexPath.row])) != nil) {
+        
+            imageName = imageName + ""
+            buttonEnabled.append(true)
+        } else {
+        
+            imageName = imageName + "_off"
+            buttonEnabled.append(false)
+        }
+        
+        cell.menuImageView.image = UIImage(named: imageName)
+        cell.userInteractionEnabled = buttonEnabled[indexPath.row]
+        
         
         return cell
     }
@@ -111,7 +128,6 @@ class MainCollectionController: UICollectionViewController  {
             case 2:
                 let events =  EventsListViewController(nibName: "EventsListController", bundle: nil)
                 self.navigationController?.pushViewController(events, animated: false)
-            
             case 3:
                 let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
                 self.navigationController?.pushViewController(prosVC!, animated: false)

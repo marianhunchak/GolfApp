@@ -13,6 +13,7 @@ private let detailProShopControllerIdentfier = "ProShopDetailViewController"
 
 class ProShopTableView: BaseTableViewController {
 
+    var prosShopCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +62,30 @@ class ProShopTableView: BaseTableViewController {
         
         let vc = ProShopDetailController(nibName: "ProShopDetailController", bundle: nil)
         
-                        vc.package_url = dataSource[indexPath.row].package_url!
-                        vc.prosShop = dataSource[indexPath.row] as? ProsShop
+        vc.package_url = dataSource[indexPath.row].package_url!
+        vc.prosShop = dataSource[indexPath.row] as? ProsShop
+        vc.prosShopCount = prosShopCount
         self.navigationController?.pushViewController(vc, animated: false)
        
+    }
+    // MARK: - Private methods
+    
+    func showProShopDetailView() {
+        
+        if self.dataSource.count == 1 {
+            let vc =  ProShopDetailController(nibName: "ProShopDetailController", bundle: nil)
+            
+            vc.prosShop = dataSource[0] as? ProsShop
+            vc.prosShopCount = prosShopCount
+            vc.package_url = dataSource[0].package_url!
+            
+            self.navigationController?.pushViewController(vc, animated: false)
+        } else {
+            
+            tableView.reloadData()
+            
+        }
+        
     }
     
     // MARK: Overrided methods
@@ -73,8 +94,10 @@ class ProShopTableView: BaseTableViewController {
         
         loadedFromDB = true
         dataSource = ProsShop.MR_findAllSortedBy("createdDate", ascending: true)
+        prosShopCount = dataSource.count
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
+
     }
     
     override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
@@ -82,12 +105,12 @@ class ProShopTableView: BaseTableViewController {
         NetworkManager.sharedInstance.getProsShop(pPage, completion: {
             (array, error) in
             
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
-            
             if let lArray = array {
+                
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
                 
                 self.dataSource += lArray
                 if lArray.count >= 10 {
@@ -98,14 +121,14 @@ class ProShopTableView: BaseTableViewController {
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
                 }
-                
+
                 NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                 
             } else if error != nil {
                 self.allowIncrementPage = false
                 self.handleError(error!)
             }
-            
+            self.showProShopDetailView()
             completion()
         })
     }

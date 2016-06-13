@@ -12,6 +12,8 @@ private let cellIdentifier = "parcoursCell"
 
 class HotelsTableViewController: BaseTableViewController {
 
+    var hotelsCount = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_list_nav_bar")
@@ -60,12 +62,33 @@ class HotelsTableViewController: BaseTableViewController {
         self.navigationController?.pushViewController(hotelVC, animated: false)
     }
     
+    // MARK: - Private methods
+    
+    func showHotelsDetailView() {
+        
+        if self.dataSource.count == 1 {
+            let vc =  HotelDetailViewController(nibName: "HotelDetailViewController", bundle: nil)
+            
+            vc.hotel = dataSource[0] as! Hotel
+            vc.hotelsCount = hotelsCount
+
+            self.navigationController?.pushViewController(vc, animated: false)
+        } else {
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
     // MARK: Overrided methods
     
     override func loadDataFromDB() {
         
         loadedFromDB = true
         dataSource = Hotel.MR_findAllSortedBy("createdDate", ascending: true)
+        hotelsCount = dataSource.count
+        showHotelsDetailView()
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
     }
@@ -74,13 +97,13 @@ class HotelsTableViewController: BaseTableViewController {
         
         NetworkManager.sharedInstance.getHotelsWithPage(pPage, completion: {
             (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
-            
+
             if let lArray = array {
+                
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
                 
                 self.dataSource += lArray
                 if lArray.count >= 10 {
@@ -98,7 +121,7 @@ class HotelsTableViewController: BaseTableViewController {
                 self.allowIncrementPage = false
                 self.handleError(error!)
             }
-            
+            self.showHotelsDetailView()
             completion()
         })
     }

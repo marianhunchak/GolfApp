@@ -103,22 +103,22 @@ class RestaurantTableViewController: BaseTableViewController {
         loadedFromDB = true
         dataSource = Restaurant.MR_findAllSortedBy("createdDate", ascending: true)
         restaurantsCount = dataSource.count
-        self.showRestaurantDetailView()
         print("DataSource count = \(dataSource.count)")
         tableView.reloadData()
+
     }
     
     override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
         NetworkManager.sharedInstance.getRestaurant(pPage, completion: {
             (array, error) in
-            
-            if self.loadedFromDB {
-                self.dataSource = []
-                self.loadedFromDB = false
-            }
-            
+
             if let lArray = array {
+                
+                if self.loadedFromDB {
+                    self.dataSource = []
+                    self.loadedFromDB = false
+                }
                 
                 self.dataSource += lArray
                 self.restaurantsCount = lArray.count
@@ -130,16 +130,19 @@ class RestaurantTableViewController: BaseTableViewController {
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
                 }
+
                 
                 NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                 
             } else if error != nil {
                 self.allowIncrementPage = false
                 self.handleError(error!)
+                
             }
             self.showRestaurantDetailView()
             completion()
         })
+        
     }
     
     

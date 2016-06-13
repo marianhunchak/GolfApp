@@ -19,6 +19,7 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
     let categories = ViewForDetailHeader.loadViewFromNib()
     var course : Course!
     var arrayOfImages = [String]()
+    var courseCount = 1
     
     @IBOutlet weak var headerView: UIView!
     
@@ -124,6 +125,18 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
             destinationController.courseImage = arrayOfImages
         }
 
+    }
+    
+    //MARK: Overrided methods
+    
+    override func showPreviousController() {
+        
+        if courseCount > 1 {
+            self.navigationController?.popViewControllerAnimated(false)
+            
+        }else {
+            self.navigationController?.popToRootViewControllerAnimated(false)
+        }
     }
 
 }

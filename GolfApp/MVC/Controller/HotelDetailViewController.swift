@@ -14,6 +14,7 @@ private let courseFooterIndetifire = "courseFooterIndetifire"
 class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var hotel: Hotel!
+    var hotelsCount = 1
 
     @IBOutlet weak var headerView: UIView!
 
@@ -117,6 +118,18 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         packageVC.hotel = hotel
         
         self.navigationController?.pushViewController(packageVC, animated: false)
+    }
+    
+    //MARK: Overrided methods
+    
+    override func showPreviousController() {
+        
+        if hotelsCount > 1 {
+            self.navigationController?.popViewControllerAnimated(false)
+            
+        }else {
+            self.navigationController?.popToRootViewControllerAnimated(false)
+        }
     }
 
 }

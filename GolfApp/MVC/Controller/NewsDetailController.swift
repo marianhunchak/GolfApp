@@ -99,5 +99,17 @@ class NewsDetailController: BaseViewController , OffersHeaderDelegate {
         
         
     }
+    
+    //MARK: Overrided methods
+    
+    override func showPreviousController() {
+        
+        if newsCount > 1 {
+            self.navigationController?.popViewControllerAnimated(false)
+            
+        }else {
+            self.navigationController?.popToRootViewControllerAnimated(false)
+        }
+    }
 
 }

@@ -17,6 +17,8 @@ class BaseTableViewController: UITableViewController {
     var isRefreshing = false
     var allowIncrementPage = false
     var loadedFromDB = true
+    var dataLoaded = false
+    var loadedError = false
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var notificationsArray = [Notification]()
     
@@ -58,7 +60,6 @@ class BaseTableViewController: UITableViewController {
             if !reachability.isReachable() {
                 HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
                 self.refreshControl!.endRefreshing()
-                return
             }
         }
         
