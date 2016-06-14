@@ -16,7 +16,9 @@ protocol EventDetailCellDelegate {
     func eventDetailCell(eventDetailCell : EventDetailCell, eventTeeTimePressed teeTimeBtn : UIButton)
 }
 
-class EventDetailCell: UITableViewCell {
+class EventDetailCell: UITableViewCell  {
+    
+    
     
     var delegate : EventDetailCellDelegate?
 

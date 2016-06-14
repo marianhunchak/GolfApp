@@ -14,7 +14,9 @@ private let nameForBackgroundImage = "a_home"
 private let identifierOfListTableController = "ListTableController"
 private var identifierOfProsListViewController = "ProsListViewController"
 
-class MainCollectionController: UICollectionViewController  {
+
+
+class MainCollectionController: UICollectionViewController {
     
     var profile:Profile?
     var prosArray = [Pros]()
@@ -22,6 +24,7 @@ class MainCollectionController: UICollectionViewController  {
     var notificationArray : [Notification]!
     var img = [String]()
     var buttonEnabled = [Bool]()
+
     
     var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
                                   "a_proshop" , "a_courses",      "a_pros",
@@ -45,11 +48,7 @@ class MainCollectionController: UICollectionViewController  {
     var menuItemsNameArray = ["teetime",  "restaurant",  "events",
                               "proshop" , "courses",     "pros",
                               "contact",  "news",        "hotel"]
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.hidden = true
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +68,13 @@ class MainCollectionController: UICollectionViewController  {
         } else {
             NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
                 self.profile = pProfile
+                self.collectionView?.reloadData()
             }
+
         }
+        
+
+
         
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(handleNotification(_:)),
@@ -94,6 +98,12 @@ class MainCollectionController: UICollectionViewController  {
             }
         })
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.hidden = true
+        
+    }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -112,20 +122,22 @@ class MainCollectionController: UICollectionViewController  {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MenuCollectionCell
         cell.menuLabel.text =  LocalisationDocument.sharedInstance.getStringWhinName(menuFilesNameArray[indexPath.row])
+
         
-        var imageName = buttonsItemsImgOnArray[indexPath.row]
+                var imageName = buttonsItemsImgOnArray[indexPath.row]
         
-        if ((self.profile?.buttons!.contains(buttonsItemsNamefArray[indexPath.row])) != nil) {
-            
-            buttonEnabled.append(true)
-        } else {
         
-            imageName = imageName + "_off"
-            buttonEnabled.append(false)
-        }
         
-        cell.menuImageView.image = UIImage(named: imageName)
-        cell.userInteractionEnabled = buttonEnabled[indexPath.row]
+                if ((self.profile?.buttons!.contains(buttonsItemsNamefArray[indexPath.row])) != nil) {
+
+                    cell.userInteractionEnabled =  true
+                } else {
+        
+                    imageName = imageName + "_off"
+                    cell.userInteractionEnabled =  false
+                }
+        
+                cell.menuImageView.image = UIImage(named: imageName)
         
         
         return cell
@@ -255,5 +267,7 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
             }
         }
     }
+    
+
     
 }
