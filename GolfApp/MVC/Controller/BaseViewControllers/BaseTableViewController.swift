@@ -58,7 +58,8 @@ class BaseTableViewController: UITableViewController {
         
         if let reachability  = appDelegate.reachability {
             if !reachability.isReachable() {
-                HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
+                //HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
+                print("Offline mode")
                 self.refreshControl!.endRefreshing()
             }
         }
