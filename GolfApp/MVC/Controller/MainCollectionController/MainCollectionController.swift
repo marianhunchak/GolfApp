@@ -34,9 +34,9 @@ class MainCollectionController: UICollectionViewController {
                                   "a_proshop_off" , "a_courses_off",      "a_pros_off",
                                   "a_contact_off",  "a_news_off",         "a_hotel_off"]
     
-    var buttonsItemsNamefArray = ["teetime", "restaurant", "events",
-                                  "proshop" ,"courses",    "courses",
-                                  "contact", "news",       "hotel"]
+//    var buttonsItemsNamefArray = ["teetime", "restaurant", "events",
+//                                  "proshop" ,"courses",    "courses",
+//                                  "contact", "news",       "hotel"]
     
     
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
@@ -63,8 +63,8 @@ class MainCollectionController: UICollectionViewController {
         let nib = UINib(nibName: nibNameMenuCollectionCell, bundle: nil)
         self.collectionView?.registerNib(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
-        if let lProfile = Profile.MR_findFirst() {
-            self.profile = lProfile as? Profile
+        if let lProfile = Profile.MR_findFirst() as? Profile {
+            self.profile = lProfile
         } else {
             NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
                 self.profile = pProfile
@@ -74,8 +74,6 @@ class MainCollectionController: UICollectionViewController {
         }
         
 
-
-        
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(handleNotification(_:)),
                                                          name: "notificationRecieved",
@@ -128,7 +126,7 @@ class MainCollectionController: UICollectionViewController {
         
         
         
-                if ((self.profile?.buttons!.contains(buttonsItemsNamefArray[indexPath.row])) != nil) {
+                if ((self.profile?.buttons!.contains(menuItemsNameArray[indexPath.row])) != nil) {
 
                     cell.userInteractionEnabled =  true
                 } else {
