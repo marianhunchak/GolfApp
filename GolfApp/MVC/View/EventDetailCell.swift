@@ -41,7 +41,7 @@ class EventDetailCell: UITableViewCell  {
     @IBAction func addToCalendarPressed(sender: UIButton) {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd "
         let startDate = dateFormatter.dateFromString(event.event_date)
         
         addEventToCalendar(title: event.name, description: event.format, startDate: startDate!, endDate: startDate!) { (success, error) in
