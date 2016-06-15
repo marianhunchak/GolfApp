@@ -12,11 +12,17 @@ let BASE_CELL_HEIGHT: Float = 50
 
 class DetailInfoCell: UITableViewCell {
     
+    var displayNewNewsImage: Bool! {
+        didSet {
+            newNewsImageView.hidden = false
+        }
+    }
+    
     // MARK: - Connections elements 
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    //@IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var newNewsImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UITextView!
     @IBOutlet weak var backgroundCourseFooter: UIView!
 
@@ -41,6 +47,10 @@ class DetailInfoCell: UITableViewCell {
          backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
          backgroundCourseFooter.layer.borderWidth = 0.0
          nameLabel.textColor = Global.navigationBarColor
+        
+        if displayNewNewsImage != nil {
+            newNewsImageView.hidden = true
+        }
         
     }
     

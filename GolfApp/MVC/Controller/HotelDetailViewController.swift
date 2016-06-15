@@ -56,7 +56,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         cell2.detailLabelHeight.constant = 0
         cell2.nameLabel.text = hotel.name
         cell2.descriptionLabel.text = hotel.descr
-            
+        cell2.newNewsImageView.hidden = true    
             return cell2
     }
     

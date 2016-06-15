@@ -48,7 +48,7 @@ class NetworkManager {
     func unregisterDevice() {
         
         let parameters = [
-            "regid": "937",
+            "regid": "942",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
         Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )

@@ -22,6 +22,7 @@ class ViewForProHeader: UIView {
     @IBOutlet weak var menuBarBackgrView: UIView!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var badgeLabel: SwiftBadge!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +35,11 @@ class ViewForProHeader: UIView {
         menuBarBackgrView.layer.masksToBounds = true
         
         toggleButtons(button1, btn2: button2)
+        
+        badgeLabel.insets =  CGSize(width: 2, height: 2)
+        badgeLabel.center = CGPoint(x: 20, y: 20)
+        self.bringSubviewToFront(badgeLabel)
+        badgeLabel.hidden = true
     }
     
     @IBAction func button1Action(sender: AnyObject) {

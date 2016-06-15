@@ -67,7 +67,7 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
             cell2.nameLabel.text = prosShop!.name
             cell2.detailLabelHeight.constant = 0
             cell2.descriptionLabel.text = prosShop!.descr
-            
+            cell2.newNewsImageView.hidden = true
             return cell2
         }
         

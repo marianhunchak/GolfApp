@@ -53,7 +53,7 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
             cell2.detailLabelHeight.constant = 0
             cell2.nameLabel.text = restaurant!.name
             cell2.descriptionLabel.text = restaurant!.descr
-            
+            cell2.newNewsImageView.hidden = true
             return cell2
         }
         

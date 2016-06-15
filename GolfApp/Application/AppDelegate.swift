@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            })
 //        }
         
-//           NetworkManager.sharedInstance.unregisterDevice()
+           NetworkManager.sharedInstance.unregisterDevice()
     }
     
     // [START receive_apns_token_error]
@@ -168,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+//       UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         print("Notification received: \(userInfo)")
         
         

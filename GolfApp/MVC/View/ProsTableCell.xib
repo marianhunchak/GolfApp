@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
+        </mutableArray>
         <mutableArray key="STONE INFORMEL LT SEMI-BOLD.ttf">
             <string>StoneInformalLT-Semibold</string>
         </mutableArray>
@@ -39,14 +42,37 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rk8-Ru-YUO" customClass="SwiftBadge" customModule="GolfApp" customModuleProvider="target">
+                        <rect key="frame" x="363" y="12" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="JlW-oB-qh2"/>
+                            <constraint firstAttribute="height" constant="25" id="MnA-b6-hZY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="12"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
+                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="8tM-6p-8zQ" secondAttribute="bottom" constant="14" id="Ezr-Je-bRc"/>
+                    <constraint firstItem="rk8-Ru-YUO" firstAttribute="top" secondItem="bnM-bT-me2" secondAttribute="top" constant="12" id="NHc-tb-T3L"/>
                     <constraint firstAttribute="trailing" secondItem="8tM-6p-8zQ" secondAttribute="trailing" constant="12" id="QJw-dj-98Y"/>
                     <constraint firstAttribute="bottomMargin" secondItem="paQ-JO-bLp" secondAttribute="bottom" constant="16" id="RO6-Te-FDp"/>
                     <constraint firstItem="y5s-oN-bJb" firstAttribute="leading" secondItem="bnM-bT-me2" secondAttribute="leading" constant="12" id="SgW-b4-gzJ"/>
                     <constraint firstAttribute="bottom" secondItem="y5s-oN-bJb" secondAttribute="bottom" id="XiW-mP-KTN"/>
+                    <constraint firstAttribute="trailing" secondItem="rk8-Ru-YUO" secondAttribute="trailing" constant="12" id="c6x-Dy-Ccv"/>
                     <constraint firstAttribute="trailing" secondItem="y5s-oN-bJb" secondAttribute="trailing" constant="12" id="hH6-ys-4O9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="paQ-JO-bLp" secondAttribute="trailing" constant="12" id="nyD-Y8-rbt"/>
                     <constraint firstItem="y5s-oN-bJb" firstAttribute="top" secondItem="bnM-bT-me2" secondAttribute="top" constant="12" id="tkH-xk-cK6"/>
@@ -56,6 +82,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="badgeLabel" destination="rk8-Ru-YUO" id="CXZ-ao-kYJ"/>
                 <outlet property="prosImage" destination="y5s-oN-bJb" id="JWE-dd-kDn"/>
                 <outlet property="prosLabel" destination="paQ-JO-bLp" id="EiO-Be-TKq"/>
             </connections>

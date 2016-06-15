@@ -62,6 +62,14 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_new_news" translatesAutoresizingMaskIntoConstraints="NO" id="Mwe-Gc-k3y">
+                                <rect key="frame" x="284" y="0.0" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="V7R-y7-rqy"/>
+                                    <constraint firstAttribute="width" constant="40" id="WXY-cV-dpZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.19215686274509805" green="0.19215686274509805" blue="0.19215686274509805" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -72,8 +80,10 @@
                             <constraint firstAttribute="trailing" secondItem="czc-vN-3nT" secondAttribute="trailing" constant="8" id="N4O-Ze-2mn"/>
                             <constraint firstItem="czc-vN-3nT" firstAttribute="top" secondItem="iJq-ys-2Ji" secondAttribute="bottom" constant="2" id="ROw-xk-KQ9"/>
                             <constraint firstItem="iJq-ys-2Ji" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" constant="6" id="S1S-Am-vSZ"/>
+                            <constraint firstItem="Mwe-Gc-k3y" firstAttribute="top" secondItem="42m-2e-mfd" secondAttribute="top" id="ZWI-O5-ADf"/>
                             <constraint firstAttribute="trailing" secondItem="iJq-ys-2Ji" secondAttribute="trailing" constant="8" id="arD-Z0-sTM"/>
                             <constraint firstItem="iJq-ys-2Ji" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="htu-gO-Z8x"/>
+                            <constraint firstAttribute="trailing" secondItem="Mwe-Gc-k3y" secondAttribute="trailing" id="jhZ-gN-CPe"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="kB7-XH-4Qn"/>
                             <constraint firstAttribute="trailing" secondItem="lJc-qy-WF6" secondAttribute="trailing" constant="8" id="kBM-KO-ckZ"/>
                             <constraint firstItem="czc-vN-3nT" firstAttribute="leading" secondItem="42m-2e-mfd" secondAttribute="leading" constant="8" id="oqV-mL-GEb"/>
@@ -100,8 +110,12 @@
                 <outlet property="detailLabel" destination="czc-vN-3nT" id="9V9-D3-jw5"/>
                 <outlet property="detailLabelHeight" destination="uO5-su-0hB" id="Bek-kK-mzM"/>
                 <outlet property="nameLabel" destination="iJq-ys-2Ji" id="yij-6g-Rl8"/>
+                <outlet property="newNewsImageView" destination="Mwe-Gc-k3y" id="jiw-hi-LHN"/>
             </connections>
             <point key="canvasLocation" x="383" y="199.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="a_new_news" width="60" height="60"/>
+    </resources>
 </document>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="STONE INFORMAL LT.ttf">
+            <string>StoneInformalLT</string>
             <string>StoneInformalLT</string>
             <string>StoneInformalLT</string>
         </mutableArray>
@@ -55,6 +56,27 @@
                         <action selector="button2Action:" destination="bfW-qb-FGo" eventType="touchUpInside" id="bDF-jG-6BF"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eE0-uA-ZQM" customClass="SwiftBadge" customModule="GolfApp" customModuleProvider="target">
+                    <rect key="frame" x="312" y="10" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="Wik-wg-195"/>
+                        <constraint firstAttribute="height" constant="25" id="lfW-Bg-59X"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="12"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
+                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cu0-uE-b0X" userLabel="Separator">
                     <rect key="frame" x="0.0" y="0.0" width="355" height="2"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,10 +94,12 @@
                 <constraint firstAttribute="trailing" secondItem="jtS-BJ-QiW" secondAttribute="trailing" constant="18" id="DWF-ji-xwo"/>
                 <constraint firstAttribute="trailing" secondItem="eEE-Xp-uhQ" secondAttribute="trailing" id="EEe-Ap-itG"/>
                 <constraint firstItem="GuL-pl-69A" firstAttribute="leading" secondItem="bfW-qb-FGo" secondAttribute="leading" constant="18" id="K7f-pE-dYy"/>
+                <constraint firstItem="eE0-uA-ZQM" firstAttribute="top" secondItem="Cu0-uE-b0X" secondAttribute="bottom" constant="8" id="L48-Ke-KUt"/>
                 <constraint firstItem="eEE-Xp-uhQ" firstAttribute="top" secondItem="bfW-qb-FGo" secondAttribute="top" id="UCF-sT-NQh"/>
                 <constraint firstItem="jtS-BJ-QiW" firstAttribute="leading" secondItem="GuL-pl-69A" secondAttribute="trailing" constant="8" id="ZEb-uu-EfF"/>
                 <constraint firstItem="GuL-pl-69A" firstAttribute="top" secondItem="Cu0-uE-b0X" secondAttribute="bottom" constant="6" id="Zhj-ps-Mv9"/>
                 <constraint firstAttribute="bottom" secondItem="eEE-Xp-uhQ" secondAttribute="bottom" id="aW2-vg-ALp"/>
+                <constraint firstAttribute="trailing" secondItem="eE0-uA-ZQM" secondAttribute="trailing" constant="18" id="gUX-qA-f0U"/>
                 <constraint firstItem="eEE-Xp-uhQ" firstAttribute="leading" secondItem="bfW-qb-FGo" secondAttribute="leading" id="kac-Es-j5M"/>
                 <constraint firstAttribute="bottom" secondItem="jtS-BJ-QiW" secondAttribute="bottom" constant="8" id="kwl-rA-qVV"/>
                 <constraint firstItem="jtS-BJ-QiW" firstAttribute="top" secondItem="Cu0-uE-b0X" secondAttribute="bottom" constant="6" id="sm9-zF-JxW"/>
@@ -84,6 +108,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backgroundView" destination="eEE-Xp-uhQ" id="LMc-lo-JDY"/>
+                <outlet property="badgeLabel" destination="eE0-uA-ZQM" id="zHP-kD-WfE"/>
                 <outlet property="button1" destination="GuL-pl-69A" id="PtM-Yc-iY2"/>
                 <outlet property="button2" destination="jtS-BJ-QiW" id="Tbq-y3-qsH"/>
                 <outlet property="menuBarBackgrView" destination="uf6-1f-Zdy" id="gd6-PE-Ee3"/>
