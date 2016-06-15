@@ -16,12 +16,8 @@ class Event: NSManagedObject {
         
         var lEvent : Event!
 
-//        if let oldEvent = Event.MR_findByAttribute("id", withValue: NSNumber.init(long:pDict["id"] as! Int)).first as? Event {
-//            lEvent = oldEvent
-//        } else {
             lEvent = Event.MR_createEntity() as! Event
             lEvent.createdDate = NSDate()
-//        }
     
         lEvent.id = pDict["id"] as! Int
         lEvent.event_date = pDict["event_date"] as? String ?? ""
@@ -35,6 +31,7 @@ class Event: NSManagedObject {
         lEvent.file_result = pDict["file_result"] as? String ?? ""
         lEvent.pubdate = pDict["pubdate"] as? String ?? ""
         lEvent.category = eventType
+        
         
         return lEvent
     }
