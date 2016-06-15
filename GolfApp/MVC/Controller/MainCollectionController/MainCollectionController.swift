@@ -21,7 +21,6 @@ class MainCollectionController: UICollectionViewController {
     var profile:Profile?
     var prosArray = [Pros]()
     var lTopInset : CGFloat?
-    var notificationArray : [Notification]!
     var img = [String]()
     var buttonEnabled = [Bool]()
 
@@ -33,11 +32,6 @@ class MainCollectionController: UICollectionViewController {
     var buttonsItemsImgOfArray = ["a_tee_time_off", "a_restaurant_off",   "a_events_off",
                                   "a_proshop_off" , "a_courses_off",      "a_pros_off",
                                   "a_contact_off",  "a_news_off",         "a_hotel_off"]
-    
-//    var buttonsItemsNamefArray = ["teetime", "restaurant", "events",
-//                                  "proshop" ,"courses",    "courses",
-//                                  "contact", "news",       "hotel"]
-    
     
     var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
                               "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
@@ -65,14 +59,20 @@ class MainCollectionController: UICollectionViewController {
         
         if let lProfile = Profile.MR_findFirst() as? Profile {
             self.profile = lProfile
-        } else {
-            NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
-                self.profile = pProfile
-                self.collectionView?.reloadData()
-            }
-
         }
         
+        NetworkManager.sharedInstance.getProfileAndAvertising { (pProfile) in
+            self.profile = pProfile
+            self.collectionView!.reloadData()
+        }
+
+        
+        NetworkManager.sharedInstance.getNotifications { (array, error) in
+            
+            self.collectionView!.reloadData()
+            self.showBadges()
+
+        }
 
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(handleNotification(_:)),
@@ -83,18 +83,6 @@ class MainCollectionController: UICollectionViewController {
                                                          selector: #selector(handleUnregisteringNotification(_:)),
                                                          name: "notificationUnregisterd",
                                                          object: nil)
-        
-        self.collectionView!.reloadData()
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            for lNotification in self.notificationArray {
-                
-                let cell = self.collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: self.menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
-    
-                cell.badgeLabel.hidden = false
-    
-                cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
-            }
-        })
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -121,21 +109,18 @@ class MainCollectionController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MenuCollectionCell
         cell.menuLabel.text =  LocalisationDocument.sharedInstance.getStringWhinName(menuFilesNameArray[indexPath.row])
 
-        
-                var imageName = buttonsItemsImgOnArray[indexPath.row]
-        
-        
-        
-                if ((self.profile?.buttons!.contains(menuItemsNameArray[indexPath.row])) != nil) {
+            var imageName = buttonsItemsImgOnArray[indexPath.row]
 
-                    cell.userInteractionEnabled =  true
-                } else {
-        
-                    imageName = imageName + "_off"
-                    cell.userInteractionEnabled =  false
-                }
-        
-                cell.menuImageView.image = UIImage(named: imageName)
+            if self.profile?.buttons?.contains(menuItemsNameArray[indexPath.row]) == true {
+
+                cell.userInteractionEnabled =  true
+            } else {
+    
+                imageName = imageName + "_off"
+                cell.userInteractionEnabled =  false
+            }
+    
+            cell.menuImageView.image = UIImage(named: imageName)
         
         
         return cell
@@ -234,19 +219,14 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         print(notification.userInfo)
         
         if let lNotification = notification.object as? Notification {
-            
-            self.notificationArray.append(lNotification)
- 
+
             let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
         
             cell.badgeLabel.hidden = false
             
             cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
             
-        } //else if let notifications = notification.object as? [Notification] {
-            
-           
-//        }
+        }
         
     }
     
@@ -266,6 +246,22 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         }
     }
     
+    
+    func showBadges() {
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            for lNotification in Notification.MR_findAll() as! [Notification] {
+                
+                let indexPath = NSIndexPath(forItem: self.menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)
+                
+                let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as! MenuCollectionCell
+                
+                cell.badgeLabel.hidden = false
+                
+                cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+            }
+        })
+    }
 
     
 }

@@ -47,7 +47,6 @@ class BaseTableViewController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        tableView.removeInfiniteScroll()
     }
     
     //MARK: Private methods
@@ -66,7 +65,6 @@ class BaseTableViewController: UITableViewController {
         
         isRefreshing = true
         allowLoadMore = false
-//        dataSource = []
         
         if dataSource.isEmpty {
             self.refreshControl!.beginRefreshing()
@@ -78,7 +76,6 @@ class BaseTableViewController: UITableViewController {
             self.isRefreshing = false
             self.tableView.reloadData()
             self.refreshControl!.endRefreshing()
-//            self.handleReceivedNotifications(self.notificationsArray)
         }
         
     }

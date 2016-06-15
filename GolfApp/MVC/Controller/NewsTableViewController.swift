@@ -56,7 +56,7 @@ class NewsTableViewController: BaseTableViewController {
         cell.dateLabel.text = lNew.pubdate
         cell.descriptionLabel.text = lNew.descr
         cell.descriptionLabel.numberOfLines = 1
-        for notification in notificationsArray {
+        for notification in Notification.MR_findAll() as! [Notification] {
             if  let i = (dataSource as! [New]).indexOf({$0.id == notification.post_id}) {
                 
                 if indexPath.row == i {
@@ -88,6 +88,13 @@ class NewsTableViewController: BaseTableViewController {
             let lPredicate = NSPredicate(format: "post_type = %@ AND post_id = %@", argumentArray: ["news", lNew.id])
             
             if let lNotificationToDelete = Notification.MR_findFirstWithPredicate(lPredicate) as? Notification {
+                
+                if UIApplication.sharedApplication().applicationIconBadgeNumber > 0 {
+                
+                    UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
+                }
+                
+                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue)
                 
                 lNotificationToDelete.MR_deleteEntity()
                 
@@ -194,17 +201,18 @@ class NewsTableViewController: BaseTableViewController {
     override func handleReceivedNotifications(array : [Notification]) {
         
     }
-    
-    
+
     // MARK: Notifications
     
     override func handleNotification(notification: NSNotification) {
         
-        if let notificationBody = notification.userInfo as? [String : AnyObject] {
-            
-            let lNotification = Notification.notificationWithDictionary(notificationBody)
-            
+        let lNotification = notification.object as! Notification
+
+        if lNotification.post_type == "news" {
             notificationsArray += [lNotification]
+            
+            refresh(refreshControl!)
         }
     }
+    
 }

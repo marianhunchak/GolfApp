@@ -48,28 +48,29 @@ class NetworkManager {
     func unregisterDevice() {
         
         let parameters = [
-            "regid": "937",
+            "regid": "943",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
         Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
-            .responseJSON {
-                response in switch response.result {
+            .responseJSON { response in
+                
+                switch response.result {
                     
-                            case .Success(let JSON):
-                            print("Success with JSON: \(JSON)")
-//                            let response = JSON as! NSDictionary
-                    
-                            case .Failure(let error):
-                            print("Request failed with error: \(error)")
-                    
-                            }
+                    case .Success(let JSON):
+                    print("Success with JSON: \(JSON)")
+    //                            let response = JSON as! NSDictionary
+            
+                    case .Failure(let error):
+                    print("Request failed with error: \(error)")
+            
+                    }
 
         }
     }
     
     // MARK: Notifications
     
-    func getNotifications()  {
+    func getNotifications(completion: ([Notification]?, NSError?) -> Void)  {
         
         var parameters : [String : AnyObject]?
         
@@ -83,9 +84,32 @@ class NetworkManager {
         Alamofire.request(.POST, baseURL + "device/notifications", parameters:parameters )
             .responseJSON { response in
                 
-                if let JSON = response.result.value as? NSDictionary{
-
-                    print("JSON: \(JSON)")
+                switch response.result {
+                    
+                case .Success(let JSON):
+                    
+                    
+                    Notification.MR_truncateAll()
+                    
+//                    Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer: 1) ))
+                    
+                    print("Success with JSON: \(JSON)")
+                
+                    var notificationArray = [Notification]()
+                    
+                    if let notifications = JSON["notifications"] as? [[String : AnyObject]] {
+                        
+                        for lNotificatioDict in notifications {
+                            
+                            notificationArray.append(Notification.notificationWithDictionary(lNotificatioDict))
+                        }
+                    }
+                    completion(notificationArray, nil)
+                    
+                case .Failure(let error):
+                    
+                    print("Request failed with error: \(error)")
+                    completion(nil, error)
                 }
         }
     }
@@ -99,8 +123,8 @@ class NetworkManager {
             parameters = [
                 "regid" : regid.stringValue,
                 "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
-                "sid" : Global.clientId
-    //            "pid" : pId
+                "sid" : Global.clientId,
+                "pid" : pId
             ]
         }
         

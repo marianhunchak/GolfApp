@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var reachability: Reachability?
     var tokenString = ""
-    
-
     let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var advertisemet: Advertisemet?
 
@@ -59,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nav.navigationBar.tintColor = UIColor.whiteColor()
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainCollectionController") as! MainCollectionController
         
-        vc.notificationArray = Notification.MR_findAll() as! [Notification]
+//        vc.notificationArray = Notification.MR_findAll() as! [Notification]
         
         // Push the vc onto the nav
         nav.pushViewController(vc, animated: false)
@@ -71,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: Notification.MR_findAll(), userInfo: nil)
+        Global.getLanguage()
+       
 
         return true
     }
@@ -92,11 +92,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
-        
-       
-        
-        NetworkManager.sharedInstance.getNotifications()
-        
+
+                       
         if reachability!.isReachable() {
             NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
                 self.advertisemet = aAdvertisemet
@@ -130,12 +127,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print(tokenString)
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
-         
-//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("")
-//        if NSUserDefaults.standardUserDefaults().objectForKey("regid") == nil {
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//            })
-//        }
+        
+        Global.getLanguage()
+        
+        if let storedLanguage = defaults.objectForKey("language") as? String {
+            
+            if storedLanguage != Global.languageID {
+                NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
+                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+                })
+            }
+        } else {
+            NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
+            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+            })
+        }
         
 //           NetworkManager.sharedInstance.unregisterDevice()
     }
@@ -160,6 +166,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let notificationBody = userInfo as? [String : AnyObject] {
             
+            UIApplication.sharedApplication().applicationIconBadgeNumber += 1
+            
             let lNotification = Notification.notificationWithDictionary(notificationBody)
             
             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
@@ -168,7 +176,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         print("Notification received: \(userInfo)")
         
         
