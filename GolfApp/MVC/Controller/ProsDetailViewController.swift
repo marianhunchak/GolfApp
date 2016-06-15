@@ -64,6 +64,7 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         cell2.nameLabel.text = pros.name
         cell2.detailLabelHeight.constant = 0
         cell2.descriptionLabel.text = pros.descr
+        cell2.newNewsImageView.hidden = true
         
         return cell2
         

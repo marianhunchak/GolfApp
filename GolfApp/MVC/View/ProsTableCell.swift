@@ -13,6 +13,7 @@ class ProsTableCell: UITableViewCell {
     
     @IBOutlet weak var prosImage: UIImageView!
     @IBOutlet weak var prosLabel: UILabel!
+    @IBOutlet weak var badgeLabel: SwiftBadge!
     
     var request: Request?
     
@@ -43,6 +44,11 @@ class ProsTableCell: UITableViewCell {
         super.awakeFromNib()
         prosImage.layer.cornerRadius = 5.0
         prosImage.layer.masksToBounds = true
+        
+        badgeLabel.insets =  CGSize(width: 2, height: 2)
+        badgeLabel.center = CGPoint(x: 20, y: 20)
+        self.bringSubviewToFront(badgeLabel)
+        badgeLabel.hidden = true
     }
     
     override func prepareForReuse() {

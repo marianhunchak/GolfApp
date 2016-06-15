@@ -24,6 +24,7 @@ class ProsListTableViewController: BaseTableViewController {
         
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        notificationsArray = Notification.MR_findAll() as! [Notification]
         
     }
     
@@ -50,6 +51,14 @@ class ProsListTableViewController: BaseTableViewController {
         let lPros = dataSource[indexPath.row] as! Pros
         cell.prosLabel.text = lPros.name
         cell.imageForCell = lPros.images.first
+        
+        for notification in notificationsArray {
+
+            if  lPros.id == notification.post_id {
+                    cell.badgeLabel.hidden = false
+//                    cell.badgeLabel.text = "\(1)"
+            }
+        }
         
         return cell
     }
@@ -90,6 +99,7 @@ class ProsListTableViewController: BaseTableViewController {
         }
         
     }
+
     
     // MARK: Overrided methods
     
@@ -130,6 +140,22 @@ class ProsListTableViewController: BaseTableViewController {
             self.showProsDetailView()
             completion()
         })
+    }
+    
+    override func handleReceivedNotifications(array : [Notification]) {
+        
+    }
+    
+    // MARK: Notifications
+    
+    override func handleNotification(notification: NSNotification) {
+        
+        if let notificationBody = notification.userInfo as? [String : AnyObject] {
+            
+            let lNotification = Notification.notificationWithDictionary(notificationBody)
+            
+            notificationsArray += [lNotification]
+        }
     }
     
 }

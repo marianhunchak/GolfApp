@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
         
-//           NetworkManager.sharedInstance.unregisterDevice()
+           NetworkManager.sharedInstance.unregisterDevice()
     }
     
     // [START receive_apns_token_error]
@@ -175,8 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: lNotification, userInfo: nil)
         }
         
-        
-        
+
         print("Notification received: \(userInfo)")
         
         

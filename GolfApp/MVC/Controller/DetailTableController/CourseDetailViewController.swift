@@ -66,6 +66,7 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
         cell2.detailLabel.text = "\(course.holes) \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - " +
             "\(course.par) pare - \(course.length) \(course.length_unit)"
         cell2.descriptionLabel.text = course.descr
+        cell2.newNewsImageView.hidden = true
         
         return cell2
         
