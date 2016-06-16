@@ -120,12 +120,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // END receive_apns_token
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-        var tokenString = ""
+//    
+        
+//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9533")
         
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
-        print(tokenString)
+        print("Device token - " + tokenString)
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
         
         Global.getLanguage()
@@ -143,7 +145,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
         
-           NetworkManager.sharedInstance.unregisterDevice()
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+//           NetworkManager.sharedInstance.unregisterDevice()
     }
     
     // [START receive_apns_token_error]
