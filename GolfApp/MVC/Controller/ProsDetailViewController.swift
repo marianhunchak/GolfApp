@@ -64,7 +64,13 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         cell2.nameLabel.text = pros.name
         cell2.detailLabelHeight.constant = 0
 //        cell2.descriptionLabel.text = pros.descr
-        cell2.descriptionLabel.text = (UIApplication.sharedApplication().delegate as! AppDelegate).tokenString
+        if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
+            
+            let regIDString = "\n  regid = \(regid)"
+            cell2.descriptionLabel.text = (UIApplication.sharedApplication().delegate as! AppDelegate).tokenString + regIDString
+        } else {
+            cell2.descriptionLabel.text = (UIApplication.sharedApplication().delegate as! AppDelegate).tokenString
+        }
         cell2.newNewsImageView.hidden = true
         
         return cell2

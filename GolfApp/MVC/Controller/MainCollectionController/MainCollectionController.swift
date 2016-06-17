@@ -153,7 +153,6 @@ class MainCollectionController: UICollectionViewController {
                 showContactSubView()
             case 7:
                 let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController") as! NewsTableViewController
-//                newsVC.notificationsArray = self.notificationArray != nil ? notificationArray : []
                 self.navigationController?.pushViewController(newsVC, animated: false)
                     
             case 8:

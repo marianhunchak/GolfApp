@@ -56,9 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController()
         nav.navigationBar.tintColor = UIColor.whiteColor()
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainCollectionController") as! MainCollectionController
-        
-//        vc.notificationArray = Notification.MR_findAll() as! [Notification]
-        
+
         // Push the vc onto the nav
         nav.pushViewController(vc, animated: false)
         
@@ -92,8 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
-
-                       
+      
         if reachability!.isReachable() {
             NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
                 self.advertisemet = aAdvertisemet
@@ -122,7 +119,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
 //    
         
-//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9533")
+//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
+//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
         
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
@@ -130,22 +128,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Device token - " + tokenString)
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
         
+//        defaults.setObject(nil, forKey: "language")
+        
         Global.getLanguage()
         
         if let storedLanguage = defaults.objectForKey("language") as? String {
             
             if storedLanguage != Global.languageID {
-                NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
+                
                 NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
                 })
             }
         } else {
-            NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
+            
             NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
             })
         }
         
-        NSUserDefaults.standardUserDefaults().synchronize()
+        
         
 //           NetworkManager.sharedInstance.unregisterDevice()
     }

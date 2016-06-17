@@ -56,7 +56,10 @@ class NewsTableViewController: BaseTableViewController {
         cell.dateLabel.text = lNew.pubdate
         cell.descriptionLabel.text = lNew.descr
         cell.descriptionLabel.numberOfLines = 1
-        for notification in Notification.MR_findAll() as! [Notification] {
+        
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@", argumentArray: [ NSNumber(integer: Int(Global.languageID)!), "news" ])
+        
+        for notification in Notification.MR_findAllWithPredicate(lPredicate) as! [Notification] {
             if  let i = (dataSource as! [New]).indexOf({$0.id == notification.post_id}) {
                 
                 if indexPath.row == i {

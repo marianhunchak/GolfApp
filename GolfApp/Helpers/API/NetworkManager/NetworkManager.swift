@@ -48,7 +48,7 @@ class NetworkManager {
     func unregisterDevice() {
         
         let parameters = [
-            "regid": "959",
+            "regid": "961",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
         Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
@@ -87,11 +87,16 @@ class NetworkManager {
                 switch response.result {
                     
                 case .Success(let JSON):
+
+                    if let previousLanguageID = NSUserDefaults.standardUserDefaults().objectForKey("language") as? String {
                     
+                        Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer:Int(previousLanguageID)!) ))
+                        
+                    }
                     
-                    Notification.MR_truncateAll()
+                    NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
                     
-//                    Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer: 1) ))
+                    NSUserDefaults.standardUserDefaults().synchronize()
                     
                     print("Success with JSON: \(JSON)")
                 
