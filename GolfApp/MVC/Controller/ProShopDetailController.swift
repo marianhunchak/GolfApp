@@ -19,7 +19,7 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
     var prosShop : ProsShop?
     var package_url = String()
     var prosShopCount = 1
-    
+    let viewForHead = ViewForProHeader.loadViewFromNib()
     
     
     @IBOutlet weak var headerView: UIView!
@@ -40,7 +40,22 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
         self.tableView.estimatedRowHeight = 80;
         tableView.backgroundColor = Global.viewsBackgroundColor
         
-        self.setupHeaderView()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
+        
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND sid = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "proshop", prosShop!.id!])
+        
+        let lNotifications = Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+        
+        if lNotifications.count > 0 {
+            notificationsCount = lNotifications.count
+            setupHeaderView()
+        } else {
+            notificationsCount = 0
+            setupHeaderView()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +101,14 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
     
     //MARK: Private methods
     func setupHeaderView() {
-        let viewForHead = ViewForProHeader.loadViewFromNib()
+        
+        if notificationsCount > 0 {
+            viewForHead.badgeLabel.text = "\(notificationsCount)"
+            viewForHead.badgeLabel.hidden = false
+        } else {
+            viewForHead.badgeLabel.hidden = true
+        }
+        
         viewForHead.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
         headerView.addSubview(viewForHead)
         
@@ -139,5 +161,10 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
         }else {
             self.navigationController?.popToRootViewControllerAnimated(false)
         }
+    }
+    
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+        viewForHead.badgeLabel.hidden = true
     }
 }

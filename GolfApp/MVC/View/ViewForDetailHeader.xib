@@ -9,6 +9,7 @@
             <string>StoneInformalLT</string>
             <string>StoneInformalLT</string>
             <string>StoneInformalLT</string>
+            <string>StoneInformalLT</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -67,6 +68,27 @@
                         <action selector="button3Action:" destination="Y5r-eV-W53" eventType="touchUpInside" id="SAR-6y-jgq"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9v-vb-Sh8" customClass="SwiftBadge" customModule="GolfApp" customModuleProvider="target">
+                    <rect key="frame" x="311" y="10" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="Wn8-JP-Xd9"/>
+                        <constraint firstAttribute="height" constant="25" id="yDb-a9-LWi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="StoneInformalLT" family="StoneInformal LT" pointSize="12"/>
+                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
+                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aK-dI-jhZ" userLabel="Separator">
                     <rect key="frame" x="0.0" y="0.0" width="355" height="2"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,6 +99,7 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="e9v-vb-Sh8" firstAttribute="top" secondItem="6aK-dI-jhZ" secondAttribute="bottom" constant="8" id="0dZ-Nl-tMg"/>
                 <constraint firstItem="k2A-7P-Lpr" firstAttribute="leading" secondItem="fJt-IG-fO7" secondAttribute="trailing" constant="8" id="9A4-sC-GL0"/>
                 <constraint firstAttribute="bottom" secondItem="fJt-IG-fO7" secondAttribute="bottom" constant="8" id="AEf-Ny-Fs1"/>
                 <constraint firstItem="k2A-7P-Lpr" firstAttribute="top" secondItem="Y5r-eV-W53" secondAttribute="top" constant="8" id="Iba-xR-DRy"/>
@@ -88,6 +111,7 @@
                 <constraint firstItem="fJt-IG-fO7" firstAttribute="width" secondItem="k2A-7P-Lpr" secondAttribute="width" id="PUX-dZ-yTl"/>
                 <constraint firstItem="fJt-IG-fO7" firstAttribute="top" secondItem="Y5r-eV-W53" secondAttribute="top" constant="8" id="RHM-RS-nqh"/>
                 <constraint firstItem="6aK-dI-jhZ" firstAttribute="top" secondItem="Y5r-eV-W53" secondAttribute="top" id="SUf-Qg-FQb"/>
+                <constraint firstAttribute="trailing" secondItem="e9v-vb-Sh8" secondAttribute="trailing" constant="19" id="WGC-GX-gbc"/>
                 <constraint firstItem="PpB-76-GSR" firstAttribute="top" secondItem="Y5r-eV-W53" secondAttribute="top" constant="8" id="bh2-ud-IT4"/>
                 <constraint firstItem="6aK-dI-jhZ" firstAttribute="leading" secondItem="Y5r-eV-W53" secondAttribute="leading" id="cDa-m4-UZ9"/>
                 <constraint firstItem="mrv-4E-2T5" firstAttribute="top" secondItem="Y5r-eV-W53" secondAttribute="top" id="d69-2e-21S"/>
@@ -102,6 +126,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backgroundView" destination="mrv-4E-2T5" id="Pmq-wV-CG4"/>
+                <outlet property="badgeLabel" destination="e9v-vb-Sh8" id="8OF-E6-TYt"/>
                 <outlet property="button1" destination="fJt-IG-fO7" id="dev-go-eZ7"/>
                 <outlet property="button2" destination="k2A-7P-Lpr" id="akp-Tf-Pt9"/>
                 <outlet property="button3" destination="PpB-76-GSR" id="SBc-xQ-lTy"/>

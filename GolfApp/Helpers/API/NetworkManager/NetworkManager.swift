@@ -114,7 +114,7 @@ class NetworkManager {
         }
     }
     
-    func removeNotificationsWhithPostID(pId : String) {
+    func removeNotificationsWhithPostID(pId : String, sId : String) {
         
         var parameters : [String : AnyObject]?
         
@@ -123,7 +123,7 @@ class NetworkManager {
             parameters = [
                 "regid" : regid.stringValue,
                 "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
-                "sid" : Global.clientId,
+                "sid" : sId,
                 "pid" : pId
             ]
         }

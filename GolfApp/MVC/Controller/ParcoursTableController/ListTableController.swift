@@ -44,6 +44,9 @@ class ListTableController: BaseTableViewController {
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
         
+
+        notificationsArray = Notification.MR_findAll() as! [Notification]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -151,4 +154,5 @@ class ListTableController: BaseTableViewController {
             completion()
         })
     }
+    
 }

@@ -18,6 +18,7 @@ class CoursTableCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellItemLabel: UILabel!
     @IBOutlet weak var cellInfoLabel: UILabel!
+    @IBOutlet weak var badgeLabel: SwiftBadge!
     
     var request: Request?
     
@@ -52,6 +53,9 @@ class CoursTableCell: UITableViewCell {
         super.awakeFromNib()
         cellImage.layer.cornerRadius = 5.0
         cellImage.layer.masksToBounds = true
+        
+        self.bringSubviewToFront(badgeLabel)
+        badgeLabel.hidden = true
     }
     
     override func prepareForReuse() {
