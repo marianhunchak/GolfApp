@@ -21,6 +21,13 @@ class HotelsTableViewController: BaseTableViewController {
         
         let nib = UINib(nibName: "CoursTableCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellIdentifier)
+        
+        notificationsArray = Notification.MR_findAll() as! [Notification]
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,10 +47,22 @@ class HotelsTableViewController: BaseTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CoursTableCell
         cell.cellInfoLabelHeight.constant = 0
         
+        cell.badgeLabel.text = nil
+        cell.badgeLabel.hidden = true
+        
         let lHotel = dataSource[indexPath.row] as! Hotel
         
         cell.cellItemLabel.text = lHotel.name
         cell.imageForCell = lHotel.images.first
+        
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND sid = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "hotel", lHotel.id!])
+        
+        let lNotifications = Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+        
+        if lNotifications.count > 0 {
+            cell.badgeLabel.hidden = false
+            cell.badgeLabel.text = "\(lNotifications.count)"
+        }
 
         return cell
     }
@@ -125,6 +144,25 @@ class HotelsTableViewController: BaseTableViewController {
             completion()
         })
     }
-
+    // MARK: Notifications
+    
+    override func handleReceivedNotifications(array : [Notification]) {
+        
+    }
+    
+    override func handleNotification(notification: NSNotification) {
+        
+        if let notificationBody = notification.userInfo as? [String : AnyObject] {
+            
+            let lNotification = Notification.notificationWithDictionary(notificationBody)
+            
+            notificationsArray += [lNotification]
+        }
+    }
+    
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+        tableView.reloadData()
+    }
     
 }

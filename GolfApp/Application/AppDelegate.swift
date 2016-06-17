@@ -119,8 +119,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
 //    
         
+
 //        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
 //        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+
         
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
@@ -147,7 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-//           NetworkManager.sharedInstance.unregisterDevice()
+           NetworkManager.sharedInstance.unregisterDevice()
     }
     
     // [START receive_apns_token_error]

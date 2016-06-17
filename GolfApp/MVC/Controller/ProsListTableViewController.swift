@@ -24,7 +24,13 @@ class ProsListTableViewController: BaseTableViewController {
         
         let nib = UINib(nibName: parcouseTableCellNibname, bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: reuseIdentifier)
+        
         notificationsArray = Notification.MR_findAll() as! [Notification]
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
         
     }
     
@@ -47,19 +53,22 @@ class ProsListTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ProsTableCell
-        
+        cell.badgeLabel.text = nil
+        cell.badgeLabel.hidden = true
+
         let lPros = dataSource[indexPath.row] as! Pros
         cell.prosLabel.text = lPros.name
         cell.imageForCell = lPros.images.first
         
-        for notification in notificationsArray {
-
-            if  lPros.id == notification.post_id {
-                    cell.badgeLabel.hidden = false
-//                    cell.badgeLabel.text = "\(1)"
-            }
-        }
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND sid = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "pros", lPros.id!])
         
+        let lNotifications = Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+        
+        if lNotifications.count > 0 {
+            cell.badgeLabel.hidden = false
+            cell.badgeLabel.text = "\(lNotifications.count)"
+        }
+
         return cell
     }
     
@@ -74,7 +83,7 @@ class ProsListTableViewController: BaseTableViewController {
         let vc =  ProsDetailViewController(nibName: "ProsDetailViewController", bundle: nil)
     
         vc.package_url = (dataSource[indexPath.row] as! Pros).package_url!
-        vc.pros = (dataSource[indexPath.row] as! Pros)
+        vc.pros = dataSource[indexPath.row] as! Pros
         vc.prosCount = prosCount
         self.navigationController?.pushViewController(vc, animated: false)
         
@@ -142,11 +151,13 @@ class ProsListTableViewController: BaseTableViewController {
         })
     }
     
+
+    
+    // MARK: Notifications
+    
     override func handleReceivedNotifications(array : [Notification]) {
         
     }
-    
-    // MARK: Notifications
     
     override func handleNotification(notification: NSNotification) {
         
@@ -156,6 +167,11 @@ class ProsListTableViewController: BaseTableViewController {
             
             notificationsArray += [lNotification]
         }
+    }
+    
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+       tableView.reloadData()
     }
     
 }

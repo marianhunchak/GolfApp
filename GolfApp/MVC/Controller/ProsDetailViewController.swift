@@ -20,6 +20,8 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
     var pros: Pros!
     var package_url = String()
     var prosCount = 1
+    //var notificationsCount = 0
+    let headerView = ViewForProHeader.loadViewFromNib()
     
     @IBOutlet weak var viewForHeader: UIView!
     
@@ -36,8 +38,24 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         self.tableView.estimatedRowHeight = 1000
+
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
         
-        setupHeaderView()
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND sid = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "pros", pros.id!])
+        
+        let lNotifications = Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+        
+        if lNotifications.count > 0 {
+          notificationsCount = lNotifications.count
+          setupHeaderView()
+        } else {
+            notificationsCount = 0
+            setupHeaderView()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,7 +106,7 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
     //MARK: Private methods
     
     func setupHeaderView() {
-        let headerView = ViewForProHeader.loadViewFromNib()
+        
         headerView.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, viewForHeader.frame.size.height)
         viewForHeader.addSubview(headerView)
         
@@ -97,6 +115,13 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         
         headerView.button1.setButtonEnabled(true)
         headerView.button2.setButtonEnabled(pros.package_count?.intValue > 0 ? true : false)
+        
+        if notificationsCount > 0 {
+            headerView.badgeLabel.text = "\(notificationsCount)"
+            headerView.badgeLabel.hidden = false
+        } else {
+            headerView.badgeLabel.hidden = true
+        }
         
         headerView.delegate = self
     }
@@ -131,6 +156,8 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         }
     }
     
+
+    
     //MARK: Overrided methods
     
     override func showPreviousController() {
@@ -141,6 +168,11 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
         }else {
             self.navigationController?.popToRootViewControllerAnimated(false)
         }
+    }
+    
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+        headerView.badgeLabel.hidden = true
     }
 
 }

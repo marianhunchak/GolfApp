@@ -9,11 +9,12 @@
 import UIKit
 import MagicalRecord
 
+
 class BaseViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
-    
+    var notificationsCount = 0
     
     override func viewDidLoad()  {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class BaseViewController: UIViewController {
 // Extension for configuration navigation bar on all controllers
 
 extension UIViewController {
+    
     
     func configureNavBar() {
         self.navigationController?.navigationBar.hidden = false;
@@ -80,8 +82,35 @@ extension UIViewController {
     }
     
     func showPreviousController() {
+        
         self.navigationController?.popViewControllerAnimated(false)
     }
     
+    func removeNotificationsWithsID(sId : NSNumber ,andPostType post_type : String)  {
+        
+        let lPredicate = NSPredicate(format: "sid = %@ AND post_type = %@", argumentArray: [sId, post_type ])
+        
+        if let lNotificationsToDelete = Notification.MR_findAllWithPredicate(lPredicate) as? [Notification] {
+            
+            for notification in lNotificationsToDelete {
+            
+                UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
+                
+                if UIApplication.sharedApplication().applicationIconBadgeNumber <= 0 {
+                    
+                    UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+                }
+                
+                NetworkManager.sharedInstance.removeNotificationsWhithPostID(notification.post_id.stringValue, sId: notification.sid.stringValue)
+                
+                notification.MR_deleteEntity()
+                
+                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("notificationUnregisterd", object: post_type)
+            }
+
+        }
+    }
    
 }

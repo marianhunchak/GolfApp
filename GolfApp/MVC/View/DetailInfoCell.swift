@@ -37,9 +37,10 @@ class DetailInfoCell: UITableViewCell {
         backgroundCourseFooter.backgroundColor = Global.descrTextBoxColor
         backgroundColor = Global.viewsBackgroundColor
 
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
         descriptionLabel.addGestureRecognizer(tapGesture)
+        
+        newNewsImageView.hidden = true
     }
     
     override func prepareForReuse() {
@@ -49,7 +50,7 @@ class DetailInfoCell: UITableViewCell {
          nameLabel.textColor = Global.navigationBarColor
         
         if displayNewNewsImage != nil {
-            newNewsImageView.hidden = true
+            newNewsImageView.hidden = false
         }
         
     }

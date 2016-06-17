@@ -17,7 +17,7 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
     var restaurant : Restaurant?
     var restaurantsCount = 1
     var package_url = String()
-    
+    let viewForHeader = ViewForDetailHeader.loadViewFromNib()
     
     @IBOutlet weak var headerView: UIView!
     
@@ -36,7 +36,22 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         self.tableView.estimatedRowHeight = 1000
         
-        self.setupHeaderView()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
+        
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND sid = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "restaurant", restaurant!.id!])
+        
+        let lNotifications = Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+        
+        if lNotifications.count > 0 {
+            notificationsCount = lNotifications.count
+            setupHeaderView()
+        } else {
+            notificationsCount = 0
+            setupHeaderView()
+        }
         
     }
     
@@ -66,7 +81,7 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
     
     //MARK: Private methods
     func setupHeaderView() {
-        let viewForHeader = ViewForDetailHeader.loadViewFromNib()
+        
         viewForHeader.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
         headerView.addSubview(viewForHeader)
         
@@ -78,6 +93,13 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
         viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
         viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: restaurant!.menu_count!.intValue > 0 ? true : false)
         viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: restaurant!.package_count!.intValue > 0 ? true : false)
+        
+        if notificationsCount > 0 {
+            viewForHeader.badgeLabel.text = "\(notificationsCount)"
+            viewForHeader.badgeLabel.hidden = false
+        } else {
+            viewForHeader.badgeLabel.hidden = true
+        }
         
         viewForHeader.delegate = self
     }
@@ -141,6 +163,11 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
         }else {
             self.navigationController?.popToRootViewControllerAnimated(false)
         }
+    }
+    
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+        viewForHeader.badgeLabel.hidden = true
     }
     
 }

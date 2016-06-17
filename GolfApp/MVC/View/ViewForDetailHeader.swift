@@ -26,7 +26,7 @@ class ViewForDetailHeader: UIView {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
-    
+    @IBOutlet weak var badgeLabel: SwiftBadge!
 
 
     override func awakeFromNib() {
@@ -43,6 +43,7 @@ class ViewForDetailHeader: UIView {
         menuBarBackgrView.layer.borderColor = Global.menuBarStokeColor.CGColor
         menuBarBackgrView.backgroundColor = Global.menuBarBackgroundColor
         backgroundView.backgroundColor = UIColor.clearColor()
+        badgeLabel.hidden = true
     }
     
     // MARK: - Connections action elements DetailCourseHeader

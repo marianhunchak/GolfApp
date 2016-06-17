@@ -15,7 +15,8 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
 
     var hotel: Hotel!
     var hotelsCount = 1
-
+    let viewForHeader = ViewForDetailHeader.loadViewFromNib()
+    
     @IBOutlet weak var headerView: UIView!
 
     override func viewDidLoad() {
@@ -33,7 +34,22 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         self.tableView.estimatedRowHeight = 1000
         
-        self.setupHeaderView()
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(handleUnregisteringNotification(_:)),
+                                                         name: "notificationUnregisterd",
+                                                         object: nil)
+        
+        let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND sid = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "hotel", hotel.id!])
+        
+        let lNotifications = Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+        
+        if lNotifications.count > 0 {
+            notificationsCount = lNotifications.count
+            setupHeaderView()
+        } else {
+            notificationsCount = 0
+            setupHeaderView()
+        }
     }
     
     //MARK: UITableViewDataSource
@@ -62,7 +78,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     
     //MARK: Private methods
     func setupHeaderView() {
-        let viewForHeader = ViewForDetailHeader.loadViewFromNib()
+        
         viewForHeader.frame = CGRectMake(0.0, 0.0, (UIApplication.sharedApplication().keyWindow?.frame.size.width)!, headerView.frame.size.height)
         headerView.addSubview(viewForHeader)
         
@@ -73,6 +89,13 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         viewForHeader.setButtonEnabled(viewForHeader.button1, enabled: true)
         viewForHeader.setButtonEnabled(viewForHeader.button2, enabled: hotel.website.isEmpty ? false : true)
         viewForHeader.setButtonEnabled(viewForHeader.button3, enabled: hotel.package_count.intValue > 0 ? true : false)
+        if notificationsCount > 0 {
+            viewForHeader.badgeLabel.text = "\(notificationsCount)"
+            viewForHeader.badgeLabel.hidden = false
+        } else {
+            viewForHeader.badgeLabel.hidden = true
+        }
+        
         viewForHeader.delegate = self
     }
     
@@ -132,4 +155,9 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         }
     }
 
+    func handleUnregisteringNotification(notification : NSNotification) {
+        
+        viewForHeader.badgeLabel.hidden = true
+    }
+    
 }
