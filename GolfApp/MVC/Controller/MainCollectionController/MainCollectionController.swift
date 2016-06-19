@@ -25,23 +25,41 @@ class MainCollectionController: UICollectionViewController {
     var buttonEnabled = [Bool]()
 
     
-    var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
-                                  "a_proshop" , "a_courses",      "a_pros",
-                                  "a_contact",  "a_news",         "a_hotel"]
+//    var buttonsItemsImgOnArray = ["a_tee_time", "a_restaurant",   "a_events",
+//                                  "a_proshop" , "a_courses",      "a_pros",
+//                                  "a_contact",  "a_news",         "a_hotel"]
+//    
+//    var buttonsItemsImgOfArray = ["a_tee_time_off", "a_restaurant_off",   "a_events_off",
+//                                  "a_proshop_off" , "a_courses_off",      "a_pros_off",
+//                                  "a_contact_off",  "a_news_off",         "a_hotel_off"]
+//                                  
+//    var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
+//                              "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
+//                              "hm_contact_btn",  "hm_news_btn",    "hm_htls_btn"]
+//    
+//    var menuItemsImgArray = ["a_tee_time", "a_restaurant", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
+//    
+//    var menuItemsNameArray = ["teetime",  "restaurant",  "events",
+//                              "proshop" , "courses",     "pros",
+//                              "contact",  "news",        "hotel"]
     
-    var buttonsItemsImgOfArray = ["a_tee_time_off", "a_restaurant_off",   "a_events_off",
-                                  "a_proshop_off" , "a_courses_off",      "a_pros_off",
-                                  "a_contact_off",  "a_news_off",         "a_hotel_off"]
-                                  
-    var menuFilesNameArray = ["hm_tee_time_btn", "hm_rest_btn",    "hm_events_btn",
-                              "hm_proshp_btn",   "hm_courses_btn", "hm_pros_btn",
-                              "hm_contact_btn",  "hm_news_btn",    "hm_htls_btn"]
+        var buttonsItemsImgOnArray = ["a_pros",     "a_tee_time",   "a_events",
+                                      "a_proshop" , "a_courses",    "a_hotel",
+                                      "a_contact",  "a_news",       "a_restaurant"]
     
-    var menuItemsImgArray = ["a_tee_time", "a_restaurant", "a_events", "a_proshop", "a_courses", "a_pros", "a_contact", "a_news", "a_hotel"]
+        var buttonsItemsImgOfArray = ["a_pros_off",     "a_tee_time_off",   "a_events_off",
+                                      "a_proshop_off" , "a_courses_off",    "a_hotel_off",
+                                      "a_contact_off",  "a_news_off",       "a_restaurant_off"]
     
-    var menuItemsNameArray = ["teetime",  "restaurant",  "events",
-                              "proshop" , "courses",     "pros",
-                              "contact",  "news",        "hotel"]
+        var menuFilesNameArray = ["hm_pros_btn",     "hm_tee_time_btn",  "hm_events_btn",
+                                  "hm_proshp_btn",   "hm_courses_btn",   "hm_htls_btn",
+                                  "hm_contact_btn",  "hm_news_btn",      "hm_rest_btn"]
+    
+        var menuItemsImgArray = ["a_pros", "a_tee_time", "a_events", "a_proshop", "a_courses", "a_hotel", "a_contact", "a_news", "a_restaurant"]
+    
+        var menuItemsNameArray = ["pros",     "teetime",  "events",
+                                  "proshop" , "courses",  "hotel",
+                                  "contact",  "news",     "restaurant"]
 
     
     override func viewDidLoad() {
@@ -132,33 +150,30 @@ class MainCollectionController: UICollectionViewController {
         
         switch indexPath.item {
             case 0:
-                showTeeTimeSubView()
+                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProsListTableViewController")
+                self.navigationController?.pushViewController(prosVC!, animated: false)
             case 1:
-                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
-                self.navigationController?.pushViewController(prosVC!, animated: false)
+                showTeeTimeSubView()
             case 2:
-                let events =  EventsListViewController(nibName: "EventsListController", bundle: nil)
-                self.navigationController?.pushViewController(events, animated: false)
+                let eventsVC =  EventsListViewController(nibName: "EventsListController", bundle: nil)
+                self.navigationController?.pushViewController(eventsVC, animated: false)
             case 3:
-                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
-                self.navigationController?.pushViewController(prosVC!, animated: false)
-
+                let proShopVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProShopTableView")
+                self.navigationController?.pushViewController(proShopVC!, animated: false)
             case 4:
                 let coursesVC = self.storyboard?.instantiateViewControllerWithIdentifier(identifierOfListTableController)
                 self.navigationController?.pushViewController(coursesVC!, animated: false)
             case 5:
-                let prosVC = self.storyboard?.instantiateViewControllerWithIdentifier("ProsListTableViewController")
-                self.navigationController?.pushViewController(prosVC!, animated: false)
+                let hotelsVC = HotelsTableViewController(nibName: "HotelsTableViewController", bundle: nil)
+                self.navigationController?.pushViewController(hotelsVC, animated: false)
             case 6:
                 showContactSubView()
             case 7:
                 let newsVC = self.storyboard?.instantiateViewControllerWithIdentifier("NewsTableViewController") as! NewsTableViewController
                 self.navigationController?.pushViewController(newsVC, animated: false)
-                    
             case 8:
-                let hotelsVC = HotelsTableViewController(nibName: "HotelsTableViewController", bundle: nil)
-                self.navigationController?.pushViewController(hotelsVC, animated: false)
-            
+                let restaurantVC = self.storyboard?.instantiateViewControllerWithIdentifier("RestaurantTableViewController")
+                self.navigationController?.pushViewController(restaurantVC!, animated: false)
             
             default: break
         
