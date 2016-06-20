@@ -68,8 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: Notification.MR_findAll(), userInfo: nil)
         Global.getLanguage()
-       
-
         return true
     }
     
