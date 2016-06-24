@@ -115,7 +115,7 @@ class NewsTableViewController: BaseTableViewController {
         
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
-        vc.news = dataSource[indexPath.row] as! New
+        vc.news = dataSource[indexPath.row] as? New
         vc.newsCount = newsCount
         
         self.navigationController?.pushViewController(vc, animated: false)
@@ -128,7 +128,7 @@ class NewsTableViewController: BaseTableViewController {
         
         let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
         
-        vc.news = dataSource.first! as! New
+        vc.news = dataSource.first! as? New
         self.navigationController?.pushViewController(vc, animated: false)
     }
     

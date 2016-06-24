@@ -22,9 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var advertisemet: Advertisemet?
     var storyboard = UIStoryboard(name: "Main", bundle: nil)
     var navigationVC : UINavigationController!
-    
     var initialTableViewController : UITableViewController?
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         [NSObject: AnyObject]?) -> Bool {
         
@@ -63,7 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Push the vc onto the nav
         navigationVC.pushViewController(vc, animated: false)
+
         navigationVC.navigationBar.tintColor = UIColor.whiteColor()
+
         // Set the window’s root view controller
         self.window!.rootViewController = navigationVC
         
@@ -119,44 +120,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // END receive_apns_token
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-//    
-        
 
-//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
-//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-
-        
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
         }
         print("Device token - " + tokenString)
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
-        
-//        defaults.setObject(nil, forKey: "language")
-        
-//        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//        })
-        
+
         Global.getLanguage()
         
-//        if let storedLanguage = defaults.objectForKey("language") as? String {
-//            
-//            if storedLanguage != Global.languageID {
-//                
-//                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//                })
-//            }
-//        } else {
-//            
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//            })
-//        }
-//        
-//        
-        
-           NetworkManager.sharedInstance.unregisterDevice()
+        if let storedLanguage = defaults.objectForKey("language") as? String {
+            
+            if storedLanguage != Global.languageID {
+                
+                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+                })
+            }
+        } else {
+            
+            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+            })
+        }
+
     }
-    
+
     // [START receive_apns_token_error]
     func application( application: UIApplication, didFailToRegisterForRemoteNotificationsWithError
         error: NSError ) {
@@ -175,6 +162,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
                                                    fetchCompletionHandler handler: (UIBackgroundFetchResult) -> Void) {
         
+        print("Notification received: \(userInfo)")
+        
         if let notificationBody = userInfo as? [String : AnyObject] {
             
             UIApplication.sharedApplication().applicationIconBadgeNumber += 1
@@ -185,6 +174,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: lNotification, userInfo: nil)
             
+
             if application.applicationState == UIApplicationState.Inactive || application.applicationState == UIApplicationState.Background {
                 
                 print("Notification received: \(notificationBody["post_type"]!)")
@@ -228,9 +218,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     navigationVC.pushViewController(initialViewController, animated: false)
                 }
             }
-        }
+
         
         handler(UIBackgroundFetchResult.NoData);
+        
+
+        }
     }
     
     

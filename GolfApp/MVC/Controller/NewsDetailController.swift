@@ -13,9 +13,10 @@ private let NewsTableCellIndetifire = "NewsDetailCell"
 
 class NewsDetailController: BaseViewController , OffersHeaderDelegate {
     
-    var news : New!
+    var news : New?
     var newsCount = 1
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
+    var notificaionPressed : Bool?
     
     @IBOutlet weak var headerView: UIView!
     
@@ -51,17 +52,22 @@ class NewsDetailController: BaseViewController , OffersHeaderDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 1{
             let cell2 = tableView.dequeueReusableCellWithIdentifier("NewsDetailCell", forIndexPath: indexPath) as! NewsDetailCell
-            cell2.nameLabel.text = news.title
-            cell2.subtitleLabel.text = news.subtitle
-            cell2.dateLabel.text = news.pubdate
-            cell2.descriptionNews.text = news.descr
+            cell2.nameLabel.text = news?.title
+            cell2.subtitleLabel.text = news?.subtitle
+            cell2.dateLabel.text = news?.pubdate
+            cell2.descriptionNews.text = news?.descr
             
             
             return cell2
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellImagereuseIdentifier, forIndexPath: indexPath) as! DetailmageTableCell
-        cell.imagesArray = news.images!
+        
+        if let lNew = news {
+        
+            cell.imagesArray = lNew.images!
+        }
+        
         return cell
     }
     
@@ -85,11 +91,25 @@ class NewsDetailController: BaseViewController , OffersHeaderDelegate {
         }
     }
     
+    func notificationPressed () {
+    
+        if notificaionPressed == true {
+        
+//        NetworkManager.sharedInstance.getNewsWithNewID(<#T##newID: Int##Int#>, completion: <#T##([AnyObject]?, NSError?) -> Void#>)
+//        
+        }
+    
+    }
+    
     //MARK: CourseHeaderDelegate
     
     func pressedButton1(tableProHeader: ViewForOffersHeader, button1Pressed button1: AnyObject) {
+        if let lNews = news {
+            
+            let textToShare = lNews.title + "\n" + lNews.subtitle + "\n" + lNews.pubdate + "\n" + lNews.descr
         
-        let textToShare = news.title + "\n" + news.subtitle + "\n" + news.pubdate + "\n" + news.descr
+        
+
         let urlToShare = "http://golfapp.ch"
         
         if let myWebsite = NSURL(string: urlToShare) {
@@ -97,7 +117,7 @@ class NewsDetailController: BaseViewController , OffersHeaderDelegate {
             self.navigationController!.presentViewController(activityVC, animated: true, completion: nil)
         }
         
-        
+        }
     }
     
     //MARK: Overrided methods

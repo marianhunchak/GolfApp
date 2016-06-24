@@ -498,4 +498,32 @@ class NetworkManager {
         }
     }
     
+    //MARK: News from notification
+    
+    func getNewsWithNewID( newID : Int, completion: ([AnyObject]?, NSError?) -> Void) {
+        
+        let url = baseURL + "news/" + "\(newID)" + clientAndLanguage
+        
+        Alamofire.request(.GET, url , parameters: nil)
+            .responseJSON { response in
+                
+                if let JSON = response.result.value {
+                    //   print("JSON: \(JSON)")
+                    self.jsonArray = JSON as? NSDictionary
+                    
+                    let newsArray: NSArray = [self.jsonArray!["news"]!]
+                    var responseArray = [AnyObject]()
+                    
+                    for newsDict in newsArray.firstObject as! NSArray {
+                        responseArray.append(New.newsWhithDictionary(newsDict as! NSDictionary))
+                    }
+                    
+                    completion(responseArray, nil)
+                    
+                } else {
+                    completion(nil, response.result.error)
+                }
+        }
+    }
+    
 }
