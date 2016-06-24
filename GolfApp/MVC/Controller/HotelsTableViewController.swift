@@ -78,6 +78,7 @@ class HotelsTableViewController: BaseTableViewController {
         let hotelVC = HotelDetailViewController(nibName: "HotelDetailViewController", bundle: nil)
 
         hotelVC.hotel = dataSource[indexPath.row] as! Hotel
+        hotelVC.hotelsCount = dataSource.count
         self.navigationController?.pushViewController(hotelVC, animated: false)
     }
     

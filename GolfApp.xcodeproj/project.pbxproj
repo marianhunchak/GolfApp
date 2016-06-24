@@ -112,6 +112,7 @@
 		8445B0E21D085742009D08CD /* CourseRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0E01D085742009D08CD /* CourseRate.swift */; };
 		8445B0FA1D08753E009D08CD /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0F81D08753E009D08CD /* Event+CoreDataProperties.swift */; };
 		8445B0FB1D08753E009D08CD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445B0F91D08753E009D08CD /* Event.swift */; };
+		844A0B551D1D4E7100B96664 /* NotificationHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A0B541D1D4E7100B96664 /* NotificationHandle.swift */; };
 		844A94191CEB138000BCC86F /* ProsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A94181CEB138000BCC86F /* ProsTableCell.xib */; };
 		844A941B1CEB13F600BCC86F /* ProsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A941A1CEB13F600BCC86F /* ProsTableCell.swift */; };
 		844A942C1CEB6C6800BCC86F /* ViewForProHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */; };
@@ -488,6 +489,7 @@
 		8445B0E01D085742009D08CD /* CourseRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseRate.swift; sourceTree = "<group>"; };
 		8445B0F81D08753E009D08CD /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8445B0F91D08753E009D08CD /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		844A0B541D1D4E7100B96664 /* NotificationHandle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHandle.swift; sourceTree = "<group>"; };
 		844A94181CEB138000BCC86F /* ProsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProsTableCell.xib; sourceTree = "<group>"; };
 		844A941A1CEB13F600BCC86F /* ProsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProsTableCell.swift; sourceTree = "<group>"; };
 		844A942B1CEB6C6800BCC86F /* ViewForProHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForProHeader.xib; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 		560E3C701CE137A2006F8655 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				844A0B5F1D1D4E7D00B96664 /* NotificationHandle */,
 				8435F0691D082752007D6178 /* Item */,
 				8432FED71D06D34D00C05862 /* Package */,
 				845F254C1D05C73D006C09A4 /* Image */,
@@ -1845,6 +1848,15 @@
 			name = CourseRate;
 			sourceTree = "<group>";
 		};
+		844A0B5F1D1D4E7D00B96664 /* NotificationHandle */ = {
+			isa = PBXGroup;
+			children = (
+				844A0B541D1D4E7100B96664 /* NotificationHandle.swift */,
+			);
+			name = NotificationHandle;
+			path = DB;
+			sourceTree = "<group>";
+		};
 		844A94121CEB134700BCC86F /* ProsTableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2347,6 +2359,7 @@
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
+				844A0B551D1D4E7100B96664 /* NotificationHandle.swift in Sources */,
 				840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,
 				84566CBC1D082156004029BD /* Restaurant.swift in Sources */,

@@ -150,7 +150,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         if hotelsCount > 1 {
             self.navigationController?.popViewControllerAnimated(false)
             
-        }else {
+        } else {
             self.navigationController?.popToRootViewControllerAnimated(false)
         }
     }
