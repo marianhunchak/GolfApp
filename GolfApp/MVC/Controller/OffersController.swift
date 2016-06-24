@@ -17,19 +17,20 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     let viewForHead = ViewForOffersHeader.loadViewFromNib()
     var seleted = false
     var shareItem = -1
-    var offertsArray : [Package]!
+    var offertsArray : [Package]?
     var packageUrl: String?
     var titleOfferts = "re_suggestion_nav_bar"
     var hotel : Hotel!
     var pros : Pros!
     var prosShop : ProsShop!
     var restaurant : Restaurant?
+   // var loadFromPreviosController = true
     
     @IBOutlet weak var backgroundView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName(titleOfferts)
         
         self.configureNavBar()
@@ -78,14 +79,14 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     // MARK: - Table view data source
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return offertsArray == nil ? 0 : offertsArray.count
+        return offertsArray == nil ? 0 : offertsArray!.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
         
-        let lPackage = offertsArray[indexPath.row]
+        let lPackage = offertsArray![indexPath.row]
         cell.nameLabel.text = lPackage.name
         cell.detailLabel.text = lPackage.subtitle
         cell.descriptionLabel.text = lPackage.descr
@@ -147,7 +148,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     
     func pressedButton1(tableProHeader: ViewForOffersHeader, button1Pressed button1: AnyObject) {
         
-        let lPackege = offertsArray[shareItem]
+        let lPackege = offertsArray![shareItem]
         let textToShare = lPackege.name + "\n" + lPackege.subtitle + "\n" + lPackege.descr
         let urlToShare = "http://golfapp.ch"
         
@@ -159,8 +160,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     
 
     override func refresh(sender: AnyObject) {
-        if offertsArray.isEmpty {
-            print(offertsArray.count)
+        if offertsArray!.isEmpty {
+            print(offertsArray!.count)
             refreshControl?.beginRefreshing()
         
         }
@@ -181,6 +182,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     self.restaurant?.packagesList = array
                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                      self.removeNotificationsWithsID(self.restaurant!.id!, andPostType: "restaurant")
+                    print("<<<<<<<<<<<<\(self.packageUrl)>>>>>>>>>")
                 }
                 self.refreshControl?.endRefreshing()
             }
@@ -193,6 +195,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     self.prosShop.packagesList = array
                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                     self.removeNotificationsWithsID(self.prosShop.id!, andPostType: "proshop")
+                    print("<<<<<<<<<<<<\(self.packageUrl)>>>>>>>>>")
                 }
                 self.refreshControl?.endRefreshing()
             }
@@ -205,7 +208,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     self.pros.packagesList = array!
                     NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                     self.removeNotificationsWithsID(self.pros.id!, andPostType: "pros")
-
+                    print("<<<<<<<<<<<<\(self.packageUrl)>>>>>>>>>")
                     
                 }
                 
@@ -220,9 +223,11 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     
                     self.offertsArray = lArray
                     self.tableView.reloadData()
-                    self.hotel.packagesList = array!
-                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-                    self.removeNotificationsWithsID(self.hotel.id!, andPostType: "hotel")
+                    
+                    print("<<<<<<<<<<<<\(self.packageUrl)>>>>>>>>>")
+//                    self.hotel.packagesList = array!
+//                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+//                    self.removeNotificationsWithsID(self.hotel.id!, andPostType: "hotel")
                 }
                 self.refreshControl?.endRefreshing()
 

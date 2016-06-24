@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
     var notificationsCount = 0
+    var backToMainController = false
     
     override func viewDidLoad()  {
         super.viewDidLoad()
@@ -78,6 +79,7 @@ extension UIViewController {
     //MARK: Actions
     
     func showMainController() {
+        
         self.navigationController?.popToRootViewControllerAnimated(false)
     }
     

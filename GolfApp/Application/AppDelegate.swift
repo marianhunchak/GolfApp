@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var tokenString = ""
     let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
     var advertisemet: Advertisemet?
-
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let nav = UINavigationController()
+    
+    var initialTableViewController : UITableViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         [NSObject: AnyObject]?) -> Bool {
         
@@ -130,22 +134,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        defaults.setObject(nil, forKey: "language")
         
+//        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//        })
+        
         Global.getLanguage()
         
-        if let storedLanguage = defaults.objectForKey("language") as? String {
-            
-            if storedLanguage != Global.languageID {
-                
-                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-                })
-            }
-        } else {
-            
-            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-            })
-        }
-        
-        
+//        if let storedLanguage = defaults.objectForKey("language") as? String {
+//            
+//            if storedLanguage != Global.languageID {
+//                
+//                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//                })
+//            }
+//        } else {
+//            
+//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//            })
+//        }
+//        
+//        
         
            NetworkManager.sharedInstance.unregisterDevice()
     }
@@ -177,10 +184,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             
             NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: lNotification, userInfo: nil)
+            
+            if application.applicationState == UIApplicationState.Inactive {
+                
+                print("Notification received: \(notificationBody["post_type"]!)")
+                print("Notification received: \(notificationBody)")
+                "Notification received: [sid: 69, post_id: 51, post_type: Hotel, sname: test 3"
+                
+                if "\(notificationBody["post_type"]!)" == "Restaurant" {
+                    print("Restaurant")
+
+                    let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
+                    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/restaurants/suggestions?client=22&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
+                    initialViewController.titleOfferts = "htl_package_list_nav_bar"
+                    self.window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+                    self.window?.makeKeyAndVisible()
+   
+                } else if "\(notificationBody["post_type"]!)" == "News" {
+                    print("News")
+                    
+                    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                    let initialViewController = (storyboard.instantiateViewControllerWithIdentifier("NewsTableViewController")) as! NewsTableViewController
+                    self.window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+                    self.window?.makeKeyAndVisible()
+                    
+                } else if "\(notificationBody["post_type"]!)" == "Pro" {
+                    print("Pro")
+                    
+                    let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
+                    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/pros/packages?client=22&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
+                    initialViewController.titleOfferts = "htl_package_list_nav_bar"
+                    self.window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+                    self.window?.makeKeyAndVisible()
+    
+                } else if "\(notificationBody["post_type"]!)" == "Proshop" {
+                    print("Proshop")
+                    
+                    let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
+                    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/proshops/packages?client=22&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
+                    initialViewController.titleOfferts = "htl_package_list_nav_bar"
+                    self.window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+                    self.window?.makeKeyAndVisible()
+                    
+                } else if "\(notificationBody["post_type"]!)" == "Hotel" {
+                    print("Hotel")
+                    
+                    let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
+                    
+                    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/hotels/packages?client=22&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
+                    initialViewController.titleOfferts = "htl_package_list_nav_bar"
+                    self.window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+                    self.window?.makeKeyAndVisible()
+
+                    
+                }
+            }
         }
         
 
-        print("Notification received: \(userInfo)")
+        //print("Notification received: \(userInfo)")
         
         
         handler(UIBackgroundFetchResult.NoData);
