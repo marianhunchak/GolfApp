@@ -103,7 +103,14 @@ extension UIViewController {
                     UIApplication.sharedApplication().applicationIconBadgeNumber = 0
                 }
                 
-                NetworkManager.sharedInstance.removeNotificationsWhithPostID(notification.post_id.stringValue, sId: notification.sid.stringValue)
+//                NetworkManager.sharedInstance.removeNotificationsWhithPostID(notification.post_id.stringValue, sId: notification.sid.stringValue)
+                
+                
+                NetworkManager.sharedInstance.removeNotificationsWhithPostID(notification.post_id.stringValue, sId: notification.sid.stringValue, completion: { (error) in
+                    if error != nil {
+                    print(error)
+                    }
+                })
                 
                 notification.MR_deleteEntity()
                 

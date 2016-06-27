@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Advertisemet" representedClassName="Advertisemet" syncable="YES">
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,6 +22,10 @@
     <entity name="CourseRate" representedClassName="CourseRate" syncable="YES">
         <attribute name="courseId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="ratesList" optional="YES" attributeType="Transformable" syncable="YES"/>
+    </entity>
+    <entity name="DeleteNotification" representedClassName=".DeleteNotification" syncable="YES">
+        <attribute name="post_id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sid" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
@@ -161,15 +165,16 @@
         <element name="Advertisemet" positionX="-1026" positionY="-369" width="128" height="90"/>
         <element name="Course" positionX="-218" positionY="-261" width="128" height="223"/>
         <element name="CourseRate" positionX="-621" positionY="-225" width="128" height="75"/>
+        <element name="DeleteNotification" positionX="-828" positionY="-315" width="128" height="75"/>
         <element name="Event" positionX="-848" positionY="-259" width="128" height="240"/>
         <element name="Hotel" positionX="-369" positionY="-261" width="128" height="283"/>
         <element name="Image" positionX="-1026" positionY="-459" width="128" height="75"/>
         <element name="New" positionX="-686" positionY="-258" width="128" height="150"/>
+        <element name="Notification" positionX="-828" positionY="-315" width="128" height="120"/>
         <element name="Profile" positionX="-1026" positionY="-261" width="128" height="315"/>
         <element name="Pros" positionX="-522" positionY="-261" width="128" height="285"/>
         <element name="ProsShop" positionX="-810" positionY="-117" width="128" height="285"/>
         <element name="Restaurant" positionX="-810" positionY="-117" width="128" height="330"/>
         <element name="RestaurantMenu" positionX="-828" positionY="-315" width="128" height="75"/>
-        <element name="Notification" positionX="-828" positionY="-315" width="128" height="120"/>
     </elements>
 </model>

@@ -70,6 +70,8 @@
 		8407A5B41CE32DD600500E19 /* DetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B31CE32DD600500E19 /* DetailInfoCell.xib */; };
 		8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B51CE32E6000500E19 /* DetailInfoCell.swift */; };
 		8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B71CE32E8D00500E19 /* ViewForDetailHeader.swift */; };
+		8408172D1D218DF300E42DC9 /* DeleteNotification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408172B1D218DF300E42DC9 /* DeleteNotification+CoreDataProperties.swift */; };
+		8408172E1D218DF300E42DC9 /* DeleteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408172C1D218DF300E42DC9 /* DeleteNotification.swift */; };
 		8408ECFC1D0ABE6500C5883A /* OffersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408ECFA1D0ABE6500C5883A /* OffersController.swift */; };
 		8408ECFD1D0ABE6500C5883A /* OffersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8408ECFB1D0ABE6500C5883A /* OffersController.xib */; };
 		840940331CE4A0950005A97E /* TeeTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840940321CE4A0950005A97E /* TeeTimeView.xib */; };
@@ -447,6 +449,8 @@
 		8407A5B31CE32DD600500E19 /* DetailInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailInfoCell.xib; sourceTree = "<group>"; };
 		8407A5B51CE32E6000500E19 /* DetailInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
 		8407A5B71CE32E8D00500E19 /* ViewForDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForDetailHeader.swift; sourceTree = "<group>"; };
+		8408172B1D218DF300E42DC9 /* DeleteNotification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DeleteNotification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8408172C1D218DF300E42DC9 /* DeleteNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteNotification.swift; sourceTree = "<group>"; };
 		8408ECFA1D0ABE6500C5883A /* OffersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersController.swift; sourceTree = "<group>"; };
 		8408ECFB1D0ABE6500C5883A /* OffersController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffersController.xib; sourceTree = "<group>"; };
 		840940321CE4A0950005A97E /* TeeTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeeTimeView.xib; sourceTree = "<group>"; };
@@ -725,6 +729,7 @@
 		560E3C731CE137A2006F8655 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				84547C901D21605C0019FA13 /* DeleteNotification */,
 				84E0C42B1D0B01FE0060A321 /* Notification */,
 				840E40841D098A2700C0D943 /* RestaurantMenu */,
 				8445B0E31D0858CF009D08CD /* CourseRate */,
@@ -1875,6 +1880,15 @@
 			name = ViewForProHeader;
 			sourceTree = "<group>";
 		};
+		84547C901D21605C0019FA13 /* DeleteNotification */ = {
+			isa = PBXGroup;
+			children = (
+				8408172B1D218DF300E42DC9 /* DeleteNotification+CoreDataProperties.swift */,
+				8408172C1D218DF300E42DC9 /* DeleteNotification.swift */,
+			);
+			name = DeleteNotification;
+			sourceTree = "<group>";
+		};
 		84566CAF1D081922004029BD /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
@@ -2304,6 +2318,7 @@
 				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
+				8408172E1D218DF300E42DC9 /* DeleteNotification.swift in Sources */,
 				845F254B1D05C0FD006C09A4 /* ImageSaver.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
@@ -2359,6 +2374,7 @@
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
+				8408172D1D218DF300E42DC9 /* DeleteNotification+CoreDataProperties.swift in Sources */,
 				844A0B551D1D4E7100B96664 /* NotificationHandle.swift in Sources */,
 				840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,

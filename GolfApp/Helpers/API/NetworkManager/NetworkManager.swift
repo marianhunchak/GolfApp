@@ -119,12 +119,35 @@ class NetworkManager {
         }
     }
     
-    func removeNotificationsWhithPostID(pId : String, sId : String) {
-        
+//    func removeNotificationsWhithPostID(pId : String, sId : String) {
+//        
+//        var parameters : [String : AnyObject]?
+//        
+//        if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
+//       
+//            parameters = [
+//                "regid" : regid.stringValue,
+//                "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
+//                "sid" : sId,
+//                "pid" : pId
+//            ]
+//        }
+//        
+//        Alamofire.request(.POST, baseURL + "device/notifications_remove", parameters:parameters )
+//            .responseJSON { response in
+//                
+//                if let JSON = response.result.value as? NSDictionary{
+//                    
+//                    print("JSON: \(JSON)")
+//                }
+//        }
+//    }
+    
+    func removeNotificationsWhithPostID(pId : String, sId : String ,completion: (NSError?)  -> Void) {
         var parameters : [String : AnyObject]?
         
         if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
-       
+            
             parameters = [
                 "regid" : regid.stringValue,
                 "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
@@ -136,10 +159,20 @@ class NetworkManager {
         Alamofire.request(.POST, baseURL + "device/notifications_remove", parameters:parameters )
             .responseJSON { response in
                 
-                if let JSON = response.result.value as? NSDictionary{
+                switch response.result {
                     
-                    print("JSON: \(JSON)")
-                }
+                case .Success(let JSON):
+                    
+                        print("JSON: \(JSON)")
+                    completion(nil)
+                    
+                case .Failure(let error):
+                    
+                    print("Request failed with error: \(error)")
+                    completion(error)
+                    
+                    
+            }
         }
     }
     

@@ -97,8 +97,14 @@ class NewsTableViewController: BaseTableViewController {
                     UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
                 }
                 
-                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue,
-                                                                             sId: lNotificationToDelete.sid.stringValue)
+//                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue,
+//                                                                             sId: lNotificationToDelete.sid.stringValue)
+                
+                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue, sId: lNotificationToDelete.sid.stringValue, completion: { (error) in
+                    if error != nil {
+                        print(error)
+                    }
+                })
                 
                 lNotificationToDelete.MR_deleteEntity()
                 

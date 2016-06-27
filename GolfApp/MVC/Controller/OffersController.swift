@@ -29,7 +29,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     var post_id : NSNumber?
     
     @IBOutlet weak var backgroundView: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,13 +48,13 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
         
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+
     //MARK: UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -98,8 +98,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         if shareItem == indexPath.row {
             cell.setCellSelected()
         }
-        
-        
+
+
         switch titleOfferts {
         case "re_suggestion_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "restaurant", lPackage.id])
@@ -133,7 +133,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             } else if lPackage.id == post_id {
                 cell.displayNewNewsImage = true
             }
-            
+
             
         default: break
             
@@ -171,7 +171,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         }
     }
     
-    
+
     override func refresh(sender: AnyObject) {
         
         if offertsArray != nil {
@@ -181,7 +181,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             }
         }
         
-        
+
         
         loadDataFromServer()
     }
@@ -206,12 +206,12 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                 } else if array == nil || (array?.isEmpty)!{
                     print("Error")
                 }
-                
+
                 self.refreshControl?.endRefreshing()
-            }
+            } 
         case "ps_special_offer_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
-                
+   
                 if let lArray = array {
                     self.offertsArray = lArray
                     self.tableView.reloadData()
@@ -222,7 +222,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "proshop")
                     }
-                    
+
                 } else {
                     print("Error")
                 }
@@ -265,12 +265,12 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else if self.sid != nil {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "hotel")
                     }
-                    
+ 
                 } else if array == nil || (array?.isEmpty)! {
                     print("Error")
                 }
                 self.refreshControl?.endRefreshing()
-                
+
             }
             
         default:
@@ -278,6 +278,6 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         }
         
     }
-    
-    
+
+
 }

@@ -48,7 +48,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         
         let nibFood = UINib.init(nibName: "EventsTableCell", bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: eventCellReuseIdentifier)
-        
+       // self.setupHeaderView()
     }
     
     override func viewWillDisappear(animated: Bool) {
