@@ -18,7 +18,7 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
     
     var event : Event!
     var documentInteractionController : UIDocumentInteractionController?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshControl?.endRefreshing()
@@ -32,7 +32,7 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         self.tableView.estimatedRowHeight = 1000
         self.refreshControl?.removeFromSuperview()
     }
-
+    
     // MARK: - UITableViewDataSource
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +61,7 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-       
+        
         if indexPath.row == 0 {
             return UITableViewAutomaticDimension
         }
@@ -80,7 +80,7 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         
         openPDFWithURLString(event.file_teetime, andFileName: event.name + "TeeTimes")
     }
-
+    
     //MARK: UIDocumentInteractionControllerDelegate
     
     func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
@@ -112,7 +112,7 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
                 } else {
                     dispatch_async(dispatch_get_main_queue(), {
                         HUD.hide(animated: false)
-                        HUD.flash(.Error)
+                        HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
                     })
                 }
             }

@@ -9,6 +9,7 @@
 import UIKit
 import MagicalRecord
 
+
 private let courseFooterIndetifire = "courseFooterIndetifire"
 private let detailDescriptionCellNibName = "DetailInfoCell"
 
@@ -28,7 +29,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     var post_id : NSNumber?
     
     @IBOutlet weak var backgroundView: UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,14 +46,15 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     //MARK: UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -97,7 +99,9 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             cell.setCellSelected()
         }
         
-        if titleOfferts == "re_suggestion_nav_bar" {
+        
+        switch titleOfferts {
+        case "re_suggestion_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "restaurant", lPackage.id])
             
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
@@ -105,8 +109,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             } else if lPackage.id == post_id{
                 cell.displayNewNewsImage = true
             }
-
-        } else if titleOfferts == "ps_special_offer_nav_bar" {
+        case "ps_special_offer_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "proshop", lPackage.id])
             
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
@@ -114,7 +117,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             } else if lPackage.id == post_id {
                 cell.displayNewNewsImage = true
             }
-        } else if titleOfferts == "pro_rate_offer_nav_bar" {
+        case "pro_rate_offer_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "pros", lPackage.id])
             
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
@@ -122,8 +125,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             } else if lPackage.id == post_id {
                 cell.displayNewNewsImage = true
             }
-        } else if titleOfferts == "htl_package_list_nav_bar" {
-           
+        case "htl_package_list_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "hotel", lPackage.id])
             
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
@@ -132,8 +134,10 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                 cell.displayNewNewsImage = true
             }
             
+            
+        default: break
+            
         }
-
         
         return cell
     }
@@ -167,7 +171,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         }
     }
     
-
+    
     override func refresh(sender: AnyObject) {
         
         if offertsArray != nil {
@@ -177,7 +181,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             }
         }
         
-
+        
         
         loadDataFromServer()
     }
@@ -199,12 +203,15 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "restaurant")
                     }
+                } else if array == nil || (array?.isEmpty)!{
+                    print("Error")
                 }
+                
                 self.refreshControl?.endRefreshing()
             }
         case "ps_special_offer_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
-   
+                
                 if let lArray = array {
                     self.offertsArray = lArray
                     self.tableView.reloadData()
@@ -215,7 +222,9 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "proshop")
                     }
-
+                    
+                } else {
+                    print("Error")
                 }
                 self.refreshControl?.endRefreshing()
             }
@@ -233,6 +242,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "pros")
                     }
+                } else {
+                    print("Error")
                 }
                 
                 self.refreshControl?.endRefreshing()
@@ -246,7 +257,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     
                     self.offertsArray = lArray
                     self.tableView.reloadData()
-                    
+                    print(self.packageUrl)
                     if self.hotel != nil {
                         self.hotel!.packagesList = lArray
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
@@ -254,10 +265,12 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else if self.sid != nil {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "hotel")
                     }
- 
+                    
+                } else if array == nil || (array?.isEmpty)! {
+                    print("Error")
                 }
                 self.refreshControl?.endRefreshing()
-
+                
             }
             
         default:
@@ -265,6 +278,6 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         }
         
     }
-
+    
     
 }

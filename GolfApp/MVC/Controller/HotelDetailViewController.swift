@@ -12,20 +12,20 @@ private let cellImagereuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 
 class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITableViewDelegate, UITableViewDataSource {
-
+    
     var hotel: Hotel!
     var hotelsCount = 1
     let viewForHeader = ViewForDetailHeader.loadViewFromNib()
     
     @IBOutlet weak var headerView: UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = LocalisationDocument.sharedInstance.getStringWhinName("htl_detail_nav_bar")
         self.tableView.backgroundColor = Global.viewsBackgroundColor
         self.headerView.backgroundColor = Global.viewsBackgroundColor
-
+        
         
         let nib = UINib.init(nibName: "DetailmageTableCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: cellImagereuseIdentifier)
@@ -58,7 +58,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         
         return 2
     }
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
@@ -72,8 +72,8 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
         cell2.detailLabelHeight.constant = 0
         cell2.nameLabel.text = hotel.name
         cell2.descriptionLabel.text = hotel.descr
-        cell2.newNewsImageView.hidden = true    
-            return cell2
+        cell2.newNewsImageView.hidden = true
+        return cell2
     }
     
     //MARK: Private methods
@@ -110,7 +110,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     //MARK: CourseHeaderDelegate
     
     func tableCourseHeader(tableCourseHeader: ViewForDetailHeader, button1Pressed button1: AnyObject) {
-            
+        
         let contact = ContactView.loadViewFromNib()
         contact.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height )
         self.view.addSubview(contact)
@@ -125,15 +125,20 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
     }
     
     func pressedButton2(tableCourseHeader: ViewForDetailHeader, button2Pressed button2: AnyObject) {
-        let webVC = WebViewController(nibName: "WebViewController", bundle: nil)
-        webVC.url = NSURL(string: hotel.website)
-        webVC.navigationItem.title = hotel.name
-        self.navigationController?.pushViewController(webVC, animated: true)
-
+        
+        if let checkURL = NSURL(string: hotel.website) {
+            if UIApplication.sharedApplication().openURL(checkURL) {
+                print("url successfully opened")
+            }
+        } else {
+            let openUrlErrorAlert = UIAlertView(title: "GolfApp can not open browser!", message: "GolfApp can not open browser ,because no url address!!", delegate: self, cancelButtonTitle: "Ok")
+            openUrlErrorAlert.show()
+        }
+        
     }
     
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
-
+        
         let packageVC = OffersController(nibName: "OffersController", bundle: nil)
         packageVC.packageUrl = hotel.package_url
         packageVC.titleOfferts = "htl_package_list_nav_bar"
@@ -154,7 +159,7 @@ class HotelDetailViewController: BaseViewController , CourseHeaderDelegate, UITa
             self.navigationController?.popToRootViewControllerAnimated(false)
         }
     }
-
+    
     func handleUnregisteringNotification(notification : NSNotification) {
         
         viewForHeader.badgeLabel.hidden = true

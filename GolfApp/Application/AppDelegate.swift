@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationVC = UINavigationController()
         navigationVC.navigationBar.tintColor = UIColor.whiteColor()
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainCollectionController") as! MainCollectionController
-
+        
         // Push the vc onto the nav
         navigationVC.pushViewController(vc, animated: false)
         navigationVC.navigationBar.tintColor = UIColor.whiteColor()
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let reachability = note.object as! Reachability
         
-        dispatch_async(dispatch_get_main_queue()) { 
+        dispatch_async(dispatch_get_main_queue()) {
             if !reachability.isReachable() {
                 HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
             } else {
@@ -88,11 +88,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-
+    
     func applicationDidBecomeActive( application: UIApplication) {
         
         Global.getLanguage()
-      
+        
         if reachability!.isReachable() {
             NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
                 self.advertisemet = aAdvertisemet
@@ -119,12 +119,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // END receive_apns_token
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
-//    
+        //    
         
-
-//        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
-//        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-
+        
+        //        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
+        //        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        
         
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
@@ -132,29 +132,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Device token - " + tokenString)
         print(NSUserDefaults.standardUserDefaults().objectForKey("regid"))
         
-//        defaults.setObject(nil, forKey: "language")
-        
-//        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//        })
+        //        defaults.setObject(nil, forKey: "language")
+        //
+        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+        })
         
         Global.getLanguage()
         
-//        if let storedLanguage = defaults.objectForKey("language") as? String {
-//            
-//            if storedLanguage != Global.languageID {
-//                
-//                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//                })
-//            }
-//        } else {
-//            
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//            })
-//        }
-//        
-//        
+        if let storedLanguage = defaults.objectForKey("language") as? String {
+            
+            if storedLanguage != Global.languageID {
+                
+                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+                })
+            }
+        } else {
+            
+            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+            })
+        }
+        //
+        //
         
-           NetworkManager.sharedInstance.unregisterDevice()
+        //   NetworkManager.sharedInstance.unregisterDevice()
     }
     
     // [START receive_apns_token_error]
@@ -165,7 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application( application: UIApplication,
                       didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-
+        
         NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: nil, userInfo: userInfo)
         
         print("Notification received: \(userInfo)")
@@ -177,8 +177,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let notificationBody = userInfo as? [String : AnyObject] {
             
-            UIApplication.sharedApplication().applicationIconBadgeNumber += 1
-            
+            if application.applicationState == .Active {
+                
+                UIApplication.sharedApplication().applicationIconBadgeNumber += 1
+                
+            }
             let lNotification = Notification.notificationWithDictionary(notificationBody)
             
             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
@@ -189,7 +192,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 print("Notification received: \(notificationBody["post_type"]!)")
                 print("Notification received: \(notificationBody)")
-                "Notification received: [sid: 69, post_id: 51, post_type: Hotel, sname: test 3"
                 
                 if "\(notificationBody["post_type"]!)" == "Restaurant" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
@@ -198,7 +200,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
                     navigationVC.pushViewController(initialViewController, animated: false)
-   
+                    
                 } else if "\(notificationBody["post_type"]!)" == "News" {
                     let initialViewController = (storyboard.instantiateViewControllerWithIdentifier("NewsTableViewController")) as! NewsTableViewController
                     navigationVC.pushViewController(initialViewController, animated: false)
@@ -210,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
                     navigationVC.pushViewController(initialViewController, animated: false)
-    
+                    
                 } else if "\(notificationBody["post_type"]!)" == "Proshop" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
                     initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/proshops/packages?client=22&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
@@ -295,7 +297,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showPopUpView()
         }
     }
-
+    
     
 }
 
