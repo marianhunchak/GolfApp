@@ -155,6 +155,7 @@ class NetworkManager {
                 "pid" : pId
             ]
         }
+
         
         Alamofire.request(.POST, baseURL + "device/notifications_remove", parameters:parameters )
             .responseJSON { response in
@@ -167,6 +168,8 @@ class NetworkManager {
                     completion(nil)
                     
                 case .Failure(let error):
+                    
+                    DeleteNotification.notificationWithDictionary(parameters!)
                     
                     print("Request failed with error: \(error)")
                     completion(error)

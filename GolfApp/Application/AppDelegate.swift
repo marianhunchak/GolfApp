@@ -183,6 +183,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             }
             let lNotification = Notification.notificationWithDictionary(notificationBody)
+            //___________________________________________________________________________
             
             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             

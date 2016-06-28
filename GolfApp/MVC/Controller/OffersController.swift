@@ -203,9 +203,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "restaurant")
                     }
-                } else if array == nil || (array?.isEmpty)!{
-                    print("Error")
-                }
+                } 
 
                 self.refreshControl?.endRefreshing()
             } 
@@ -279,5 +277,10 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
     }
 
-
+    func removeNTFN(pId : String, sId : String){
+//    let lPredicate = NSPredicate(format: "sid = %@ AND pid = %@", argumentArray: [NSNumber(integer: Int(sId), Int(pId))])
+//        if let remove : DeleteNotification = DeleteNotification.MR_findAllWithPredicate(lPredicate) {
+//            removeNotificationsWithsID(remove.s_id! , andPostType: "\(remove.postid!)")
+//        }
+    }
 }
