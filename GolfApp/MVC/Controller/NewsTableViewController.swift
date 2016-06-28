@@ -70,7 +70,6 @@ class NewsTableViewController: BaseTableViewController {
                 }
             }
         }
-        
         return cell
     }
     
