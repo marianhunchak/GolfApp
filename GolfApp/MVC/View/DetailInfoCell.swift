@@ -8,8 +8,9 @@
 
 import UIKit
 
-class DetailCouseFooter: UITableViewCell {
+class DetailInfoCell: UITableViewCell {
     
+    // MARK: - Connections elements 
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -18,15 +19,12 @@ class DetailCouseFooter: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         backgroundCourseFooter.layer.cornerRadius = 5
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

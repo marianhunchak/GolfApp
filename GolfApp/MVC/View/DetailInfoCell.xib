@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseFooterIndetifire" rowHeight="104" id="X10-x5-JO5" customClass="DetailCouseFooter" customModule="GolfApp" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="courseFooterIndetifire" rowHeight="104" id="X10-x5-JO5" customClass="DetailInfoCell" customModule="GolfApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="348" height="104"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X10-x5-JO5" id="xTn-4L-smh">

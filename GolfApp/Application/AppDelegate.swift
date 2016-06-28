@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GGLInstanceIDDelegate, GC
     // [START register_for_remote_notifications]
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         [NSObject: AnyObject]?) -> Bool {
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         // [START_EXCLUDE]
         // Configure the Google context: parses the GoogleService-Info.plist, and initializes
         // the services that have entries in the file
