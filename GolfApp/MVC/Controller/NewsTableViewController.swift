@@ -72,7 +72,6 @@ class NewsTableViewController: BaseTableViewController {
         }
         return cell
     }
-    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
      
         return UITableViewAutomaticDimension
@@ -118,7 +117,6 @@ class NewsTableViewController: BaseTableViewController {
                     
                     tableView.reloadData()
                 }
-                
             }
             
             let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
