@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReachabilitySwift
+import PKHUD
 private let reuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
 private let detailImageTableCellNibName = "DetailmageTableCell"
@@ -121,15 +123,18 @@ class ProShopDetailController: BaseViewController , ProHeaderDelegate ,UITableVi
         viewForHead.delegate = self
     }
     func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
-
         
-        let packageVC = OffersController(nibName: "OffersController", bundle: nil)
-        packageVC.packageUrl = prosShop!.package_url
-        packageVC.titleOfferts = "ps_special_offer_nav_bar"
-        packageVC.offertsArray = prosShop?.packagesList
-        packageVC.prosShop = prosShop
-        
-        self.navigationController?.pushViewController(packageVC, animated: false)
+        if appDelegate.reachability?.isReachable() == true {
+            let packageVC = OffersController(nibName: "OffersController", bundle: nil)
+            packageVC.packageUrl = prosShop!.package_url
+            packageVC.titleOfferts = "ps_special_offer_nav_bar"
+            packageVC.offertsArray = prosShop?.packagesList
+            packageVC.prosShop = prosShop
+            
+            self.navigationController?.pushViewController(packageVC, animated: false)
+        } else {
+            HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
+        }
         
     }
     

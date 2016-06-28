@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReachabilitySwift
+import PKHUD
 
 private let reuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
@@ -20,7 +22,7 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
     var pros: Pros!
     var package_url = String()
     var prosCount = 1
-    //var notificationsCount = 0
+    
     let headerView = ViewForProHeader.loadViewFromNib()
     
     @IBOutlet weak var viewForHeader: UIView!
@@ -132,14 +134,18 @@ class ProsDetailViewController: BaseViewController , ProHeaderDelegate , UITable
     
     func pressedButton2(tableCourseHeader: ViewForProHeader, button2Pressed button2: AnyObject) {
 
-        let packageVC = OffersController(nibName: "OffersController", bundle: nil)
-        packageVC.packageUrl = pros.package_url
-        packageVC.titleOfferts = "pro_rate_offer_nav_bar"
-        packageVC.offertsArray = pros.packagesList
-        packageVC.pros = pros
-        
-        self.navigationController?.pushViewController(packageVC, animated: false)
-        
+        if appDelegate.reachability?.isReachable() == true {
+            
+            let packageVC = OffersController(nibName: "OffersController", bundle: nil)
+            packageVC.packageUrl = pros.package_url
+            packageVC.titleOfferts = "pro_rate_offer_nav_bar"
+            packageVC.offertsArray = pros.packagesList
+            packageVC.pros = pros
+            self.navigationController?.pushViewController(packageVC, animated: false)
+        } else {
+            HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
+
+        }
     }
     
     func showContactSubView() {

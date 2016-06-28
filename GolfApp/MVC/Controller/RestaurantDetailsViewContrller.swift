@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReachabilitySwift
+import PKHUD
 
 private let cellImagereuseIdentifier = "detailImageTableCell"
 private let courseFooterIndetifire = "courseFooterIndetifire"
@@ -143,14 +145,19 @@ class RestaurantDetailsViewContrller: BaseViewController ,CourseHeaderDelegate ,
     }
     func pressedButton3(tableCourseHeader: ViewForDetailHeader, button3Pressed button2: AnyObject) {
         
-        let packageVC = OffersController(nibName: "OffersController", bundle: nil)
-                packageVC.packageUrl = restaurant!.package_url
-                packageVC.titleOfferts = "re_suggestion_nav_bar"
-                packageVC.offertsArray = restaurant?.packagesList
-                packageVC.restaurant = restaurant
-        
-        self.navigationController?.pushViewController(packageVC, animated: false)
-        
+        if appDelegate.reachability?.isReachable() == true {
+            
+            let packageVC = OffersController(nibName: "OffersController", bundle: nil)
+            packageVC.packageUrl = restaurant!.package_url
+            packageVC.titleOfferts = "re_suggestion_nav_bar"
+            packageVC.offertsArray = restaurant?.packagesList
+            packageVC.restaurant = restaurant
+            
+            self.navigationController?.pushViewController(packageVC, animated: false)
+        } else {
+            HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
+            
+        }
     }
     
     //MARK: Overrided methods

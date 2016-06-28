@@ -118,33 +118,11 @@ class NetworkManager {
                 }
         }
     }
-    
-//    func removeNotificationsWhithPostID(pId : String, sId : String) {
-//        
-//        var parameters : [String : AnyObject]?
-//        
-//        if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
-//       
-//            parameters = [
-//                "regid" : regid.stringValue,
-//                "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
-//                "sid" : sId,
-//                "pid" : pId
-//            ]
-//        }
-//        
-//        Alamofire.request(.POST, baseURL + "device/notifications_remove", parameters:parameters )
-//            .responseJSON { response in
-//                
-//                if let JSON = response.result.value as? NSDictionary{
-//                    
-//                    print("JSON: \(JSON)")
-//                }
-//        }
-//    }
+
     
     func removeNotificationsWhithPostID(pId : String, sId : String ,completion: (NSError?)  -> Void) {
         var parameters : [String : AnyObject]?
+        //var parameterDel : [String : AnyObject]?
         
         if let regid = NSUserDefaults.standardUserDefaults().objectForKey("regid") as? NSNumber {
             
@@ -154,6 +132,13 @@ class NetworkManager {
                 "sid" : sId,
                 "pid" : pId
             ]
+//            
+//           // parameterDel = [
+//                "regid" : regid.stringValue,
+//                "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
+//                "s_id" : sId,
+//                "pid" : pId
+//            ]
         }
 
         
@@ -169,7 +154,7 @@ class NetworkManager {
                     
                 case .Failure(let error):
                     
-                    DeleteNotification.notificationWithDictionary(parameters!)
+                    //DeleteNotification.notificationWithDictionary(parameterDel!)
                     
                     print("Request failed with error: \(error)")
                     completion(error)

@@ -240,14 +240,12 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "pros")
                     }
-                } else {
-                    print("Error")
                 }
                 
                 self.refreshControl?.endRefreshing()
-                
+
             }
-            
+            self.removeNotificationsWithsID(self.pros.id!, andPostType: "pros")
         case "htl_package_list_nav_bar":
             NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
                 
@@ -264,8 +262,6 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                         self.removeNotificationsWithsID(self.sid!, andPostType: "hotel")
                     }
  
-                } else if array == nil || (array?.isEmpty)! {
-                    print("Error")
                 }
                 self.refreshControl?.endRefreshing()
 
@@ -277,10 +273,4 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
     }
 
-    func removeNTFN(pId : String, sId : String){
-//    let lPredicate = NSPredicate(format: "sid = %@ AND pid = %@", argumentArray: [NSNumber(integer: Int(sId), Int(pId))])
-//        if let remove : DeleteNotification = DeleteNotification.MR_findAllWithPredicate(lPredicate) {
-//            removeNotificationsWithsID(remove.s_id! , andPostType: "\(remove.postid!)")
-//        }
-    }
 }

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DeleteNotification+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:DeleteNotification.swift">
-   </FileRef>
-   <FileRef
       location = "group:GolfApp.xcodeproj">
    </FileRef>
    <FileRef

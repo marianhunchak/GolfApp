@@ -68,9 +68,21 @@ class MainCollectionController: UICollectionViewController {
         }
 
         
+//        let deleteNotifications = DeleteNotification.MR_findAll() as! [DeleteNotification]
+//        
+//        for deleteNotification in deleteNotifications {
+//            
+//            NetworkManager.sharedInstance.removeNotificationsWhithPostID(deleteNotification.post_id!.stringValue, sId: (deleteNotification.s_id?.stringValue)!, completion: { (error) in
+//                if error != nil {
+//                    print(error)
+//                }
+//            })
+//            
+//            deleteNotification.MR_deleteEntity()
+//        }
+        
         NetworkManager.sharedInstance.getNotifications { (array, error) in
             
-            self.collectionView!.reloadData()
             self.showBadges()
 
         }
@@ -248,16 +260,17 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
     
     func showBadges() {
         
+        self.collectionView?.reloadData()
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             for lNotification in Notification.MR_findAll() as! [Notification] {
                 
                 let indexPath = NSIndexPath(forItem: self.menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)
                 
-                let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as! MenuCollectionCell
+                let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as? MenuCollectionCell
                 
-                cell.badgeLabel.hidden = false
+                cell?.badgeLabel.hidden = false
                 
-                cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+                cell?.badgeLabel.text = "\(Int((cell?.badgeLabel.text)!)! + 1)"
             }
         })
     }

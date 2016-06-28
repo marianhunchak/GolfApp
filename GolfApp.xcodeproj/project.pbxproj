@@ -70,8 +70,6 @@
 		8407A5B41CE32DD600500E19 /* DetailInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8407A5B31CE32DD600500E19 /* DetailInfoCell.xib */; };
 		8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B51CE32E6000500E19 /* DetailInfoCell.swift */; };
 		8407A5B81CE32E8D00500E19 /* ViewForDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407A5B71CE32E8D00500E19 /* ViewForDetailHeader.swift */; };
-		8407B83C1D21B12C00ACCD3C /* DeleteNotification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407B83A1D21B12C00ACCD3C /* DeleteNotification+CoreDataProperties.swift */; };
-		8407B83D1D21B12C00ACCD3C /* DeleteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407B83B1D21B12C00ACCD3C /* DeleteNotification.swift */; };
 		8408ECFC1D0ABE6500C5883A /* OffersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8408ECFA1D0ABE6500C5883A /* OffersController.swift */; };
 		8408ECFD1D0ABE6500C5883A /* OffersController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8408ECFB1D0ABE6500C5883A /* OffersController.xib */; };
 		840940331CE4A0950005A97E /* TeeTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840940321CE4A0950005A97E /* TeeTimeView.xib */; };
@@ -140,6 +138,8 @@
 		84FEF1E71CE9C48100D72858 /* ViewForRateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */; };
 		84FEF1EA1CE9D03100D72858 /* RateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FEF1E91CE9D03100D72858 /* RateCell.xib */; };
 		84FEF1EC1CE9D22200D72858 /* RateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEF1EB1CE9D22200D72858 /* RateCell.swift */; };
+		84FF649F1D228A1F00123CD2 /* DeleteNotification+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF649D1D228A1F00123CD2 /* DeleteNotification+CoreDataProperties.swift */; };
+		84FF64A01D228A1F00123CD2 /* DeleteNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF649E1D228A1F00123CD2 /* DeleteNotification.swift */; };
 		84FF8C9F1CEBDA010007BC8E /* ViewForOffersHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF8C9E1CEBDA010007BC8E /* ViewForOffersHeader.swift */; };
 		84FF8CA11CEBDA1C0007BC8E /* ViewForOffersHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FF8CA01CEBDA1C0007BC8E /* ViewForOffersHeader.xib */; };
 /* End PBXBuildFile section */
@@ -449,8 +449,6 @@
 		8407A5B31CE32DD600500E19 /* DetailInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailInfoCell.xib; sourceTree = "<group>"; };
 		8407A5B51CE32E6000500E19 /* DetailInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
 		8407A5B71CE32E8D00500E19 /* ViewForDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForDetailHeader.swift; sourceTree = "<group>"; };
-		8407B83A1D21B12C00ACCD3C /* DeleteNotification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DeleteNotification+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8407B83B1D21B12C00ACCD3C /* DeleteNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteNotification.swift; sourceTree = "<group>"; };
 		8408ECFA1D0ABE6500C5883A /* OffersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersController.swift; sourceTree = "<group>"; };
 		8408ECFB1D0ABE6500C5883A /* OffersController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OffersController.xib; sourceTree = "<group>"; };
 		840940321CE4A0950005A97E /* TeeTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeeTimeView.xib; sourceTree = "<group>"; };
@@ -519,6 +517,8 @@
 		84FEF1E61CE9C48100D72858 /* ViewForRateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForRateHeader.swift; sourceTree = "<group>"; };
 		84FEF1E91CE9D03100D72858 /* RateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RateCell.xib; sourceTree = "<group>"; };
 		84FEF1EB1CE9D22200D72858 /* RateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateCell.swift; sourceTree = "<group>"; };
+		84FF649D1D228A1F00123CD2 /* DeleteNotification+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DeleteNotification+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84FF649E1D228A1F00123CD2 /* DeleteNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteNotification.swift; sourceTree = "<group>"; };
 		84FF8C9E1CEBDA010007BC8E /* ViewForOffersHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForOffersHeader.swift; sourceTree = "<group>"; };
 		84FF8CA01CEBDA1C0007BC8E /* ViewForOffersHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewForOffersHeader.xib; sourceTree = "<group>"; };
 		D002B749A38021C93B8870C4 /* Pods-GolfApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GolfApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GolfApp/Pods-GolfApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1883,8 +1883,8 @@
 		84547C901D21605C0019FA13 /* DeleteNotification */ = {
 			isa = PBXGroup;
 			children = (
-				8407B83A1D21B12C00ACCD3C /* DeleteNotification+CoreDataProperties.swift */,
-				8407B83B1D21B12C00ACCD3C /* DeleteNotification.swift */,
+				84FF649D1D228A1F00123CD2 /* DeleteNotification+CoreDataProperties.swift */,
+				84FF649E1D228A1F00123CD2 /* DeleteNotification.swift */,
 			);
 			name = DeleteNotification;
 			sourceTree = "<group>";
@@ -2318,7 +2318,7 @@
 				560F480F1CF493AE00E23411 /* EventDetailController.swift in Sources */,
 				560E3C9A1CE137A2006F8655 /* MenuCollectionCell.swift in Sources */,
 				84F4C0891CED21320056B903 /* ProShopTableView.swift in Sources */,
-				8407B83D1D21B12C00ACCD3C /* DeleteNotification.swift in Sources */,
+				84FF64A01D228A1F00123CD2 /* DeleteNotification.swift in Sources */,
 				845F254B1D05C0FD006C09A4 /* ImageSaver.swift in Sources */,
 				560E3C961CE137A2006F8655 /* DetailmageTableCell.swift in Sources */,
 				560E3C951CE137A2006F8655 /* GolfApp.xcdatamodeld in Sources */,
@@ -2374,7 +2374,7 @@
 				8445B0DB1D084278009D08CD /* RateViewController.swift in Sources */,
 				8407A5B61CE32E6000500E19 /* DetailInfoCell.swift in Sources */,
 				84051D481CE3E09000164917 /* PageItemController.swift in Sources */,
-				8407B83C1D21B12C00ACCD3C /* DeleteNotification+CoreDataProperties.swift in Sources */,
+				84FF649F1D228A1F00123CD2 /* DeleteNotification+CoreDataProperties.swift in Sources */,
 				844A0B551D1D4E7100B96664 /* NotificationHandle.swift in Sources */,
 				840B90FE1D0A2014009FF77E /* NewsDetailController.swift in Sources */,
 				845F25591D05D284006C09A4 /* Hotel.swift in Sources */,

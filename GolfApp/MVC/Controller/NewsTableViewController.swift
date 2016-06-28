@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import ReachabilitySwift
+import PKHUD
 
 private var newsTableCellIdentifier = "NewsTableCell"
 
@@ -80,51 +82,59 @@ class NewsTableViewController: BaseTableViewController {
     // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewsTableCell
-        
-        cell.newNewsImageView.hidden = true
-        
-        if dataSource.count >= indexPath.row + 1 {
-        
-            let lNew = dataSource[indexPath.row] as! New
+        if appDelegate.reachability?.isReachable() == true {
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! NewsTableCell
             
-            let lPredicate = NSPredicate(format: "post_type = %@ AND post_id = %@", argumentArray: ["news", lNew.id])
+            cell.newNewsImageView.hidden = true
             
-            if let lNotificationToDelete = Notification.MR_findFirstWithPredicate(lPredicate) as? Notification {
+            if dataSource.count >= indexPath.row + 1 {
                 
-                if UIApplication.sharedApplication().applicationIconBadgeNumber > 0 {
+                let lNew = dataSource[indexPath.row] as! New
                 
-                    UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
+                let lPredicate = NSPredicate(format: "post_type = %@ AND post_id = %@", argumentArray: ["news", lNew.id])
+                
+                if let lNotificationToDelete = Notification.MR_findFirstWithPredicate(lPredicate) as? Notification {
+                    
+                    if UIApplication.sharedApplication().applicationIconBadgeNumber > 0 {
+                        
+                        UIApplication.sharedApplication().applicationIconBadgeNumber -= 1
+                    }
+                    
+                    //                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue,
+                    //                                                                             sId: lNotificationToDelete.sid.stringValue)
+                    
+                    NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue, sId: lNotificationToDelete.sid.stringValue, completion: { (error) in
+                        if error != nil {
+                            print(error)
+                        }
+                    })
+                    
+                    lNotificationToDelete.MR_deleteEntity()
+                    
+                    NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                    
+                    NSNotificationCenter.defaultCenter().postNotificationName("notificationUnregisterd", object: "news")
+                    
+                    notificationsArray = Notification.MR_findAll() as! [Notification]
+                    
+                    tableView.reloadData()
                 }
                 
-//                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue,
-//                                                                             sId: lNotificationToDelete.sid.stringValue)
-                
-                NetworkManager.sharedInstance.removeNotificationsWhithPostID(lNotificationToDelete.post_id.stringValue, sId: lNotificationToDelete.sid.stringValue, completion: { (error) in
-                    if error != nil {
-                        print(error)
-                    }
-                })
-                
-                lNotificationToDelete.MR_deleteEntity()
-                
-                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-                
-                NSNotificationCenter.defaultCenter().postNotificationName("notificationUnregisterd", object: "news")
-                
-                notificationsArray = Notification.MR_findAll() as! [Notification]
-                
-                tableView.reloadData()
             }
+            
+            let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
+            
+            vc.news = dataSource[indexPath.row] as! New
+            vc.newsCount = newsCount
+            
+            self.navigationController?.pushViewController(vc, animated: false)
 
+        } else {
+            HUD.flash(.Label(LocalisationDocument.sharedInstance.getStringWhinName("no_inet")), delay: 1.0, completion: nil)
+            
         }
         
-        let vc = NewsDetailController(nibName: "NewsDetailController", bundle: nil)
-        
-        vc.news = dataSource[indexPath.row] as! New
-        vc.newsCount = newsCount
-        
-        self.navigationController?.pushViewController(vc, animated: false)
+
         
     }
     

@@ -8,14 +8,17 @@
 
 import UIKit
 import MagicalRecord
-
+import ReachabilitySwift
 
 class BaseViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var tableView: UITableView!
     var refreshControl:UIRefreshControl!
     var notificationsCount = 0
     var backToMainController = false
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func viewDidLoad()  {
         super.viewDidLoad()
@@ -111,6 +114,8 @@ extension UIViewController {
                     print(error)
                     }
                 })
+                
+                
                 
                 notification.MR_deleteEntity()
                 

@@ -2,7 +2,7 @@
 //  DeleteNotification+CoreDataProperties.swift
 //  
 //
-//  Created by Admin on 27.06.16.
+//  Created by Admin on 28.06.16.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,7 +14,10 @@ import CoreData
 
 extension DeleteNotification {
 
-    @NSManaged var postid: NSNumber?
+    @NSManaged var post_id: NSNumber?
     @NSManaged var s_id: NSNumber?
+    @NSManaged var language_id: NSNumber?
+    @NSManaged var post_type: String?
+    @NSManaged var sname: String?
 
 }
