@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "course_1_hole_16.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "course_1_hole_16.jpg",
       "scale" : "2x"
     },
     {
