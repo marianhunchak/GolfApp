@@ -19,9 +19,9 @@ private let course_1_Images = ["course_1_hole_01.jpg",  "course_1_hole_02.jpg", 
                                "course_1_hole_13.jpg",  "course_1_hole_14.jpg",  "course_1_hole_15.jpg",
                                "course_1_hole_16.jpg",  "course_1_hole_17.jpg",  "course_1_hole_18.jpg"]
 
-private let course_2_Images = ["course_2_hole_1.jpg", "course_2_hole_2.jpg", "course_2_hole_3.jpg",
-                               "course_2_hole_4",     "course_2_hole_5.jpg", "course_2_hole_6.jpg",
-                               "course_2_hole_7.jpg", "course_2_hole_8.jpg", "course_2_hole_9.jpg"]
+private let course_2_Images = ["course_2_hole_01.jpg", "course_2_hole_02.jpg", "course_2_hole_03.jpg",
+                               "course_2_hole_04.jpg",     "course_2_hole_05.jpg", "course_2_hole_06.jpg",
+                               "course_2_hole_07.jpg", "course_2_hole_08.jpg", "course_2_hole_09.jpg"]
 
 private let coursesImages = [course_1_Images, course_2_Images]
 
