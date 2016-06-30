@@ -46,7 +46,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         let nibFood = UINib.init(nibName: detailDescriptionCellNibName, bundle: nil)
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
-        
+        print(self.packageUrl)
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,7 +89,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-        
+        //cell.displayNewNewsImage = false
         let lPackage = offertsArray![indexPath.row]
         cell.nameLabel.text = lPackage.name
         cell.detailLabel.text = lPackage.subtitle
@@ -103,7 +104,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         switch titleOfferts {
         case "re_suggestion_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "restaurant", lPackage.id])
-            
+            let notification = Notification.MR_findAll() as! [Notification]
+            print(notification)
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
                 cell.displayNewNewsImage = true
             } else if lPackage.id == post_id{
@@ -111,7 +113,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             }
         case "ps_special_offer_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "proshop", lPackage.id])
-            
+            let notification = Notification.MR_findAll() as! [Notification]
+            print(notification)
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
                 cell.displayNewNewsImage = true
             } else if lPackage.id == post_id {
@@ -119,7 +122,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             }
         case "pro_rate_offer_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "pros", lPackage.id])
-            
+            let notification = Notification.MR_findAll() as! [Notification]
+            print(notification)
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
                 cell.displayNewNewsImage = true
             } else if lPackage.id == post_id {
@@ -127,7 +131,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             }
         case "htl_package_list_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "hotel", lPackage.id])
-            
+            let notification = Notification.MR_findAll() as! [Notification]
+            print(notification)
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
                 cell.displayNewNewsImage = true
             } else if lPackage.id == post_id {
@@ -196,10 +201,11 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                 if let lArray = array {
                     self.offertsArray = lArray
                     self.tableView.reloadData()
+                    print(self.packageUrl)
                     if self.restaurant != nil{
                         self.restaurant?.packagesList = array
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-                        self.removeNotificationsWithsID(self.restaurant!.id!, andPostType: "restaurant")
+                        self.removeDispatch_Async(self.restaurant!.id!, postType: "restaurant")
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "restaurant")
                     }
@@ -213,10 +219,11 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                 if let lArray = array {
                     self.offertsArray = lArray
                     self.tableView.reloadData()
+                    print(self.packageUrl)
                     if self.prosShop != nil {
                         self.prosShop.packagesList = array
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-                        self.removeNotificationsWithsID(self.prosShop.id!, andPostType: "proshop")
+                        self.removeDispatch_Async(self.prosShop.id!, postType: "proshop")
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "proshop")
                     }
@@ -232,11 +239,11 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                 if let lArray = array {
                     self.offertsArray = lArray
                     self.tableView.reloadData()
-                    
+                    print(self.packageUrl)
                     if self.pros != nil {
                         self.pros.packagesList = array!
-                        NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-                        self.removeNotificationsWithsID(self.pros.id!, andPostType: "pros")
+                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                         self.removeDispatch_Async(self.pros.id!, postType: "pros")
                     } else {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "pros")
                     }
@@ -257,7 +264,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                     if self.hotel != nil {
                         self.hotel!.packagesList = lArray
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
-                        self.removeNotificationsWithsID(self.hotel!.id!, andPostType: "hotel")
+                        self.removeDispatch_Async(self.hotel!.id, postType: "hotel")
                     } else if self.sid != nil {
                         self.removeNotificationsWithsID(self.sid!, andPostType: "hotel")
                     }
@@ -272,5 +279,14 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         }
         
     }
+    
+    func removeDispatch_Async(ID : NSNumber, postType: String) {
+        
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
 
+                self.removeNotificationsWithsID(ID, andPostType: postType)
+            })
+        
+    }
+    
 }

@@ -128,12 +128,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
         
 
-        if defaults.objectForKey("firstStart") as? String == nil {
-            defaults.setObject("No", forKey: "firstStart")
-            defaults.synchronize()
-            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-            
-        }
+//        if defaults.objectForKey("firstStart") as? String == nil {
+//            defaults.setObject("No", forKey: "firstStart")
+//            defaults.synchronize()
+//            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+//            
+//        }
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
 
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
@@ -143,23 +145,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        defaults.setObject(nil, forKey: "language")
 //        
-        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-        })
-        
-        Global.getLanguage()
-        
-        if let storedLanguage = defaults.objectForKey("language") as? String {
-            
-            if storedLanguage != Global.languageID {
-                
-                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-                })
-            }
-        } else {
-            
-            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-            })
-        }
+//        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//        })
+//        
+//        Global.getLanguage()
+//        
+//        if let storedLanguage = defaults.objectForKey("language") as? String {
+//            
+//            if storedLanguage != Global.languageID {
+//                
+//                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//                })
+//            }
+//        } else {
+//            
+//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+//            })
+//        }
 
 
         

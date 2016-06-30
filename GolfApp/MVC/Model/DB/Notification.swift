@@ -30,6 +30,8 @@ class Notification: NSManagedObject {
         lNotification.sid = pDict["sid"] as! Int
         lNotification.sname = pDict["sname"] as! String
         
+       // NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+        
         return lNotification
     }
 

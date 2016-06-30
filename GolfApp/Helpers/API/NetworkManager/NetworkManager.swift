@@ -132,13 +132,6 @@ class NetworkManager {
                 "sid" : sId,
                 "pid" : pId
             ]
-//            
-//           // parameterDel = [
-//                "regid" : regid.stringValue,
-//                "device_id" : UIDevice.currentDevice().identifierForVendor!.UUIDString,
-//                "s_id" : sId,
-//                "pid" : pId
-//            ]
         }
 
         
@@ -277,7 +270,7 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
-                    //   print("JSON: \(JSON)")
+                    //let allEntity = Package. as [Package]
                     self.jsonArray = JSON as? NSDictionary
                     
                     let packageArray: NSArray = [self.jsonArray!["packages"]!]
