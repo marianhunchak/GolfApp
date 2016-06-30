@@ -106,7 +106,7 @@ class HotelsTableViewController: BaseTableViewController {
     override func loadDataFromDB() {
         
         loadedFromDB = true
-        dataSource = Hotel.MR_findAllSortedBy("createdDate", ascending: true)
+        dataSource = Hotel.MR_findAll()
         hotelsCount = dataSource.count
         showHotelsDetailView()
         print("DataSource count = \(dataSource.count)")
@@ -119,13 +119,18 @@ class HotelsTableViewController: BaseTableViewController {
             (array, error) in
 
             if let lArray = array {
-                
-                if self.loadedFromDB {
-                    self.dataSource = []
-                    self.loadedFromDB = false
+     
+                if pPage == 1 {
+                    
+                    if self.loadedFromDB {
+                        self.dataSource = []
+                        self.loadedFromDB = false
+                        
+                    }
                 }
-                
+
                 self.dataSource += lArray
+                self.hotelsCount = self.dataSource.count
                 if lArray.count >= 10 {
                     self.allowLoadMore = true
                     self.allowIncrementPage = true
@@ -135,7 +140,7 @@ class HotelsTableViewController: BaseTableViewController {
                     self.tableView.removeInfiniteScroll()
                 }
                 
-                NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+               
                 
             } else if error != nil {
                 self.allowIncrementPage = false

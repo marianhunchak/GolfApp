@@ -192,6 +192,16 @@ class NetworkManager {
                 
                 if let JSON = response.result.value {
                     
+                    if pPage == 1 {
+                        
+                        let allEntity = Course.MR_findAllSortedBy("id", ascending: false) as! [Course]
+                        for  courses in allEntity {
+                            print(Course.MR_findAll().count)
+                            courses.MR_deleteEntity()
+                        }
+                    }
+
+                    
                     Course.MR_truncateAll()
                     self.jsonArray = JSON as? NSDictionary
                     
@@ -315,7 +325,15 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
-                    //                    print("JSON: \(JSON)")
+                    
+                    if  pPage == 1 {
+                        let allEntity = Pros.MR_findAllSortedBy("id", ascending: false) as! [Pros]
+                        for  pros in allEntity {
+                            print(New.MR_findAll().count)
+                            pros.MR_deleteEntity()
+                        }
+                    }
+                    
                     self.jsonArray = JSON as? NSDictionary
                     
                     let prosArray: NSArray = [self.jsonArray!["pros"]!]
@@ -343,6 +361,16 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
+                    
+                    if pPage == 1 {
+                        
+                        let allEntity = Hotel.MR_findAllSortedBy("id", ascending: false) as! [Hotel]
+                        for  hotels in allEntity {
+                            print(Hotel.MR_findAll().count)
+                            hotels.MR_deleteEntity()
+                        }
+                    }
+
                     self.jsonArray = JSON as? NSDictionary
                     
                     let prosArray: NSArray = [self.jsonArray!["hotels"]!]
@@ -370,6 +398,17 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
+                    
+                    if pPage == 1 {
+                        
+                        let allEntity = ProsShop.MR_findAllSortedBy("id", ascending: false) as! [ProsShop]
+                        for  prosShop in allEntity {
+                            print(ProsShop.MR_findAll().count)
+                            prosShop.MR_deleteEntity()
+                        }
+                        
+                    }
+
                     self.jsonArray = JSON as? NSDictionary
                     
                     let prosArray: NSArray = [self.jsonArray!["proshops"]!]
@@ -396,6 +435,15 @@ class NetworkManager {
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
+                    
+                    if pPage == 1 {
+                        let allEntity = Restaurant.MR_findAllSortedBy("id", ascending: false) as! [Restaurant]
+                        for  restaurants in allEntity {
+                            print(Restaurant.MR_findAll().count)
+                            restaurants.MR_deleteEntity()
+                        }
+                    }
+                    
                     self.jsonArray = JSON as? NSDictionary
                     
                     let prosArray: NSArray = [self.jsonArray!["restaurants"]!]
@@ -422,14 +470,25 @@ class NetworkManager {
         Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)" , parameters: nil)
             .responseJSON { response in
                 
+                
+                
                 if let JSON = response.result.value {
-                    //   print("JSON: \(JSON)")
+                    
+                    if pPage == 1 {
+                        let allEntity = New.MR_findAllSortedBy("updated_", ascending: false) as! [New]
+                        for  new in allEntity {
+                            
+                            new.MR_deleteEntity()
+                        }
+                    }
+
                     self.jsonArray = JSON as? NSDictionary
                     
                     let newsArray: NSArray = [self.jsonArray!["news"]!]
                     var responseArray = [AnyObject]()
                     
                     for newsDict in newsArray.firstObject as! NSArray {
+                        
                         responseArray.append(New.newsWhithDictionary(newsDict as! NSDictionary))
                     }
                     

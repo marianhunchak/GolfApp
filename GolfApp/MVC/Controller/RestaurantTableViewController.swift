@@ -126,11 +126,13 @@ class RestaurantTableViewController: BaseTableViewController {
 
             if let lArray = array {
                 
-                if self.loadedFromDB {
-                    self.dataSource = []
-                    self.loadedFromDB = false
+                if pPage == 1{
+                    if self.loadedFromDB {
+                        self.dataSource = []
+                        self.loadedFromDB = false
+                    }
                 }
-                
+            
                 self.dataSource += lArray
                 self.restaurantsCount = lArray.count
                 if lArray.count >= 10 {

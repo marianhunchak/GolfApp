@@ -122,12 +122,17 @@ class ProShopTableView: BaseTableViewController {
             
             if let lArray = array {
                 
-                if self.loadedFromDB {
-                    self.dataSource = []
-                    self.loadedFromDB = false
+                if pPage == 1 {
+                    
+                    if self.loadedFromDB {
+                        self.dataSource = []
+                        self.loadedFromDB = false
+                    }
+                    
                 }
-                
+
                 self.dataSource += lArray
+                self.prosShopCount == self.dataSource.count
                 if lArray.count >= 10 {
                     self.allowLoadMore = true
                     self.allowIncrementPage = true

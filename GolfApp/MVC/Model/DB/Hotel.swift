@@ -44,7 +44,7 @@ class Hotel: NSManagedObject {
             lHotel.images?.append(Image.imageWhithDictionary(imageDict as! NSDictionary))
         }
         
-        
+         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
         
         return lHotel
     }

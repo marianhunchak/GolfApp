@@ -16,7 +16,7 @@ class Advertisemet: NSManagedObject {
         
         Advertisemet.MR_truncateAll()
         
-        print(Advertisemet.MR_findAll().count)
+
         let lAdvertisemet = Advertisemet.MR_createEntity() as! Advertisemet
         lAdvertisemet.name = pDictionary["name"] as? String ?? ""
         lAdvertisemet.url = pDictionary["url"] as? String ?? ""

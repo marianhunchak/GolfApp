@@ -9,12 +9,14 @@
 import UIKit
 import ReachabilitySwift
 import PKHUD
+import CoreData
 
 private var newsTableCellIdentifier = "NewsTableCell"
 
 class NewsTableViewController: BaseTableViewController {
     
     var newsCount = 1
+    var fetchResultController : NSFetchedResultsController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -167,29 +169,37 @@ class NewsTableViewController: BaseTableViewController {
     // MARK: Overrided methods
     
     override func loadDataFromDB() {
-        refreshControl?.endRefreshing()
-        loadedFromDB = true
-        dataSource = New.MR_findAllSortedBy("updated_", ascending: false)
-        newsCount = dataSource.count
-        self.showNewsDetailView()
-        print("DataSource count = \(dataSource.count)")
-        tableView.reloadData()
+        
+            refreshControl?.endRefreshing()
+            loadedFromDB = true
+            dataSource = New.MR_findAllSortedBy("updated_", ascending: false)
+            newsCount = dataSource.count
+            self.showNewsDetailView()
+            print("DataSource count = \(dataSource.count)")
+            tableView.reloadData()
     }
     
     override func loadDataWithPage(pPage: Int, completion: (Void) -> Void) {
         
         NetworkManager.sharedInstance.getNewsWithPage(pPage, completion: {
             (array, error) in
-
+            
             if let lArray = array {
+               
                 
-                if self.loadedFromDB {
-                    self.dataSource = []
-                    self.loadedFromDB = false
+                if pPage == 1 {
+                    
+                    if self.loadedFromDB == true {
+                        self.loadedFromDB = false
+                        self.dataSource = []
+                    }
+                    
                 }
-                
+
                 self.dataSource += lArray
+                self.newsCount = self.dataSource.count
                 if lArray.count >= 10 {
+                    
                     self.allowLoadMore = true
                     self.allowIncrementPage = true
                     self.addInfiniteScroll()
@@ -202,17 +212,22 @@ class NewsTableViewController: BaseTableViewController {
                     
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
+                  //  self.tableView.reloadData()
                 }
-                
-             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+               // self.tableView.reloadData()
                 
             } else if error != nil {
                 self.allowIncrementPage = false
                 self.handleError(error!)
+
             }
+           
+            
             self.showNewsDetailView()
             completion()
+            
         })
+        
     }
     
     override func handleReceivedNotifications(array : [Notification]) {
@@ -231,5 +246,7 @@ class NewsTableViewController: BaseTableViewController {
             refresh(refreshControl!)
         }
     }
+    
+
     
 }

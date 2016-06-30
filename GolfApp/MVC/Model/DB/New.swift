@@ -14,9 +14,13 @@ class New: NSManagedObject {
 
     class func newsWhithDictionary(pDictionary:NSDictionary) -> New {
         
+        
+        
         var lNew : New!
+
         
         if let oldNew = New.MR_findByAttribute("id", withValue: NSNumber.init(long:pDictionary["id"] as! Int)).first as? New {
+            
             lNew = oldNew
         } else {
             lNew = New.MR_createEntity() as! New
@@ -33,7 +37,9 @@ class New: NSManagedObject {
         for imageDict in pDictionary["images"] as! NSArray {
             lNew.images?.append(Image.imageWhithDictionary(imageDict as! NSDictionary))
         }
-        
+
+         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+         print(New.MR_findAllSortedBy("updated_", ascending: false).count)
         return lNew
     }
 

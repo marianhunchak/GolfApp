@@ -128,16 +128,22 @@ class ProsListTableViewController: BaseTableViewController {
 
             if let lArray = array {
                 
-                if self.loadedFromDB {
-                    self.dataSource = []
-                    self.loadedFromDB = false
+                if pPage == 1 {
+                    
+                    if self.loadedFromDB {
+                        self.dataSource = []
+                        self.loadedFromDB = false
+                    }
+                    
                 }
-                
-                self.dataSource += lArray
+
+              self.dataSource += lArray
+              self.prosCount = lArray.count  
                 if lArray.count >= 10 {
                     self.allowLoadMore = true
                     self.allowIncrementPage = true
                     self.addInfiniteScroll()
+                    self.tableView.reloadData()
                 } else {
                     self.allowLoadMore = false
                     self.tableView.removeInfiniteScroll()
