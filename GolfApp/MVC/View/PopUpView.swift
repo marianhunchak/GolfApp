@@ -33,7 +33,7 @@ class PopUpView: UIView {
                 if let lImage = image {
                     
                     self.popUpImage.image = lImage
-//                    self.popUpImage.image = UIImage(named: "a_place_holder_list_view")
+//                    self.popUpImage.image = UIImage(named: "a_place_holder_list_view-1")
 //                    print("image size = \(self.popUpImage.image?.size)")
                     self.imageViewContainerWidth.constant = self.popUpImage.image!.size.width * 0.8
                     self.imageViewContainerHeight.constant = self.imageViewContainer.frame.size.width / (self.popUpImage.image!.size.width * 0.8) * self.popUpImage.image!.size.height

@@ -13,7 +13,7 @@ import UIKit
 private let reuseIdentifier = "imageCollectionCell"
 private let nibNameImageCollectionCell = "ImageCollectionCell"
 private let identifierOfCollectionCell = "imageCollectionCell"
-private let defaultImageNameInCell = "a_place_holder_detail_page"
+private let defaultImageNameInCell = "a_place_holder_detail_page-1"
 
 
 class DetailmageTableCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {

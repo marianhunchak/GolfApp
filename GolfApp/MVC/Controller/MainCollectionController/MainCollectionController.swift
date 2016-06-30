@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "menuCollectionCell"
 private let nibNameMenuCollectionCell = "MenuCollectionCell"
-private let nameForBackgroundImage = "a_home"
+private let nameForBackgroundImage = "a_home_6"
 private let identifierOfListTableController = "ListTableController"
 private var identifierOfProsListViewController = "ProsListViewController"
 
@@ -67,19 +67,7 @@ class MainCollectionController: UICollectionViewController {
             self.collectionView!.reloadData()
         }
 
-        
-//        let deleteNotifications = DeleteNotification.MR_findAll() as! [DeleteNotification]
-//        
-//        for deleteNotification in deleteNotifications {
-//            
-//            NetworkManager.sharedInstance.removeNotificationsWhithPostID(deleteNotification.post_id!.stringValue, sId: (deleteNotification.s_id?.stringValue)!, completion: { (error) in
-//                if error != nil {
-//                    print(error)
-//                }
-//            })
-//            
-//            deleteNotification.MR_deleteEntity()
-//        }
+
         
         NetworkManager.sharedInstance.getNotifications { (array, error) in
             

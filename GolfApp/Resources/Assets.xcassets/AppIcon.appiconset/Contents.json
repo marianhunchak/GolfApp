@@ -29,7 +29,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "a_app_icon_ios@3x.png",
+      "filename" : "AppIcon.png",
       "scale" : "3x"
     }
   ],

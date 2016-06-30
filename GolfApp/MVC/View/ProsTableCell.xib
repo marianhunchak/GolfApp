@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_place_holder_list_view" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-oN-bJb">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_place_holder_list_view-1" translatesAutoresizingMaskIntoConstraints="NO" id="y5s-oN-bJb">
                         <rect key="frame" x="12" y="12" width="376" height="187"/>
                     </imageView>
                     <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tM-6p-8zQ">
@@ -90,6 +90,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="a_place_holder_list_view" width="300" height="168"/>
+        <image name="a_place_holder_list_view-1" width="600" height="337"/>
     </resources>
 </document>

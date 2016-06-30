@@ -25,7 +25,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_place_holder_list_view" translatesAutoresizingMaskIntoConstraints="NO" id="ZFX-YI-2Il">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a_place_holder_list_view-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZFX-YI-2Il">
                         <rect key="frame" x="12" y="12" width="376" height="187"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vx-N9-dqx" customClass="SwiftBadge" customModule="GolfApp" customModuleProvider="target">
@@ -105,6 +105,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="a_place_holder_list_view" width="300" height="168"/>
+        <image name="a_place_holder_list_view-1" width="600" height="337"/>
     </resources>
 </document>

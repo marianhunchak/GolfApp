@@ -52,7 +52,7 @@ class ProsTableCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        self.prosImage.image = UIImage(named: "a_place_holder_list_view")
+        self.prosImage.image = UIImage(named: "a_place_holder_list_view-1")
         if request != nil {
             request!.cancel()
         }
