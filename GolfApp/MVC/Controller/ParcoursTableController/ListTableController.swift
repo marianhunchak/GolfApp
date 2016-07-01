@@ -13,7 +13,7 @@ private let parcouseTableCellNibname = "CoursTableCell"
 private let detailConreoolerIdentfier = "DetailViewController"
 
 private let course_1_Images = ["course_1_hole_01.jpg",  "course_1_hole_02.jpg",  "course_1_hole_03.jpg",
-                               "course_1_hole_04.jpg",  "course_1_hole_05.jpg",  "course_1_hole_06.jpg",
+                               "course_2_hole_04.jpg",  "course_1_hole_05.jpg",  "course_1_hole_06.jpg",
                                "course_1_hole_07.jpg",  "course_1_hole_08.jpg",  "course_1_hole_09.jpg",
                                "course_1_hole_10.jpg",  "course_1_hole_11.jpg",  "course_1_hole_12.jpg",
                                "course_1_hole_13.jpg",  "course_1_hole_14.jpg",  "course_1_hole_15.jpg",

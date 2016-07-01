@@ -12,6 +12,8 @@ import ReachabilitySwift
 import PKHUD
 import MagicalRecord
 
+private let baseURL = "http://golfapp.ch/app/api/"
+
 @UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -147,21 +149,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
 //        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
 //        })
-//        
-//        Global.getLanguage()
-//        
-//        if let storedLanguage = defaults.objectForKey("language") as? String {
-//            
-//            if storedLanguage != Global.languageID {
-//                
-//                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//                })
-//            }
-//        } else {
-//            
-//            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
-//            })
-//        }
+//
+        Global.getLanguage()
+        
+        if let storedLanguage = defaults.objectForKey("language") as? String {
+            
+            if storedLanguage != Global.languageID {
+                
+                NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+                })
+            }
+        } else {
+            
+            NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
+            })
+        }
 
 
         
@@ -207,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 if "\(notificationBody["post_type"]!)" == "Restaurant" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/restaurants/suggestions?client=2751&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = baseURL + "restaurants/suggestions?client=2751&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "re_suggestion_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -219,7 +221,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                 } else if "\(notificationBody["post_type"]!)" == "Pro" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/pros/packages?client=2751&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = baseURL + "pros/packages?client=2751&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "pro_rate_offer_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -227,7 +229,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
                 } else if "\(notificationBody["post_type"]!)" == "Proshop" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/proshops/packages?client=2751&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = baseURL + "proshops/packages?client=2751&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "ps_special_offer_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -235,7 +237,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                 } else if "\(notificationBody["post_type"]!)" == "Hotel" {
                     let initialViewController = OffersController(nibName: "OffersController", bundle: nil)
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/hotels/packages?client=2751&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = baseURL + "hotels/packages?client=2751&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "htl_package_list_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id

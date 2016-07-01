@@ -37,28 +37,31 @@ class Global {
     
     static func getLanguage() {
         
-        let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String
+ //       let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String
 
-        switch lang {
-        case "en":
-            languageID = "1"
-            languageName = "english"
-        case "fr":
-            languageID = "2"
-            languageName = "french"
-        case "de":
-            languageID = "3"
-            languageName = "german"
-        case "es":
-            languageID = "4"
-            languageName = "spanish"
-        case "it":
-            languageID = "5"
-            languageName = "italian"
-        default:
-            languageID = "1"
-            languageName = "english"
-        }
+//        switch lang {
+//        case "en":
+//            languageID = "1"
+//            languageName = "english"
+//        case "fr":
+//            languageID = "2"
+//            languageName = "french"
+//        case "de":
+//            languageID = "3"
+//            languageName = "german"
+//        case "es":
+//            languageID = "4"
+//            languageName = "spanish"
+//        case "it":
+//            languageID = "5"
+//            languageName = "italian"
+//        default:
+//            languageID = "1"
+//            languageName = "english"
+//        }
+        
+        languageID = "2"
+        languageName = "french"
     }
     
 }

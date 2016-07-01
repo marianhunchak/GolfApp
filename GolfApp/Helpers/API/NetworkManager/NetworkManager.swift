@@ -13,7 +13,7 @@ import SwiftyJSON
 // numbers of items on one page
 private let draw = 10
 
-private let baseURL = "https://golfapp.ch/app_fe_dev/api/"
+private let baseURL = "http://golfapp.ch/app/api/"
 private let clientAndLanguage = "?client=\(Global.clientId)&language=\(Global.languageID)"
 
 class NetworkManager {
@@ -34,7 +34,7 @@ class NetworkManager {
             "language": Global.languageID
         ]
         
-        Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/register", parameters:parameters )
+        Alamofire.request(.POST, baseURL + "device/register", parameters:parameters )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
@@ -51,7 +51,7 @@ class NetworkManager {
             "regid": "961",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
-        Alamofire.request(.POST, "https://golfapp.ch/app_fe_dev/api/device/unregister", parameters:parameters )
+        Alamofire.request(.POST, baseURL + "device/unregister", parameters:parameters )
             .responseJSON { response in
                 
                 switch response.result {
@@ -161,7 +161,7 @@ class NetworkManager {
     //MARK: Profile & Advertising
     
     func getProfileAndAvertising(completion :Profile -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile" + clientAndLanguage, parameters:nil )
+        Alamofire.request(.GET, baseURL + "profile" + clientAndLanguage, parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
@@ -180,7 +180,7 @@ class NetworkManager {
     //MARK: Courses
     
     func getCourseseWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
-        Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses" + clientAndLanguage, parameters: nil)
+        Alamofire.request(.GET, baseURL + "courses" + clientAndLanguage, parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -554,7 +554,7 @@ class NetworkManager {
     //MARK: Advertisemet
     
     func getAdvertisemet(completion :Advertisemet -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile" + clientAndLanguage, parameters:nil )
+        Alamofire.request(.GET, baseURL + "profile" + clientAndLanguage, parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
