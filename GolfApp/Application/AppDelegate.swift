@@ -128,14 +128,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        NetworkManager.sharedInstance.removeNotificationsWhithPostID("9534")
         
 
-//        if defaults.objectForKey("firstStart") as? String == nil {
-//            defaults.setObject("No", forKey: "firstStart")
-//            defaults.synchronize()
-//            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-//            
-//        }
+        if defaults.objectForKey("firstStart") as? String == nil {
+            defaults.setObject("No", forKey: "firstStart")
+            defaults.synchronize()
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+            
+        }
         
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+        //UIApplication.sharedApplication().applicationIconBadgeNumber = 0
 
         for i in 0..<deviceToken.length {
             tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
@@ -207,7 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 if "\(notificationBody["post_type"]!)" == "Restaurant" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/restaurants/suggestions?client=22&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/restaurants/suggestions?client=2751&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "re_suggestion_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -219,7 +219,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                 } else if "\(notificationBody["post_type"]!)" == "Pro" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/pros/packages?client=22&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/pros/packages?client=2751&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "pro_rate_offer_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -227,7 +227,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
                 } else if "\(notificationBody["post_type"]!)" == "Proshop" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/proshops/packages?client=22&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/proshops/packages?client=2751&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "ps_special_offer_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -235,7 +235,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                 } else if "\(notificationBody["post_type"]!)" == "Hotel" {
                     let initialViewController = OffersController(nibName: "OffersController", bundle: nil)
-                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/hotels/packages?client=22&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = "https://golfapp.ch/app_fe_dev/api/hotels/packages?client=2751&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "htl_package_list_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id

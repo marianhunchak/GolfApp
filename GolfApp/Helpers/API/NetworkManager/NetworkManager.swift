@@ -161,7 +161,7 @@ class NetworkManager {
     //MARK: Profile & Advertising
     
     func getProfileAndAvertising(completion :Profile -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=1", parameters:nil )
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile" + clientAndLanguage, parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
@@ -180,7 +180,7 @@ class NetworkManager {
     //MARK: Courses
     
     func getCourseseWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
-        Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses?client=22&language=\(Global.languageID)", parameters: nil)
+        Alamofire.request(.GET, "https://golfapp.ch/app_fe_dev/api/courses" + clientAndLanguage, parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -554,7 +554,7 @@ class NetworkManager {
     //MARK: Advertisemet
     
     func getAdvertisemet(completion :Advertisemet -> Void) {
-        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile?client=22&language=\(Global.languageID)", parameters:nil )
+        Alamofire.request(.GET, "http://golfapp.ch/app_fe_dev/api/profile" + clientAndLanguage, parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{

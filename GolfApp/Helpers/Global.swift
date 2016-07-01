@@ -12,7 +12,7 @@ import UIKit
 class Global {
     
     static let appName = "Golf App ES"
-    static let clientId = "22";
+    static let clientId = "2751";
     static var languageID : String!
     static var languageName : String!
     
