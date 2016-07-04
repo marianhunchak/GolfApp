@@ -88,11 +88,11 @@ class NetworkManager {
                     
                 case .Success(let JSON):
 
-                    if let previousLanguageID = NSUserDefaults.standardUserDefaults().objectForKey("language") as? String {
-                    
-                        Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer:Int(previousLanguageID)!) ))
-                        
-                    }
+//                    if let previousLanguageID = NSUserDefaults.standardUserDefaults().objectForKey("language") as? String {
+//                    
+//                        Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer:Int(previousLanguageID)!) ))
+//                        
+//                    }
                     
                     NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
                     
