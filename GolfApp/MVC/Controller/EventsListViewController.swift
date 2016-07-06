@@ -66,7 +66,21 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
         let cell = tableView.dequeueReusableCellWithIdentifier(eventCellReuseIdentifier, forIndexPath: indexPath) as! EventsTableCell
         
         let event = dataSource[indexPath.row] as! Event
-        cell.dataLabel.text = getDayOfWeek(event.event_date ?? "") + " " + event.event_date ?? ""
+        
+        let dateString:String = event.event_date
+        let dateFormat = NSDateFormatter.init()
+        dateFormat.dateStyle = .FullStyle
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        
+        let dateFormat2 = NSDateFormatter.init()
+        dateFormat2.dateStyle = .FullStyle
+        dateFormat2.dateFormat = "dd-MM-yyyy"
+        
+        let date:NSDate? = dateFormat.dateFromString(dateString)
+        let stringOfDateInNewFornat = dateFormat2.stringFromDate(date!)
+        print(stringOfDateInNewFornat)
+
+        cell.dataLabel.text = getDayOfWeek(event.event_date ?? "") + " " + stringOfDateInNewFornat ?? ""
         cell.eventNameLabel.text = event.name
         cell.eventDescrLabel.text = event.format
         
@@ -281,5 +295,7 @@ class EventsListViewController: BaseTableViewController, ProHeaderDelegate, UIDo
     func documentInteractionControllerViewControllerForPreview(controller: UIDocumentInteractionController) -> UIViewController {
         return self
     }
+    
+
     
 }

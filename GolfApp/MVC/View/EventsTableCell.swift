@@ -30,6 +30,8 @@ class EventsTableCell: UITableViewCell {
         dataLabel.backgroundColor = Global.navigationBarColor
         dataLabel.layer.borderColor = UIColor.whiteColor().CGColor
         containerViewForImg.backgroundColor = Global.descrTextBoxColor
+        viewForBackground.layer.borderWidth = 1
+        viewForBackground.layer.borderColor = Global.menuBarStokeColor.CGColor
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

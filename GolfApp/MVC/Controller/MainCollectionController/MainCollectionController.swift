@@ -67,13 +67,8 @@ class MainCollectionController: UICollectionViewController {
             self.collectionView!.reloadData()
         }
 
-
         
-        NetworkManager.sharedInstance.getNotifications { (array, error) in
-            
-            self.showBadges()
-
-        }
+        getNotifications()
 
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(handleNotification(_:)),
@@ -112,7 +107,7 @@ class MainCollectionController: UICollectionViewController {
         cell.menuLabel.text =  LocalisationDocument.sharedInstance.getStringWhinName(menuFilesNameArray[indexPath.row])
 
             var imageName = buttonsItemsImgOnArray[indexPath.row]
-
+            cell.badgeLabel.hidden = true
             if self.profile?.buttons?.contains(menuItemsNameArray[indexPath.row]) == true {
 
                 cell.userInteractionEnabled =  true
@@ -123,6 +118,73 @@ class MainCollectionController: UICollectionViewController {
             }
     
             cell.menuImageView.image = UIImage(named: imageName)
+        
+        for lNotification in Notification.MR_findAll() as! [Notification] {
+            
+            let all = Notification.MR_findAll() as! [Notification]
+            print(all.count)
+            
+            if lNotification.post_type == "restaurant" {
+                
+                let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ ", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "restaurant"])
+                
+               let allCount =  Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+
+
+                if 8 == indexPath.row {
+                    cell.badgeLabel.hidden = false
+                    cell.badgeLabel.text = "\(allCount.count)"
+                }
+
+            } else if lNotification.post_type == "proshop" {
+                
+                let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ ", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "proshop"])
+                
+                let allCount =  Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+                
+                if indexPath.row == 3 {
+
+                    cell.badgeLabel.hidden = false
+                    cell.badgeLabel.text = "\(allCount.count)"
+                }
+
+            } else if lNotification.post_type == "pros" {
+                
+                let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ ", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "pros"])
+                
+                let allCount =  Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+
+                if indexPath.row == 0 {
+
+                    cell.badgeLabel.hidden = false
+                    cell.badgeLabel.text = "\(allCount.count)"
+                    print("\(allCount.count)")
+                
+                }
+            } else if lNotification.post_type == "hotel" {
+                
+                let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ ", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "hotel"])
+                
+                let allCount =  Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+
+                if indexPath.row == 5 {
+                    cell.badgeLabel.hidden = false
+                    cell.badgeLabel.text = "\(allCount.count)"
+                }
+            } else if lNotification.post_type == "news" {
+
+                if indexPath.row == 7 {
+                    
+                    let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ ", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "news"])
+                    
+                    let allCount =  Notification.MR_findAllWithPredicate(lPredicate) as! [Notification]
+                    
+                    cell.badgeLabel.hidden = false
+                    cell.badgeLabel.text = "\(allCount.count)"
+                }
+            }
+
+        }
         
         
         return cell
@@ -214,54 +276,47 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
     
     func handleNotification(notification : NSNotification) {
         
-        print(notification.userInfo)
-        
-        if let lNotification = notification.object as? Notification {
-
-            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
-        
-            cell.badgeLabel.hidden = false
-            
-            cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
-            
-        }
-        
+//        print(notification.userInfo)
+//        
+//        if let lNotification = notification.object as? Notification {
+//
+//            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
+//        
+//            cell.badgeLabel.hidden = false
+//            
+//            cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
+//            
+//            
+//        }
+       self.collectionView?.reloadData()
     }
     
     func handleUnregisteringNotification(notification : NSNotification) {
         
-        if let postType = notification.object as? String {
-        
-            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(postType)!, inSection: 0)) as! MenuCollectionCell
-            
-            let badgeCount = Int(cell.badgeLabel.text!)! - 1
-            
-            if  badgeCount > 0 {
-                cell.badgeLabel.text = "\(badgeCount)"
-            } else {
-                cell.badgeLabel.hidden = true
-                cell.badgeLabel.text = "0"
-            }
-        }
+//        if let postType = notification.object as? String {
+//        
+//            
+//            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(postType)!, inSection: 0)) as! MenuCollectionCell
+//            
+//            let badgeCount = Int(cell.badgeLabel.text!)! - 1
+//            
+//            if  badgeCount > 0 {
+//                cell.badgeLabel.text = "\(badgeCount)"
+//            } else {
+//                cell.badgeLabel.hidden = true
+//                cell.badgeLabel.text = "0"
+//            }
+//        }
+        self.collectionView?.reloadData()
     }
     
+    func getNotifications() {
+        NetworkManager.sharedInstance.getNotifications { (array, error) in
+            
+            self.collectionView?.reloadData()
+            
+        }
     
-    func showBadges() {
-        
-        self.collectionView?.reloadData()
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            for lNotification in Notification.MR_findAll() as! [Notification] {
-                
-                let indexPath = NSIndexPath(forItem: self.menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)
-                
-                let cell = self.collectionView?.cellForItemAtIndexPath(indexPath) as? MenuCollectionCell
-                
-                cell?.badgeLabel.hidden = false
-                
-                cell?.badgeLabel.text = "\(Int((cell?.badgeLabel.text)!)! + 1)"
-            }
-        })
     }
 
-    
 }

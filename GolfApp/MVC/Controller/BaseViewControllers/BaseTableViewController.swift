@@ -36,7 +36,10 @@ class BaseTableViewController: UITableViewController {
         refreshControl!.beginRefreshing()
         refresh(refreshControl!)
         
-        tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+        let customInfiniteIndicator = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+ 
+        //____
+        tableView.infiniteScrollIndicatorView = customInfiniteIndicator
         tableView.infiniteScrollIndicatorMargin = 30
         
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -107,6 +110,7 @@ class BaseTableViewController: UITableViewController {
         
         if !(tableView.infiniteScrollIndicatorView is CustomInfiniteIndicator) {
             tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
+            //tableView.infiniteScrollIndicatorView.tintColor = UIColor.greenColor()
             tableView.infiniteScrollIndicatorMargin = 30
         }
         

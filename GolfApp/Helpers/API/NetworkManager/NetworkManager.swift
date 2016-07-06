@@ -13,7 +13,7 @@ import SwiftyJSON
 // numbers of items on one page
 private let draw = 10
 
-private let baseURL = "http://golfapp.ch/app/api/"
+private let baseURL = "https://golfapp.ch/app_fe_dev/api/"
 private let clientAndLanguage = "?client=\(Global.clientId)&language=\(Global.languageID)"
 
 class NetworkManager {
@@ -88,11 +88,11 @@ class NetworkManager {
                     
                 case .Success(let JSON):
 
-//                    if let previousLanguageID = NSUserDefaults.standardUserDefaults().objectForKey("language") as? String {
-//                    
-//                        Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer:Int(previousLanguageID)!) ))
-//                        
-//                    }
+                    if let previousLanguageID = NSUserDefaults.standardUserDefaults().objectForKey("language") as? String {
+                    
+                        Notification.MR_deleteAllMatchingPredicate(NSPredicate(format: "language_id = %@", NSNumber(integer:Int(previousLanguageID)!) ))
+                        
+                    }
                     
                     NSUserDefaults.standardUserDefaults().setObject(Global.languageID, forKey: "language")
                     
@@ -265,12 +265,34 @@ class NetworkManager {
     
     //MARK: Packages
     
-    func getPackages(urlToPackage URL: String ,completion: ([Package]?) -> Void) {
+    func getPackages(openFromDetailVC : Bool , packagesType : String ,ID : NSNumber ,urlToPackage URL: String ,completion: ([Package]?) -> Void) {
         Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
-                    //let allEntity = Package. as [Package]
+                    
+                    
+                    if openFromDetailVC == true {
+                        if packagesType == "proshop" {
+
+                            let proshop = ProsShop.MR_findFirstWithPredicate(NSPredicate(format: "id = %@", ID)) as! ProsShop
+                            print(proshop)
+                            proshop.packagesList = []
+                            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                            
+                        } else if packagesType == "pros" {
+                            let pros = Pros.MR_findFirstWithPredicate(NSPredicate(format: "id = %@", ID)) as! Pros
+                            print(pros)
+                            pros.packagesList = []
+                            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                        } else if packagesType == "hotel" {
+                            let hotel = Hotel.MR_findFirstWithPredicate(NSPredicate(format: "id = %@", ID)) as! Hotel
+                            print(hotel)
+                            hotel.packagesList = []
+                            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                        }
+                    }
+
                     self.jsonArray = JSON as? NSDictionary
                     
                     let packageArray: NSArray = [self.jsonArray!["packages"]!]
@@ -528,12 +550,24 @@ class NetworkManager {
     }
     //MARK: Suggestions
     
-    func getSuggestions (urlToPackage URL: String ,completion: ([Package]?) -> Void) {
+    func getSuggestions (openFromDetailVC : Bool , packagesType : String ,ID : NSNumber , urlToPackage URL: String ,completion: ([Package]?) -> Void) {
         Alamofire.request(.GET, URL, parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
                     //   print("JSON: \(JSON)")
+                    
+                    if openFromDetailVC == true {
+                        if packagesType == "restaurant" {
+                            
+                            let proshop = Restaurant.MR_findFirstWithPredicate(NSPredicate(format: "id = %@", ID)) as! Restaurant
+                            print(proshop)
+                            proshop.packagesList = []
+                            NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
+                            
+                        }
+                    }
+                    
                     self.jsonArray = JSON as? NSDictionary
                     
                     let packageArray: NSArray = [self.jsonArray!["suggestions"]!]

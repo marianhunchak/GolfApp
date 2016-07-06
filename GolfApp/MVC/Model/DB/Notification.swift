@@ -14,7 +14,18 @@ class Notification: NSManagedObject {
 
     class func notificationWithDictionary(pDict : [String : AnyObject]) -> Notification {
         
-        let lNotification = Notification.MR_createEntity() as! Notification
+        var lNotification: Notification!
+        
+        
+        if let oldNotification = Notification.MR_findByAttribute("post_id", withValue: NSNumber.init(long:pDict["post_id"] as! Int)).first as? Notification {
+            
+            lNotification = oldNotification
+        } else {
+            lNotification = Notification.MR_createEntity() as! Notification
+        }
+        
+        
+       // let lNotification = Notification.MR_createEntity() as! Notification
         
         if let languageId = pDict["language_id"] as? Int {
             lNotification.language_id = languageId

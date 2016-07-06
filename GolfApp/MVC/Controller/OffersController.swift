@@ -27,6 +27,10 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     var restaurant : Restaurant?
     var sid : NSNumber?
     var post_id : NSNumber?
+    var openFromDetailVC = true
+    var id : NSNumber?
+    var notific = [Notification]()
+    
     
     @IBOutlet weak var backgroundView: UIView!
 
@@ -37,6 +41,10 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
         self.configureNavBar()
         setupHeaderView()
+        
+        let no : [Notification] = Notification.MR_findAll() as! [Notification]
+        print(no.count)
+        print(no)
         
         backgroundView.backgroundColor = Global.viewsBackgroundColor
         tableView.backgroundColor = Global.viewsBackgroundColor
@@ -89,7 +97,9 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
-        //cell.displayNewNewsImage = false
+        //cell.displayNewNewsImage = nil
+        cell.newNewsImageView.hidden = true
+        
         let lPackage = offertsArray![indexPath.row]
         cell.nameLabel.text = lPackage.name
         cell.detailLabel.text = lPackage.subtitle
@@ -121,9 +131,12 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                 cell.displayNewNewsImage = true
             }
         case "pro_rate_offer_nav_bar":
+            //cell.displayNewNewsImage = true
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "pros", lPackage.id])
             let notification = Notification.MR_findAll() as! [Notification]
+            notific = notification
             print(notification)
+            print(notification.count)
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
                 cell.displayNewNewsImage = true
             } else if lPackage.id == post_id {
@@ -136,6 +149,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             if  Notification.MR_findFirstWithPredicate(lPredicate) as? Notification != nil {
                 cell.displayNewNewsImage = true
             } else if lPackage.id == post_id {
+                print(lPackage.id)
+                print(post_id)
                 cell.displayNewNewsImage = true
             }
 
@@ -196,7 +211,14 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         switch titleOfferts {
             
         case "re_suggestion_nav_bar":
-            NetworkManager.sharedInstance.getSuggestions(urlToPackage: packageUrl ?? "") { (array) in
+            
+            if sid == nil {
+                id = restaurant!.id!
+            } else {
+                id = sid
+            }
+            
+            NetworkManager.sharedInstance.getSuggestions(openFromDetailVC , packagesType : "restaurant" ,ID : id! ,urlToPackage: packageUrl ?? "") { (array) in
                 
                 if let lArray = array {
                     self.offertsArray = lArray
@@ -207,14 +229,21 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                         self.removeDispatch_Async(self.restaurant!.id!, postType: "restaurant")
                     } else {
-                        self.removeNotificationsWithsID(self.sid!, andPostType: "restaurant")
+                        self.removeDispatch_Async(self.sid!, postType: "restaurant")
                     }
                 } 
 
                 self.refreshControl?.endRefreshing()
             } 
         case "ps_special_offer_nav_bar":
-            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+            
+            if sid == nil {
+                id = prosShop.id!
+            } else {
+                id = sid
+            }
+            
+            NetworkManager.sharedInstance.getPackages(openFromDetailVC , packagesType : "proshop" ,ID : id! ,urlToPackage: packageUrl ?? "") { (array) in
    
                 if let lArray = array {
                     self.offertsArray = lArray
@@ -225,16 +254,21 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                         self.removeDispatch_Async(self.prosShop.id!, postType: "proshop")
                     } else {
-                        self.removeNotificationsWithsID(self.sid!, andPostType: "proshop")
+                        self.removeDispatch_Async(self.sid!, postType: "proshop")
                     }
 
-                } else {
-                    print("Error")
-                }
+                } 
                 self.refreshControl?.endRefreshing()
             }
         case "pro_rate_offer_nav_bar":
-            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+            
+            if sid == nil {
+                id = pros.id!
+            } else {
+                id = sid
+            }
+            
+            NetworkManager.sharedInstance.getPackages(openFromDetailVC , packagesType : "pros" ,ID : id! ,urlToPackage: packageUrl ?? "") { (array) in
                 
                 if let lArray = array {
                     self.offertsArray = lArray
@@ -245,16 +279,23 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                          NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                          self.removeDispatch_Async(self.pros.id!, postType: "pros")
                     } else {
-                        self.removeNotificationsWithsID(self.sid!, andPostType: "pros")
+                        self.removeDispatch_Async(self.sid!, postType: "pros")
                     }
                 }
                 
                 self.refreshControl?.endRefreshing()
 
             }
-            self.removeNotificationsWithsID(self.pros.id!, andPostType: "pros")
+            
         case "htl_package_list_nav_bar":
-            NetworkManager.sharedInstance.getPackages(urlToPackage: packageUrl ?? "") { (array) in
+            
+            if sid == nil {
+                id = hotel!.id!
+            } else {
+                id = sid
+            }
+            
+            NetworkManager.sharedInstance.getPackages(openFromDetailVC , packagesType : "hotel" ,ID : id! ,urlToPackage: packageUrl ?? "") { (array) in
                 
                 if let lArray = array {
                     
@@ -266,7 +307,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                         NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
                         self.removeDispatch_Async(self.hotel!.id, postType: "hotel")
                     } else if self.sid != nil {
-                        self.removeNotificationsWithsID(self.sid!, andPostType: "hotel")
+                        self.removeDispatch_Async(self.sid!, postType: "hotel")
                     }
  
                 }
