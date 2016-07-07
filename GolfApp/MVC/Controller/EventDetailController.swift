@@ -43,8 +43,21 @@ class EventDetailController: BaseTableViewController, EventDetailCellDelegate, U
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier(newsCellIndetifire, forIndexPath: indexPath) as! NewsDetailCell
+            
+            let dateString:String = event.event_date
+            let dateFormat = NSDateFormatter.init()
+            dateFormat.dateStyle = .FullStyle
+            dateFormat.dateFormat = "yyyy-MM-dd"
+            
+            let dateFormat2 = NSDateFormatter.init()
+            dateFormat2.dateStyle = .FullStyle
+            dateFormat2.dateFormat = "dd-MM-yyyy"
+            
+            let date:NSDate? = dateFormat.dateFromString(dateString)
+            let stringOfDateInNewFornat = dateFormat2.stringFromDate(date!)
+            
             cell.nameLabel.text = event.name
-            cell.subtitleLabel.text = event.event_date
+            cell.subtitleLabel.text = stringOfDateInNewFornat
             cell.dateLabel.text = event.format
             cell.descriptionNews.text = event.remark1
             if !event.remark2.isEmpty {

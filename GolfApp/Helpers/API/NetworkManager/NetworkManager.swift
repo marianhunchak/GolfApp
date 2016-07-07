@@ -13,7 +13,7 @@ import SwiftyJSON
 // numbers of items on one page
 private let draw = 10
 
-private let baseURL = "https://golfapp.ch/app_fe_dev/api/"
+
 private let clientAndLanguage = "?client=\(Global.clientId)&language=\(Global.languageID)"
 
 class NetworkManager {
@@ -34,7 +34,7 @@ class NetworkManager {
             "language": Global.languageID
         ]
         
-        Alamofire.request(.POST, baseURL + "device/register", parameters:parameters )
+        Alamofire.request(.POST, Global.baseURL + "device/register", parameters:parameters )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
@@ -51,7 +51,7 @@ class NetworkManager {
             "regid": "961",
             "device_id": UIDevice.currentDevice().identifierForVendor!.UUIDString,
             ]
-        Alamofire.request(.POST, baseURL + "device/unregister", parameters:parameters )
+        Alamofire.request(.POST, Global.baseURL + "device/unregister", parameters:parameters )
             .responseJSON { response in
                 
                 switch response.result {
@@ -81,7 +81,7 @@ class NetworkManager {
             ]
         }
         
-        Alamofire.request(.POST, baseURL + "device/notifications", parameters:parameters )
+        Alamofire.request(.POST, Global.baseURL + "device/notifications", parameters:parameters )
             .responseJSON { response in
                 
                 switch response.result {
@@ -135,7 +135,7 @@ class NetworkManager {
         }
 
         
-        Alamofire.request(.POST, baseURL + "device/notifications_remove", parameters:parameters )
+        Alamofire.request(.POST, Global.baseURL + "device/notifications_remove", parameters:parameters )
             .responseJSON { response in
                 
                 switch response.result {
@@ -161,7 +161,7 @@ class NetworkManager {
     //MARK: Profile & Advertising
     
     func getProfileAndAvertising(completion :Profile -> Void) {
-        Alamofire.request(.GET, baseURL + "profile" + clientAndLanguage, parameters:nil )
+        Alamofire.request(.GET, Global.baseURL + "profile" + clientAndLanguage, parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{
@@ -180,7 +180,7 @@ class NetworkManager {
     //MARK: Courses
     
     func getCourseseWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
-        Alamofire.request(.GET, baseURL + "courses" + clientAndLanguage, parameters: nil)
+        Alamofire.request(.GET, Global.baseURL + "courses" + clientAndLanguage, parameters: nil)
             .responseJSON { response in
                 
                 if let JSON = response.result.value {
@@ -334,7 +334,7 @@ class NetworkManager {
     
     func getProsWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
         
-        let url =  baseURL + "pros" + clientAndLanguage
+        let url =  Global.baseURL + "pros" + clientAndLanguage
         
         Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
@@ -370,7 +370,7 @@ class NetworkManager {
     
     func getHotelsWithPage( pPage: Int,completion: ([AnyObject]?, NSError?) -> Void) {
         
-        let url =  baseURL + "hotels" + clientAndLanguage
+        let url =  Global.baseURL + "hotels" + clientAndLanguage
         
         Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
@@ -407,7 +407,7 @@ class NetworkManager {
     
     func getProsShop(pPage: Int,completion: ([AnyObject]?, NSError?) -> Void) {
         
-        let url =  baseURL + "proshops" + clientAndLanguage
+        let url =  Global.baseURL + "proshops" + clientAndLanguage
         
         Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
@@ -444,7 +444,7 @@ class NetworkManager {
     
     func getRestaurant(pPage: Int,completion: ([AnyObject]?, NSError?) -> Void) {
         
-        let url =  baseURL + "restaurants" + clientAndLanguage
+        let url =  Global.baseURL + "restaurants" + clientAndLanguage
         
         Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
@@ -480,7 +480,7 @@ class NetworkManager {
     
     func getNewsWithPage( pPage: Int, completion: ([AnyObject]?, NSError?) -> Void) {
         
-        let url = baseURL + "news" + clientAndLanguage
+        let url = Global.baseURL + "news" + clientAndLanguage
         
         Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)" , parameters: nil)
             .responseJSON { response in
@@ -519,7 +519,7 @@ class NetworkManager {
     
     func getEventsWithCategory(pCategory : String, andPage pPage : Int, completion: ([AnyObject]?, NSError?) -> Void) -> Request {
         
-        let url =  baseURL + "events" + clientAndLanguage + "&category=\(pCategory)"
+        let url =  Global.baseURL + "events" + clientAndLanguage + "&category=\(pCategory)"
         
         return Alamofire.request(.GET, url + "&draw=\(draw)&page=\(pPage)", parameters: nil)
             .responseJSON { response in
@@ -588,7 +588,7 @@ class NetworkManager {
     //MARK: Advertisemet
     
     func getAdvertisemet(completion :Advertisemet -> Void) {
-        Alamofire.request(.GET, baseURL + "profile" + clientAndLanguage, parameters:nil )
+        Alamofire.request(.GET, Global.baseURL + "profile" + clientAndLanguage, parameters:nil )
             .responseJSON { response in
                 
                 if let JSON = response.result.value as? NSDictionary{

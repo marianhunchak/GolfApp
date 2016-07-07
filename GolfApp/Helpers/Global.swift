@@ -15,6 +15,7 @@ class Global {
     static let clientId = "22";
     static var languageID : String!
     static var languageName : String!
+    static let baseURL = "https://golfapp.ch/app_fe_dev/api/"
     
     //MARK: Colors
     static let navigationBarColor = UIColor.init(colorCode: "97BF0D")

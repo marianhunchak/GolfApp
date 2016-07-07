@@ -12,7 +12,7 @@ import ReachabilitySwift
 import PKHUD
 import MagicalRecord
 
-private let baseURL = "https://golfapp.ch/app_fe_dev/api/"
+
 
 @UIApplicationMain
 
@@ -78,12 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: Notification.MR_findAll(), userInfo: nil)
         Global.getLanguage()
         
-        if application.applicationState == .Inactive {
-        
-        }
-   
         return true
     }
+        
     
     func reachabilityChanged(note: NSNotification) {
         
@@ -220,14 +217,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             NSNotificationCenter.defaultCenter().postNotificationName("notificationRecieved", object: lNotification, userInfo: nil)
             
-            if  application.applicationState == UIApplicationState.Background {
+            if  application.applicationState == UIApplicationState.Inactive {
                 
                 print("Notification received: \(notificationBody["post_type"]!)")
                 print("Notification received: \(notificationBody)")
                 
                 if "\(notificationBody["post_type"]!)" == "Restaurant" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = baseURL + "restaurants/suggestions?client=\(Global.clientId)&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = Global.baseURL + "restaurants/suggestions?client=\(Global.clientId)&language=\(Global.languageID)&restaurant=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "re_suggestion_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -240,7 +237,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                 } else if "\(notificationBody["post_type"]!)" == "Pro" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = baseURL + "pros/packages?client=\(Global.clientId)&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = Global.baseURL + "pros/packages?client=\(Global.clientId)&language=\(Global.languageID)&pro=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "pro_rate_offer_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -249,7 +246,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
                 } else if "\(notificationBody["post_type"]!)" == "Proshop" {
                     let initialViewController : OffersController = OffersController(nibName: "OffersController", bundle: nil) as OffersController
-                    initialViewController.packageUrl = baseURL + "proshops/packages?client=\(Global.clientId)&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = Global.baseURL + "proshops/packages?client=\(Global.clientId)&language=\(Global.languageID)&proshop=\(notificationBody["sid"]!)"
                     initialViewController.titleOfferts = "ps_special_offer_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
@@ -257,24 +254,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     navigationVC.pushViewController(initialViewController, animated: false)
                     
                 } else if "\(notificationBody["post_type"]!)" == "Hotel" {
+                    
                     let initialViewController = OffersController(nibName: "OffersController", bundle: nil)
-                    initialViewController.packageUrl = baseURL + "hotels/packages?client=\(Global.clientId)&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
-                    let url = baseURL + "hotels/packages?client=\(Global.clientId)&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
+                    initialViewController.packageUrl = Global.baseURL + "hotels/packages?client=\(Global.clientId)&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
+                    let url = Global.baseURL + "hotels/packages?client=\(Global.clientId)&language=\(Global.languageID)&hotel=\(notificationBody["sid"]!)"
                     print(url)
                     initialViewController.titleOfferts = "htl_package_list_nav_bar"
                     initialViewController.sid = lNotification.sid
                     initialViewController.post_id = lNotification.post_id
                     initialViewController.openFromDetailVC = false
                     navigationVC.pushViewController(initialViewController, animated: false)
+                    
                 }
-            } else  if  application.applicationState == UIApplicationState.Inactive {
-                
-                navigationVC = UINavigationController()
-                navigationVC.navigationBar.tintColor = UIColor.whiteColor()
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainCollectionController") as! MainCollectionController
-                navigationVC.pushViewController(vc, animated: false)
-
             }
+
+            
         }
         
         handler(UIBackgroundFetchResult.NoData);

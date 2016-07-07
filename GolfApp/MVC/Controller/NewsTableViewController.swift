@@ -54,10 +54,24 @@ class NewsTableViewController: BaseTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsTableCell", forIndexPath: indexPath) as! NewsTableCell
         
+        
         let lNew = dataSource[indexPath.row] as! New
+        
+        let dateString:String = lNew.pubdate
+        let dateFormat = NSDateFormatter.init()
+        dateFormat.dateStyle = .FullStyle
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        
+        let dateFormat2 = NSDateFormatter.init()
+        dateFormat2.dateStyle = .FullStyle
+        dateFormat2.dateFormat = "dd-MM-yyyy"
+        
+        let date:NSDate? = dateFormat.dateFromString(dateString)
+        let stringOfDateInNewFornat = dateFormat2.stringFromDate(date!)
+
         cell.nameLabel.text = lNew.title
         cell.subtitleLabel.text = lNew.subtitle
-        cell.dateLabel.text = lNew.pubdate
+        cell.dateLabel.text = stringOfDateInNewFornat
         cell.descriptionLabel.text = lNew.descr
         cell.descriptionLabel.numberOfLines = 1
         
