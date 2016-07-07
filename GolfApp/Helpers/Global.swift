@@ -12,10 +12,10 @@ import UIKit
 class Global {
     
     static let appName = "Golf App ES"
-    static let clientId = "2751";
+    static let clientId = "22";
     static var languageID : String!
     static var languageName : String!
-    static let baseURL = "http://golfapp.ch/app/api/"
+    static let baseURL = "https://golfapp.ch/app_fe_dev/api/"
     
     //MARK: Colors
     static let navigationBarColor = UIColor.init(colorCode: "97BF0D")
@@ -40,29 +40,29 @@ class Global {
         
         let lang = NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode)! as! String
 
-//        switch lang {
-//        case "en":
-//            languageID = "1"
-//            languageName = "english"
-//        case "fr":
-//            languageID = "2"
-//            languageName = "french"
-//        case "de":
-//            languageID = "3"
-//            languageName = "german"
-//        case "es":
-//            languageID = "4"
-//            languageName = "spanish"
-//        case "it":
-//            languageID = "5"
-//            languageName = "italian"
-//        default:
-//            languageID = "1"
-//            languageName = "english"
-//        }
+        switch lang {
+        case "en":
+            languageID = "1"
+            languageName = "english"
+        case "fr":
+            languageID = "2"
+            languageName = "french"
+        case "de":
+            languageID = "3"
+            languageName = "german"
+        case "es":
+            languageID = "4"
+            languageName = "spanish"
+        case "it":
+            languageID = "5"
+            languageName = "italian"
+        default:
+            languageID = "1"
+            languageName = "english"
+        }
         
-        languageID = "2"
-        languageName = "french"
+//        languageID = "2"
+//        languageName = "french"
     }
     
 }
