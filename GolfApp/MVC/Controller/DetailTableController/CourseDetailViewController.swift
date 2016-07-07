@@ -64,7 +64,7 @@ class CourseDetailViewController: BaseViewController , CourseHeaderDelegate, UIT
         let cell2 = tableView.dequeueReusableCellWithIdentifier(courseFooterIndetifire, forIndexPath: indexPath) as! DetailInfoCell
         cell2.nameLabel.text = course.name
         cell2.detailLabel.text = "\(course.holes) \(LocalisationDocument.sharedInstance.getStringWhinName("holes")) - " +
-            "\(course.par) pare - \(course.length) \(course.length_unit)"
+            "\(course.par) Par - \(course.length) \(course.length_unit)"
         cell2.descriptionLabel.text = course.descr
         cell2.newNewsImageView.hidden = true
         

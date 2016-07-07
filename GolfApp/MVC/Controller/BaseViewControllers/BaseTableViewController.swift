@@ -37,7 +37,6 @@ class BaseTableViewController: UITableViewController {
         refresh(refreshControl!)
         
         let customInfiniteIndicator = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
- 
         //____
         tableView.infiniteScrollIndicatorView = customInfiniteIndicator
         tableView.infiniteScrollIndicatorMargin = 30
