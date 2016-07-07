@@ -101,9 +101,7 @@ class RestaurantTableViewController: BaseTableViewController {
             
             self.navigationController?.pushViewController(vc, animated: false)
         } else {
-        
             tableView.reloadData()
-        
         }
 
     }
