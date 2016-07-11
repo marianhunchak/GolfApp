@@ -23,8 +23,11 @@ class MainCollectionController: UICollectionViewController {
     var lTopInset : CGFloat?
     var img = [String]()
     var buttonEnabled = [Bool]()
-
-
+    
+    
+    var advertisemet: Advertisemet?
+    let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
         var buttonsItemsImgOnArray = ["a_pros",     "a_tee_time",   "a_events",
                                       "a_proshop" , "a_courses",    "a_hotel",
@@ -67,7 +70,7 @@ class MainCollectionController: UICollectionViewController {
             self.collectionView!.reloadData()
         }
 
-        
+        checkInternet()
         getNotifications()
 
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -79,6 +82,8 @@ class MainCollectionController: UICollectionViewController {
                                                          selector: #selector(handleUnregisteringNotification(_:)),
                                                          name: "notificationUnregisterd",
                                                          object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
         
     }
     
@@ -276,37 +281,13 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
     
     func handleNotification(notification : NSNotification) {
         
-//        print(notification.userInfo)
-//        
-//        if let lNotification = notification.object as? Notification {
-//
-//            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(lNotification.post_type)!, inSection: 0)) as! MenuCollectionCell
-//        
-//            cell.badgeLabel.hidden = false
-//            
-//            cell.badgeLabel.text = "\(Int(cell.badgeLabel.text!)! + 1)"
-//            
-//            
-//        }
+
        self.collectionView?.reloadData()
     }
     
     func handleUnregisteringNotification(notification : NSNotification) {
         
-//        if let postType = notification.object as? String {
-//        
-//            
-//            let cell = collectionView?.cellForItemAtIndexPath(NSIndexPath(forItem: menuItemsNameArray.indexOf(postType)!, inSection: 0)) as! MenuCollectionCell
-//            
-//            let badgeCount = Int(cell.badgeLabel.text!)! - 1
-//            
-//            if  badgeCount > 0 {
-//                cell.badgeLabel.text = "\(badgeCount)"
-//            } else {
-//                cell.badgeLabel.hidden = true
-//                cell.badgeLabel.text = "0"
-//            }
-//        }
+
         self.collectionView?.reloadData()
     }
     
@@ -318,5 +299,81 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
         }
     
     }
+    
+    
+        // MARK: Private methods
+    
+    func checkInternet(){
+                if appDelegate.reachability?.isReachable() == true {
+                    NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
+                        self.advertisemet = aAdvertisemet
+                        self.checkDate()
+        
+                    }
+                } else {
+        
+                    if let lAdvertisemnt = Advertisemet.MR_findFirst() {
+                        self.advertisemet = lAdvertisemnt as? Advertisemet
+                        self.checkDate()
+                    }
+                }
+    }
+    
+        func showPopUpView() {
+    
+            let popUpView = PopUpView.loadViewFromNib()
+    
+            popUpView.frame = CGRectMake(0, 0,
+                                         (UIApplication.sharedApplication().keyWindow?.frame.size.width)!,
+                                         (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
+    
+            let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
+    
+            popUpView.websiteUrl = advertisemet?.url
+            popUpView.poupImage = lImage
+    
+            self.view.addSubview(popUpView)
+            self.view.bringSubviewToFront(popUpView)
+    
+        }
+    
+        func saveExitDate(notification : NSNotification) {
+            let calendar = NSCalendar.currentCalendar()
+            let dateComponent = NSDateComponents()
+            dateComponent.second = 10
+            let todaysDate : NSDate = NSDate()
+            let dateformater : NSDateFormatter = NSDateFormatter()
+            dateformater.dateFormat = "MM-dd-yyyy HH:mm:ss"
+    
+            let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
+            let dateInFormat = dateformater.stringFromDate(date!)
+    
+            defaults.setObject(dateInFormat, forKey: "lastLoadDate")
+            defaults.synchronize()
+    
+        }
+    
+        func checkDate() {
+    
+            if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
+    
+                let todaysDate : NSDate = NSDate()
+                let dateFormater = NSDateFormatter()
+                dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
+                let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
+    
+                let showPopUp = lastLoadedDate?.compare(todaysDate)
+    
+                if showPopUp == .OrderedAscending {
+    
+                    print("Time to show Pop Up View!")
+                    showPopUpView()
+    
+                } else {
+                    print("This is not time to show Pop Up View!")
+                }
+                
+            }
+        }
 
 }

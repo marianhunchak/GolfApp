@@ -86,7 +86,21 @@ class EventDetailCell: UITableViewCell  {
         
         contentView.backgroundColor = Global.viewsBackgroundColor
         addToCalendarBtn.backgroundColor = Global.buttonOnColor
-
+        
+        eventProgramBtn.layer.borderWidth = 3
+        teeTimesBtn.layer.borderWidth = 3
+        addToCalendarBtn.layer.borderWidth = 3
+        phoneBtn.layer.borderWidth = 3
+        emailBtn.layer.borderWidth = 3
+        shareBtn.layer.borderWidth = 3
+        
+        
+        eventProgramBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        teeTimesBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        addToCalendarBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        phoneBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        emailBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        shareBtn.layer.borderColor = UIColor.whiteColor().CGColor
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

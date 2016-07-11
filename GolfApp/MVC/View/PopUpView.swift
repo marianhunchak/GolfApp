@@ -10,7 +10,7 @@ import UIKit
 
 class PopUpView: UIView {
 
-    
+    let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
 
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var shadowView: UIView!
@@ -62,9 +62,11 @@ class PopUpView: UIView {
     
 
     @IBAction func closePopupView(sender: AnyObject) {
-
+        
+        defaults.removeObjectForKey("lastLoadDate")
         self.popUpImage.removeFromSuperview()
         self.removeFromSuperview()
+        
         
     }
 
