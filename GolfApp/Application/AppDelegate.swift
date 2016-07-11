@@ -151,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        
 //        NetworkManager.sharedInstance.registerDeviceWhithToken(tokenString, completion: { (array, error) in
 //        })
-
+//
         Global.getLanguage()
         
         if let storedLanguage = defaults.objectForKey("language") as? String {

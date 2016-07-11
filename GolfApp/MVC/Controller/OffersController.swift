@@ -59,6 +59,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
         checkInternet()
         
+
+        
         if id != nil {
             NSNotificationCenter.defaultCenter().addObserver(self,
                                                              selector: #selector(handleNotification(_:)),
@@ -429,21 +431,36 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             
             switch self.titleOfferts {
                 
+                
             case "re_suggestion_nav_bar":
             
-                self.removeDispatch_Async(self.id!, postType: "restaurant")
+                if self.isViewLoaded() && (self.view.window != nil) {
+                    
+                    self.removeDispatch_Async(self.id!, postType: "restaurant")
+                }
+
                 
             case "ps_special_offer_nav_bar":
                 
-                self.removeDispatch_Async(self.id!, postType: "proshop")
+                if self.isViewLoaded() && (self.view.window != nil) {
+                    
+                    self.removeDispatch_Async(self.id!, postType: "proshop")
+                }
+
 
             case "pro_rate_offer_nav_bar":
                 
-                self.removeDispatch_Async(self.id!, postType: "pros")
+                if self.isViewLoaded() && (self.view.window != nil) {
+                    
+                    self.removeDispatch_Async(self.id!, postType: "pros")
+                }
+
                 
             case "htl_package_list_nav_bar":
                 
-                self.removeDispatch_Async(self.id!, postType: "hotel")
+                if self.isViewLoaded() && (self.view.window != nil) {
+                        self.removeDispatch_Async(self.id!, postType: "hotel")
+                }
                 
             default:
                 break
