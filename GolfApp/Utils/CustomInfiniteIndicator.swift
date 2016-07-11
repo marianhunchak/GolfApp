@@ -13,11 +13,9 @@ private let rotationAnimationKey = "rotation"
 class CustomInfiniteIndicator: UIView {
     
     var thickness: CGFloat = 2
-    var outerColor = UIColor.grayColor().colorWithAlphaComponent(0.2)
+    var outerColor = UIColor.whiteColor().colorWithAlphaComponent(1)
     
-    lazy var innerColor: UIColor = {
-        return self.tintColor
-    }()
+    var innerColor: UIColor = Global.navigationBarColor
 
     private var animating = false
     private let innerCircle = CAShapeLayer()
