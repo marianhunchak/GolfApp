@@ -32,7 +32,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
     var notific = [Notification]()
     var advertisemet: Advertisemet?
     let defaults : NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    
+    var timer = NSTimer()
+    var timer2 = NSTimer()
     
     @IBOutlet weak var backgroundView: UIView!
 
@@ -57,8 +58,6 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         self.tableView.registerNib(nibFood, forCellReuseIdentifier: courseFooterIndetifire)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
-        checkInternet()
-        
 
         
         if id != nil {
@@ -68,7 +67,7 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
                                                              object: nil)
         }
         
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(startTimer(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
     
     }
 
@@ -124,7 +123,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
             cell.setCellSelected()
         }
 
-
+        // Mark : fix in the future -> create for this special class
+        
         switch titleOfferts {
         case "re_suggestion_nav_bar":
             let lPredicate = NSPredicate(format: "language_id = %@ AND post_type = %@ AND post_id = %@", argumentArray: [NSNumber(integer: Int(Global.languageID)!), "restaurant", lPackage.id])
@@ -219,6 +219,8 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
         loadDataFromServer()
     }
+    
+   // Mark : downloading data (test version) fix in the future
     
     func loadDataFromServer() {
         
@@ -344,78 +346,103 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         
     }
     
-    // MARK: Private methods
+    // MARK: Private methods ______!!!Do not forget to make a special class!!__
     
     func checkInternet(){
         if appDelegate.reachability?.isReachable() == true {
             NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
                 self.advertisemet = aAdvertisemet
-                self.checkDate()
                 
+                self.showPopUpView()
             }
         } else {
             
             if let lAdvertisemnt = Advertisemet.MR_findFirst() {
                 self.advertisemet = lAdvertisemnt as? Advertisemet
-                self.checkDate()
+                
+                showPopUpView()
             }
         }
     }
     
     func showPopUpView() {
         
-        let popUpView = PopUpView.loadViewFromNib()
-        
-        popUpView.frame = CGRectMake(0, 0,
-                                     (UIApplication.sharedApplication().keyWindow?.frame.size.width)!,
-                                     (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
-        
-        let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
-        
-        popUpView.websiteUrl = advertisemet?.url
-        popUpView.poupImage = lImage
-        
-        self.navigationController?.view.addSubview(popUpView)
-        self.navigationController?.view.bringSubviewToFront(popUpView)
-        
+        if self.isViewLoaded() && (self.view.window != nil) {
+            
+            let popUpView = PopUpView.loadViewFromNib()
+            
+            popUpView.frame = CGRectMake(0, 0,
+                                         (UIApplication.sharedApplication().keyWindow?.frame.size.width)!,
+                                         (UIApplication.sharedApplication().keyWindow?.frame.size.height)!)
+            
+            let lImage  = Image(name: (advertisemet?.name)!, url: (advertisemet?.image)!)
+            
+            popUpView.websiteUrl = advertisemet?.url
+            popUpView.poupImage = lImage
+            
+            self.navigationController?.view.addSubview(popUpView)
+            self.navigationController?.view.bringSubviewToFront(popUpView)
+        }
     }
     
     func saveExitDate(notification : NSNotification) {
         let calendar = NSCalendar.currentCalendar()
         let dateComponent = NSDateComponents()
-        dateComponent.second = 10
+        dateComponent.minute = Global.timeToShowPopUp
         let todaysDate : NSDate = NSDate()
         let dateformater : NSDateFormatter = NSDateFormatter()
-        dateformater.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        dateformater.dateFormat = "MM-dd-yyyy HH:mm"
         
         let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
         let dateInFormat = dateformater.stringFromDate(date!)
         
+        if defaults.objectForKey("lastLoadDate") as? String != nil {
+            
+            defaults.removeObjectForKey("lastLoadDate")
+        }
+        
         defaults.setObject(dateInFormat, forKey: "lastLoadDate")
         defaults.synchronize()
+        
+        timer2 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(OffersController.checkDate), userInfo: nil, repeats: true)
         
     }
     
     func checkDate() {
         
-        if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
+        if self.isViewLoaded() && (self.view.window != nil) {
             
-            let todaysDate : NSDate = NSDate()
-            let dateFormater = NSDateFormatter()
-            dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
-            let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
-            
-            let showPopUp = lastLoadedDate?.compare(todaysDate)
-            
-            if showPopUp == .OrderedAscending {
+            if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
                 
-                print("Time to show Pop Up View!")
-                showPopUpView()
+                let todaysDate : NSDate = NSDate()
+                let dateFormater = NSDateFormatter()
+                dateFormater.dateFormat = "MM-dd-yyyy HH:mm"
+                let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
                 
-            } else {
-                print("This is not time to show Pop Up View!")
+                let showPopUp = lastLoadedDate?.compare(todaysDate)
+                let dateInFormat = dateFormater.stringFromDate(todaysDate)
+                print(dateInFormat)
+                if showPopUp == .OrderedAscending {
+                    
+                    print("Time to show Pop Up View!")
+                    checkInternet()
+                    timer2.invalidate()
+                    if defaults.objectForKey("lastLoadDate") as? String != nil {
+                        
+                        defaults.removeObjectForKey("lastLoadDate")
+                        defaults.synchronize()
+                    }
+                    
+                } else if  showPopUp == .OrderedDescending {
+                    print("This is not time to show Pop Up View!")
+                    timer2.invalidate()
+                    if defaults.objectForKey("lastLoadDate") as? String != nil {
+                        
+                        defaults.removeObjectForKey("lastLoadDate")
+                        defaults.synchronize()
+                    }
+                }
             }
-            
         }
     }
     
@@ -470,6 +497,77 @@ class OffersController: BaseViewController , OffersHeaderDelegate,UITableViewDel
         }
     }
     
-
+    // MARK: Show Main controller ______!!!Do not forget to make a special class!!__
+    
+    func startTimer(notification : NSNotification) {
+        if self.isViewLoaded() && (self.view.window != nil) {
+            
+            if defaults.objectForKey("lastPressedHome") as? String != nil {
+                
+                defaults.removeObjectForKey("lastPressedHome")
+                defaults.synchronize()
+            }
+            
+            let calendar = NSCalendar.currentCalendar()
+            let dateComponent = NSDateComponents()
+            dateComponent.minute = Global.timeToShowMainController
+            let todaysDate : NSDate = NSDate()
+            let dateformater : NSDateFormatter = NSDateFormatter()
+            dateformater.dateFormat = "MM-dd-yyyy HH:mm"
+            let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
+            let dateInFormat = dateformater.stringFromDate(date!)
+            
+            if defaults.objectForKey("lastPressedHome") as? String != nil {
+                
+                defaults.removeObjectForKey("lastPressedHome")
+            }
+            
+            defaults.setObject(dateInFormat, forKey: "lastPressedHome")
+            defaults.synchronize()
+            
+            timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(OffersController.checkDateToShowMaincontroller), userInfo: nil, repeats: true)
+            print(timer)
+        }
+        
+    }
+    
+    func checkDateToShowMaincontroller() {
+        if self.isViewLoaded() && (self.view.window != nil) {
+            
+            if let lastLoaded = defaults.objectForKey("lastPressedHome") as? String {
+                
+                let todaysDate : NSDate = NSDate()
+                let dateFormater = NSDateFormatter()
+                dateFormater.dateFormat = "MM-dd-yyyy HH:mm"
+                let dateInFormat = dateFormater.stringFromDate(todaysDate)
+                print(dateInFormat)
+                let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
+                
+                let showMaincontroller = lastLoadedDate?.compare(todaysDate)
+                
+                if showMaincontroller == .OrderedAscending {
+                    
+                    if defaults.objectForKey("lastPressedHome") as? String != nil {
+                        
+                        defaults.removeObjectForKey("lastPressedHome")
+                        defaults.synchronize()
+                    }
+                    timer.invalidate()
+                    
+                    self.navigationController?.popToRootViewControllerAnimated(false)
+                    
+                } else if  showMaincontroller == .OrderedDescending{
+                    
+                    timer.invalidate()
+                    if defaults.objectForKey("lastPressedHome") as? String != nil {
+                        
+                        defaults.removeObjectForKey("lastPressedHome")
+                        defaults.synchronize()
+                    }
+                }
+                
+            }
+        }
+    }
     
 }

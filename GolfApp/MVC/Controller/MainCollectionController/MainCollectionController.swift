@@ -23,6 +23,7 @@ class MainCollectionController: UICollectionViewController {
     var lTopInset : CGFloat?
     var img = [String]()
     var buttonEnabled = [Bool]()
+    var timer2 = NSTimer()
     
     
     var advertisemet: Advertisemet?
@@ -84,6 +85,7 @@ class MainCollectionController: UICollectionViewController {
                                                          object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(saveExitDate(_:)), name: UIApplicationWillResignActiveNotification, object: nil)
+        
         
     }
     
@@ -307,14 +309,14 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
                 if appDelegate.reachability?.isReachable() == true {
                     NetworkManager.sharedInstance.getAdvertisemet { (aAdvertisemet) in
                         self.advertisemet = aAdvertisemet
-                        self.checkDate()
+                        self.showPopUpView()
         
                     }
                 } else {
         
                     if let lAdvertisemnt = Advertisemet.MR_findFirst() {
                         self.advertisemet = lAdvertisemnt as? Advertisemet
-                        self.checkDate()
+                        showPopUpView()
                     }
                 }
     }
@@ -337,43 +339,64 @@ extension MainCollectionController : UICollectionViewDelegateFlowLayout {
     
         }
     
-        func saveExitDate(notification : NSNotification) {
-            let calendar = NSCalendar.currentCalendar()
-            let dateComponent = NSDateComponents()
-            dateComponent.second = 10
-            let todaysDate : NSDate = NSDate()
-            let dateformater : NSDateFormatter = NSDateFormatter()
-            dateformater.dateFormat = "MM-dd-yyyy HH:mm:ss"
-    
-            let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
-            let dateInFormat = dateformater.stringFromDate(date!)
-    
-            defaults.setObject(dateInFormat, forKey: "lastLoadDate")
-            defaults.synchronize()
-    
+    func saveExitDate(notification : NSNotification) {
+        let calendar = NSCalendar.currentCalendar()
+        let dateComponent = NSDateComponents()
+        dateComponent.second = Global.timeToShowPopUp
+        let todaysDate : NSDate = NSDate()
+        let dateformater : NSDateFormatter = NSDateFormatter()
+        dateformater.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        
+        let date = calendar.dateByAddingComponents(dateComponent, toDate: todaysDate, options: NSCalendarOptions.init(rawValue: 0))
+        let dateInFormat = dateformater.stringFromDate(date!)
+        
+        if defaults.objectForKey("lastLoadDate") as? String != nil {
+            
+            defaults.removeObjectForKey("lastLoadDate")
         }
+        
+        defaults.setObject(dateInFormat, forKey: "lastLoadDate")
+        defaults.synchronize()
+        
+        timer2 = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(MainCollectionController.checkDate), userInfo: nil, repeats: true)
+        
+    }
     
-        func checkDate() {
-    
-            if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
-    
-                let todaysDate : NSDate = NSDate()
-                let dateFormater = NSDateFormatter()
-                dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
-                let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
-    
-                let showPopUp = lastLoadedDate?.compare(todaysDate)
-    
-                if showPopUp == .OrderedAscending {
-    
-                    print("Time to show Pop Up View!")
-                    showPopUpView()
-    
-                } else {
-                    print("This is not time to show Pop Up View!")
+    func checkDate() {
+        
+        
+        
+        if let lastLoaded = defaults.objectForKey("lastLoadDate") as? String {
+            
+            let todaysDate : NSDate = NSDate()
+            let dateFormater = NSDateFormatter()
+            dateFormater.dateFormat = "MM-dd-yyyy HH:mm:ss"
+            let lastLoadedDate = dateFormater.dateFromString(lastLoaded)
+            
+            let showPopUp = lastLoadedDate?.compare(todaysDate)
+            
+            if showPopUp == .OrderedAscending {
+                
+                print("Time to show Pop Up View!")
+                checkInternet()
+                timer2.invalidate()
+                if defaults.objectForKey("lastLoadDate") as? String != nil {
+                    
+                    defaults.removeObjectForKey("lastLoadDate")
+                    defaults.synchronize()
                 }
                 
+            } else if  showPopUp == .OrderedDescending {
+                print("This is not time to show Pop Up View!")
+                timer2.invalidate()
+                if defaults.objectForKey("lastLoadDate") as? String != nil {
+                    
+                    defaults.removeObjectForKey("lastLoadDate")
+                    defaults.synchronize()
+                }
             }
+            
         }
+    }
 
 }

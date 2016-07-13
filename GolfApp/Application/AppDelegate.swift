@@ -211,7 +211,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             }
             
-            //___________________________________________________________________________
+            // Mark : downloading data (test version) -> create for this special class
             
             NSManagedObjectContext.MR_defaultContext().MR_saveToPersistentStoreAndWait()
             
